@@ -2,13 +2,13 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Play, Calendar, MapPin } from "lucide-react"
+import { Calendar, MapPin } from "lucide-react"
 
 export default function HomePage() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] minw- flex items-center justify-center overflow-hidden group">
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden group">
         {/* Image de fond */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -23,13 +23,13 @@ export default function HomePage() {
 
         {/* Contenu centré */}
         <div className="absolute z-10 text-center text-white space-y-6 px-4 max-w-2xl mx-auto 
-                  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
+                  
                   opacity-0 transition-opacity duration-500 group-hover:opacity-100">
           <h1 className="text-4xl md:text-6xl font-bold">Besoin de déconnecter ?</h1>
           <p className="text-xl md:text-2xl opacity-90">
             Rejoignez-nous pour une retraite bien-être authentique en Provence
           </p>
-          <Button size="lg" className="bg-primary hover:bg-primary/90">
+          <Button size="lg" className="bg-primary hover:bg-primary/80">
             Découvrez nos retraites
           </Button>
         </div>
@@ -37,18 +37,20 @@ export default function HomePage() {
 
 
       {/* Ressourcement Section */}
-      <section className="py-16 bg-muted/30">
-        <div className="container">
+      <section className="py-16 bg-muted/30 my-8">
+        <div className="container mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative">
-              <Image
-                src="/placeholder.svg?height=400&width=600"
-                alt="Personne en méditation"
-                width={600}
-                height={400}
-                className="rounded-lg"
+            <div className="relative w-full aspect-video overflow-hidden">
+              <iframe
+                title="AVA Bien être version 1min V2 1"
+                src="https://www.youtube.com/embed/blFaVQ4bTNc?feature=oembed"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                name="fitvid0"
+                className="absolute inset-0 w-full h-full"
               />
             </div>
+
             <div className="space-y-6">
               <Badge variant="secondary" className="w-fit">
                 Ressourcement
@@ -70,8 +72,8 @@ export default function HomePage() {
       </section>
 
       {/* Séjour Inclus Section */}
-      <section className="py-16">
-        <div className="container">
+      <section className="py-16 my-8">
+        <div className="container mx-auto">
           <div className="text-center space-y-4 mb-12">
             <h2 className="text-3xl font-bold">Rejoins nous à notre Séjour Bien-Être tout inclus !</h2>
             <div className="flex items-center justify-center space-x-4 text-muted-foreground">
@@ -87,27 +89,15 @@ export default function HomePage() {
             <Button variant="outline">Informations détaillées</Button>
           </div>
 
-          <div className="relative max-w-4xl mx-auto">
-            <Image
-              src="/placeholder.svg?height=500&width=800"
-              alt="Séjour bien-être"
-              width={800}
-              height={500}
-              className="rounded-lg w-full"
-            />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <Button size="lg" variant="secondary" className="rounded-full">
-                <Play className="h-6 w-6 mr-2" />
-                Voir la vidéo
-              </Button>
-            </div>
+          <div className="relative w-full min-h-[70vh] mx-auto bg-pink-500">
+            <iframe title="Aurélie et Frank Castellano - AVA BIEN ETRE" src="https://www.youtube.com/embed/_GjYhQpu9_A?feature=oembed" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin"  name="fitvid1" className="absolute inset-0 w-full h-full"></iframe>
           </div>
         </div>
       </section>
 
       {/* Fondateurs Section */}
-      <section className="py-16 bg-muted/30">
-        <div className="container">
+      <section className="py-16 my-8 bg-muted/30">
+        <div className="container mx-auto">
           <div className="text-center space-y-4 mb-12">
             <h2 className="text-3xl font-bold">Les Fondateurs</h2>
             <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
@@ -117,19 +107,19 @@ export default function HomePage() {
             {[
               {
                 name: "Aurélie",
-                image: "/placeholder.svg?height=300&width=300",
+                image: "/Aurelie-2.jpg",
                 description:
                   "La spécialiste à l'écoute accompagne avec bienveillance et de l'empathie, les problèmes des autres. Elle privilégie les méthodes de développement personnel et de bien-être.",
               },
               {
                 name: "Émilie",
-                image: "/placeholder.svg?height=300&width=300",
+                image: "/Emilie-2.jpg",
                 description:
                   "Après plusieurs années d'une vie rythmée par le stress, Émilie a su créer sa bulle de sérénité. Elle vous accompagne dans votre quête de bien-être.",
               },
               {
                 name: "Pierre Yonas",
-                image: "/placeholder.svg?height=300&width=300",
+                image: "/Pierre_Yonas-2.jpg",
                 description:
                   "Installé entre Paris et Cannes, Pierre Yonas accompagne formateurs et coachs. Il anime des sessions de développement personnel et de bien-être.",
               },

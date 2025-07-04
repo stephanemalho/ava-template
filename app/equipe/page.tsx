@@ -81,7 +81,7 @@ const teamMembers = [
 export default function EquipePage() {
     return (
         <div className="py-16">
-            <div className="container">
+            <div className="container mx-auto">
                 {/* Hero Section */}
                 <div className="text-center space-y-6 mb-16">
                     <h1 className="text-4xl md:text-5xl font-bold">Notre Équipe</h1>

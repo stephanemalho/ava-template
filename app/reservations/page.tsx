@@ -60,7 +60,7 @@ const packages = [
 export default function ReservationsPage() {
     return (
         <div className="py-16">
-            <div className="container">
+            <div className="container mx-auto">
                 {/* Header */}
                 <div className="text-center space-y-6 mb-16">
                     <h1 className="text-4xl md:text-5xl font-bold">Réservez votre séjour à Trans-en-Provence</h1>
