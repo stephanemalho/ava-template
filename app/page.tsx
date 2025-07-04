@@ -89,7 +89,7 @@ export default function HomePage() {
             <Button variant="outline">Informations détaillées</Button>
           </div>
 
-          <div className="relative w-full min-h-[70vh] mx-auto bg-pink-500">
+          <div className="relative w-full min-h-[70vh] mx-auto">
             <iframe title="Aurélie et Frank Castellano - AVA BIEN ETRE" src="https://www.youtube.com/embed/_GjYhQpu9_A?feature=oembed" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" name="fitvid1" className="absolute inset-0 w-full h-full"></iframe>
           </div>
         </div>
