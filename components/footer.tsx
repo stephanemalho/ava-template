@@ -11,7 +11,7 @@ export function Footer() {
                             <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary">
                                 <Leaf className="h-4 w-4 text-primary-foreground" />
                             </div>
-                            <span className="text-lg font-bold text-primary">Aux Bien-Être</span>
+                            <span className="text-lg font-bold text-primary">Ava Bien-Être</span>
                         </div>
                         <p className="text-sm text-muted-foreground">
                             Retraites bien-être authentiques en Provence pour se reconnecter à soi-même.
@@ -64,7 +64,7 @@ export function Footer() {
                 </div>
 
                 <div className="border-t mt-8 pt-8 text-center text-sm text-muted-foreground">
-                    <p>&copy; 2024 Aux Bien-Être. Tous droits réservés.</p>
+                    <p>&copy; 2024 Ava Bien-Être. Tous droits réservés.</p>
                 </div>
             </div>
         </footer>

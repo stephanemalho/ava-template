@@ -41,7 +41,7 @@ export default function SejoursPage() {
                 {/* Hero Section */}
                 <div className="text-center space-y-6 mb-16">
                     <div className="relative h-64 md:h-96 rounded-lg overflow-hidden">
-                        <Image src="/images/retreat-details.jpg" alt="Séjour à Trans-en-Provence" fill className="object-cover" />
+                        <Image src="/hebergement-exterieur.png" alt="Séjour à Trans-en-Provence" fill className="object-cover" />
                         <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
                             <div className="text-white text-center space-y-4">
                                 <h1 className="text-4xl md:text-6xl font-bold">Séjour à Trans-en-Provence</h1>
@@ -108,7 +108,7 @@ export default function SejoursPage() {
                                 <Button variant="outline">Découvrir nos chambres</Button>
                             </div>
                             <div className="relative h-64 md:h-80 rounded-lg overflow-hidden">
-                                <Image src="/placeholder.svg?height=400&width=600" alt="Hébergement" fill className="object-cover" />
+                                <Image src="/hebergement-exterieur-5.png" alt="Hébergement" fill className="object-cover" />
                             </div>
                         </div>
                     </section>
@@ -118,7 +118,7 @@ export default function SejoursPage() {
                         <div className="grid md:grid-cols-2 gap-12 items-center">
                             <div className="relative h-64 md:h-80 rounded-lg overflow-hidden md:order-2">
                                 <Image
-                                    src="/placeholder.svg?height=400&width=600"
+                                    src="/interieur-1.jpg"
                                     alt="Espaces intérieurs"
                                     fill
                                     className="object-cover"
@@ -156,7 +156,7 @@ export default function SejoursPage() {
                             </div>
                             <div className="relative h-64 md:h-80 rounded-lg overflow-hidden">
                                 <Image
-                                    src="/placeholder.svg?height=400&width=600"
+                                    src="/exterieur-3.jpg"
                                     alt="Espaces extérieurs"
                                     fill
                                     className="object-cover"
@@ -169,7 +169,7 @@ export default function SejoursPage() {
                     <section className="bg-muted/30 -mx-4 px-4 py-16 rounded-lg">
                         <div className="grid md:grid-cols-2 gap-12 items-center">
                             <div className="relative h-64 md:h-80 rounded-lg overflow-hidden md:order-2">
-                                <Image src="/placeholder.svg?height=400&width=600" alt="Cuisine" fill className="object-cover" />
+                                <Image src="/cuisine-2.jpg" alt="Cuisine" fill className="object-cover" />
                             </div>
                             <div className="space-y-6 md:order-1">
                                 <Badge variant="secondary" className="w-fit">
@@ -202,7 +202,7 @@ export default function SejoursPage() {
                                 <Button variant="outline">Voir les chambres</Button>
                             </div>
                             <div className="relative h-64 md:h-80 rounded-lg overflow-hidden">
-                                <Image src="/placeholder.svg?height=400&width=600" alt="Chambres" fill className="object-cover" />
+                                <Image src="/chambre-1-1.jpg" alt="Chambres" fill className="object-cover" />
                             </div>
                         </div>
                     </section>

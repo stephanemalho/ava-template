@@ -30,7 +30,7 @@ export function Navigation() {
                     <div className="h-10 w-10 relative">
                         <Image
                             src="/Logo-Ava_Bien_Etre-2-300x300.png"
-                            alt="Équipe Aux Bien-Être"
+                            alt="Équipe Ava Bien-Être"
                             fill
                             className="object-contain"
                             priority

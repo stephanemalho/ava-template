@@ -10,7 +10,7 @@ export default function PresentationPage() {
             <div className="container mx-auto">
                 {/* Hero Section */}
                 <div className="text-center space-y-6 mb-16">
-                    <h1 className="text-4xl md:text-5xl font-bold">Aux Bien-Être</h1>
+                    <h1 className="text-4xl md:text-5xl font-bold">Ava Bien-Être</h1>
                     <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
                         Une approche authentique du bien-être au cœur de la Provence
                     </p>
@@ -27,7 +27,7 @@ export default function PresentationPage() {
                             </Badge>
                             <h2 className="text-3xl font-bold">Reconnecter avec l'essentiel</h2>
                             <p className="text-muted-foreground leading-relaxed">
-                                Aux Bien-Être est né de la conviction que chacun mérite de prendre du temps pour soi, de se reconnecter
+                                Ava Bien-Être est né de la conviction que chacun mérite de prendre du temps pour soi, de se reconnecter
                                 à ses valeurs profondes et de retrouver un équilibre authentique entre corps et esprit.
                             </p>
                             <p className="text-muted-foreground leading-relaxed">
@@ -37,8 +37,8 @@ export default function PresentationPage() {
                         </div>
                         <div className="relative h-64 md:h-80 rounded-lg overflow-hidden">
                             <Image
-                                src="/placeholder.svg?height=400&width=600"
-                                alt="Mission Aux Bien-Être"
+                                src="/exterieur-2.jpg"
+                                alt="Mission Ava Bien-Être"
                                 fill
                                 className="object-cover"
                             />
@@ -102,7 +102,7 @@ export default function PresentationPage() {
                 <section className="mb-16">
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div className="relative h-64 md:h-80 rounded-lg overflow-hidden md:order-2">
-                            <Image src="/placeholder.svg?height=400&width=600" alt="Notre approche" fill className="object-cover" />
+                            <Image src="/hebergement-exterieur-3.png" alt="Notre approche" fill className="object-cover" />
                         </div>
                         <div className="space-y-6 md:order-1">
                             <Badge variant="secondary" className="w-fit">
@@ -138,7 +138,7 @@ export default function PresentationPage() {
                         <h2 className="text-3xl font-bold">Notre Histoire</h2>
                         <div className="w-24 h-1 bg-primary mx-auto rounded-full mb-8" />
                         <p className="text-muted-foreground leading-relaxed">
-                            Aux Bien-Être est né de la rencontre de trois passionnés du bien-être, unis par la même vision : offrir un
+                            Ava Bien-Être est né de la rencontre de trois passionnés du bien-être, unis par la même vision : offrir un
                             espace de ressourcement authentique dans le respect de la tradition provençale.
                         </p>
                         <p className="text-muted-foreground leading-relaxed">

@@ -10,7 +10,7 @@ import { Footer } from "../components/footer"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Aux Bien-Être - Retraites Bien-être en Provence",
+  title: "Ava Bien-Être - Retraites Bien-être en Provence",
   description:
     "Découvrez nos retraites bien-être à Trans-en-Provence. Déconnectez-vous et ressourcez-vous dans un cadre naturel exceptionnel.",
 }
@@ -29,10 +29,10 @@ export default function RootLayout({
             <main className="px-4 sm:px-6 lg:px-8">
               {children}
             </main>
-          <Footer />
-        </div>
-      </ThemeProvider>
-    </body>
+            <Footer />
+          </div>
+        </ThemeProvider>
+      </body>
     </html >
   )
 }

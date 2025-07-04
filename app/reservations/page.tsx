@@ -13,7 +13,7 @@ const packages = [
         price: 1200,
         image: "/images/reservations.jpg",
         badge: "CHAMBRE PARTAGÉE",
-        badgeColor: "bg-red-500",
+        badgeColor: "bg-primary",
         features: [
             "Séjour en pension complète du dimanche 8 Juin 2025 au Vendredi 13 Juin 2025",
             "Hébergement, repas, collations, intervenants, animations, ateliers inclus",
@@ -28,8 +28,8 @@ const packages = [
         subtitle: "(chambre solo)",
         price: 1500,
         image: "/images/reservations.jpg",
-        badge: "COMPLET",
-        badgeColor: "bg-red-500",
+        badge: "CHAMBRE PRIVÉE",
+        badgeColor: "bg-primary",
         features: [
             "Séjour en pension complète du dimanche 8 Juin 2025 au Vendredi 13 Juin 2025",
             "Hébergement, repas, collations, intervenants, animations, ateliers inclus",
@@ -45,7 +45,7 @@ const packages = [
         price: 500,
         image: "/images/reservations.jpg",
         badge: "Sans hébergement",
-        badgeColor: "bg-green-600",
+        badgeColor: "bg-primary",
         features: [
             "Séjour de déconnexion 8 Juin 2025 au Vendredi 13 Juin 2025",
             "La semaine 9h-17h (sans repas du soir)",

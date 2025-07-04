@@ -13,7 +13,7 @@ export default function HomePage() {
         <div className="absolute inset-0 z-0">
           <Image
             src="/les-fondateurs.jpg"
-            alt="Équipe Aux Bien-Être"
+            alt="Équipe Ava Bien-Être"
             fill
             className="object-cover"
             priority
@@ -90,7 +90,7 @@ export default function HomePage() {
           </div>
 
           <div className="relative w-full min-h-[70vh] mx-auto bg-pink-500">
-            <iframe title="Aurélie et Frank Castellano - AVA BIEN ETRE" src="https://www.youtube.com/embed/_GjYhQpu9_A?feature=oembed" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin"  name="fitvid1" className="absolute inset-0 w-full h-full"></iframe>
+            <iframe title="Aurélie et Frank Castellano - AVA BIEN ETRE" src="https://www.youtube.com/embed/_GjYhQpu9_A?feature=oembed" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" name="fitvid1" className="absolute inset-0 w-full h-full"></iframe>
           </div>
         </div>
       </section>
