@@ -11,7 +11,7 @@ const packages = [
         title: "Séjour du 8 au 13 Juin 2025",
         subtitle: "(chambre partagée)",
         price: 1200,
-        image: "/images/reservations.jpg",
+        image: "/chambre-1-1.jpg",
         badge: "CHAMBRE PARTAGÉE",
         badgeColor: "bg-primary",
         features: [
@@ -27,7 +27,7 @@ const packages = [
         title: "Séjour du 8 au 13 Juin 2025",
         subtitle: "(chambre solo)",
         price: 1500,
-        image: "/images/reservations.jpg",
+    image: "/chambre-4-1.jpg",
         badge: "CHAMBRE PRIVÉE",
         badgeColor: "bg-primary",
         features: [
@@ -43,7 +43,7 @@ const packages = [
         title: "Séjour du 8 au 13 Juin 2025",
         subtitle: "(sans hébergement)",
         price: 500,
-        image: "/images/reservations.jpg",
+        image: "/exterieur-2.jpg",
         badge: "Sans hébergement",
         badgeColor: "bg-primary",
         features: [
