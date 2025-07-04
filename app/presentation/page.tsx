@@ -25,7 +25,7 @@ export default function PresentationPage() {
                                 <Heart className="h-4 w-4 mr-2" />
                                 Notre Mission
                             </Badge>
-                            <h2 className="text-3xl font-bold">Reconnecter avec l'essentiel</h2>
+                            <h2 className="text-3xl font-bold">Reconnecter avec l&lsquo;essentiel</h2>
                             <p className="text-muted-foreground leading-relaxed">
                                 Ava Bien-Être est né de la conviction que chacun mérite de prendre du temps pour soi, de se reconnecter
                                 à ses valeurs profondes et de retrouver un équilibre authentique entre corps et esprit.
@@ -63,7 +63,7 @@ export default function PresentationPage() {
                                 </div>
                                 <h3 className="text-xl font-semibold mb-2">Bienveillance</h3>
                                 <p className="text-muted-foreground text-sm">
-                                    Un accompagnement respectueux et sans jugement, dans l'écoute de vos besoins individuels.
+                                    Un accompagnement respectueux et sans jugement, dans l&lsquo;écoute de vos besoins individuels.
                                 </p>
                             </CardContent>
                         </Card>
@@ -142,13 +142,13 @@ export default function PresentationPage() {
                             espace de ressourcement authentique dans le respect de la tradition provençale.
                         </p>
                         <p className="text-muted-foreground leading-relaxed">
-                            Après des années d'expérience dans l'accompagnement individuel, nous avons souhaité créer un lieu unique
-                            où chacun peut prendre le temps de se retrouver, entouré d'une équipe bienveillante et dans un cadre
+                            Après des années d&lsquo;expérience dans l&lsquo;accompagnement individuel, nous avons souhaité créer un lieu unique
+                            où chacun peut prendre le temps de se retrouver, entouré d&lsquo;une équipe bienveillante et dans un cadre
                             naturel exceptionnel.
                         </p>
                         <p className="text-muted-foreground leading-relaxed">
                             Depuis notre création, nous avons accompagné des centaines de personnes dans leur quête de bien-être,
-                            créant une communauté unie par les valeurs de partage et d'authenticité.
+                            créant une communauté unie par les valeurs de partage et d&lsquo;authenticité.
                         </p>
                     </div>
                 </section>
@@ -163,7 +163,7 @@ export default function PresentationPage() {
                     <div className="grid md:grid-cols-2 gap-8">
                         <Card>
                             <CardContent className="p-6">
-                                <h3 className="text-xl font-semibold mb-4">Respect de l'environnement</h3>
+                                <h3 className="text-xl font-semibold mb-4">Respect de l&lsquo;environnement</h3>
                                 <p className="text-muted-foreground text-sm leading-relaxed">
                                     Nous privilégions les produits locaux et biologiques, limitons notre impact écologique et
                                     sensibilisons nos participants à la préservation de la nature.
@@ -175,8 +175,8 @@ export default function PresentationPage() {
                             <CardContent className="p-6">
                                 <h3 className="text-xl font-semibold mb-4">Qualité et professionnalisme</h3>
                                 <p className="text-muted-foreground text-sm leading-relaxed">
-                                    Notre équipe est composée de professionnels certifiés qui s'engagent à vous offrir un accompagnement
-                                    de qualité dans le respect de l'éthique de notre métier.
+                                    Notre équipe est composée de professionnels certifiés qui s&lsquo;engagent à vous offrir un accompagnement
+                                    de qualité dans le respect de l&lsquo;éthique de notre métier.
                                 </p>
                             </CardContent>
                         </Card>
@@ -195,8 +195,8 @@ export default function PresentationPage() {
                             <CardContent className="p-6">
                                 <h3 className="text-xl font-semibold mb-4">Suivi personnalisé</h3>
                                 <p className="text-muted-foreground text-sm leading-relaxed">
-                                    Chaque participant bénéficie d'un accompagnement individualisé avant, pendant et après le séjour pour
-                                    optimiser les bénéfices de l'expérience.
+                                    Chaque participant bénéficie d&lsquo;un accompagnement individualisé avant, pendant et après le séjour pour
+                                    optimiser les bénéfices de l&lsquo;expérience.
                                 </p>
                             </CardContent>
                         </Card>

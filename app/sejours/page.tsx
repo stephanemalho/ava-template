@@ -101,7 +101,7 @@ export default function SejoursPage() {
                                 </Badge>
                                 <h3 className="text-3xl font-bold">Un cadre exceptionnel</h3>
                                 <p className="text-muted-foreground leading-relaxed">
-                                    Profitez d'un hébergement confortable dans un environnement naturel préservé. Nos chambres sont
+                                    Profitez d&lsquo;un hébergement confortable dans un environnement naturel préservé. Nos chambres sont
                                     conçues pour favoriser la détente et le ressourcement, avec une décoration soignée et des équipements
                                     modernes.
                                 </p>
@@ -179,7 +179,7 @@ export default function SejoursPage() {
                                 <h3 className="text-3xl font-bold">Une cuisine saine et savoureuse</h3>
                                 <p className="text-muted-foreground leading-relaxed">
                                     Découvrez une cuisine équilibrée préparée avec des produits locaux et de saison. Nos repas sont conçus
-                                    pour nourrir le corps et l'esprit, dans le respect de vos besoins nutritionnels.
+                                    pour nourrir le corps et l&lsquo;esprit, dans le respect de vos besoins nutritionnels.
                                 </p>
                                 <Button variant="outline">Découvrir nos menus</Button>
                             </div>
@@ -281,7 +281,7 @@ export default function SejoursPage() {
                                 <h3 className="font-semibold mb-2">Puis-je venir seul ?</h3>
                                 <p className="text-muted-foreground text-sm">
                                     Bien sûr ! Nos séjours sont parfaits pour les personnes seules souhaitant se ressourcer et rencontrer
-                                    d'autres participants.
+                                    d&lsquo;autres participants.
                                 </p>
                             </div>
                             <div>
@@ -296,14 +296,14 @@ export default function SejoursPage() {
                             <div>
                                 <h3 className="font-semibold mb-2">Puis-je annuler ma réservation ?</h3>
                                 <p className="text-muted-foreground text-sm">
-                                    Les conditions d'annulation sont détaillées dans nos conditions générales de vente disponibles lors de
+                                    Les conditions d&lsquo;annulation sont détaillées dans nos conditions générales de vente disponibles lors de
                                     la réservation.
                                 </p>
                             </div>
                             <div>
-                                <h3 className="font-semibold mb-2">Qu'est-ce qui est inclus dans le prix ?</h3>
+                                <h3 className="font-semibold mb-2">Qu&lsquo;est-ce qui est inclus dans le prix ?</h3>
                                 <p className="text-muted-foreground text-sm">
-                                    Hébergement, tous les repas, toutes les activités et l'accompagnement par notre équipe
+                                    Hébergement, tous les repas, toutes les activités et l&lsquo;accompagnement par notre équipe
                                     professionnelle.
                                 </p>
                             </div>

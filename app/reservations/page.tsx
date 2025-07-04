@@ -72,7 +72,7 @@ export default function ReservationsPage() {
 
                 {/* Packages */}
                 <div className="space-y-12">
-                    {packages.map((pkg, index) => (
+                    {packages.map((pkg) => (
                         <Card key={pkg.id} className="overflow-hidden">
                             <CardContent className="p-0">
                                 <div className="grid md:grid-cols-2 gap-0">
@@ -158,7 +158,7 @@ export default function ReservationsPage() {
                             </div>
                             <div className="space-y-2">
                                 <h3 className="font-semibold text-foreground">Annulation</h3>
-                                <p>Conditions d'annulation détaillées dans nos CGV</p>
+                                <p>Conditions d&lsquo;annulation détaillées dans nos CGV</p>
                             </div>
                         </div>
                     </div>
