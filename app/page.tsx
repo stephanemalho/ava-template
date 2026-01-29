@@ -34,7 +34,7 @@ export default function HomePage() {
           </h1>
           <p className="text-xl md:text-2xl opacity-90 drop-shadow-[0_2px_10px_rgba(0,0,0,0.3)]">
             Ava Bien-Être organise des retraites bien-être tout inclus en Provence, dédiées
-            à la reconnexion à soi, au lâcher-prise et à l'équilibre corps-esprit, dans un
+            à la reconnexion à soi, au lâcher-prise et à l&apos;équilibre corps-esprit, dans un
             cadre naturel propice au ressourcement.
           </p>
           <Button size="lg" className="bg-primary hover:bg-primary/80">
