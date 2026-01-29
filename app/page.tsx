@@ -10,24 +10,32 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden group">
         {/* Image de fond */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/les-fondateurs.jpg"
-            alt="Équipe Ava Bien-Être"
+        <div className="absolute inset-0 z-0">          <Image
+            src="/Aurelie-Pierre.jpg"
+            alt="?quipe Ava Bien-?tre"
             fill
-            className="object-cover"
+            className="object-cover md:hidden"
             priority
           />
-          <div className="absolute inset-0 bg-black/40" />
+          <Image
+            src="/les-fondateurs-2.jpg"
+            alt="?quipe Ava Bien-?tre"
+            fill
+            className="object-cover hidden md:block"
+            priority
+          />
         </div>
 
         {/* Contenu centré */}
-        <div className="absolute z-10 text-center text-white space-y-6 px-4 max-w-2xl mx-auto 
-                  
-                  opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-          <h1 className="text-4xl md:text-6xl font-bold">Besoin de déconnecter ?</h1>
-          <p className="text-xl md:text-2xl opacity-90">
-            Rejoignez-nous pour une retraite bien-être authentique en Provence
+        <div className="absolute z-10 bottom-0 text-center text-background space-y-6 px-4 max-w-2xl mx-auto bg-blur-lg bg-background/30 md:rounded-lg py-8 group-hover:backdrop-blur-sm transition-all">
+          <h1 className="text-4xl md:text-6xl font-bold drop-shadow-[0_3px_14px_rgba(0,0,0,0.35)]">
+            Bienvenue chez
+            Ava bien-être
+          </h1>
+          <p className="text-xl md:text-2xl opacity-90 drop-shadow-[0_2px_10px_rgba(0,0,0,0.3)]">
+            Ava Bien-Être organise des retraites bien-être tout inclus en Provence, dédiées
+            à la reconnexion à soi, au lâcher-prise et à l'équilibre corps-esprit, dans un
+            cadre naturel propice au ressourcement.
           </p>
           <Button size="lg" className="bg-primary hover:bg-primary/80">
             Découvrez nos retraites
@@ -57,9 +65,7 @@ export default function HomePage() {
               </Badge>
               <h2 className="text-3xl font-bold">Besoin de vous ressourcer ?</h2>
               <p className="text-muted-foreground leading-relaxed">
-                Nos séjours bien-être organisés des séjours tout inclus ! Hébergement, repas et activités au cœur de la
-                nature. Nous proposons des séjours de déconnexion, de ressourcement, de développement personnel et de
-                bien-être.
+                Ava bien être organise des séjours tout inclus : hébergement, repas et activités au service de ton bien être dans un cadre idyllique. Nous réunissons toute notre énergie dans de nombreux ateliers afin que tu passes un séjour extraordinaire, relaxant et dépaysant en notre compagnie ! N’attends plus pour te joindre à cette merveilleuse aventure humaine ! Sourires, bonne ambiance, rencontres, partage, surprises et découvertes seront au rendez-vous !
               </p>
               <div className="space-y-2">
                 <p className="font-semibold">Hébergement, repas, ateliers variés</p>
@@ -96,7 +102,7 @@ export default function HomePage() {
       </section>
 
       {/* Fondateurs Section */}
-      <section className="py-16 my-8 bg-muted/30">
+      <section className="py-16 mt-8 bg-muted/30">
         <div className="container mx-auto">
           <div className="text-center space-y-4 mb-12">
             <h2 className="text-3xl font-bold">Les Fondateurs</h2>

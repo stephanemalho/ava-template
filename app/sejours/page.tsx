@@ -42,8 +42,8 @@ export default function SejoursPage() {
                 <div className="text-center space-y-6 mb-16">
                     <div className="relative h-64 md:h-96 rounded-lg overflow-hidden">
                         <Image src="/hebergement-exterieur.png" alt="Séjour à Trans-en-Provence" fill className="object-cover" />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                            <div className="text-white text-center space-y-4">
+                        <div className="absolute inset-0 bg-foreground/40 flex items-center justify-center">
+                            <div className="text-background text-center space-y-4">
                                 <h1 className="text-4xl md:text-6xl font-bold">Séjour à Trans-en-Provence</h1>
                                 <div className="flex items-center justify-center space-x-4">
                                     <Calendar className="h-5 w-5" />

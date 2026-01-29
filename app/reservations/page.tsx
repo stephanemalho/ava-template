@@ -106,7 +106,7 @@ export default function ReservationsPage() {
                                             <div className="space-y-3">
                                                 {pkg.features.map((feature, idx) => (
                                                     <div key={idx} className="flex items-start space-x-2">
-                                                        <Check className="h-4 w-4 text-green-600 mt-0.5 flex-shrink-0" />
+                                                        <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
                                                         <p className="text-sm text-muted-foreground">{feature}</p>
                                                     </div>
                                                 ))}
