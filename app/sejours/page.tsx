@@ -5,7 +5,23 @@ import Image from "next/image"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Calendar, MapPin, Users, Bed, Utensils, Dumbbell, SpadeIcon as Spa } from "lucide-react"
+import {
+    Calendar,
+    MapPin,
+    Users,
+    Bed,
+    Utensils,
+    Dumbbell,
+    SpadeIcon as Spa,
+    Coffee,
+    Sparkles,
+    UtensilsCrossed,
+    CupSoda,
+    Zap,
+    Waves,
+    MoonStar,
+    BookOpen,
+} from "lucide-react"
 
 export default function SejoursPage() {
     const [timeLeft, setTimeLeft] = useState({
@@ -41,42 +57,25 @@ export default function SejoursPage() {
                 {/* Hero Section */}
                 <div className="text-center space-y-6 mb-16">
                     <div className="relative h-64 md:h-96 rounded-lg overflow-hidden">
-                        <Image src="/hebergement-exterieur.png" alt="Séjour à Trans-en-Provence" fill className="object-cover" />
+                        <Image src="/sejours-ava.jpg" alt="Séjour à Trans-en-Provence" fill className="object-cover" />
                         <div className="absolute inset-0 bg-foreground/40 flex items-center justify-center">
                             <div className="text-background text-center space-y-4">
                                 <h1 className="text-4xl md:text-6xl font-bold">Séjour à Trans-en-Provence</h1>
                                 <div className="flex items-center justify-center space-x-4">
                                     <Calendar className="h-5 w-5" />
-                                    <span className="text-lg">du 8 au 13 juin 2025</span>
+                                    <span className="text-lg">du 11 au 17 juillet 2026</span>
+                                </div>
+                                <div className="flex items-center justify-center space-x-4">
+                                    <Calendar className="h-5 w-5" />
+                                    <span className="text-lg">et du 22 au 28 Octobre 2026</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                {/* Countdown Timer */}
-                <div className="text-center mb-16">
-                    <h2 className="text-2xl font-bold mb-6">Compte à rebours</h2>
-                    <div className="grid grid-cols-4 gap-4 max-w-md mx-auto">
-                        {[
-                            { label: "Jours", value: timeLeft.days },
-                            { label: "Heures", value: timeLeft.hours },
-                            { label: "Minutes", value: timeLeft.minutes },
-                            { label: "Secondes", value: timeLeft.seconds },
-                        ].map((item, index) => (
-                            <div key={index} className="text-center">
-                                <div className="bg-primary text-primary-foreground rounded-lg p-4 text-2xl font-bold">
-                                    {item.value.toString().padStart(2, "0")}
-                                </div>
-                                <p className="text-sm text-muted-foreground mt-2">{item.label}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
                 {/* Séjour Info */}
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl font-bold mb-4">Séjour à Trans-en-Provence</h2>
+                    <h2 className="text-3xl font-bold mb-4">Voici la liste de vos espaces et activités</h2>
                     <div className="flex items-center justify-center space-x-6 text-muted-foreground mb-8">
                         <div className="flex items-center space-x-2">
                             <MapPin className="h-4 w-4" />
@@ -222,20 +221,35 @@ export default function SejoursPage() {
                             </CardHeader>
                             <CardContent className="space-y-4">
                                 <div className="space-y-2">
-                                    <p>
-                                        <strong>8h-9h :</strong> Petit déjeuner équilibré
+                                    <p className="flex items-start gap-2">
+                                        <Coffee className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
+                                        <span>
+                                            <strong>8h-9h30 :</strong> Petit déjeuner équilibré
+                                        </span>
                                     </p>
-                                    <p>
-                                        <strong>9h :</strong> Séance de Yoga matinal
+                                    <p className="flex items-start gap-2">
+                                        <Sparkles className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
+                                        <span>
+                                            <strong>10h :</strong> Médiumnité avec Pierre Yonas
+                                        </span>
                                     </p>
-                                    <p>
-                                        <strong>10h :</strong> Atelier méditation ou Écofitness
+                                    <p className="flex items-start gap-2">
+                                        <UtensilsCrossed className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
+                                        <span>
+                                            <strong>12h30 :</strong> déjeuner convivial
+                                        </span>
                                     </p>
-                                    <p>
-                                        <strong>11h :</strong> Atelier créatif ou Sortie
+                                    <p className="flex items-start gap-2">
+                                        <Sparkles className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
+                                        <span>
+                                            <strong>14h :</strong> Atelier méditation avec Aurélie
+                                        </span>
                                     </p>
-                                    <p>
-                                        <strong>12h :</strong> Collation & pause détente
+                                    <p className="flex items-start gap-2">
+                                        <CupSoda className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
+                                        <span>
+                                            <strong>15h :</strong> Collation & pause détente
+                                        </span>
                                     </p>
                                 </div>
                             </CardContent>
@@ -247,20 +261,35 @@ export default function SejoursPage() {
                             </CardHeader>
                             <CardContent className="space-y-4">
                                 <div className="space-y-2">
-                                    <p>
-                                        <strong>13h :</strong> Déjeuner convivial
+                                    <p className="flex items-start gap-2">
+                                        <Zap className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
+                                        <span>
+                                            <strong>16h :</strong> Atelier magnétisme avec Pierre et Aurélie
+                                        </span>
                                     </p>
-                                    <p>
-                                        <strong>14h :</strong> Temps libre ou sieste
+                                    <p className="flex items-start gap-2">
+                                        <Waves className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
+                                        <span>
+                                            <strong>18h :</strong> Détente, sauna, jaccusi, piscine
+                                        </span>
                                     </p>
-                                    <p>
-                                        <strong>15h :</strong> Yoga ou activité
+                                    <p className="flex items-start gap-2">
+                                        <UtensilsCrossed className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
+                                        <span>
+                                            <strong>19h30h :</strong> Dîner sous les étoiles
+                                        </span>
                                     </p>
-                                    <p>
-                                        <strong>16h30 :</strong> Goûter sain et détente
+                                    <p className="flex items-start gap-2">
+                                        <BookOpen className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
+                                        <span>
+                                            <strong>21h :</strong> Veillée contée avec Patricia
+                                        </span>
                                     </p>
-                                    <p>
-                                        <strong>19h :</strong> Dîner et soirée libre
+                                    <p className="flex items-start gap-2">
+                                        <MoonStar className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
+                                        <span>
+                                            <strong>19h :</strong> Dîner et soirée libre
+                                        </span>
                                     </p>
                                 </div>
                             </CardContent>
@@ -315,10 +344,10 @@ export default function SejoursPage() {
                 <section className="mt-16 text-center">
                     <h2 className="text-3xl font-bold mb-4">Localisation du Mas</h2>
                     <div className="w-24 h-1 bg-primary mx-auto rounded-full mb-8" />
-                    <p className="text-muted-foreground max-w-3xl mx-auto">
-                        Notre mas se situe au cœur de la Provence, à Trans-en-Provence dans le Var. Un cadre exceptionnel entre
-                        nature préservée et authenticité provençale, facilement accessible depuis les principales villes de la
-                        région.
+                    <p className="text-muted-foreground max-w-5xl mx-auto">
+                        Notre mas provençal, situé à 6min du village de Trans-en-provence et à 12min de la gare TVG Les Arcs / Draguignan, dispose de 7 chambres confortables, lumineuses, équipées de literie haut de gamme, climatisation, et salles de bain partagées ou privatives selon votre réservation.
+                        Il dispose également d'une piscine, avec transats dédiés à la détente, salon de jardin, cuisine extérieure pour des déjeuners, et dîners conviviaux.
+                        Sur place vous pourrez également retrouver un sauna de 4 places, un jaccusi, et une salle de sport pour vos séances de relaxation.
                     </p>
                 </section>
             </div>

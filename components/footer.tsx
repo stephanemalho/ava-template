@@ -64,7 +64,7 @@ export function Footer() {
                 </div>
 
                 <div className="border-t mt-8 pt-8 text-center text-sm text-muted-foreground">
-                    <p>&copy; 2024 Ava Bien-Être. Tous droits réservés.</p>
+                    <p>&copy; 2026 Ava Bien-Être. Tous droits réservés.</p>
                 </div>
             </div>
         </footer>

@@ -11,12 +11,12 @@ export default function HomePage() {
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden group">
         {/* Image de fond */}
         <div className="absolute inset-0 z-0">          <Image
-            src="/Aurelie-Pierre.jpg"
-            alt="?quipe Ava Bien-?tre"
-            fill
-            className="object-cover md:hidden"
-            priority
-          />
+          src="/Aurelie-Pierre.jpg"
+          alt="?quipe Ava Bien-?tre"
+          fill
+          className="object-cover md:hidden"
+          priority
+        />
           <Image
             src="/les-fondateurs-2.jpg"
             alt="?quipe Ava Bien-?tre"
@@ -27,15 +27,13 @@ export default function HomePage() {
         </div>
 
         {/* Contenu centré */}
-        <div className="absolute text-white z-10 bottom-0 text-center space-y-6 px-4 max-w-2xl mx-auto bg-blur-lg bg-background/30 md:rounded-lg py-8 group-hover:backdrop-blur-sm transition-all">
+        <div className="absolute text-white z-10 bottom-0 text-center space-y-6 px-4 max-w-2xl mx-auto bg-blur-lg bg-background/30 md:rounded-t-lg py-8 group-hover:backdrop-blur-sm transition-all">
+          <p className="text-xl md:text-2xl opacity-90 drop-shadow-[0_2px_10px_rgba(0,0,0,0.3)]">
           <h1 className="text-4xl md:text-6xl font-bold drop-shadow-[0_3px_14px_rgba(0,0,0,0.35)]">
             Bienvenue chez
             Ava bien-être
           </h1>
-          <p className="text-xl md:text-2xl opacity-90 drop-shadow-[0_2px_10px_rgba(0,0,0,0.3)]">
-            Ava Bien-Être organise des retraites bien-être tout inclus en Provence, dédiées
-            à la reconnexion à soi, au lâcher-prise et à l&apos;équilibre corps-esprit, dans un
-            cadre naturel propice au ressourcement.
+            Ava Bien-Être organise des séjours retraite bien-être tout inclus en Provence, vos journées seront dédiées à la reconnexion à soi, au lâcher-prise et à l&apos;équilibre corps-esprit, dans un cadre naturel propice au ressourcement.
           </p>
           <Button size="lg" className="bg-primary hover:bg-primary/80">
             Découvrez nos retraites
@@ -50,26 +48,26 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative w-full aspect-video overflow-hidden">
               <iframe
-                title="AVA Bien être version 1min V2 1"
-                src="https://www.youtube.com/embed/blFaVQ4bTNc?feature=oembed"
+                title="Teaser officiel AVA BIEN ÊTRE Pierre Yonas" 
+                src="https://www.youtube.com/embed/QnyHeO6l4F4" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
                 name="fitvid0"
                 className="absolute inset-0 w-full h-full"
+                
               />
             </div>
-
             <div className="space-y-6">
               <Badge variant="secondary" className="w-fit">
                 Ressourcement
               </Badge>
               <h2 className="text-3xl font-bold">Besoin de vous ressourcer ?</h2>
               <p className="text-muted-foreground leading-relaxed">
-                Ava bien être organise des séjours tout inclus : hébergement, repas et activités au service de ton bien être dans un cadre idyllique. Nous réunissons toute notre énergie dans de nombreux ateliers afin que tu passes un séjour extraordinaire, relaxant et dépaysant en notre compagnie ! N’attends plus pour te joindre à cette merveilleuse aventure humaine ! Sourires, bonne ambiance, rencontres, partage, surprises et découvertes seront au rendez-vous !
+                Ava bien être organise des séjours tout inclus : hébergement, repas et activités au service de ton bien être dans un cadre idyllique. Nous réunissons toute notre énergie dans de nombreux ateliers afin que tu passes un séjour extraordinaire, relaxant et dépaysant en notre compagnie ! N'attends plus pour te joindre à cette merveilleuse aventure humaine ! Sourires, bonne ambiance, rencontres, partage, surprises et découvertes seront au rendez-vous !
               </p>
               <div className="space-y-2">
                 <p className="font-semibold">Hébergement, repas, ateliers variés</p>
-                <p className="text-sm text-muted-foreground">À partir de 500€ (sans hébergement)</p>
+                <p className="text-sm text-muted-foreground">À partir de 500€</p>
               </div>
               <Button>Réservez votre place !</Button>
             </div>
@@ -85,7 +83,17 @@ export default function HomePage() {
             <div className="flex items-center justify-center space-x-4 text-muted-foreground">
               <div className="flex items-center space-x-2">
                 <Calendar className="h-4 w-4" />
-                <span>Du 8 au 13 juin 2025</span>
+                <span>Du 11 au 17 juillet 2026</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <MapPin className="h-4 w-4" />
+                <span>Trans-en-Provence</span>
+              </div>
+            </div>
+            <div className="flex items-center justify-center space-x-4 text-muted-foreground">
+              <div className="flex items-center space-x-2">
+                <Calendar className="h-4 w-4" />
+                <span>Du 22 au 28 juillet 2026</span>
               </div>
               <div className="flex items-center space-x-2">
                 <MapPin className="h-4 w-4" />
@@ -95,9 +103,7 @@ export default function HomePage() {
             <Button variant="outline">Informations détaillées</Button>
           </div>
 
-          <div className="relative w-full min-h-[70vh] mx-auto">
-            <iframe title="Aurélie et Frank Castellano - AVA BIEN ETRE" src="https://www.youtube.com/embed/_GjYhQpu9_A?feature=oembed" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" name="fitvid1" className="absolute inset-0 w-full h-full"></iframe>
-          </div>
+          
         </div>
       </section>
 
