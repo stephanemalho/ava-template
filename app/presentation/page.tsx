@@ -10,8 +10,10 @@ export default function PresentationPage() {
             <div className="container mx-auto">
                 {/* Hero Section */}
                 <div className="text-center space-y-6 mb-16">
-                    <h1 className="text-4xl md:text-5xl font-bold">Ava Bien-Être</h1>
-                    <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                    <h1 className="text-4xl md:text-5xl font-bold [text-shadow:0_4px_14px_rgba(0,0,0,0.35)]">
+                        Ava Bien-Être
+                    </h1>
+                    <p className="text-xl text-muted-foreground max-w-3xl mx-auto [text-shadow:0_3px_10px_rgba(0,0,0,0.22)]">
                         Une approche authentique du bien-être au cœur de la Provence
                     </p>
                     <div className="w-24 h-1 bg-primary mx-auto rounded-full" />

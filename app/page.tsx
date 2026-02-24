@@ -27,12 +27,12 @@ export default function HomePage() {
         </div>
 
         {/* Contenu centré */}
-        <div className="absolute text-white z-10 bottom-0 text-center space-y-6 px-4 max-w-2xl mx-auto bg-blur-lg bg-background/30 md:rounded-t-lg py-8 group-hover:backdrop-blur-sm transition-all">
-          <p className="text-xl md:text-2xl opacity-90 drop-shadow-[0_2px_10px_rgba(0,0,0,0.3)]">
+        <div className="absolute text-white z-10 bottom-0 text-center space-y-2 px-4 max-w-2xl mx-auto bg-background/30 md:rounded-t-lg py-8 group-hover:backdrop-blur-sm transition-all">
           <h1 className="text-4xl md:text-6xl font-bold drop-shadow-[0_3px_14px_rgba(0,0,0,0.35)]">
             Bienvenue chez
             Ava bien-être
           </h1>
+          <p className="text-xl md:text-2xl opacity-90 drop-shadow-[0_2px_10px_rgba(0,0,0,0.3)]">
             Ava Bien-Être organise des séjours retraite bien-être tout inclus en Provence, vos journées seront dédiées à la reconnexion à soi, au lâcher-prise et à l&apos;équilibre corps-esprit, dans un cadre naturel propice au ressourcement.
           </p>
           <Button size="lg" className="bg-primary hover:bg-primary/80">
