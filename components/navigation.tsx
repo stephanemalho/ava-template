@@ -5,10 +5,11 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Menu } from "lucide-react"
+import { Menu, ShoppingCart } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { ThemeToggle } from "./theme-toggle"
 import Image from "next/image"
+import { useReservationCart } from "./providers/reservation-cart-provider"
 
 const navigation = [
     { name: "Accueil", href: "/" },
@@ -22,6 +23,7 @@ const navigation = [
 export function Navigation() {
     const [isOpen, setIsOpen] = useState(false)
     const pathname = usePathname()
+    const { totalPeople } = useReservationCart()
 
     return (
         <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -57,6 +59,18 @@ export function Navigation() {
                 </nav>
 
                 <div className="flex items-center space-x-2">
+                    <Link href="/reservations" className="relative" aria-label="Panier des réservations">
+                        <Button asChild variant="ghost" size="icon">
+                            <span>
+                                <ShoppingCart className="h-5 w-5" />
+                            </span>
+                        </Button>
+                        {totalPeople > 0 && (
+                            <span className="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-primary px-1 text-[10px] font-bold text-primary-foreground">
+                                {totalPeople}
+                            </span>
+                        )}
+                    </Link>
                     <ThemeToggle />
 
                     {/* Mobile Navigation */}

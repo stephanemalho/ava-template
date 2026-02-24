@@ -5,6 +5,7 @@ import "./globals.css"
 import { ThemeProvider } from "next-themes"
 import { Navigation } from "../components/navigation"
 import { Footer } from "../components/footer"
+import { ReservationCartProvider } from "../components/providers/reservation-cart-provider"
 
 
 const inter = Inter({ subsets: ["latin"] })
@@ -24,13 +25,15 @@ export default function RootLayout({
     <html lang="fr" suppressHydrationWarning>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <div className="min-h-screen bg-background">
-            <Navigation />
-            <main className="px-4 sm:px-6 lg:px-8">
-              {children}
-            </main>
-            <Footer />
-          </div>
+          <ReservationCartProvider>
+            <div className="min-h-screen bg-background">
+              <Navigation />
+              <main className="px-4 sm:px-6 lg:px-8">
+                {children}
+              </main>
+              <Footer />
+            </div>
+          </ReservationCartProvider>
         </ThemeProvider>
       </body>
     </html >
