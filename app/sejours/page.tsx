@@ -23,6 +23,23 @@ import {
     BookOpen,
 } from "lucide-react"
 
+const staySessions = [
+    {
+        title: "Séjour d'été",
+        dateRange: "du 11 au 17 juillet 2026",
+        image: "/sejour-11-17-Juillet.jpeg",
+        badge: "Juillet 2026",
+        description: "Retraite bien-être immersive avec ateliers, détente et accompagnement en petit groupe.",
+    },
+    {
+        title: "Séjour d'automne",
+        dateRange: "du 22 au 28 octobre 2026",
+        image: "/sejour-22-28-Octobre.jpeg",
+        badge: "Octobre 2026",
+        description: "Une session propice au recentrage, à la relaxation profonde et au ressourcement en Provence.",
+    },
+]
+
 export default function SejoursPage() {
     const [timeLeft, setTimeLeft] = useState({
         days: 0,
@@ -73,6 +90,47 @@ export default function SejoursPage() {
                         </div>
                     </div>
                 </div>
+
+                {/* Cartes des sessions (format portrait) */}
+                <section className="mb-16">
+                    <div className="grid gap-6 md:grid-cols-2 max-w-5xl mx-auto">
+                        {staySessions.map((session) => (
+                            <Card key={session.dateRange} className="overflow-hidden">
+                                <div className="grid grid-cols-1 sm:grid-cols-[220px_1fr]">
+                                    <div className="p-3 pb-0 sm:pb-3">
+                                        <div className="relative aspect-[3/4] min-h-[320px] sm:min-h-full overflow-hidden rounded-md">
+                                            <Image
+                                                src={session.image}
+                                                alt={`${session.title} - ${session.dateRange}`}
+                                                fill
+                                                className="object-cover object-top"
+                                            />
+                                        </div>
+                                    </div>
+                                    <CardContent className="p-6 flex flex-col justify-center">
+                                        <div className="space-y-4">
+                                            <Badge variant="secondary" className="w-fit">
+                                                {session.badge}
+                                            </Badge>
+                                            <div className="space-y-1">
+                                                <h2 className="text-xl font-semibold">{session.title}</h2>
+                                                <p className="font-medium text-primary">{session.dateRange}</p>
+                                            </div>
+                                            <p className="text-sm leading-relaxed text-muted-foreground">
+                                                {session.description}
+                                            </p>
+                                            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                                                <MapPin className="h-4 w-4 shrink-0" aria-hidden="true" />
+                                                <span>Trans-en-Provence, Var</span>
+                                            </div>
+                                        </div>
+                                    </CardContent>
+                                </div>
+                            </Card>
+                        ))}
+                    </div>
+                </section>
+
                 {/* Séjour Info */}
                 <div className="text-center mb-16">
                     <h2 className="text-3xl font-bold mb-4">Voici la liste de vos espaces et activités</h2>

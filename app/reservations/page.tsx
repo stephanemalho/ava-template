@@ -8,10 +8,10 @@ import { MapPin, Users, Check } from "lucide-react"
 const packages = [
     {
         id: "shared-room",
-        title: "Séjour du 8 au 13 Juin 2025",
+        title: "Séjour du 11 au 17 Juillet 2026 (chambre partagée)",
         subtitle: "(chambre partagée)",
         price: 1200,
-        image: "/chambre-1-1.jpg",
+        image: "/sejour-11-17-Juillet.jpeg",
         badge: "CHAMBRE PARTAGÉE",
         badgeColor: "bg-primary",
         features: [
@@ -27,7 +27,7 @@ const packages = [
         title: "Séjour du 8 au 13 Juin 2025",
         subtitle: "(chambre solo)",
         price: 1500,
-    image: "/chambre-4-1.jpg",
+        image: "/sejour-22-28-Octobre.jpeg",
         badge: "CHAMBRE PRIVÉE",
         badgeColor: "bg-primary",
         features: [
@@ -37,24 +37,7 @@ const packages = [
         ],
         location: "Trans-en-Provence",
         type: "Chambre Solo",
-    },
-    {
-        id: "no-accommodation",
-        title: "Séjour du 8 au 13 Juin 2025",
-        subtitle: "(sans hébergement)",
-        price: 500,
-        image: "/exterieur-2.jpg",
-        badge: "Sans hébergement",
-        badgeColor: "bg-primary",
-        features: [
-            "Séjour de déconnexion 8 Juin 2025 au Vendredi 13 Juin 2025",
-            "La semaine 9h-17h (sans repas du soir)",
-            "Option de règlement de votre séjour en plusieurs fois disponible sur demande (Paypal / Alma)",
-        ],
-        location: "Trans-en-Provence",
-        type: "Limité à deux places",
-        available: true,
-    },
+    }
 ]
 
 export default function ReservationsPage() {
@@ -71,20 +54,22 @@ export default function ReservationsPage() {
                 </div>
 
                 {/* Packages */}
-                <div className="space-y-12">
+                <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
                     {packages.map((pkg) => (
                         <Card key={pkg.id} className="overflow-hidden">
                             <CardContent className="p-0">
-                                <div className="grid md:grid-cols-2 gap-0">
-                                    <div className="relative h-64 md:h-auto">
-                                        <Image src={pkg.image || "/placeholder.svg"} alt={pkg.title} fill className="object-cover" />
-                                        <div className="absolute top-4 left-4">
-                                            <Badge className={`${pkg.badgeColor} text-white font-bold px-3 py-1`}>{pkg.badge}</Badge>
+                                <div className="grid grid-cols-1 gap-0">
+                                    <div className="p-4 pb-0">
+                                        <div className="relative mx-auto w-full max-w-md aspect-[3/4] overflow-hidden rounded-md">
+                                            <Image src={pkg.image || "/placeholder.svg"} alt={pkg.title} fill className="object-cover" />
                                         </div>
                                     </div>
 
-                                    <div className="p-8 flex flex-col justify-between">
+                                    <div className="p-6 md:p-8 flex flex-col justify-between">
                                         <div className="space-y-6">
+                                            <Badge className={`${pkg.badgeColor} text-white font-bold px-3 py-1 w-fit`}>
+                                                {pkg.badge}
+                                            </Badge>
                                             <div>
                                                 <h3 className="text-2xl font-bold text-primary mb-2">{pkg.title}</h3>
                                                 <p className="text-lg text-muted-foreground">{pkg.subtitle}</p>
@@ -106,17 +91,11 @@ export default function ReservationsPage() {
                                             <div className="space-y-3">
                                                 {pkg.features.map((feature, idx) => (
                                                     <div key={idx} className="flex items-start space-x-2">
-                                                        <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                                                        <Check className="h-4 w-4 text-primary mt-0.5 shrink-0" />
                                                         <p className="text-sm text-muted-foreground">{feature}</p>
                                                     </div>
                                                 ))}
                                             </div>
-
-                                            {pkg.available && (
-                                                <div className="text-sm text-muted-foreground">
-                                                    <p>{pkg.type}</p>
-                                                </div>
-                                            )}
                                         </div>
 
                                         <div className="mt-8 space-y-4">
