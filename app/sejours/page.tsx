@@ -1,6 +1,5 @@
 "use client"
 
-import { useState, useEffect } from "react"
 import Image from "next/image"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -41,33 +40,6 @@ const staySessions = [
 ]
 
 export default function SejoursPage() {
-    const [timeLeft, setTimeLeft] = useState({
-        days: 0,
-        hours: 0,
-        minutes: 0,
-        seconds: 0,
-    })
-
-    useEffect(() => {
-        const targetDate = new Date("2025-06-08T00:00:00")
-
-        const timer = setInterval(() => {
-            const now = new Date().getTime()
-            const distance = targetDate.getTime() - now
-
-            if (distance > 0) {
-                setTimeLeft({
-                    days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-                    hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-                    minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-                    seconds: Math.floor((distance % (1000 * 60)) / 1000),
-                })
-            }
-        }, 1000)
-
-        return () => clearInterval(timer)
-    }, [])
-
     return (
         <div className="py-16">
             <div className="container mx-auto">
@@ -404,7 +376,7 @@ export default function SejoursPage() {
                     <div className="w-24 h-1 bg-primary mx-auto rounded-full mb-8" />
                     <p className="text-muted-foreground max-w-5xl mx-auto">
                         Notre mas provençal, situé à 6min du village de Trans-en-provence et à 12min de la gare TVG Les Arcs / Draguignan, dispose de 7 chambres confortables, lumineuses, équipées de literie haut de gamme, climatisation, et salles de bain partagées ou privatives selon votre réservation.
-                        Il dispose également d'une piscine, avec transats dédiés à la détente, salon de jardin, cuisine extérieure pour des déjeuners, et dîners conviviaux.
+                        Il dispose également d&apos;une piscine, avec transats dédiés à la détente, salon de jardin, cuisine extérieure pour des déjeuners, et dîners conviviaux.
                         Sur place vous pourrez également retrouver un sauna de 4 places, un jaccusi, et une salle de sport pour vos séances de relaxation.
                     </p>
                 </section>

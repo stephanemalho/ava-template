@@ -63,7 +63,7 @@ export default function HomePage() {
               </Badge>
               <h2 className="text-3xl font-bold">Besoin de vous ressourcer ?</h2>
               <p className="text-muted-foreground leading-relaxed">
-                Ava bien être organise des séjours tout inclus : hébergement, repas et activités au service de ton bien être dans un cadre idyllique. Nous réunissons toute notre énergie dans de nombreux ateliers afin que tu passes un séjour extraordinaire, relaxant et dépaysant en notre compagnie ! N'attends plus pour te joindre à cette merveilleuse aventure humaine ! Sourires, bonne ambiance, rencontres, partage, surprises et découvertes seront au rendez-vous !
+                Ava bien être organise des séjours tout inclus : hébergement, repas et activités au service de ton bien être dans un cadre idyllique. Nous réunissons toute notre énergie dans de nombreux ateliers afin que tu passes un séjour extraordinaire, relaxant et dépaysant en notre compagnie ! N&apos;attends plus pour te joindre à cette merveilleuse aventure humaine ! Sourires, bonne ambiance, rencontres, partage, surprises et découvertes seront au rendez-vous !
               </p>
               <div className="space-y-2">
                 <p className="font-semibold">Hébergement, repas, ateliers variés</p>

@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import { createContext, useContext, useMemo, useState } from "react"
+import { createContext, useCallback, useContext, useMemo, useState } from "react"
 
 export type ReservationCartItem = {
     id: string
@@ -44,7 +44,7 @@ export function ReservationCartProvider({ children }: { children: React.ReactNod
         })
     }
 
-    const getReservation = (id: string) => items[id]
+    const getReservation = useCallback((id: string) => items[id], [items])
 
     const totalPeople = Object.values(items).reduce((sum, item) => sum + item.peopleCount, 0)
     const totalPrice = Object.values(items).reduce((sum, item) => sum + item.unitPrice * item.peopleCount, 0)
@@ -58,7 +58,7 @@ export function ReservationCartProvider({ children }: { children: React.ReactNod
             totalPeople,
             totalPrice,
         }),
-        [items, totalPeople, totalPrice],
+        [getReservation, items, totalPeople, totalPrice],
     )
 
     return <ReservationCartContext.Provider value={value}>{children}</ReservationCartContext.Provider>
