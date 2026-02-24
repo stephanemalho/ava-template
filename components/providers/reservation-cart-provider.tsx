@@ -6,6 +6,7 @@ import { createContext, useContext, useMemo, useState } from "react"
 export type ReservationCartItem = {
     id: string
     title: string
+    dateRange: string
     unitPrice: number
     peopleCount: number
 }

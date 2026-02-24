@@ -13,6 +13,7 @@ const packages = [
     {
         id: "shared-room",
         title: "Séjour du 11 au 17 Juillet 2026 (chambre partagée)",
+        dateRange: "11 au 17 juillet 2026",
         subtitle: "(chambre partagée)",
         price: 1200,
         image: "/sejour-11-17-Juillet.jpeg",
@@ -28,7 +29,8 @@ const packages = [
     },
     {
         id: "single-room",
-        title: "Séjour du 8 au 13 Juin 2025",
+        title: "Séjour du 22 au 28 Octobre 2026",
+        dateRange: "22 au 28 octobre 2026",
         subtitle: "(chambre solo)",
         price: 1500,
         image: "/sejour-22-28-Octobre.jpeg",
@@ -146,9 +148,11 @@ export default function ReservationsPage() {
                                                 <div className="flex items-center justify-between gap-4">
                                                     <div>
                                                         <div className="text-3xl font-bold">{computedPrice}.00 €</div>
-                                                        <p className="text-xs text-muted-foreground">
-                                                            {pkg.price}.00 € x {peopleCount} personne{peopleCount > 1 ? "s" : ""}
-                                                        </p>
+                                                        {peopleCount > 1 && (
+                                                            <p className="text-xs text-muted-foreground">
+                                                                {pkg.price}.00 € x {peopleCount} personnes
+                                                            </p>
+                                                        )}
                                                     </div>
                                                     <div className="flex items-center gap-2 rounded-lg border p-1">
                                                         <Button
@@ -184,6 +188,7 @@ export default function ReservationsPage() {
                                                             setReservation({
                                                                 id: pkg.id,
                                                                 title: pkg.title,
+                                                                dateRange: pkg.dateRange,
                                                                 unitPrice: pkg.price,
                                                                 peopleCount,
                                                             })

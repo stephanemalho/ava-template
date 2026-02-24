@@ -1,0 +1,116 @@
+"use client"
+
+import { Button } from "@/components/ui/button"
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import { Separator } from "@/components/ui/separator"
+import { useReservationCart } from "@/components/providers/reservation-cart-provider"
+import { CalendarDays, CreditCard, ShieldCheck, ShoppingCart, Users } from "lucide-react"
+
+export function ReservationCartDialog() {
+  const { items, totalPeople, totalPrice } = useReservationCart()
+  const selections = Object.values(items)
+
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button variant="ghost" size="icon" aria-label="Panier des réservations">
+          <ShoppingCart className="h-5 w-5" />
+        </Button>
+      </DialogTrigger>
+
+      <DialogContent className="max-w-2xl">
+        <DialogHeader>
+          <DialogTitle>Récapitulatif de votre séjour</DialogTitle>
+          <DialogDescription>
+            Vérifiez votre sélection avant de passer au paiement sécurisé via Stripe.
+          </DialogDescription>
+        </DialogHeader>
+
+        {selections.length === 0 ? (
+          <div className="rounded-lg border border-dashed p-6 text-center text-sm text-muted-foreground">
+            Votre panier est vide. Sélectionnez un séjour et le nombre de personnes depuis la page réservations.
+          </div>
+        ) : (
+          <div className="space-y-4">
+            <div className="space-y-3">
+              {selections.map((item) => {
+                const linePrice = item.unitPrice * item.peopleCount
+
+                return (
+                  <div key={item.id} className="rounded-lg border p-4">
+                    <div className="space-y-2">
+                      <p className="font-semibold">{item.title}</p>
+                      <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
+                        <span className="inline-flex items-center gap-1.5">
+                          <CalendarDays className="h-4 w-4" aria-hidden="true" />
+                          {item.dateRange}
+                        </span>
+                        <span className="inline-flex items-center gap-1.5">
+                          <Users className="h-4 w-4" aria-hidden="true" />
+                          {item.peopleCount} personne{item.peopleCount > 1 ? "s" : ""}
+                        </span>
+                      </div>
+                      {item.peopleCount > 1 ? (
+                        <p className="text-sm">
+                          {item.unitPrice}.00 € x {item.peopleCount} ={" "}
+                          <span className="font-semibold text-foreground">{linePrice}.00 €</span>
+                        </p>
+                      ) : (
+                        <p className="text-sm">
+                          <span className="font-semibold text-foreground">{linePrice}.00 €</span>
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+
+            <Separator />
+
+            <div className="grid gap-4 md:grid-cols-[1fr_auto] md:items-start">
+              <div className="rounded-lg border bg-muted/30 p-4 space-y-2">
+                <p className="font-medium">Moyen de paiement</p>
+                <div className="flex items-center gap-2 text-sm">
+                  <CreditCard className="h-4 w-4 text-primary" aria-hidden="true" />
+                  <span>Paiement sécurisé par Stripe</span>
+                </div>
+                <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                  <ShieldCheck className="h-4 w-4" aria-hidden="true" />
+                  <span>Carte bancaire, Apple Pay / Google Pay (selon disponibilité)</span>
+                </div>
+              </div>
+
+              <div className="rounded-lg border p-4 min-w-52">
+                <p className="text-sm text-muted-foreground">Total personnes</p>
+                <p className="text-lg font-semibold">{totalPeople}</p>
+                <p className="mt-2 text-sm text-muted-foreground">Total à payer</p>
+                <p className="text-2xl font-bold">{totalPrice}.00 €</p>
+              </div>
+            </div>
+          </div>
+        )}
+
+        <DialogFooter>
+          <DialogClose asChild>
+            <Button variant="outline" type="button">
+              Continuer mes choix
+            </Button>
+          </DialogClose>
+          <Button type="button" disabled={selections.length === 0}>
+            Payer avec Stripe
+          </Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  )
+}
