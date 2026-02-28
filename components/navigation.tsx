@@ -15,8 +15,8 @@ import { ReservationCartDialog } from "./reservation-cart-dialog"
 const navigation = [
     { name: "Accueil", href: "/" },
     { name: "Présentation", href: "/presentation" },
-    { name: "Notre Équipe", href: "/equipe" },
-    { name: "Séjours", href: "/sejours" },
+    { name: "Notre Équipe", href: "/notre-equipe" },
+    { name: "Séjours", href: "/sejour-a-trans-en-provence" },
     { name: "Réservations", href: "/reservations" },
     { name: "Contact", href: "/contact" },
 ]
