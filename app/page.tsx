@@ -110,7 +110,7 @@ export default function HomePage() {
                 <CardContent className="flex h-full flex-col gap-4 p-6">
                   <h3 className="text-base md:text-xl font-semibold">{item.title}</h3>
                   <p className="text-sm leading-relaxed text-muted-foreground">{item.description}</p>
-                  <Button asChild variant="link" className="w-fit p-0">
+                  <Button asChild variant="link" className="w-fit p-0 underline mt-auto cursor-pointer hover:text-primary/80">
                     <Link href={item.href}>{item.cta}</Link>
                   </Button>
                 </CardContent>
