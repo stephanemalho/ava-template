@@ -13,9 +13,9 @@ export default function ReservationsPage() {
         <main className="py-16">
             <div className="container mx-auto">
                 <header className="mb-16 space-y-6 text-center">
-                    <h1 className="text-4xl font-bold md:text-5xl">Réservez votre séjour à Trans-en-Provence</h1>
+                    <h1 className="text-base font-bold md:text-5xl">Réservez votre séjour à Trans-en-Provence</h1>
                     <div className="mx-auto h-1 w-24 rounded-full bg-primary" />
-                    <p className="mx-auto max-w-3xl text-xl text-muted-foreground">
+                    <p className="mx-auto max-w-3xl text-base text-muted-foreground">
                         Choisissez la formule qui vous correspond le mieux pour votre retraite bien-être
                     </p>
                     <ReservationCartPill />
@@ -36,8 +36,8 @@ export default function ReservationsPage() {
                                         <div className="space-y-6">
                                             <Badge className={`${pkg.badgeColor} w-fit px-3 py-1 font-bold text-white`}>{pkg.badge}</Badge>
                                             <div>
-                                                <h2 className="mb-2 text-2xl font-bold text-primary">{pkg.title}</h2>
-                                                <p className="text-lg text-muted-foreground">{pkg.subtitle}</p>
+                                                <h2 className="mb-2 text-base md:text-xl font-bold text-primary">{pkg.title}</h2>
+                                                <p className="text-base text-muted-foreground">{pkg.subtitle}</p>
                                             </div>
 
                                             <div className="flex items-center space-x-4 text-sm text-muted-foreground">
@@ -75,18 +75,18 @@ export default function ReservationsPage() {
                 </div>
                 <section className="mt-16 rounded-lg bg-muted/30 p-8">
                     <div className="space-y-4 text-center">
-                        <h2 className="text-2xl font-bold">Informations importantes</h2>
+                        <h2 className="text-base md:text-xl font-bold">Informations importantes</h2>
                         <div className="grid gap-6 text-sm text-muted-foreground md:grid-cols-3">
                             <article className="space-y-2">
-                                <h3 className="font-semibold text-foreground">Réservation</h3>
+                                <h3 className="text-base md:text-xl font-semibold text-foreground">Réservation</h3>
                                 <p>Les places sont limitées pour garantir une expérience personnalisée</p>
                             </article>
                             <article className="space-y-2">
-                                <h3 className="font-semibold text-foreground">Paiement</h3>
+                                <h3 className="text-base md:text-xl font-semibold text-foreground">Paiement</h3>
                                 <p>Possibilité de règlement en plusieurs fois sur demande</p>
                             </article>
                             <article className="space-y-2">
-                                <h3 className="font-semibold text-foreground">Annulation</h3>
+                                <h3 className="text-base md:text-xl font-semibold text-foreground">Annulation</h3>
                                 <p>Conditions d&lsquo;annulation détaillées dans nos CGV</p>
                             </article>
                         </div>
@@ -94,7 +94,7 @@ export default function ReservationsPage() {
                 </section>
 
                 <section className="mt-16 space-y-6 text-center">
-                    <h2 className="text-3xl font-bold">Des questions ?</h2>
+                    <h2 className="text-base md:text-xl font-bold">Des questions ?</h2>
                     <p className="text-muted-foreground">Notre équipe est là pour vous accompagner dans votre choix</p>
                     <div className="flex flex-col justify-center gap-4 sm:flex-row">
                         <LinkButton href="/contact#contact-direct" variant="outline" size="lg">

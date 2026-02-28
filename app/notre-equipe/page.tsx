@@ -85,6 +85,17 @@ export default function EquipePage() {
         <main>
             {/* Hero Section */}
             <section className="relative min-h-screen overflow-hidden bg-linear-to-b from-background to-muted/40 [text-shadow:0_2px_10px_rgba(0,0,0,0.55)]">
+                <div className="absolute inset-0 sm:hidden">
+                    <Image
+                        src="/Aurelie-Pierre.jpg"
+                        alt="Aurélie et pierre vous présentent l'équipe dans une liste çi-dessous"
+                        fill
+                        priority
+                        aria-hidden="true"
+                        className="object-cover"
+                    />
+                </div>
+
                 <div className="absolute inset-0 hidden sm:block">
                     <Image
                         src="/groupe-ava.jpg"
@@ -98,18 +109,18 @@ export default function EquipePage() {
 
                 <div className="absolute inset-x-0 top-0 z-10">
                     <div className="container m-auto px-4 pt-8">
-                        <h1 className="text-center text-2xl md:text-5xl font-bold leading-tight sm:text-white">
+                        <h1 className="text-center text-base md:text-5xl font-bold leading-tight text-white">
                             Rencontrez notre groupe de praticiens et intervenants bien-être
                         </h1>
                     </div>
                 </div>
 
                 <div className="relative container mx-auto flex min-h-screen items-center px-4 pt-20">
-                    <div className="max-w-3xl mx-auto mt-auto space-y-6 items-center text-center md:bg-[#544C41] bg-[#544c41cc] md:rounded-t-lg py-4">
-                        <p className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-1 text-sm font-medium text-foreground sm:text-white">
+                    <div className="max-w-3xl mx-auto mt-auto space-y-6 items-center text-center md:rounded-t-lg p-4 md:bg-[#544C41] bg-[#544c41cc]">
+                        <p className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-1 text-sm font-medium text-white sm:text-white">
                             Équipe AVA Bien-Être
                         </p>
-                        <p className="text-base leading-relaxed text-muted-foreground sm:text-lg sm:text-white/90">
+                        <p className="text-base leading-relaxed text-white/90">
                             Découvrez la famille AVA Bien-Être qui accompagnent vos retraites et séjours avec des
                             approches complémentaires : yoga, méditation, soins énergétiques, art-thérapie,
                             communication animale et développement personnel.
@@ -121,8 +132,8 @@ export default function EquipePage() {
             <section className="py-16">
                 <div className="container mx-auto">
                     <div className="text-center space-y-6 mb-16">
-                        <h2 className="text-4xl md:text-5xl font-bold">Notre Équipe</h2>
-                        <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                        <h2 className="text-base md:text-xl font-bold">Notre Équipe</h2>
+                        <p className="text-base text-muted-foreground max-w-3xl mx-auto">
                             Cette section liste les Avayens passionnés qui vous accompagneront tout au long de votre séjour bien-être
                         </p>
                     </div>
@@ -139,7 +150,7 @@ export default function EquipePage() {
                                         <div className={`p-8 flex flex-col justify-center ${index % 2 === 1 ? "md:order-1" : ""}`}>
                                             <div className="space-y-4">
                                                 <div>
-                                                    <h3 className="text-2xl font-bold">{member.name}</h3>
+                                                    <h3 className="text-base md:text-xl font-bold">{member.name}</h3>
                                                     <p className="text-primary font-medium">{member.role}</p>
                                                 </div>
                                                 <p className="text-muted-foreground leading-relaxed">{member.description}</p>
@@ -169,7 +180,7 @@ export default function EquipePage() {
 
                     {/* CTA Section */}
                     <div className="text-center mt-16 space-y-6">
-                        <h2 className="text-3xl font-bold">Prêt à nous rencontrer ?</h2>
+                        <h2 className="text-base md:text-xl font-bold">Prêt à nous rencontrer ?</h2>
                         <p className="text-muted-foreground">
                             Rejoignez-nous pour une expérience transformatrice avec notre équipe bienveillante
                         </p>

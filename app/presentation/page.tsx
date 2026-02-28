@@ -10,10 +10,10 @@ export default function PresentationPage() {
             <div className="container mx-auto">
                 {/* Hero Section */}
                 <div className="text-center space-y-6 mb-16">
-                    <h1 className="text-4xl md:text-5xl font-bold [text-shadow:0_4px_14px_rgba(0,0,0,0.35)]">
+                    <h1 className="text-base md:text-2xl font-bold [text-shadow:0_4px_14px_rgba(0,0,0,0.35)]">
                         Ava Bien-Être
                     </h1>
-                    <p className="text-xl text-muted-foreground max-w-3xl mx-auto [text-shadow:0_3px_10px_rgba(0,0,0,0.22)]">
+                    <p className="text-base text-muted-foreground max-w-3xl mx-auto [text-shadow:0_3px_10px_rgba(0,0,0,0.22)]">
                         Une approche authentique du bien-être au cœur de la Provence
                     </p>
                     <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
@@ -27,7 +27,7 @@ export default function PresentationPage() {
                                 <Heart className="h-4 w-4 mr-2" />
                                 Notre Mission
                             </Badge>
-                            <h2 className="text-3xl font-bold">Reconnecter avec l&lsquo;essentiel</h2>
+                            <h2 className="text-base md:text-xl font-bold">Reconnecter avec l&lsquo;essentiel</h2>
                             <p className="text-muted-foreground leading-relaxed">
                                 Ava Bien-Être est né de la conviction que chacun mérite de prendre du temps pour soi, de se reconnecter
                                 à ses valeurs profondes et de retrouver un équilibre authentique entre corps et esprit.
@@ -51,7 +51,7 @@ export default function PresentationPage() {
                 {/* Values Section */}
                 <section className="mb-16 bg-muted/30 -mx-4 px-4 py-16 rounded-lg">
                     <div className="text-center mb-12">
-                        <h2 className="text-3xl font-bold mb-4">Nos Valeurs</h2>
+                        <h2 className="text-base md:text-xl font-bold mb-4">Nos Valeurs</h2>
                         <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
                     </div>
 
@@ -63,7 +63,7 @@ export default function PresentationPage() {
                                         <Heart className="h-6 w-6 text-primary-foreground" />
                                     </div>
                                 </div>
-                                <h3 className="text-xl font-semibold mb-2">Bienveillance</h3>
+                                <h3 className="text-base md:text-xl font-semibold mb-2">Bienveillance</h3>
                                 <p className="text-muted-foreground text-sm">
                                     Un accompagnement respectueux et sans jugement, dans l&lsquo;écoute de vos besoins individuels.
                                 </p>
@@ -77,7 +77,7 @@ export default function PresentationPage() {
                                         <Leaf className="h-6 w-6 text-primary-foreground" />
                                     </div>
                                 </div>
-                                <h3 className="text-xl font-semibold mb-2">Authenticité</h3>
+                                <h3 className="text-base md:text-xl font-semibold mb-2">Authenticité</h3>
                                 <p className="text-muted-foreground text-sm">
                                     Des expériences vraies, loin des artifices, en harmonie avec la nature provençale.
                                 </p>
@@ -91,7 +91,7 @@ export default function PresentationPage() {
                                         <Users className="h-6 w-6 text-primary-foreground" />
                                     </div>
                                 </div>
-                                <h3 className="text-xl font-semibold mb-2">Partage</h3>
+                                <h3 className="text-base md:text-xl font-semibold mb-2">Partage</h3>
                                 <p className="text-muted-foreground text-sm">
                                     La richesse des échanges humains et la force du collectif dans le respect de chacun.
                                 </p>
@@ -111,7 +111,7 @@ export default function PresentationPage() {
                                 <Star className="h-4 w-4 mr-2" />
                                 Notre Approche
                             </Badge>
-                            <h2 className="text-3xl font-bold">Une méthode éprouvée</h2>
+                            <h2 className="text-base md:text-xl font-bold">Une méthode éprouvée</h2>
                             <p className="text-muted-foreground leading-relaxed">
                                 Notre approche holistique combine différentes pratiques complémentaires : yoga, méditation,
                                 développement personnel, art-thérapie et connexion à la nature.
@@ -137,7 +137,7 @@ export default function PresentationPage() {
                 {/* Story Section */}
                 <section className="mb-16 bg-muted/30 -mx-4 px-4 py-16 rounded-lg">
                     <div className="max-w-4xl mx-auto text-center space-y-6">
-                        <h2 className="text-3xl font-bold">Notre Histoire</h2>
+                        <h2 className="text-base md:text-xl font-bold">Notre Histoire</h2>
                         <div className="w-24 h-1 bg-primary mx-auto rounded-full mb-8" />
                         <p className="text-muted-foreground leading-relaxed">
                             Ava Bien-Être est né de la rencontre de trois passionnés du bien-être, unis par la même vision : offrir un
@@ -158,14 +158,14 @@ export default function PresentationPage() {
                 {/* Commitment Section */}
                 <section className="mb-16">
                     <div className="text-center mb-12">
-                        <h2 className="text-3xl font-bold mb-4">Nos Engagements</h2>
+                        <h2 className="text-base md:text-xl font-bold mb-4">Nos Engagements</h2>
                         <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-8">
                         <Card>
                             <CardContent className="p-6">
-                                <h3 className="text-xl font-semibold mb-4">Respect de l&lsquo;environnement</h3>
+                                <h3 className="text-base md:text-xl font-semibold mb-4">Respect de l&lsquo;environnement</h3>
                                 <p className="text-muted-foreground text-sm leading-relaxed">
                                     Nous privilégions les produits locaux et biologiques, limitons notre impact écologique et
                                     sensibilisons nos participants à la préservation de la nature.
@@ -175,7 +175,7 @@ export default function PresentationPage() {
 
                         <Card>
                             <CardContent className="p-6">
-                                <h3 className="text-xl font-semibold mb-4">Qualité et professionnalisme</h3>
+                                <h3 className="text-base md:text-xl font-semibold mb-4">Qualité et professionnalisme</h3>
                                 <p className="text-muted-foreground text-sm leading-relaxed">
                                     Notre équipe est composée de professionnels certifiés qui s&lsquo;engagent à vous offrir un accompagnement
                                     de qualité dans le respect de l&lsquo;éthique de notre métier.
@@ -185,7 +185,7 @@ export default function PresentationPage() {
 
                         <Card>
                             <CardContent className="p-6">
-                                <h3 className="text-xl font-semibold mb-4">Accessibilité</h3>
+                                <h3 className="text-base md:text-xl font-semibold mb-4">Accessibilité</h3>
                                 <p className="text-muted-foreground text-sm leading-relaxed">
                                     Nous proposons différentes formules pour rendre nos retraites accessibles au plus grand nombre, avec
                                     des possibilités de paiement échelonné.
@@ -195,7 +195,7 @@ export default function PresentationPage() {
 
                         <Card>
                             <CardContent className="p-6">
-                                <h3 className="text-xl font-semibold mb-4">Suivi personnalisé</h3>
+                                <h3 className="text-base md:text-xl font-semibold mb-4">Suivi personnalisé</h3>
                                 <p className="text-muted-foreground text-sm leading-relaxed">
                                     Chaque participant bénéficie d&lsquo;un accompagnement individualisé avant, pendant et après le séjour pour
                                     optimiser les bénéfices de l&lsquo;expérience.
@@ -207,7 +207,7 @@ export default function PresentationPage() {
 
                 {/* CTA Section */}
                 <div className="text-center space-y-6">
-                    <h2 className="text-3xl font-bold">Prêt à nous rejoindre ?</h2>
+                    <h2 className="text-base md:text-xl font-bold">Prêt à nous rejoindre ?</h2>
                     <p className="text-muted-foreground max-w-2xl mx-auto">
                         Découvrez nos prochaines retraites et commencez votre voyage vers un mieux-être authentique et durable.
                     </p>

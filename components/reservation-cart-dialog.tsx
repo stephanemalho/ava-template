@@ -92,9 +92,9 @@ export function ReservationCartDialog() {
 
               <div className="rounded-lg border p-4 min-w-52">
                 <p className="text-sm text-muted-foreground">Total personnes</p>
-                <p className="text-lg font-semibold">{totalPeople}</p>
+                <p className="text-base font-semibold">{totalPeople}</p>
                 <p className="mt-2 text-sm text-muted-foreground">Total à payer</p>
-                <p className="text-2xl font-bold">{totalPrice}.00 €</p>
+                <p className="text-base font-bold">{totalPrice}.00 €</p>
               </div>
             </div>
           </div>

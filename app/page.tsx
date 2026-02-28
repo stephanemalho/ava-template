@@ -42,11 +42,11 @@ export default function HomePage() {
 
         {/* Contenu centré */}
         <div className="absolute text-white z-10 bottom-0 text-center space-y-2 px-4 max-w-2xl mx-auto md:bg-[#544C41] bg-[#544c41cc]  md:rounded-t-lg py-8">
-          <h1 className="text-4xl md:text-6xl font-bold drop-shadow-[0_3px_14px_rgba(0,0,0,0.35)]">
+          <h1 className="text-xl md:text-2xl font-bold drop-shadow-[0_3px_14px_rgba(0,0,0,0.35)]">
             Bienvenue chez
             Ava bien-être
           </h1>
-          <p className="text-xl md:text-2xl opacity-90 drop-shadow-[0_2px_10px_rgba(0,0,0,0.3)]">
+          <p className="text-base md:mb-6  md:text-md opacity-90 drop-shadow-[0_2px_10px_rgba(0,0,0,0.3)]">
             Ava Bien-Être organise des séjours retraite bien-être tout inclus en Provence, vos journées seront dédiées à la reconnexion à soi, au lâcher-prise et à l&apos;équilibre corps-esprit, dans un cadre naturel propice au ressourcement.
           </p>
           <Button asChild size="lg" className="bg-primary hover:bg-primary/80">
@@ -68,10 +68,10 @@ export default function HomePage() {
               thumbnailAlt="Lancer la video teaser AVA Bien-Etre"
             />
             <div className="space-y-6">
-              <Badge variant="secondary" className="w-fit">
+              <Badge variant="outline" className="w-fit">
                 Ressourcement
               </Badge>
-              <h2 className="text-3xl font-bold">Besoin de vous ressourcer ?</h2>
+              <h2 className="text-base md:text-xl font-bold">Besoin de vous ressourcer ?</h2>
               <p className="text-muted-foreground leading-relaxed">
                 Ava Bien-Etre organise des sejours tout inclus en Provence:
                 hebergement, repas, ateliers et accompagnement humain dans un
@@ -98,7 +98,7 @@ export default function HomePage() {
       <section className="py-16">
         <div className="container mx-auto space-y-10">
           <div className="text-center space-y-4">
-            <h2 className="text-3xl font-bold">Informations essentielles pour votre sejour</h2>
+            <h2 className="text-base md:text-xl font-bold">Informations essentielles pour votre sejour</h2>
             <p className="mx-auto max-w-3xl text-muted-foreground">
               Avant de reserver, consultez les informations utiles sur le programme, les intervenants,
               le lieu a Trans-en-Provence et les modalites de contact.
@@ -108,7 +108,7 @@ export default function HomePage() {
             {clientInfoCards.map((item) => (
               <Card key={item.title} className="h-full">
                 <CardContent className="flex h-full flex-col gap-4 p-6">
-                  <h3 className="text-xl font-semibold">{item.title}</h3>
+                  <h3 className="text-base md:text-xl font-semibold">{item.title}</h3>
                   <p className="text-sm leading-relaxed text-muted-foreground">{item.description}</p>
                   <Button asChild variant="link" className="w-fit p-0">
                     <Link href={item.href}>{item.cta}</Link>
@@ -124,7 +124,7 @@ export default function HomePage() {
       <section className="py-16 mt-8 bg-muted/30">
         <div className="container mx-auto">
           <div className="text-center space-y-4 mb-12">
-            <h2 className="text-3xl font-bold">Les Fondateurs</h2>
+            <h2 className="text-base md:text-xl font-bold">Les Fondateurs</h2>
             <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
           </div>
 
@@ -146,7 +146,7 @@ export default function HomePage() {
                       className="rounded-full object-cover"
                     />
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">{founder.name}</h3>
+                  <h3 className="text-base md:text-xl font-semibold mb-2">{founder.name}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{founder.description}</p>
                   </CardContent>
                 </Card>

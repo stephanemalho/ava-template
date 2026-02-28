@@ -19,7 +19,7 @@ export function Footer() {
                     </div>
 
                     <div>
-                        <h3 className="font-semibold mb-4">Navigation</h3>
+                        <h3 className="text-base md:text-xl font-semibold mb-4">Navigation</h3>
                         <ul className="space-y-2 text-sm">
                             <li>
                                 <Link href="/" className="text-muted-foreground hover:text-primary">
@@ -45,7 +45,7 @@ export function Footer() {
                     </div>
 
                     <div>
-                        <h3 className="font-semibold mb-4">Contact</h3>
+                        <h3 className="text-base md:text-xl font-semibold mb-4">Contact</h3>
                         <ul className="space-y-2 text-sm text-muted-foreground">
                             <li>Trans-en-Provence</li>
                             <li>Var, France</li>
@@ -54,7 +54,7 @@ export function Footer() {
                     </div>
 
                     <div>
-                        <h3 className="font-semibold mb-4">Suivez-nous</h3>
+                        <h3 className="text-base md:text-xl font-semibold mb-4">Suivez-nous</h3>
                         <div className="flex space-x-4">
                             <Facebook className="h-5 w-5 text-muted-foreground hover:text-primary cursor-pointer" />
                             <Instagram className="h-5 w-5 text-muted-foreground hover:text-primary cursor-pointer" />

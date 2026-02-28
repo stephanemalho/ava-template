@@ -108,7 +108,7 @@ export default function SejoursPage() {
             />
             <div className="absolute inset-0 flex items-center justify-center bg-foreground/40">
               <div className="space-y-4 text-center text-background">
-                <h2 className="text-4xl font-bold md:text-6xl">Séjour à Trans-en-Provence</h2>
+                <h2 className="text-base md:text-xl font-bold">Séjour à Trans-en-Provence</h2>
                 <div className="flex items-center justify-center space-x-4">
                   <Calendar className="h-5 w-5" />
                   <span className="text-lg">du 11 au 17 juillet 2026</span>
@@ -146,7 +146,7 @@ export default function SejoursPage() {
                         {session.badge}
                       </Badge>
                       <div className="space-y-1">
-                        <h3 className="text-xl font-semibold">{session.title}</h3>
+                        <h3 className="text-base md:text-xl font-semibold">{session.title}</h3>
                         <p className="font-medium text-primary">{session.dateRange}</p>
                       </div>
                       <p className="text-sm leading-relaxed text-muted-foreground">{session.description}</p>
@@ -164,8 +164,8 @@ export default function SejoursPage() {
 
         <section className="mb-16 rounded-lg bg-muted/30 p-6 md:p-10">
           <div className="mx-auto max-w-5xl space-y-5">
-            <h1 className="text-3xl font-bold md:text-4xl">Le programme d’AVA Bien-être</h1>
-            <p className="text-muted-foreground leading-relaxed">
+            <h1 className="text-base md:text-2xl font-bold">Le programme d’AVA Bien-être</h1>
+            <p className="text-base text-muted-foreground leading-relaxed">
               Notre programme est une proposition et par conséquent aucune participation à un atelier n’est obligatoire,
               il est possible de ne pas participer selon vos besoins et préférences, chacun doit se sentir libre.
             </p>
@@ -182,7 +182,7 @@ export default function SejoursPage() {
         </section>
 
         <section className="mb-16 text-center">
-          <h2 className="mb-4 text-3xl font-bold">Voici la liste de vos espaces et activités</h2>
+          <h2 className="mb-4 text-base md:text-xl font-bold">Voici la liste de vos espaces et activités</h2>
           <div className="mb-8 flex items-center justify-center space-x-6 text-muted-foreground">
             <div className="flex items-center space-x-2">
               <MapPin className="h-4 w-4" />
@@ -203,7 +203,7 @@ export default function SejoursPage() {
                   <Bed className="mr-2 h-4 w-4" />
                   Hébergement
                 </Badge>
-                <h2 className="text-3xl font-bold">Hébergement</h2>
+                <h2 className="text-base md:text-xl font-bold">Hébergement</h2>
                 <p className="text-muted-foreground leading-relaxed">
                   Bienvenue dans notre cadre idyllique, alliant le confort, le calme, et le charme de la Provence :
                   Notre MAS PROVENCAL, niché au coeur de la nature, implanté au sein d’un domaine de 4 hectares sera
@@ -232,7 +232,7 @@ export default function SejoursPage() {
                   <Spa className="mr-2 h-4 w-4" />
                   Espaces intérieurs
                 </Badge>
-                <h2 className="text-3xl font-bold">Les espaces intérieurs</h2>
+                <h2 className="text-base md:text-xl font-bold">Les espaces intérieurs</h2>
                 <p className="text-muted-foreground leading-relaxed">
                   Un coup d’œil à l’intérieur pour vous présenter rapidement nos espaces de vie commune durant votre
                   séjour : la salle à manger et le salon. Espace et convivialité seront au rendez-vous lors de repas
@@ -249,7 +249,7 @@ export default function SejoursPage() {
                   <Dumbbell className="mr-2 h-4 w-4" />
                   Espaces extérieurs
                 </Badge>
-                <h2 className="text-3xl font-bold">En harmonie avec la nature</h2>
+                <h2 className="text-base md:text-xl font-bold">En harmonie avec la nature</h2>
                 <p className="text-muted-foreground leading-relaxed">
                   Jardins méditerranéens, terrasses ombragées et espaces de pratique en plein air. Reconnectez-vous
                   avec la nature dans un cadre préservé au coeur de la Provence.
@@ -269,7 +269,7 @@ export default function SejoursPage() {
                   <Utensils className="mr-2 h-4 w-4" />
                   Cuisine
                 </Badge>
-                <h2 className="text-3xl font-bold">La cuisine</h2>
+                <h2 className="text-base md:text-xl font-bold">La cuisine</h2>
                 <p className="text-muted-foreground leading-relaxed">
                   Nos repas et collations seront confectionnés dans l’espace cuisine que voici. Au programme :
                   plusieurs menus variés et équilibrés, des produits du terroir : frais et de qualité, des boissons
@@ -288,7 +288,7 @@ export default function SejoursPage() {
                   <Bed className="mr-2 h-4 w-4" />
                   Chambres
                 </Badge>
-                <h2 className="text-3xl font-bold">Les chambres</h2>
+                <h2 className="text-base md:text-xl font-bold">Les chambres</h2>
                 <p className="text-muted-foreground leading-relaxed">
                   Composé de 8 chambres à lit simple, et double, climatisées, au charme unique et individuel, à la
                   décoration soignée, pour un sommeil réparateur. Nous disposons de 4 salles de bains spacieuses avec
@@ -303,7 +303,7 @@ export default function SejoursPage() {
 
         <section className="mt-16">
           <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold">Journee type durant votre sejour</h2>
+            <h2 className="mb-4 text-base md:text-xl font-bold">Journee type durant votre sejour</h2>
             <div className="mx-auto h-1 w-24 rounded-full bg-primary" />
           </div>
 
@@ -392,21 +392,21 @@ export default function SejoursPage() {
 
         <section id="faq" className="mt-16 scroll-mt-24">
           <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold">FAQ</h2>
+            <h2 className="mb-4 text-base md:text-xl font-bold">FAQ</h2>
             <div className="mx-auto h-1 w-24 rounded-full bg-primary" />
           </div>
 
           <div className="grid gap-8 md:grid-cols-2">
             <div className="space-y-6">
               <div>
-                <h3 className="mb-2 font-semibold">Puis-je venir seul ?</h3>
+                <h3 className="mb-2 text-base md:text-xl font-semibold">Puis-je venir seul ?</h3>
                 <p className="text-sm text-muted-foreground">
                   Bien sur. Nos sejours sont parfaits pour les personnes seules souhaitant se ressourcer et rencontrer
                   d’autres participants.
                 </p>
               </div>
               <div>
-                <h3 className="mb-2 font-semibold">Les debutants sont-ils acceptes ?</h3>
+                <h3 className="mb-2 text-base md:text-xl font-semibold">Les debutants sont-ils acceptes ?</h3>
                 <p className="text-sm text-muted-foreground">
                   Absolument. Nos activites sont adaptees a tous les niveaux, des debutants aux pratiquants
                   experimentes.
@@ -415,14 +415,14 @@ export default function SejoursPage() {
             </div>
             <div className="space-y-6">
               <div>
-                <h3 className="mb-2 font-semibold">Puis-je annuler ma reservation ?</h3>
+                <h3 className="mb-2 text-base md:text-xl font-semibold">Puis-je annuler ma reservation ?</h3>
                 <p className="text-sm text-muted-foreground">
                   Les conditions d’annulation sont detaillees dans nos conditions generales de vente disponibles lors de
                   la reservation.
                 </p>
               </div>
               <div>
-                <h3 className="mb-2 font-semibold">Qu’est-ce qui est inclus dans le prix ?</h3>
+                <h3 className="mb-2 text-base md:text-xl font-semibold">Qu’est-ce qui est inclus dans le prix ?</h3>
                 <p className="text-sm text-muted-foreground">
                   Hebergement, tous les repas, toutes les activites et l’accompagnement par notre equipe
                   professionnelle.
@@ -433,7 +433,7 @@ export default function SejoursPage() {
         </section>
 
         <section className="mt-16 text-center">
-          <h2 className="mb-4 text-3xl font-bold">Localisation du Mas</h2>
+          <h2 className="mb-4 text-base md:text-xl font-bold">Localisation du Mas</h2>
           <div className="mx-auto mb-8 h-1 w-24 rounded-full bg-primary" />
           <p className="mx-auto max-w-5xl text-muted-foreground">
             Notre mas provencal, situe a 6 min du village de Trans-en-Provence et a 12 min de la gare TGV Les Arcs /
