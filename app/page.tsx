@@ -1,7 +1,9 @@
 import Image from "next/image"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { YoutubeClickPlayer } from "@/components/youtube-click-player"
 import { Calendar, MapPin } from "lucide-react"
 
 export default function HomePage() {
@@ -35,8 +37,8 @@ export default function HomePage() {
           <p className="text-xl md:text-2xl opacity-90 drop-shadow-[0_2px_10px_rgba(0,0,0,0.3)]">
             Ava Bien-Être organise des séjours retraite bien-être tout inclus en Provence, vos journées seront dédiées à la reconnexion à soi, au lâcher-prise et à l&apos;équilibre corps-esprit, dans un cadre naturel propice au ressourcement.
           </p>
-          <Button size="lg" className="bg-primary hover:bg-primary/80">
-            Découvrez nos retraites
+          <Button asChild size="lg" className="bg-primary hover:bg-primary/80">
+            <Link href="/sejour-a-trans-en-provence">Découvrez nos retraites</Link>
           </Button>
         </div>
       </section>
@@ -46,17 +48,13 @@ export default function HomePage() {
       <section className="py-16 bg-muted/30 my-8">
         <div className="container mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative w-full aspect-video overflow-hidden">
-              <iframe
-                title="Teaser officiel AVA BIEN ÊTRE Pierre Yonas" 
-                src="https://www.youtube.com/embed/QnyHeO6l4F4" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                name="fitvid0"
-                className="absolute inset-0 w-full h-full"
-                
-              />
-            </div>
+            <YoutubeClickPlayer
+              className="relative w-full aspect-video overflow-hidden"
+              title="Teaser officiel AVA BIEN ETRE Pierre Yonas"
+              youtubeId="QnyHeO6l4F4"
+              thumbnailSrc="/minia-youtube.png"
+              thumbnailAlt="Lancer la video teaser AVA Bien-Etre"
+            />
             <div className="space-y-6">
               <Badge variant="secondary" className="w-fit">
                 Ressourcement
@@ -67,45 +65,16 @@ export default function HomePage() {
               </p>
               <div className="space-y-2">
                 <p className="font-semibold">Hébergement, repas, ateliers variés</p>
-                <p className="text-sm text-muted-foreground">À partir de 500€</p>
+                <p className="text-sm text-muted-foreground">6 jours tout inclus</p>
               </div>
-              <Button>Réservez votre place !</Button>
+              <Button asChild size="lg" className="bg-primary hover:bg-primary/80">
+                <Link href="/presentation">Découvrez Ava Bien-être</Link>
+              </Button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Séjour Inclus Section */}
-      <section className="py-16 my-8">
-        <div className="container mx-auto">
-          <div className="text-center space-y-4 mb-12">
-            <h2 className="text-3xl font-bold">Rejoins nous à notre Séjour Bien-Être tout inclus !</h2>
-            <div className="flex items-center justify-center space-x-4 text-muted-foreground">
-              <div className="flex items-center space-x-2">
-                <Calendar className="h-4 w-4" />
-                <span>Du 11 au 17 juillet 2026</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <MapPin className="h-4 w-4" />
-                <span>Trans-en-Provence</span>
-              </div>
-            </div>
-            <div className="flex items-center justify-center space-x-4 text-muted-foreground">
-              <div className="flex items-center space-x-2">
-                <Calendar className="h-4 w-4" />
-                <span>Du 22 au 28 juillet 2026</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <MapPin className="h-4 w-4" />
-                <span>Trans-en-Provence</span>
-              </div>
-            </div>
-            <Button variant="outline">Informations détaillées</Button>
-          </div>
-
-          
-        </div>
-      </section>
 
       {/* Fondateurs Section */}
       <section className="py-16 mt-8 bg-muted/30">
