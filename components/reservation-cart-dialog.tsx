@@ -1,5 +1,7 @@
 "use client"
 
+import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import {
@@ -19,6 +21,8 @@ import { CalendarDays, CreditCard, ShieldCheck, ShoppingCart, Users } from "luci
 
 export function ReservationCartDialog() {
   const { items, totalPeople, totalPrice, totalAcompte, isCartDialogOpen, setCartDialogOpen } = useReservationCart()
+  const pathname = usePathname()
+  const isReservationsPage = pathname === "/reservations"
   const selections = Object.values(items)
   const [isRedirecting, setIsRedirecting] = useState(false)
   const [checkoutError, setCheckoutError] = useState<string | null>(null)
@@ -144,15 +148,27 @@ export function ReservationCartDialog() {
           </div>
         )}
 
-        <DialogFooter>
-          <DialogClose asChild>
-            <Button variant="outline" type="button">
-              Continuer mes choix
+        <DialogFooter className="sm:justify-between">
+          {!isReservationsPage ? (
+            <Button asChild type="button" variant="secondary">
+              <Link href="/reservations" onClick={() => setCartDialogOpen(false)}>
+                Aller aux réservations
+              </Link>
             </Button>
-          </DialogClose>
-          <Button type="button" disabled={selections.length === 0 || isRedirecting} onClick={handleCheckout}>
-            {isRedirecting ? "Redirection..." : "Payer avec Stripe"}
-          </Button>
+          ) : (
+            <div />
+          )}
+
+          <div className="flex flex-wrap justify-end gap-2">
+            <DialogClose asChild>
+              <Button variant="outline" type="button">
+                Continuer mes choix
+              </Button>
+            </DialogClose>
+            <Button type="button" disabled={selections.length === 0 || isRedirecting} onClick={handleCheckout}>
+              {isRedirecting ? "Redirection..." : "Payer avec Stripe"}
+            </Button>
+          </div>
         </DialogFooter>
         {checkoutError ? <p className="text-sm text-destructive">{checkoutError}</p> : null}
       </DialogContent>
