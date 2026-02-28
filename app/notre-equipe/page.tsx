@@ -88,7 +88,7 @@ export default function EquipePage() {
                 <div className="absolute inset-0 hidden sm:block">
                     <Image
                         src="/groupe-ava.jpg"
-                        alt=""
+                        alt="Image de toutes l'équipe de AVA Bien-Etre prete à vous accueillir pour vos retraites bien-être en Provence"
                         fill
                         priority
                         aria-hidden="true"
@@ -105,7 +105,7 @@ export default function EquipePage() {
                 </div>
 
                 <div className="relative container mx-auto flex min-h-screen items-center px-4 pt-20">
-                    <div className="max-w-3xl mx-auto mt-auto space-y-6 items-center text-center bg-accent/70 md:rounded-t-lg py-4">
+                    <div className="max-w-3xl mx-auto mt-auto space-y-6 items-center text-center md:bg-[#544C41] bg-[#544c41cc] md:rounded-t-lg py-4">
                         <p className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-1 text-sm font-medium text-foreground sm:text-white">
                             Équipe AVA Bien-Être
                         </p>

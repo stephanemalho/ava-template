@@ -41,7 +41,7 @@ export default function HomePage() {
         </div>
 
         {/* Contenu centré */}
-        <div className="absolute text-white z-10 bottom-0 text-center space-y-2 px-4 max-w-2xl mx-auto bg-background/30 md:rounded-t-lg py-8">
+        <div className="absolute text-white z-10 bottom-0 text-center space-y-2 px-4 max-w-2xl mx-auto md:bg-[#544C41] bg-[#544c41cc]  md:rounded-t-lg py-8">
           <h1 className="text-4xl md:text-6xl font-bold drop-shadow-[0_3px_14px_rgba(0,0,0,0.35)]">
             Bienvenue chez
             Ava bien-être
