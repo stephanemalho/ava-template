@@ -1,14 +1,13 @@
 import { headers } from "next/headers"
 import { NextResponse } from "next/server"
 import Stripe from "stripe"
+import { reservationPackages } from "@/app/reservations/_data/packages"
+import { STRIPE_ACOMPTE_PER_PERSON_EUR } from "@/lib/reservation-pricing"
 
 export const runtime = "nodejs"
 
 type CheckoutItem = {
   id: string
-  title: string
-  dateRange: string
-  unitPrice: number
   peopleCount: number
 }
 
@@ -32,17 +31,29 @@ export async function POST(request: Request) {
 
     const stripe = new Stripe(secretKey)
 
-    const lineItems = items.map((item) => ({
-      quantity: item.peopleCount,
-      price_data: {
-        currency: "eur",
-        unit_amount: Math.round(item.unitPrice * 100),
-        product_data: {
-          name: item.title,
-          description: item.dateRange,
+    const packageMap = new Map(reservationPackages.map((pkg) => [pkg.id, pkg]))
+    const lineItems = items.map((item) => {
+      const pkg = packageMap.get(item.id)
+      if (!pkg) {
+        throw new Error(`Formule invalide: ${item.id}`)
+      }
+
+      if (!Number.isInteger(item.peopleCount) || item.peopleCount < 1 || item.peopleCount > 20) {
+        throw new Error(`Nombre de personnes invalide pour ${item.id}`)
+      }
+
+      return {
+        quantity: item.peopleCount,
+        price_data: {
+          currency: "eur",
+          unit_amount: STRIPE_ACOMPTE_PER_PERSON_EUR * 100,
+          product_data: {
+            name: `Acompte - ${pkg.title}`,
+            description: `${STRIPE_ACOMPTE_PER_PERSON_EUR}.00 € par personne`,
+          },
         },
-      },
-    }))
+      }
+    })
 
     const requestHeaders = await headers()
     const host = requestHeaders.get("x-forwarded-host") ?? requestHeaders.get("host")

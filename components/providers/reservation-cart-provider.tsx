@@ -2,6 +2,7 @@
 
 import type React from "react"
 import { createContext, useCallback, useContext, useMemo, useState } from "react"
+import { STRIPE_ACOMPTE_PER_PERSON_EUR } from "@/lib/reservation-pricing"
 
 export type ReservationCartItem = {
     id: string
@@ -18,6 +19,7 @@ type ReservationCartContextValue = {
     getReservation: (id: string) => ReservationCartItem | undefined
     totalPeople: number
     totalPrice: number
+    totalAcompte: number
 }
 
 const ReservationCartContext = createContext<ReservationCartContextValue | null>(null)
@@ -48,6 +50,7 @@ export function ReservationCartProvider({ children }: { children: React.ReactNod
 
     const totalPeople = Object.values(items).reduce((sum, item) => sum + item.peopleCount, 0)
     const totalPrice = Object.values(items).reduce((sum, item) => sum + item.unitPrice * item.peopleCount, 0)
+    const totalAcompte = totalPeople * STRIPE_ACOMPTE_PER_PERSON_EUR
 
     const value = useMemo(
         () => ({
@@ -57,8 +60,9 @@ export function ReservationCartProvider({ children }: { children: React.ReactNod
             getReservation,
             totalPeople,
             totalPrice,
+            totalAcompte,
         }),
-        [getReservation, items, totalPeople, totalPrice],
+        [getReservation, items, totalPeople, totalPrice, totalAcompte],
     )
 
     return <ReservationCartContext.Provider value={value}>{children}</ReservationCartContext.Provider>

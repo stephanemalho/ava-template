@@ -1,0 +1,1 @@
+export const STRIPE_ACOMPTE_PER_PERSON_EUR = 500

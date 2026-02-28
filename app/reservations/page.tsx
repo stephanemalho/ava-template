@@ -7,6 +7,7 @@ import { LinkButton } from "@/components/link-button"
 import { reservationPackages } from "./_data/packages"
 import { ReservationPackageControls } from "./_components/reservation-package-controls"
 import { ReservationCartPill } from "./_components/reservation-cart-pill"
+import { STRIPE_ACOMPTE_PER_PERSON_EUR } from "@/lib/reservation-pricing"
 
 export default function ReservationsPage() {
     return (
@@ -18,7 +19,6 @@ export default function ReservationsPage() {
                     <p className="mx-auto max-w-3xl text-base text-muted-foreground">
                         Choisissez la formule qui vous correspond le mieux pour votre retraite bien-être
                     </p>
-                    <ReservationCartPill />
                 </header>
 
                 <section className="grid grid-cols-1 gap-12 lg:grid-cols-2">
@@ -83,7 +83,10 @@ export default function ReservationsPage() {
                             </article>
                             <article className="space-y-2">
                                 <h3 className="text-base md:text-xl font-semibold text-foreground">Paiement</h3>
-                                <p>Possibilité de règlement en plusieurs fois sur demande</p>
+                                <p>
+                                    Le paiement Stripe correspond à un acompte de {STRIPE_ACOMPTE_PER_PERSON_EUR}.00 € par personne.
+                                    Le solde du séjour sera réglé selon les modalités convenues.
+                                </p>
                             </article>
                             <article className="space-y-2">
                                 <h3 className="text-base md:text-xl font-semibold text-foreground">Annulation</h3>

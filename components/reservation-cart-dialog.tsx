@@ -14,10 +14,11 @@ import {
 } from "@/components/ui/dialog"
 import { Separator } from "@/components/ui/separator"
 import { useReservationCart } from "@/components/providers/reservation-cart-provider"
+import { STRIPE_ACOMPTE_PER_PERSON_EUR } from "@/lib/reservation-pricing"
 import { CalendarDays, CreditCard, ShieldCheck, ShoppingCart, Users } from "lucide-react"
 
 export function ReservationCartDialog() {
-  const { items, totalPeople, totalPrice } = useReservationCart()
+  const { items, totalPeople, totalPrice, totalAcompte } = useReservationCart()
   const selections = Object.values(items)
   const [isRedirecting, setIsRedirecting] = useState(false)
   const [checkoutError, setCheckoutError] = useState<string | null>(null)
@@ -35,9 +36,6 @@ export function ReservationCartDialog() {
         body: JSON.stringify({
           items: selections.map((item) => ({
             id: item.id,
-            title: item.title,
-            dateRange: item.dateRange,
-            unitPrice: item.unitPrice,
             peopleCount: item.peopleCount,
           })),
         }),
@@ -72,7 +70,7 @@ export function ReservationCartDialog() {
         <DialogHeader>
           <DialogTitle>Récapitulatif de votre séjour</DialogTitle>
           <DialogDescription>
-            Vérifiez votre sélection avant de passer au paiement sécurisé via Stripe.
+            Le paiement Stripe correspond à un acompte de {STRIPE_ACOMPTE_PER_PERSON_EUR}.00 € par personne.
           </DialogDescription>
         </DialogHeader>
 
@@ -123,19 +121,24 @@ export function ReservationCartDialog() {
                 <p className="font-medium">Moyen de paiement</p>
                 <div className="flex items-center gap-2 text-sm">
                   <CreditCard className="h-4 w-4 text-primary" aria-hidden="true" />
-                  <span>Paiement sécurisé par Stripe</span>
+                  <span>Paiement sécurisé par Stripe (acompte)</span>
                 </div>
                 <div className="flex items-center gap-2 text-xs text-muted-foreground">
                   <ShieldCheck className="h-4 w-4" aria-hidden="true" />
                   <span>Carte bancaire, Apple Pay / Google Pay (selon disponibilité)</span>
                 </div>
+                <p className="text-xs text-muted-foreground">
+                  Acompte Stripe: {STRIPE_ACOMPTE_PER_PERSON_EUR}.00 € x {totalPeople} personne{totalPeople > 1 ? "s" : ""}
+                </p>
               </div>
 
               <div className="rounded-lg border p-4 min-w-52">
                 <p className="text-sm text-muted-foreground">Total personnes</p>
                 <p className="text-base font-semibold">{totalPeople}</p>
-                <p className="mt-2 text-sm text-muted-foreground">Total à payer</p>
+                <p className="mt-2 text-sm text-muted-foreground">Prix total du séjour</p>
                 <p className="text-base font-bold">{totalPrice}.00 €</p>
+                <p className="mt-2 text-sm text-muted-foreground">Acompte à payer maintenant (Stripe)</p>
+                <p className="text-base font-bold">{totalAcompte}.00 €</p>
               </div>
             </div>
           </div>
