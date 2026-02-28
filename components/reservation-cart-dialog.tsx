@@ -1,5 +1,6 @@
 "use client"
 
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import {
   Dialog,
@@ -18,6 +19,46 @@ import { CalendarDays, CreditCard, ShieldCheck, ShoppingCart, Users } from "luci
 export function ReservationCartDialog() {
   const { items, totalPeople, totalPrice } = useReservationCart()
   const selections = Object.values(items)
+  const [isRedirecting, setIsRedirecting] = useState(false)
+  const [checkoutError, setCheckoutError] = useState<string | null>(null)
+
+  const handleCheckout = async () => {
+    try {
+      setCheckoutError(null)
+      setIsRedirecting(true)
+
+      const response = await fetch("/api/stripe/checkout", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          items: selections.map((item) => ({
+            id: item.id,
+            title: item.title,
+            dateRange: item.dateRange,
+            unitPrice: item.unitPrice,
+            peopleCount: item.peopleCount,
+          })),
+        }),
+      })
+
+      if (!response.ok) {
+        const payload = (await response.json().catch(() => null)) as { error?: string } | null
+        throw new Error(payload?.error ?? "Impossible de créer la session Stripe.")
+      }
+
+      const { url } = (await response.json()) as { url?: string }
+      if (!url) {
+        throw new Error("URL Checkout Stripe invalide.")
+      }
+
+      window.location.assign(url)
+    } catch (error) {
+      setCheckoutError(error instanceof Error ? error.message : "Une erreur est survenue.")
+      setIsRedirecting(false)
+    }
+  }
 
   return (
     <Dialog>
@@ -106,10 +147,11 @@ export function ReservationCartDialog() {
               Continuer mes choix
             </Button>
           </DialogClose>
-          <Button type="button" disabled={selections.length === 0}>
-            Payer avec Stripe
+          <Button type="button" disabled={selections.length === 0 || isRedirecting} onClick={handleCheckout}>
+            {isRedirecting ? "Redirection..." : "Payer avec Stripe"}
           </Button>
         </DialogFooter>
+        {checkoutError ? <p className="text-sm text-destructive">{checkoutError}</p> : null}
       </DialogContent>
     </Dialog>
   )
