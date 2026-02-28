@@ -128,7 +128,7 @@ export default function SejoursPage() {
               <Card key={session.dateRange} className="overflow-hidden">
                 <div className="grid grid-cols-1 lg:grid-cols-[220px_1fr]">
                   <div className="p-3 pb-0 lg:pb-3">
-                    <figure className="relative min-h-[320px] overflow-hidden rounded-md aspect-[3/4] lg:min-h-full">
+                    <figure className="relative min-h-80 overflow-hidden rounded-md aspect-3/4 lg:min-h-full">
                       <Image
                         src={session.image}
                         alt={session.imageAlt}
