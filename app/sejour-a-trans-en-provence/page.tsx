@@ -37,18 +37,18 @@ type CarouselSlide = {
 
 const staySessions: StaySession[] = [
   {
-    title: "Séjour d&apos;été",
+    title: "Séjour d'été",
     dateRange: "du 11 au 17 juillet 2026",
     image: "/sejour-11-17-Juillet.jpeg",
-    imageAlt: "Participants d&apos;un séjour bien-être AVA en juillet 2026",
+    imageAlt: "Participants d'un séjour bien-être AVA en juillet 2026",
     badge: "Juillet 2026",
     description: "Retraite bien-être immersive avec ateliers, détente et accompagnement en petit groupe.",
   },
   {
-    title: "Séjour d&apos;automne",
+    title: "Séjour d'automne",
     dateRange: "du 22 au 28 octobre 2026",
     image: "/sejour-22-28-Octobre.jpeg",
-    imageAlt: "Participants d&apos;un séjour bien-être AVA en octobre 2026",
+    imageAlt: "Participants d'un séjour bien-être AVA en octobre 2026",
     badge: "Octobre 2026",
     description: "Une session propice au recentrage, à la relaxation profonde et au ressourcement en Provence.",
   },
@@ -71,7 +71,7 @@ const hebergementSlides = duplicateSlides(
 const interieurSlides = duplicateSlides(
   "/interieur-1.jpg",
   "Espaces intérieurs partagés du séjour AVA Bien-être",
-  "Salle de vie et espace d&apos;échange intérieur"
+  "Salle de vie et espace d'échange intérieur"
 )
 
 const exterieurSlides = duplicateSlides(
@@ -83,7 +83,7 @@ const exterieurSlides = duplicateSlides(
 const cuisineSlides = duplicateSlides(
   "/cuisine-2.jpg",
   "Cuisine du mas où sont préparés repas et collations",
-  "Espace cuisine dédié à l&apos;équilibre nutritionnel"
+  "Espace cuisine dédié à l'équilibre nutritionnel"
 )
 
 const chambreSlides = duplicateSlides(
@@ -121,58 +121,17 @@ export default function SejoursPage() {
             </div>
           </div>
         </section>
-
-        <section className="mb-16">
-          <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
-            {staySessions.map((session, index) => (
-              <Card key={session.dateRange} className="overflow-hidden">
-                <div className="grid grid-cols-1 lg:grid-cols-[220px_1fr]">
-                  <div className="p-3 pb-0 lg:pb-3">
-                    <figure className="relative min-h-80 overflow-hidden rounded-md aspect-3/4 lg:min-h-full">
-                      <Image
-                        src={session.image}
-                        alt={session.imageAlt}
-                        fill
-                        priority={index === 0}
-                        sizes="(max-width: 1024px) 100vw, 220px"
-                        className="object-cover object-top"
-                      />
-                      <figcaption className="sr-only">{session.title}</figcaption>
-                    </figure>
-                  </div>
-                  <CardContent className="flex flex-col justify-center p-6">
-                    <div className="space-y-4">
-                      <Badge variant="secondary" className="w-fit">
-                        {session.badge}
-                      </Badge>
-                      <div className="space-y-1">
-                        <h3 className="text-base md:text-xl font-semibold">{session.title}</h3>
-                        <p className="font-medium text-primary">{session.dateRange}</p>
-                      </div>
-                      <p className="text-sm leading-relaxed text-muted-foreground">{session.description}</p>
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <MapPin className="h-4 w-4 shrink-0" aria-hidden="true" />
-                        <span>Trans-en-Provence, Var</span>
-                      </div>
-                    </div>
-                  </CardContent>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </section>
-
         <section className="mb-16 rounded-lg bg-muted/30 p-6 md:p-10">
           <div className="mx-auto max-w-5xl space-y-5">
-            <h1 className="text-base md:text-2xl font-bold">Le programme d&apos;AVA Bien-être</h1>
+            <h1 className="text-base md:text-2xl font-bold">Le programme d'AVA Bien-être</h1>
             <p className="text-base text-muted-foreground leading-relaxed">
-              Notre programme est une proposition et par conséquent aucune participation à un atelier n&apos;est obligatoire,
+              Notre programme est une proposition et par conséquent aucune participation à un atelier n'est obligatoire,
               il est possible de ne pas participer selon vos besoins et préférences, chacun doit se sentir libre.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              Des moments de repos et de temps libre, de relaxation, de partage et d&apos;échange vous seront proposés entre
-              chaque atelier, notre équipe est susceptible d&apos;adapter ou de modifier l&apos;ordre du programme des activités
-              en fonction du besoin de repos, de l&apos;enthousiasme du groupe et le besoin d&apos;intégration.
+              Des moments de repos et de temps libre, de relaxation, de partage et d'échange vous seront proposés entre
+              chaque atelier, notre équipe est susceptible d'adapter ou de modifier l'ordre du programme des activités
+              en fonction du besoin de repos, de l'enthousiasme du groupe et le besoin d'intégration.
             </p>
             <p className="text-muted-foreground leading-relaxed">
               Nous nous réservons également le droit de vous apporter une part de mystère et vous concocter de belles
@@ -206,13 +165,13 @@ export default function SejoursPage() {
                 <h2 className="text-base md:text-xl font-bold">Hébergement</h2>
                 <p className="text-muted-foreground leading-relaxed">
                   Bienvenue dans notre cadre idyllique, alliant le confort, le calme, et le charme de la Provence :
-                  Notre MAS PROVENCAL, niché au coeur de la nature, implanté au sein d&apos;un domaine de 4 hectares sera
+                  Notre MAS PROVENCAL, niché au coeur de la nature, implanté au sein d'un domaine de 4 hectares sera
                   votre lieu de villégiature : de grands espaces intérieurs et extérieurs sauront vous accueillir dans
                   ce domaine merveilleux et bucolique. Le soleil, le chant des oiseaux, la pinède, la nature, les
                   arbres, la forêt, les oliviers et les eucalyptus sont les éléments accompagnateurs de votre voyage.
-                  De nombreux animaux vivent également au sein du domaine, ce qui vous offrira l&apos;opportunité
-                  incroyable d&apos;une mise en pratique de vos capacités lors de nos ateliers de communication animale.
-                  Voici un aperçu du mas et de l&apos;un de nos espaces extérieur : deux piscines ensoleillées, un salon de
+                  De nombreux animaux vivent également au sein du domaine, ce qui vous offrira l'opportunité
+                  incroyable d'une mise en pratique de vos capacités lors de nos ateliers de communication animale.
+                  Voici un aperçu du mas et de l'un de nos espaces extérieur : deux piscines ensoleillées, un salon de
                   jardin, une table de massage, table de ping-pong, un terrain de volley-ball table de cuisine en
                   plein air dont vous pourrez disposer librement afin de profiter de chaque expérience. Des ateliers,
                   des moments de détente, de relaxation et de partage en groupe seront au rendez-vous.
@@ -234,7 +193,7 @@ export default function SejoursPage() {
                 </Badge>
                 <h2 className="text-base md:text-xl font-bold">Les espaces intérieurs</h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  Un coup d&apos;œil à l&apos;intérieur pour vous présenter rapidement nos espaces de vie commune durant votre
+                  Un coup d'œil à l'intérieur pour vous présenter rapidement nos espaces de vie commune durant votre
                   séjour : la salle à manger et le salon. Espace et convivialité seront au rendez-vous lors de repas
                   et de discussions animées.
                 </p>
@@ -271,7 +230,7 @@ export default function SejoursPage() {
                 </Badge>
                 <h2 className="text-base md:text-xl font-bold">La cuisine</h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  Nos repas et collations seront confectionnés dans l&apos;espace cuisine que voici. Au programme :
+                  Nos repas et collations seront confectionnés dans l'espace cuisine que voici. Au programme :
                   plusieurs menus variés et équilibrés, des produits du terroir : frais et de qualité, des boissons
                   artisanales et petites collations entre les ateliers. Du petit déjeuner au diner, laissez-vous
                   surprendre par notre savoir faire alliant à la fois saveur et légèreté, pour un bien être et un
@@ -301,7 +260,7 @@ export default function SejoursPage() {
           </section>
         </div>
 
-        <section className="mt-16">
+        <section className="my-16">
           <div className="mb-12 text-center">
             <h2 className="mb-4 text-base md:text-xl font-bold">Journee type durant votre sejour</h2>
             <div className="mx-auto h-1 w-24 rounded-full bg-primary" />
@@ -389,7 +348,45 @@ export default function SejoursPage() {
             </Card>
           </div>
         </section>
-
+         <section className="mb-16">
+          <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
+            {staySessions.map((session, index) => (
+              <Card key={session.dateRange} className="overflow-hidden">
+                <div className="grid grid-cols-1 lg:grid-cols-[220px_1fr]">
+                  <div className="p-3 pb-0 lg:pb-3">
+                    <figure className="relative min-h-80 overflow-hidden rounded-md aspect-3/4 lg:min-h-full">
+                      <Image
+                        src={session.image}
+                        alt={session.imageAlt}
+                        fill
+                        priority={index === 0}
+                        sizes="(max-width: 1024px) 100vw, 220px"
+                        className="object-cover object-top"
+                      />
+                      <figcaption className="sr-only">{session.title}</figcaption>
+                    </figure>
+                  </div>
+                  <CardContent className="flex flex-col justify-center p-6">
+                    <div className="space-y-4">
+                      <Badge variant="secondary" className="w-fit">
+                        {session.badge}
+                      </Badge>
+                      <div className="space-y-1">
+                        <h3 className="text-base md:text-xl font-semibold">{session.title}</h3>
+                        <p className="font-medium text-primary">{session.dateRange}</p>
+                      </div>
+                      <p className="text-sm leading-relaxed text-muted-foreground">{session.description}</p>
+                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                        <MapPin className="h-4 w-4 shrink-0" aria-hidden="true" />
+                        <span>Trans-en-Provence, Var</span>
+                      </div>
+                    </div>
+                  </CardContent>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </section>
         <section id="faq" className="mt-16 scroll-mt-24">
           <div className="mb-12 text-center">
             <h2 className="mb-4 text-base md:text-xl font-bold">FAQ</h2>
@@ -402,7 +399,7 @@ export default function SejoursPage() {
                 <h3 className="mb-2 text-base md:text-xl font-semibold">Puis-je venir seul ?</h3>
                 <p className="text-sm text-muted-foreground">
                   Bien sur. Nos sejours sont parfaits pour les personnes seules souhaitant se ressourcer et rencontrer
-                  d&apos;autres participants.
+                  d'autres participants.
                 </p>
               </div>
               <div>
@@ -417,14 +414,14 @@ export default function SejoursPage() {
               <div>
                 <h3 className="mb-2 text-base md:text-xl font-semibold">Puis-je annuler ma reservation ?</h3>
                 <p className="text-sm text-muted-foreground">
-                  Les conditions d&apos;annulation sont detaillees dans nos conditions generales de vente disponibles lors de
+                  Les conditions d'annulation sont detaillees dans nos conditions generales de vente disponibles lors de
                   la reservation.
                 </p>
               </div>
               <div>
-                <h3 className="mb-2 text-base md:text-xl font-semibold">Qu&apos;est-ce qui est inclus dans le prix ?</h3>
+                <h3 className="mb-2 text-base md:text-xl font-semibold">Qu'est-ce qui est inclus dans le prix ?</h3>
                 <p className="text-sm text-muted-foreground">
-                  Hebergement, tous les repas, toutes les activites et l&apos;accompagnement par notre equipe
+                  Hebergement, tous les repas, toutes les activites et l'accompagnement par notre equipe
                   professionnelle.
                 </p>
               </div>
@@ -439,7 +436,7 @@ export default function SejoursPage() {
             Notre mas provencal, situe a 6 min du village de Trans-en-Provence et a 12 min de la gare TGV Les Arcs /
             Draguignan, dispose de 7 chambres confortables, lumineuses, equipees de literie haut de gamme,
             climatisation, et salles de bain partagees ou privatives selon votre reservation. Il dispose egalement
-            d&apos;une piscine, avec transats dedies a la detente, salon de jardin, cuisine exterieure pour des dejeuners,
+            d'une piscine, avec transats dedies a la detente, salon de jardin, cuisine exterieure pour des dejeuners,
             et diners conviviaux. Sur place vous pourrez egalement retrouver un sauna de 4 places, un jaccusi, et une
             salle de sport pour vos seances de relaxation.
           </p>

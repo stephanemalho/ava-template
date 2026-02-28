@@ -85,18 +85,7 @@ export default function EquipePage() {
         <main>
             {/* Hero Section */}
             <section className="relative min-h-screen overflow-hidden bg-linear-to-b from-background to-muted/40 [text-shadow:0_2px_10px_rgba(0,0,0,0.55)]">
-                <div className="absolute inset-0 sm:hidden">
-                    <Image
-                        src="/Aurelie-Pierre.jpg"
-                        alt="Aurélie et pierre vous présentent l'équipe dans une liste çi-dessous"
-                        fill
-                        priority
-                        aria-hidden="true"
-                        className="object-cover"
-                    />
-                </div>
-
-                <div className="absolute inset-0 hidden sm:block">
+                <div className="absolute inset-0">
                     <Image
                         src="/groupe-ava.jpg"
                         alt="Image de toutes l'équipe de AVA Bien-Etre prete à vous accueillir pour vos retraites bien-être en Provence"
@@ -116,7 +105,7 @@ export default function EquipePage() {
                 </div>
 
                 <div className="relative container mx-auto flex min-h-screen items-center px-4 pt-20">
-                    <div className="max-w-3xl mx-auto mt-auto space-y-6 items-center text-center md:rounded-t-lg p-4 md:bg-[#544C41] bg-[#544c41cc]">
+                    <div className="max-w-3xl mx-auto mt-auto space-y-6 items-center text-center md:rounded-t-lg p-4 md:bg-[#4d6c4d] bg-[#544c41cc]">
                         <p className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-1 text-sm font-medium text-white sm:text-white">
                             Équipe AVA Bien-Être
                         </p>

@@ -27,7 +27,7 @@ export function Navigation() {
     const { totalPeople } = useReservationCart()
 
     return (
-        <header className="sticky top-0 z-50 w-full border-b bg-background/95">
+        <header className="sticky top-0 z-50 w-full border-b bg-[#4d6c4d]">
             <div className="mx-auto flex h-16 w-full max-w-full items-center justify-between px-4">
                 <Link href="/" className="flex items-center space-x-2">
                     <div className="h-10 w-10 relative">
@@ -50,8 +50,8 @@ export function Navigation() {
                             key={item.name}
                             href={item.href}
                             className={cn(
-                                "text-sm font-medium transition-colors hover:text-primary",
-                                pathname === item.href ? "text-primary" : "text-muted-foreground",
+                                "text-sm font-medium transition-colors text-white hover:text-primary/80",
+                                pathname === item.href ? "text-primary" : "",
                             )}
                         >
                             {item.name}
