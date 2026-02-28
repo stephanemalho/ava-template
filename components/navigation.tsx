@@ -27,7 +27,7 @@ export function Navigation() {
     const { totalPeople } = useReservationCart()
 
     return (
-        <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <header className="sticky top-0 z-50 w-full border-b bg-background/95">
             <div className="mx-auto flex h-16 w-full max-w-full items-center justify-between px-4">
                 <Link href="/" className="flex items-center space-x-2">
                     <div className="h-10 w-10 relative">
