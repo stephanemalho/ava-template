@@ -18,7 +18,7 @@ import { STRIPE_ACOMPTE_PER_PERSON_EUR } from "@/lib/reservation-pricing"
 import { CalendarDays, CreditCard, ShieldCheck, ShoppingCart, Users } from "lucide-react"
 
 export function ReservationCartDialog() {
-  const { items, totalPeople, totalPrice, totalAcompte } = useReservationCart()
+  const { items, totalPeople, totalPrice, totalAcompte, isCartDialogOpen, setCartDialogOpen } = useReservationCart()
   const selections = Object.values(items)
   const [isRedirecting, setIsRedirecting] = useState(false)
   const [checkoutError, setCheckoutError] = useState<string | null>(null)
@@ -59,7 +59,7 @@ export function ReservationCartDialog() {
   }
 
   return (
-    <Dialog>
+    <Dialog open={isCartDialogOpen} onOpenChange={setCartDialogOpen}>
       <DialogTrigger asChild>
         <Button variant="ghost" size="icon" aria-label="Panier des réservations">
           <ShoppingCart className="h-5 w-5" />

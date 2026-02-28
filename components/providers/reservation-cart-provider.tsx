@@ -20,12 +20,15 @@ type ReservationCartContextValue = {
     totalPeople: number
     totalPrice: number
     totalAcompte: number
+    isCartDialogOpen: boolean
+    setCartDialogOpen: (isOpen: boolean) => void
 }
 
 const ReservationCartContext = createContext<ReservationCartContextValue | null>(null)
 
 export function ReservationCartProvider({ children }: { children: React.ReactNode }) {
     const [items, setItems] = useState<Record<string, ReservationCartItem>>({})
+    const [isCartDialogOpen, setCartDialogOpen] = useState(false)
 
     const setReservation = (item: ReservationCartItem) => {
         setItems((prev) => ({
@@ -61,8 +64,10 @@ export function ReservationCartProvider({ children }: { children: React.ReactNod
             totalPeople,
             totalPrice,
             totalAcompte,
+            isCartDialogOpen,
+            setCartDialogOpen,
         }),
-        [getReservation, items, totalPeople, totalPrice, totalAcompte],
+        [getReservation, items, totalPeople, totalPrice, totalAcompte, isCartDialogOpen],
     )
 
     return <ReservationCartContext.Provider value={value}>{children}</ReservationCartContext.Provider>

@@ -4,11 +4,16 @@ import { ShoppingCart } from "lucide-react"
 import { useReservationCart } from "@/components/providers/reservation-cart-provider"
 
 export function ReservationCartPill() {
-  const { totalPeople, totalPrice } = useReservationCart()
+  const { totalPeople, totalPrice, setCartDialogOpen } = useReservationCart()
 
   return (
     <div className="flex items-center justify-center">
-      <div className="inline-flex items-center gap-3 rounded-full border bg-background px-4 py-2 text-sm">
+      <button
+        type="button"
+        className="inline-flex items-center gap-3 rounded-full border bg-background px-4 py-2 text-sm transition-colors hover:bg-muted/40"
+        onClick={() => setCartDialogOpen(true)}
+        aria-label="Ouvrir le récapitulatif panier"
+      >
         <span className="relative inline-flex">
           <ShoppingCart className="h-4 w-4 text-primary" aria-hidden="true" />
           {totalPeople > 0 && (
@@ -21,7 +26,7 @@ export function ReservationCartPill() {
           {totalPeople > 0 ? `${totalPeople} personne(s) sélectionnée(s)` : "Aucune sélection validée"}
         </span>
         {totalPeople > 0 && <span className="font-semibold">{totalPrice}.00 €</span>}
-      </div>
+      </button>
     </div>
   )
 }
