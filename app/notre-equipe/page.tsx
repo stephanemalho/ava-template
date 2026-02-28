@@ -2,6 +2,7 @@ import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import { toAnchorId } from "@/lib/anchor"
 
 const teamMembers = [
     {
@@ -128,7 +129,11 @@ export default function EquipePage() {
                     {/* Team Grid */}
                     <div className="grid gap-8">
                         {teamMembers.map((member, index) => (
-                            <Card key={index} className="overflow-hidden">
+                            <Card
+                                key={member.name}
+                                id={toAnchorId(member.name)}
+                                className="overflow-hidden scroll-mt-24"
+                            >
                                 <CardContent className="p-0">
                                     <div className={`grid md:grid-cols-2 gap-0 ${index % 2 === 1 ? "md:grid-flow-col-dense" : ""}`}>
                                         <div className={`relative m-4 h-dvh md:h-64 md:min-h-260 ${index % 2 === 1 ? "md:order-2" : ""}`}>
@@ -143,7 +148,7 @@ export default function EquipePage() {
                                                 <p className="text-muted-foreground leading-relaxed">{member.description}</p>
                                                 <div className="flex flex-wrap gap-2">
                                                     {member.specialties.map((specialty, idx) => (
-                                                        <Badge key={idx} variant="secondary">
+                                                        <Badge key={`${member.name}-${idx}`} variant="secondary">
                                                             {specialty}
                                                         </Badge>
                                                     ))}
