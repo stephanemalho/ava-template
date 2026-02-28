@@ -119,6 +119,11 @@
   * {
     @apply border-border outline-ring/50;
   }
+
+  :where(a[href], button:not(:disabled), [role="button"], summary, [type="button"], [type="submit"], [type="reset"]) {
+    cursor: pointer;
+  }
+
   body {
     background-color: var(--background);
     color: var(--foreground);

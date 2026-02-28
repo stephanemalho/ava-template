@@ -1,7 +1,7 @@
 import Image from "next/image"
-import Link from "next/link"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import { LinkButton } from "@/components/link-button"
 import { BriefcaseBusiness, CalendarDays, Chrome, Clock, Mail, MapPin, PawPrint, Sparkles, Users } from "lucide-react"
 
 const contactItems = [
@@ -93,7 +93,7 @@ export default function ContactPage() {
                 </section>
 
                 <div className="grid md:grid-cols-2 gap-8">
-                    <Card className="bg-muted/40">
+                    <Card id="contact-direct" className="bg-muted/40 scroll-mt-24">
                         <CardContent className="p-6 space-y-5">
                             {contactItems.map((item) => {
                                 const IconComponent = item.icon
@@ -145,9 +145,7 @@ export default function ContactPage() {
                                     />
                                 </div>
                                 <div className="flex flex-col items-start gap-2">
-                                    <Button asChild>
-                                        <Link href="/reservations">Revoir les séjours disponibles</Link>
-                                    </Button>
+                                    <LinkButton href="/reservations">Revoir les séjours disponibles</LinkButton>
                                     <Button asChild variant="outline">
                                         <a href="mailto:contact@auxbienetre.fr">Posez nous toutes vos questions</a>
                                     </Button>
@@ -212,14 +210,8 @@ export default function ContactPage() {
                             </p>
                         </div>
                         <div className="flex flex-col sm:flex-row gap-2">
-                            <Button asChild>
-                                <a href="mailto:contact@auxbienetre.fr?subject=Demande%20devis%20entreprise%20-%20Ava%20Bien-%C3%8Atre">
-                                    Demander un devis
-                                </a>
-                            </Button>
-                            <Button asChild variant="outline">
-                                <Link href="/reservations">Consulter les formats</Link>
-                            </Button>
+                            <LinkButton href="/contact#contact-direct">Demander un devis</LinkButton>
+                            <LinkButton href="/reservations" variant="outline">Consulter les formats</LinkButton>
                         </div>
                     </div>
                 </section>

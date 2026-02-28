@@ -1,7 +1,7 @@
 import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
+import { LinkButton } from "@/components/link-button"
 import { Heart, Leaf, Users, Star } from "lucide-react"
 
 export default function PresentationPage() {
@@ -212,10 +212,10 @@ export default function PresentationPage() {
                         Découvrez nos prochaines retraites et commencez votre voyage vers un mieux-être authentique et durable.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Button size="lg">Voir nos séjours</Button>
-                        <Button variant="outline" size="lg">
+                        <LinkButton href="/sejour-a-trans-en-provence" size="lg">Voir nos séjours</LinkButton>
+                        <LinkButton href="/contact#contact-direct" variant="outline" size="lg">
                             Nous contacter
-                        </Button>
+                        </LinkButton>
                     </div>
                 </div>
             </div>

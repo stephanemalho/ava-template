@@ -2,6 +2,7 @@ import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import { LinkButton } from "@/components/link-button"
 import { toAnchorId } from "@/lib/anchor"
 
 const teamMembers = [
@@ -129,11 +130,7 @@ export default function EquipePage() {
                     {/* Team Grid */}
                     <div className="grid gap-8">
                         {teamMembers.map((member, index) => (
-                            <Card
-                                key={member.name}
-                                id={toAnchorId(member.name)}
-                                className="overflow-hidden scroll-mt-24"
-                            >
+                            <Card key={member.name} id={toAnchorId(member.name)} className="overflow-hidden scroll-mt-24">
                                 <CardContent className="p-0">
                                     <div className={`grid md:grid-cols-2 gap-0 ${index % 2 === 1 ? "md:grid-flow-col-dense" : ""}`}>
                                         <div className={`relative m-4 h-dvh md:h-64 md:min-h-260 ${index % 2 === 1 ? "md:order-2" : ""}`}>
@@ -153,8 +150,14 @@ export default function EquipePage() {
                                                         </Badge>
                                                     ))}
                                                 </div>
-                                                <Button variant="outline" size="sm">
-                                                    En savoir plus
+                                                <Button asChild variant="outline" size="sm">
+                                                    <a
+                                                        href={`https://www.linkedin.com/in/${toAnchorId(member.name)}`}
+                                                        target="_blank"
+                                                        rel="noreferrer"
+                                                    >
+                                                        {`Contacter ${member.name}`}
+                                                    </a>
                                                 </Button>
                                             </div>
                                         </div>
@@ -170,7 +173,7 @@ export default function EquipePage() {
                         <p className="text-muted-foreground">
                             Rejoignez-nous pour une expérience transformatrice avec notre équipe bienveillante
                         </p>
-                        <Button size="lg">Réserver votre séjour</Button>
+                        <LinkButton href="/reservations" size="lg">Réserver votre séjour</LinkButton>
                     </div>
                 </div>
             </section>
