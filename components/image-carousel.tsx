@@ -33,7 +33,7 @@ export function ImageCarousel({ slides, className, priorityFirstImage = false }:
   return (
     <div className={cn("space-y-3", className)}>
       <div className="relative overflow-hidden rounded-lg" role="region" aria-label="Galerie d'images">
-        <div className="relative h-64 md:h-80">
+        <div className="relative h-64 md:h-96">
           {slides.map((slide, index) => (
             <figure key={`${slide.src}-${index}`} className={cn("absolute inset-0", index === currentIndex ? "block" : "hidden")}>
               <Image

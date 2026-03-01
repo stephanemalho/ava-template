@@ -54,40 +54,65 @@ const staySessions: StaySession[] = [
   },
 ]
 
-function duplicateSlides(src: string, altBase: string, captionBase: string): CarouselSlide[] {
-  return [1, 2, 3, 4].map((position) => ({
+function createSlides(images: string[], altBase: string, captionBase: string): CarouselSlide[] {
+  return images.map((src, index) => ({
     src,
-    alt: `${altBase} - vue ${position}`,
-    caption: `${captionBase} (${position}/4)`,
+    alt: `${altBase} - vue ${index + 1}`,
+    caption: `${captionBase} (${index + 1}/${images.length})`,
   }))
 }
 
-const hebergementSlides = duplicateSlides(
-  "/hebergement-exterieur-5.png",
+const hebergementSlides = createSlides(
+  [
+    "/sejours/hebergement/hebergement-exterieur-a.jpg",
+    "/sejours/hebergement/hebergement-exterieur-b.jpg",
+    "/sejours/hebergement/hebergement-exterieur-c.jpg",
+  ],
   "Mas provençal AVA Bien-être avec extérieurs et piscine",
   "Le domaine AVA Bien-être à Trans-en-Provence"
 )
 
-const interieurSlides = duplicateSlides(
-  "/interieur-1.jpg",
+const interieurSlides = createSlides(
+  [
+    "/sejours/espaces-interieurs/hebergement-interieur-a.jpg",
+    "/sejours/espaces-interieurs/hebergement-interieur-b.jpg",
+    "/sejours/espaces-interieurs/hebergement-interieur-c.jpg",
+  ],
   "Espaces intérieurs partagés du séjour AVA Bien-être",
   "Salle de vie et espace d'échange intérieur"
 )
 
-const exterieurSlides = duplicateSlides(
-  "/exterieur-3.jpg",
+const exterieurSlides = createSlides(
+  [
+    "/sejours/espaces-exterieurs/hebergement-exterieur-c-1.jpg",
+    "/sejours/espaces-exterieurs/hebergement-exterieur-d.jpg",
+    "/sejours/espaces-exterieurs/hebergement-exterieur-e.jpg",
+    "/sejours/espaces-exterieurs/hebergement-exterieur-f.jpg",
+    "/sejours/espaces-exterieurs/hebergement-exterieur-g.jpg",
+  ],
   "Espaces extérieurs du mas pour activités et repos",
   "Jardins et zones de détente en plein air"
 )
 
-const cuisineSlides = duplicateSlides(
-  "/cuisine-2.jpg",
+const cuisineSlides = createSlides(
+  [
+    "/sejours/la-cuisine/cuisine-a.jpg",
+    "/sejours/la-cuisine/cuisine-b.jpg",
+  ],
   "Cuisine du mas où sont préparés repas et collations",
   "Espace cuisine dédié à l'équilibre nutritionnel"
 )
 
-const chambreSlides = duplicateSlides(
-  "/chambre-1-1.jpg",
+const chambreSlides = createSlides(
+  [
+    "/sejours/les-chambres/chambre-a.jpg",
+    "/sejours/les-chambres/chambre-b.jpg",
+    "/sejours/les-chambres/chambre-c.jpg",
+    "/sejours/les-chambres/chambre-d.jpg",
+    "/sejours/les-chambres/chambre-e.jpg",
+    "/sejours/les-chambres/chambre-f.jpg",
+    "/sejours/les-chambres/chambre-g.jpg",
+  ],
   "Chambre climatisée du séjour AVA Bien-être",
   "Chambre confortable pour un sommeil réparateur"
 )
@@ -141,7 +166,7 @@ export default function SejoursPage() {
         </section>
 
         <section className="mb-16 text-center">
-          <h2 className="mb-4 text-base md:text-xl font-bold">Voici la liste de vos espaces et activités</h2>
+          <h2 className="mb-4 text-base md:text-xl font-bold">Voici la liste de vos espaces de détente</h2>
           <div className="mb-8 flex items-center justify-center space-x-6 text-muted-foreground">
             <div className="flex items-center space-x-2">
               <MapPin className="h-4 w-4" />
@@ -206,12 +231,11 @@ export default function SejoursPage() {
               <div className="space-y-6">
                 <Badge variant="secondary" className="w-fit">
                   <Dumbbell className="mr-2 h-4 w-4" />
-                  Espaces extérieurs
+                  Les espaces extérieurs
                 </Badge>
-                <h2 className="text-base md:text-xl font-bold">En harmonie avec la nature</h2>
+                <h2 className="text-base md:text-xl font-bold">Les espaces extérieurs</h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  Jardins méditerranéens, terrasses ombragées et espaces de pratique en plein air. Reconnectez-vous
-                  avec la nature dans un cadre préservé au coeur de la Provence.
+                  La plupart de nos ateliers auront lieu en extérieur, au milieu des arbres et du chant des cigales, de l’odeur de la pinède, des oliviers, des eucalyptus, du chant des oiseaux, dont nous disposons tout autour du mas ! Ambiance relaxante et dépaysante.
                 </p>
               </div>
               <ImageCarousel slides={exterieurSlides} className="w-full" />
@@ -348,7 +372,7 @@ export default function SejoursPage() {
             </Card>
           </div>
         </section>
-         <section className="mb-16">
+        <section className="mb-16">
           <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
             {staySessions.map((session, index) => (
               <Card key={session.dateRange} className="overflow-hidden">
