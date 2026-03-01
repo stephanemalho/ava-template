@@ -1,8 +1,9 @@
-import type { MetadataRoute } from "next"
-import { siteConfig, sitemapPages } from "@/lib/seo-config"
+import type { MetadataRoute } from "next";
+import { siteConfig, sitemapPages } from "@/lib/seo-config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const toUrl = (path: string) => new URL(path, siteConfig.siteUrl).toString()
+    const toUrl = (path: string) =>
+        new URL(path, siteConfig.siteUrl).toString();
 
   return sitemapPages.map((page) => ({
     url: toUrl(page.url),
