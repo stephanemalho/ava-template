@@ -57,11 +57,11 @@ function DialogContent({ className, children, ...props }: React.ComponentProps<t
   )
 }
 
-function DialogHeader({ className, ...props }: React.ComponentProps<"div">) {
+function DialogHeader({ className, ...props }: React.ComponentPropsWithoutRef<"div">) {
   return <div className={cn("flex flex-col gap-1.5 text-center sm:text-left", className)} {...props} />
 }
 
-function DialogFooter({ className, ...props }: React.ComponentProps<"div">) {
+function DialogFooter({ className, ...props }: React.ComponentPropsWithoutRef<"div">) {
   return <div className={cn("flex flex-col-reverse gap-2 sm:flex-row sm:justify-end", className)} {...props} />
 }
 

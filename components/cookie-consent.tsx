@@ -13,8 +13,10 @@ type WindowWithAnalytics = Window & {
 }
 
 export default function CookieConsent() {
+  // Rendu initial stable SSR/CSR pour eviter les mismatch d'hydratation.
   const [consent, setConsent] = useState<ConsentState>("unknown")
-  const [open, setOpen] = useState(false)
+  const [managerOpen, setManagerOpen] = useState(false)
+  const open = consent === "unknown" || managerOpen
 
   function injectGAScript() {
     if (!GA_ID) return
@@ -72,7 +74,7 @@ gtag('config', '${GA_ID}');`
       localStorage.setItem("cookie_consent", "accepted")
     } catch {}
     setConsent("accepted")
-    setOpen(false)
+    setManagerOpen(false)
     notifyConsentChange()
   }
 
@@ -91,7 +93,7 @@ gtag('config', '${GA_ID}');`
     clearGACookies()
     removeGAScript()
     setConsent("denied")
-    setOpen(false)
+    setManagerOpen(false)
     notifyConsentChange()
   }
 
@@ -99,18 +101,11 @@ gtag('config', '${GA_ID}');`
     try {
       const stored = localStorage.getItem("cookie_consent")
       if (stored === "accepted" || stored === "denied") {
-        // Initialisation depuis le stockage local au montage.
+        // Synchronisation post-hydratation avec le stockage client.
         // eslint-disable-next-line react-hooks/set-state-in-effect
         setConsent(stored)
-        setOpen(false)
-        return
       }
-      setConsent("unknown")
-      setOpen(true)
-    } catch {
-      setConsent("unknown")
-      setOpen(true)
-    }
+    } catch {}
   }, [])
 
   useEffect(() => {
@@ -155,7 +150,7 @@ gtag('config', '${GA_ID}');`
         <button
           aria-label="Gerer les cookies"
           title="Gerer les cookies"
-          onClick={() => setOpen(true)}
+          onClick={() => setManagerOpen(true)}
           className="fixed bottom-4 left-4 z-40 rounded-full border border-primary bg-background/60 p-2 text-primary shadow-md transition hover:bg-accent"
         >
           <Cookie className="h-4 w-4" />
