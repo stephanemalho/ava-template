@@ -54,39 +54,61 @@ export default function HomePage() {
           </Button>
         </div>
       </section>
-
-
       {/* Ressourcement Section */}
       <section className="py-16 bg-muted/30 my-8">
         <div className="container mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <YoutubeClickPlayer
               className="relative w-full aspect-video overflow-hidden"
-              title="Teaser officiel AVA BIEN ETRE Pierre Yonas"
+              title="Teaser officiel AVA BIEN-ÊTRE Pierre Yonas"
               youtubeId="QnyHeO6l4F4"
               thumbnailSrc="/minia-youtube.png"
-              thumbnailAlt="Lancer la video teaser AVA Bien-Etre"
+              thumbnailAlt="Lancer la vidéo teaser AVA Bien-Être"
             />
+
             <div className="space-y-6">
               <Badge variant="outline" className="w-fit">
-                Ressourcement
+                Lâcher-prise - reconnexion à soi
               </Badge>
-              <h2 className="text-base md:text-xl font-bold">Besoin de vous ressourcer ?</h2>
-              <p className="text-muted-foreground leading-relaxed">
-                Ava Bien-Etre organise des sejours tout inclus en Provence:
-                hebergement, repas, ateliers et accompagnement humain dans un
-                cadre naturel propice a la reconnexion a soi.
+              <h2 className="text-base md:text-xl font-bold">
+                Besoin de te ressourcer ?
+              </h2>
+              <p>
+                Retrouve sur cette page toutes les informations et les liens vers les pages qui te permettront de
+                mieux connaître nos séjours, notre équipe et les raisons pour lesquelles
+                tu devrais nous rejoindre pour une expérience de reconnexion à soi
+                inoubliable&nbsp;!
               </p>
+              <div className="space-y-2 mt-6">
+                <h3 className="font-semibold">
+                  Nos séjours tout inclus proposent une expérience de ressourcement
+                  complète, alliant&nbsp;:
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  Hébergement, repas, ateliers et accompagnement humain dans un cadre
+                  naturel propice à la reconnexion à soi.
+                </p>
+              </div>
               <div className="space-y-2">
-                <p className="font-semibold">Hébergement, repas, ateliers variés</p>
-                <p className="text-sm text-muted-foreground">6 jours tout inclus</p>
+                <h3 className="font-semibold">
+                  Toute notre énergie est consacrée à faire de ton séjour une expérience
+                  extraordinaire, relaxante et dépaysante&nbsp;!
+                </h3>
+
+                <p className="text-sm text-muted-foreground">
+                  Nous canalisons cette énergie à travers de nombreux ateliers afin que tu
+                  vives un séjour apaisant, ressourçant et profondément dépaysant en notre
+                  compagnie&nbsp;! N’attends plus pour te joindre à cette merveilleuse aventure
+                  humaine, qui te permettra de revoir la vie sous un angle nouveau et plus
+                  serein&nbsp;!
+                </p>
               </div>
               <div className="flex flex-wrap gap-3">
                 <Button asChild size="lg" className="bg-primary hover:bg-primary/80">
-                  <Link href="/presentation">Decouvrir Ava Bien-etre</Link>
+                  <Link href="/presentation">Découvrir Ava Bien-Être</Link>
                 </Button>
                 <Button asChild size="lg" variant="outline">
-                  <Link href="/reservations">Acceder aux reservations</Link>
+                  <Link href="/reservations">Accéder aux réservations</Link>
                 </Button>
               </div>
             </div>
@@ -98,10 +120,12 @@ export default function HomePage() {
       <section className="py-16">
         <div className="container mx-auto space-y-10">
           <div className="text-center space-y-4">
-            <h2 className="text-base md:text-xl font-bold">Informations essentielles pour votre sejour</h2>
+            <h2 className="text-base md:text-xl font-bold">
+              Informations essentielles pour votre séjour
+            </h2>
             <p className="mx-auto max-w-3xl text-muted-foreground">
-              Avant de reserver, consultez les informations utiles sur le programme, les intervenants,
-              le lieu a Trans-en-Provence et les modalites de contact.
+              Avant de réserver, consultez les informations utiles sur le programme,
+              les intervenants, le lieu à Trans-en-Provence et les modalités de contact.
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-2">
@@ -138,16 +162,16 @@ export default function HomePage() {
               >
                 <Card className="h-full text-center transition-colors group-hover:border-primary/50">
                   <CardContent className="p-6">
-                  <div className="relative w-32 h-32 mx-auto mb-4">
-                    <Image
-                      src={founder.image || "/placeholder.svg"}
-                      alt={founder.name}
-                      fill
-                      className="rounded-full object-cover"
-                    />
-                  </div>
-                  <h3 className="text-base md:text-xl font-semibold mb-2">{founder.name}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{founder.description}</p>
+                    <div className="relative w-32 h-32 mx-auto mb-4">
+                      <Image
+                        src={founder.image || "/placeholder.svg"}
+                        alt={founder.name}
+                        fill
+                        className="rounded-full object-cover"
+                      />
+                    </div>
+                    <h3 className="text-base md:text-xl font-semibold mb-2">{founder.name}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{founder.description}</p>
                   </CardContent>
                 </Card>
               </Link>

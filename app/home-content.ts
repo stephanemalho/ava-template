@@ -9,19 +9,19 @@ export const founderPreviews: FounderPreview[] = [
     name: "Aurélie",
     image: "/Aurelie-2.jpg",
     description:
-      "Specialiste du mieux-etre, Aurelie accompagne avec bienveillance les personnes en recherche d'alignement personnel.",
+      "Spécialiste du mieux-être, Aurélie accompagne avec bienveillance les personnes en recherche d’alignement personnel.",
   },
   {
     name: "Émilie",
     image: "/Emilie-2.jpg",
     description:
-      "Emilie transmet des pratiques concretes pour retrouver calme interieur, energie et equilibre au quotidien.",
+      "Émilie transmet des pratiques concrètes pour retrouver calme intérieur, énergie et équilibre au quotidien.",
   },
   {
     name: "Pierre Yonas",
     image: "/Pierre_Yonas-2.jpg",
     description:
-      "Pierre Yonas anime des accompagnements autour du developpement personnel, de la conscience de soi et de l'intuition.",
+      "Pierre Yonas anime des accompagnements autour du développement personnel, de la conscience de soi et de l’intuition.",
   },
 ]
 
@@ -29,28 +29,28 @@ export const clientInfoCards = [
   {
     title: "Programme complet sur place",
     description:
-      "Un sejour structure avec ateliers bien-etre, temps de repos, activites collectives et accompagnement humain.",
+      "Un séjour structuré avec ateliers bien-être, temps de repos, activités collectives et accompagnement humain.",
     href: "/sejour-a-trans-en-provence",
     cta: "Voir le programme",
   },
   {
     title: "Approche et philosophie AVA",
     description:
-      "Decouvrez la vision d'Ava Bien-Etre, les valeurs du collectif et notre methode d'accompagnement globale.",
+      "Découvrez la vision d’Ava Bien-Être, les valeurs du collectif et notre méthode d’accompagnement globale.",
     href: "/presentation",
-    cta: "Lire la presentation",
+    cta: "Lire la présentation",
   },
   {
-    title: "L'equipe qui vous accompagne",
+    title: "L’équipe qui vous accompagne",
     description:
       "Consultez les profils des intervenants et des fondateurs qui encadrent les retraites et les ateliers.",
     href: "/notre-equipe",
-    cta: "Rencontrer l'equipe",
+    cta: "Rencontrer l’équipe",
   },
   {
-    title: "Reservation et contact",
+    title: "Réservation et contact",
     description:
-      "Besoin d'un echange avant de reserver ? Contactez-nous ou accedez directement a la page reservations.",
+      "Besoin d’un échange avant de réserver ? Contactez-nous ou accédez directement à la page réservations.",
     href: "/contact",
     cta: "Nous contacter",
   },
