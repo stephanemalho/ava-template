@@ -18,6 +18,8 @@ export function useReservationPackageControls(pkg: ReservationPackage) {
   )
 
   useEffect(() => {
+    // Synchronise la quantite locale quand le panier global evolue.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setSelectedPeopleCount(clampPeopleCount(cartItem?.peopleCount ?? minSelectablePeople))
   }, [cartItem?.peopleCount, clampPeopleCount, minSelectablePeople])
 

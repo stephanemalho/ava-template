@@ -99,6 +99,8 @@ gtag('config', '${GA_ID}');`
     try {
       const stored = localStorage.getItem("cookie_consent")
       if (stored === "accepted" || stored === "denied") {
+        // Initialisation depuis le stockage local au montage.
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setConsent(stored)
         setOpen(false)
         return
