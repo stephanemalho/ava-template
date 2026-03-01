@@ -135,10 +135,10 @@ export default function ContactPage() {
                                 </div>
                             </div>
                             <div className="flex flex-col items-center gap-4 md:flex-row md:items-center md:justify-between">
-                                <div className="relative h-28 w-28">
+                                <div className="mt-12 relative h-28 w-28">
                                     <Image
-                                        src="/Logo-Ava_Bien_Etre-2-300x300.png"
-                                        alt="Logo Ava Bien-Être"
+                                        src="/contact/adobe-express-qr-code.png"
+                                        alt="QR code de contact Ava Bien-Être"
                                         fill
                                         className="object-contain"
                                         sizes="112px"
@@ -147,7 +147,9 @@ export default function ContactPage() {
                                 <div className="flex flex-col items-center gap-2 md:items-start">
                                     <LinkButton href="/reservations">Revoir les séjours disponibles</LinkButton>
                                     <Button asChild variant="outline">
-                                        <a href="mailto:contact@auxbienetre.fr">Posez nous toutes vos questions</a>
+                                        <a href="https://forms.gle/gFuHdXa9z6anSEJR8" target="_blank" rel="noreferrer">
+                                            Posez nous toutes vos questions
+                                        </a>
                                     </Button>
                                 </div>
                             </div>

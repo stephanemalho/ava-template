@@ -1,17 +1,29 @@
 "use client"
 
-import { useCallback, useMemo, useState } from "react"
+import { useCallback, useEffect, useMemo, useState } from "react"
 import { useReservationCart } from "@/components/providers/reservation-cart-provider"
 import type { ReservationPackage } from "../_data/packages"
 
 export function useReservationPackageControls(pkg: ReservationPackage) {
   const { setReservation, removeReservation, getReservation } = useReservationCart()
   const cartItem = getReservation(pkg.id)
-  const [selectedPeopleCount, setSelectedPeopleCount] = useState(cartItem?.peopleCount ?? 1)
+  const maxSelectablePeople = pkg.availablePlaces
+  const minSelectablePeople = 0
+  const clampPeopleCount = useCallback(
+    (value: number) => Math.min(Math.max(value, minSelectablePeople), maxSelectablePeople),
+    [maxSelectablePeople, minSelectablePeople]
+  )
+  const [selectedPeopleCount, setSelectedPeopleCount] = useState(
+    clampPeopleCount(cartItem?.peopleCount ?? minSelectablePeople)
+  )
+
+  useEffect(() => {
+    setSelectedPeopleCount(clampPeopleCount(cartItem?.peopleCount ?? minSelectablePeople))
+  }, [cartItem?.peopleCount, clampPeopleCount, minSelectablePeople])
 
   const updatePeopleCount = useCallback((delta: number) => {
-    setSelectedPeopleCount((current) => Math.max(1, current + delta))
-  }, [])
+    setSelectedPeopleCount((current) => clampPeopleCount(current + delta))
+  }, [clampPeopleCount])
 
   const validateSelection = useCallback(() => {
     setReservation({
@@ -29,10 +41,14 @@ export function useReservationPackageControls(pkg: ReservationPackage) {
 
   return useMemo(() => {
     const isValidated = Boolean(cartItem)
+    const isSoldOut = maxSelectablePeople === 0
     return {
       selectedPeopleCount,
       computedPrice: pkg.price * selectedPeopleCount,
       isValidated,
+      isSoldOut,
+      minSelectablePeople,
+      maxSelectablePeople,
       hasPendingChanges: isValidated && cartItem?.peopleCount !== selectedPeopleCount,
       updatePeopleCount,
       validateSelection,
@@ -40,6 +56,8 @@ export function useReservationPackageControls(pkg: ReservationPackage) {
     }
   }, [
     cartItem,
+    maxSelectablePeople,
+    minSelectablePeople,
     pkg.price,
     removeSelection,
     selectedPeopleCount,

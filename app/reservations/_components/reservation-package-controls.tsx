@@ -14,11 +14,15 @@ export function ReservationPackageControls({ pkg }: ReservationPackageControlsPr
     selectedPeopleCount,
     computedPrice,
     isValidated,
+    isSoldOut,
+    minSelectablePeople,
+    maxSelectablePeople,
     hasPendingChanges,
     updatePeopleCount,
     validateSelection,
     removeSelection,
   } = useReservationPackageControls(pkg)
+  const isInvalidSelection = selectedPeopleCount === 0
 
   return (
     <div className="mt-8 space-y-4">
@@ -38,6 +42,7 @@ export function ReservationPackageControls({ pkg }: ReservationPackageControlsPr
             type="button"
             onClick={() => updatePeopleCount(-1)}
             aria-label={`Retirer une personne pour ${pkg.title}`}
+            disabled={selectedPeopleCount <= minSelectablePeople}
           >
             <Minus className="h-4 w-4" />
           </Button>
@@ -48,22 +53,32 @@ export function ReservationPackageControls({ pkg }: ReservationPackageControlsPr
             type="button"
             onClick={() => updatePeopleCount(1)}
             aria-label={`Ajouter une personne pour ${pkg.title}`}
+            disabled={selectedPeopleCount >= maxSelectablePeople}
           >
             <Plus className="h-4 w-4" />
           </Button>
         </div>
       </div>
+      {(isSoldOut || selectedPeopleCount >= maxSelectablePeople) && (
+        <p className="text-xs text-amber-700">
+          {isSoldOut
+            ? "Il n'y a plus de place disponible pour ce séjour."
+            : "Le nombre maximum de personnes pour ce séjour est atteint."}
+        </p>
+      )}
 
       <div className="flex flex-wrap justify-center gap-2 md:justify-start">
         <Button
           size="lg"
-          disabled={pkg.badge === "COMPLET"}
-          className={pkg.badge === "COMPLET" ? "cursor-not-allowed opacity-50" : ""}
+          disabled={pkg.badge === "COMPLET" || isSoldOut || isInvalidSelection}
+          className={pkg.badge === "COMPLET" || isSoldOut || isInvalidSelection ? "cursor-not-allowed opacity-50" : ""}
           onClick={validateSelection}
         >
           <ShoppingCart className="mr-2 h-4 w-4" />
-          {pkg.badge === "COMPLET"
+          {pkg.badge === "COMPLET" || isSoldOut
             ? "Complet"
+            : isInvalidSelection
+              ? "Sélectionne au moins 1 personne"
             : !isValidated
               ? "Valider la sélection"
               : hasPendingChanges

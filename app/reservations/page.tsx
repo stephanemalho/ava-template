@@ -19,6 +19,9 @@ export default function ReservationsPage() {
                     <p className="mx-auto max-w-3xl text-base text-muted-foreground">
                         Choisissez la formule qui vous correspond le mieux pour votre retraite bien-être
                     </p>
+                    <p className="mx-auto w-fit rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
+                        Acompte à la réservation : 500€ par personne. Le solde est à régler plus tard.
+                    </p>
                 </header>
 
                 <section className="grid grid-cols-1 gap-12 lg:grid-cols-2">
@@ -27,7 +30,7 @@ export default function ReservationsPage() {
                             <CardContent className="p-0">
                                 <div className="grid grid-cols-1 gap-0">
                                     <div className="p-4 pb-0">
-                                        <div className="relative mx-auto aspect-[3/4] w-full max-w-md overflow-hidden rounded-md">
+                                        <div className="relative mx-auto aspect-3/4 w-full max-w-md overflow-hidden rounded-md">
                                             <Image
                                                 src={pkg.image || "/placeholder.svg"}
                                                 alt={pkg.title}
@@ -56,6 +59,9 @@ export default function ReservationsPage() {
                                                     <span>{pkg.location}</span>
                                                 </div>
                                             </div>
+                                            <p className="text-sm text-primary font-medium">
+                                                Disponibilité : {pkg.availablePlaces} {pkg.availablePlaces > 1 ? "places" : "place"} disponible{pkg.availablePlaces > 1 ? "s" : ""} sur {pkg.totalPlaces}
+                                            </p>
 
                                             <Separator />
 
@@ -90,7 +96,7 @@ export default function ReservationsPage() {
                             <article className="space-y-2">
                                 <h3 className="text-base md:text-xl font-semibold text-foreground">Paiement</h3>
                                 <p>
-                                    Le paiement Stripe correspond à un acompte de {STRIPE_ACOMPTE_PER_PERSON_EUR}.00 € par personne.
+                                    Le paiement Stripe correspond uniquement à un acompte de {STRIPE_ACOMPTE_PER_PERSON_EUR}.00 € par personne.
                                     Le solde du séjour sera réglé selon les modalités convenues.
                                 </p>
                             </article>
