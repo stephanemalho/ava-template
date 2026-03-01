@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import Image from "next/image"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -19,6 +20,7 @@ import {
   MoonStar,
   BookOpen,
 } from "lucide-react"
+import { siteConfig } from "@/lib/seo-config"
 
 type StaySession = {
   title: string
@@ -117,9 +119,50 @@ const chambreSlides = createSlides(
   "Chambre confortable pour un sommeil réparateur"
 )
 
+export const metadata: Metadata = {
+  title: "Sejour a Trans-en-Provence | Ava Bien-Etre",
+  description:
+    "Decouvre le programme des sejours bien-etre AVA a Trans-en-Provence: hebergement, espaces, cuisine, activites et FAQ.",
+  keywords: [
+    "sejour bien-etre trans-en-provence",
+    "programme retraite bien-etre",
+    "hebergement retraite provence",
+    "activites bien-etre",
+  ],
+  alternates: {
+    canonical: siteConfig.pages.sejours,
+  },
+}
+
 export default function SejoursPage() {
+  const retreatServiceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Sejours bien-etre AVA",
+    provider: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      url: siteConfig.siteUrl,
+    },
+    areaServed: "FR",
+    serviceType: "Retraites bien-etre tout inclus",
+    url: `${siteConfig.siteUrl}${siteConfig.pages.sejours}`,
+    offers: {
+      "@type": "AggregateOffer",
+      priceCurrency: "EUR",
+      lowPrice: "1800",
+      highPrice: "1800",
+      offerCount: "2",
+      url: `${siteConfig.siteUrl}${siteConfig.pages.reservations}`,
+    },
+  }
+
   return (
     <main className="py-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(retreatServiceSchema) }}
+      />
       <div className="container mx-auto">
         <section className="mb-16 text-center space-y-6">
           <div className="relative h-64 overflow-hidden rounded-lg md:h-96">

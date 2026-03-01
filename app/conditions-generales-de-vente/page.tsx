@@ -1,15 +1,24 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import { returnLastmod, siteConfig } from "@/lib/seo-config"
 
 export const metadata: Metadata = {
-  title: "CGV | Ava Bien-Être",
-  description: "Conditions Générales de Vente des séjours AVA BIEN ÊTRE.",
+  title: "CGV | Ava Bien-Etre",
+  description: "Conditions generales de vente des sejours AVA BIEN ETRE.",
+  keywords: [
+    "cgv ava bien-etre",
+    "conditions reservation sejour bien-etre",
+    "annulation retraite bien-etre",
+    "paiement sejour ava",
+  ],
   alternates: {
-    canonical: "/conditions-generales-de-vente",
+    canonical: siteConfig.pages.cgv,
   },
 }
 
 export default function ConditionsGeneralesDeVentePage() {
+  const lastMod = returnLastmod(siteConfig.pages.cgv)
+
   return (
     <main className="py-16">
       <div className="container mx-auto max-w-5xl space-y-8">
@@ -307,6 +316,7 @@ export default function ConditionsGeneralesDeVentePage() {
             Pour toute question sur ces CGV, contacte notre équipe.
           </Link>
         </div>
+        <p className="text-right text-xs text-muted-foreground">Derniere mise a jour : {lastMod}</p>
       </div>
     </main>
   )

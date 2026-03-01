@@ -46,6 +46,16 @@ export function Footer() {
                                     Conditions générales de vente
                                 </Link>
                             </li>
+                            <li>
+                                <Link href="/mentions-legales" className="text-muted-foreground hover:text-primary">
+                                    Mentions legales
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/politique-de-confidentialite" className="text-muted-foreground hover:text-primary">
+                                    Politique de confidentialite
+                                </Link>
+                            </li>
                         </ul>
                     </div>
 

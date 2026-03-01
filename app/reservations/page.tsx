@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import Image from "next/image"
 import { BriefcaseBusiness, CalendarDays, MapPin, Users, Check } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
@@ -9,6 +10,8 @@ import { reservationPackages } from "./_data/packages"
 import { ReservationPackageControls } from "./_components/reservation-package-controls"
 import { ReservationCartPill } from "./_components/reservation-cart-pill"
 import { STRIPE_ACOMPTE_PER_PERSON_EUR } from "@/lib/reservation-pricing"
+import { generateStayOffersSchema } from "@/lib/schema-generators"
+import { siteConfig } from "@/lib/seo-config"
 
 const enterpriseOffer = {
     title: "Offre Entreprise sur mesure",
@@ -25,9 +28,30 @@ const enterpriseOffer = {
     ],
 }
 
+export const metadata: Metadata = {
+    title: "Reservations | Ava Bien-Etre",
+    description:
+        "Reserve ton sejour bien-etre AVA en Provence. Acompte de 500 EUR, disponibilites en temps reel et offre entreprise sur devis.",
+    keywords: [
+        "reservation retraite bien-etre",
+        "prix sejour bien-etre provence",
+        "acompte 500 euros retraite",
+        "offre entreprise qvct",
+    ],
+    alternates: {
+        canonical: siteConfig.pages.reservations,
+    },
+}
+
 export default function ReservationsPage() {
+    const stayOffersSchema = generateStayOffersSchema()
+
     return (
         <main className="py-16">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(stayOffersSchema) }}
+            />
             <div className="container mx-auto">
                 <header className="mb-16 space-y-6 text-center">
                     <h1 className="text-base font-bold md:text-5xl">Réservez votre séjour à Trans-en-Provence</h1>
