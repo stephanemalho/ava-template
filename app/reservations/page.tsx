@@ -1,13 +1,29 @@
 import Image from "next/image"
-import { MapPin, Users, Check } from "lucide-react"
+import { BriefcaseBusiness, CalendarDays, MapPin, Users, Check } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import { LinkButton } from "@/components/link-button"
 import { reservationPackages } from "./_data/packages"
 import { ReservationPackageControls } from "./_components/reservation-package-controls"
 import { ReservationCartPill } from "./_components/reservation-cart-pill"
 import { STRIPE_ACOMPTE_PER_PERSON_EUR } from "@/lib/reservation-pricing"
+
+const enterpriseOffer = {
+    title: "Offre Entreprise sur mesure",
+    subtitle: "Cohésion d'équipe, QVCT et séminaire bien-être à la carte",
+    image: "/sejours-ava.jpg",
+    badge: "ENTREPRISES",
+    location: "Trans-en-Provence (ou lieu à définir)",
+    type: "Format B2B",
+    features: [
+        "Programme construit selon vos objectifs RH : cohésion, prévention du stress, reconnexion d'équipe",
+        "Dates, durée, intervenants et activités personnalisables selon vos contraintes opérationnelles",
+        "Accompagnement sur mesure pour PME, ETI et grandes organisations",
+        "Prix sur devis selon effectif, format et niveau de personnalisation",
+    ],
+}
 
 export default function ReservationsPage() {
     return (
@@ -107,7 +123,82 @@ export default function ReservationsPage() {
                         </div>
                     </div>
                 </section>
+                {/* AJouter les section B to B ici */}
+                <section className="mt-16 space-y-6">
+                    <div className="text-center space-y-3">
+                        <Badge className="bg-primary px-3 py-1 font-bold text-white">{enterpriseOffer.badge}</Badge>
+                        <h2 className="text-base md:text-xl font-bold">Offre dédiée aux entreprises</h2>
+                        <p className="text-muted-foreground max-w-3xl mx-auto">
+                            Un format professionnel pensé pour la cohésion d&apos;équipe, avec un accompagnement entièrement sur mesure.
+                        </p>
+                    </div>
+                    <Card className="overflow-hidden border-primary/30">
+                        <CardContent className="p-0">
+                            <div className="grid grid-cols-1 gap-0 lg:grid-cols-[360px_1fr]">
+                                <div className="p-4 pb-0 lg:pb-4">
+                                    <div className="relative mx-auto aspect-3/4 w-full max-w-md overflow-hidden rounded-md">
+                                        <Image
+                                            src={enterpriseOffer.image}
+                                            alt={enterpriseOffer.title}
+                                            fill
+                                            className="object-cover"
+                                            sizes="(max-width: 1024px) 100vw, 360px"
+                                        />
+                                    </div>
+                                </div>
 
+                                <div className="flex flex-col justify-between p-6 md:p-8">
+                                    <div className="space-y-6">
+                                        <div>
+                                            <h3 className="mb-2 text-base md:text-xl font-bold text-primary">{enterpriseOffer.title}</h3>
+                                            <p className="text-base text-muted-foreground">{enterpriseOffer.subtitle}</p>
+                                        </div>
+
+                                        <div className="flex flex-col gap-2 text-sm text-muted-foreground md:flex-row md:items-center md:space-x-4">
+                                            <div className="flex items-center space-x-1">
+                                                <BriefcaseBusiness className="h-4 w-4" />
+                                                <span>{enterpriseOffer.type}</span>
+                                            </div>
+                                            <div className="flex items-center space-x-1">
+                                                <MapPin className="h-4 w-4" />
+                                                <span>{enterpriseOffer.location}</span>
+                                            </div>
+                                            <div className="flex items-center space-x-1">
+                                                <CalendarDays className="h-4 w-4" />
+                                                <span>Dates à la demande</span>
+                                            </div>
+                                        </div>
+
+                                        <Separator />
+
+                                        <div className="space-y-3">
+                                            {enterpriseOffer.features.map((feature) => (
+                                                <div key={feature} className="flex items-start space-x-2">
+                                                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                                                    <p className="text-sm text-muted-foreground">{feature}</p>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    <div className="mt-8 space-y-3">
+                                        <p className="text-2xl font-bold text-primary">Prix sur devis</p>
+                                        <p className="text-xs text-muted-foreground">
+                                            Réservation possible après validation du devis et des modalités de votre organisation.
+                                        </p>
+                                        <div className="flex flex-wrap justify-center gap-2 md:justify-start">
+                                            <Button asChild size="lg">
+                                                <a href="https://forms.gle/gFuHdXa9z6anSEJR8" target="_blank" rel="noreferrer">
+                                                    Demander un devis
+                                                </a>
+                                            </Button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </CardContent>
+                    </Card>
+                </section>
                 <section className="mt-16 space-y-6 text-center">
                     <h2 className="text-base md:text-xl font-bold">Des questions ?</h2>
                     <p className="text-muted-foreground">Notre équipe est là pour vous accompagner dans votre choix</p>

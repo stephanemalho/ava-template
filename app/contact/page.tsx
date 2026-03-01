@@ -212,7 +212,11 @@ export default function ContactPage() {
                             </p>
                         </div>
                         <div className="flex flex-col items-center gap-2 sm:flex-row">
-                            <LinkButton href="/contact#contact-direct">Demander un devis</LinkButton>
+                            <Button asChild>
+                                <a href="https://forms.gle/gFuHdXa9z6anSEJR8" target="_blank" rel="noreferrer">
+                                    Demander un devis
+                                </a>
+                            </Button>
                             <LinkButton href="/reservations" variant="outline">Consulter les formats</LinkButton>
                         </div>
                     </div>
