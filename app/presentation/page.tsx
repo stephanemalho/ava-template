@@ -43,6 +43,7 @@ export default function PresentationPage() {
                                 alt="Mission Ava Bien-Être"
                                 fill
                                 className="object-cover"
+                                sizes="(max-width: 949px) 100vw, 50vw"
                             />
                         </div>
                     </div>
@@ -104,7 +105,13 @@ export default function PresentationPage() {
                 <section className="mb-16">
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div className="relative h-64 md:h-80 rounded-lg overflow-hidden md:order-2">
-                            <Image src="/hebergement-exterieur-3.png" alt="Notre approche" fill className="object-cover" />
+                            <Image
+                                src="/hebergement-exterieur-3.png"
+                                alt="Notre approche"
+                                fill
+                                className="object-cover"
+                                sizes="(max-width: 949px) 100vw, 50vw"
+                            />
                         </div>
                         <div className="space-y-6 md:order-1">
                             <Badge variant="secondary" className="w-fit">

@@ -93,6 +93,7 @@ export default function EquipePage() {
                         priority
                         aria-hidden="true"
                         className="object-cover"
+                        sizes="100vw"
                     />
                 </div>
 
@@ -134,7 +135,13 @@ export default function EquipePage() {
                                 <CardContent className="p-0">
                                     <div className={`grid md:grid-cols-2 gap-0 ${index % 2 === 1 ? "md:grid-flow-col-dense" : ""}`}>
                                         <div className={`relative m-4 h-dvh md:h-64 md:min-h-260 ${index % 2 === 1 ? "md:order-2" : ""}`}>
-                                            <Image src={member.image || "/placeholder.svg"} alt={member.name} fill className="object-cover rounded-lg" />
+                                            <Image
+                                                src={member.image || "/placeholder.svg"}
+                                                alt={member.name}
+                                                fill
+                                                className="object-cover rounded-lg"
+                                                sizes="(max-width: 949px) 100vw, 50vw"
+                                            />
                                         </div>
                                         <div className={`p-8 flex flex-col justify-center ${index % 2 === 1 ? "md:order-1" : ""}`}>
                                             <div className="space-y-4">

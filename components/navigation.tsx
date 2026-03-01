@@ -37,6 +37,7 @@ export function Navigation() {
                             fill
                             className="object-contain"
                             priority
+                            sizes="40px"
                         />
                     </div>
                     <span className="text-xl font-bold text-white">Ava Bien-Être</span>

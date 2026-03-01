@@ -28,7 +28,13 @@ export default function ReservationsPage() {
                                 <div className="grid grid-cols-1 gap-0">
                                     <div className="p-4 pb-0">
                                         <div className="relative mx-auto aspect-[3/4] w-full max-w-md overflow-hidden rounded-md">
-                                            <Image src={pkg.image || "/placeholder.svg"} alt={pkg.title} fill className="object-cover" />
+                                            <Image
+                                                src={pkg.image || "/placeholder.svg"}
+                                                alt={pkg.title}
+                                                fill
+                                                className="object-cover"
+                                                sizes="(max-width: 1024px) 100vw, 420px"
+                                            />
                                         </div>
                                     </div>
 
