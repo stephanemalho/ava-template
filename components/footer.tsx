@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Leaf, Facebook, Instagram, Twitter } from "lucide-react"
+import { Leaf, Instagram } from "lucide-react"
 
 export function Footer() {
     return (
@@ -74,11 +74,15 @@ export function Footer() {
 
                     <div>
                         <h3 className="text-base md:text-xl font-semibold mb-4">Suivez-nous</h3>
-                        <div className="flex space-x-4">
-                            <Facebook className="h-5 w-5 text-muted-foreground hover:text-primary cursor-pointer" />
+                        <a
+                            href="https://www.instagram.com/ava.bienetre/"
+                            target="_blank"
+                            rel="noreferrer"
+                            aria-label="Instagram Ava Bien-Être"
+                            className="inline-flex"
+                        >
                             <Instagram className="h-5 w-5 text-muted-foreground hover:text-primary cursor-pointer" />
-                            <Twitter className="h-5 w-5 text-muted-foreground hover:text-primary cursor-pointer" />
-                        </div>
+                        </a>
                     </div>
                 </div>
 
