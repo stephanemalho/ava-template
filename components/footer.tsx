@@ -41,6 +41,11 @@ export function Footer() {
                                     Séjours
                                 </Link>
                             </li>
+                            <li>
+                                <Link href="/conditions-generales-de-vente" className="text-muted-foreground hover:text-primary">
+                                    Conditions générales de vente
+                                </Link>
+                            </li>
                         </ul>
                     </div>
 
