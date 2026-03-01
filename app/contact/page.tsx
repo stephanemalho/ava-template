@@ -98,7 +98,7 @@ export default function ContactPage() {
                             {contactItems.map((item) => {
                                 const IconComponent = item.icon
                                 return (
-                                    <div key={item.title} className="flex items-start gap-3">
+                                    <div key={item.title} className="flex flex-col items-center gap-2 text-center md:flex-row md:items-start md:gap-3 md:text-left">
                                         <IconComponent className="h-5 w-5 text-primary mt-1" aria-hidden="true" />
                                         {renderContactContent(item)}
                                     </div>
@@ -134,8 +134,8 @@ export default function ContactPage() {
                                     </span>
                                 </div>
                             </div>
-                            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                                <div className="relative w-28 h-28">
+                            <div className="flex flex-col items-center gap-4 md:flex-row md:items-center md:justify-between">
+                                <div className="relative h-28 w-28">
                                     <Image
                                         src="/Logo-Ava_Bien_Etre-2-300x300.png"
                                         alt="Logo Ava Bien-Être"
@@ -144,7 +144,7 @@ export default function ContactPage() {
                                         sizes="112px"
                                     />
                                 </div>
-                                <div className="flex flex-col items-start gap-2">
+                                <div className="flex flex-col items-center gap-2 md:items-start">
                                     <LinkButton href="/reservations">Revoir les séjours disponibles</LinkButton>
                                     <Button asChild variant="outline">
                                         <a href="mailto:contact@auxbienetre.fr">Posez nous toutes vos questions</a>
@@ -202,14 +202,14 @@ export default function ContactPage() {
                         </Card>
                     </div>
 
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 rounded-lg border bg-background p-5">
+                    <div className="flex flex-col items-center gap-4 rounded-lg border bg-background p-5 text-center md:flex-row md:items-center md:justify-between md:text-left">
                         <div className="space-y-1">
                             <p className="font-semibold">Pack entreprise personnalisable</p>
                             <p className="text-sm text-muted-foreground">
                                 Team building, séminaire bien-être, programme QVCT, ateliers cohésion et récupération.
                             </p>
                         </div>
-                        <div className="flex flex-col sm:flex-row gap-2">
+                        <div className="flex flex-col items-center gap-2 sm:flex-row">
                             <LinkButton href="/contact#contact-direct">Demander un devis</LinkButton>
                             <LinkButton href="/reservations" variant="outline">Consulter les formats</LinkButton>
                         </div>

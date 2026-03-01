@@ -150,15 +150,17 @@ export default function EquipePage() {
                                                         </Badge>
                                                     ))}
                                                 </div>
-                                                <Button asChild variant="outline" size="sm">
-                                                    <a
-                                                        href={`https://www.linkedin.com/in/${toAnchorId(member.name)}`}
-                                                        target="_blank"
-                                                        rel="noreferrer"
-                                                    >
-                                                        {`Contacter ${member.name}`}
-                                                    </a>
-                                                </Button>
+                                                <div className="flex justify-center md:justify-start">
+                                                    <Button asChild variant="outline" size="sm">
+                                                        <a
+                                                            href={`https://www.linkedin.com/in/${toAnchorId(member.name)}`}
+                                                            target="_blank"
+                                                            rel="noreferrer"
+                                                        >
+                                                            {`Contacter ${member.name}`}
+                                                        </a>
+                                                    </Button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

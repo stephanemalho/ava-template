@@ -22,7 +22,7 @@ export function ReservationPackageControls({ pkg }: ReservationPackageControlsPr
 
   return (
     <div className="mt-8 space-y-4">
-      <div className="flex items-center justify-between gap-4">
+      <div className="flex flex-col items-center gap-4 text-center md:flex-row md:items-center md:justify-between md:text-left">
         <div>
           <div className="text-3xl font-bold">{computedPrice}.00 €</div>
           {selectedPeopleCount > 1 && (
@@ -54,7 +54,7 @@ export function ReservationPackageControls({ pkg }: ReservationPackageControlsPr
         </div>
       </div>
 
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap justify-center gap-2 md:justify-start">
         <Button
           size="lg"
           disabled={pkg.badge === "COMPLET"}

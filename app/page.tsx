@@ -134,7 +134,7 @@ export default function HomePage() {
                   serein&nbsp;!
                 </p>
               </div>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap justify-center gap-3 md:justify-start">
                 <Button asChild size="lg" className="bg-primary hover:bg-primary/80">
                   <Link href="/presentation">Découvrir Ava Bien-Être</Link>
                 </Button>
@@ -208,7 +208,7 @@ export default function HomePage() {
                     </div>
                     <h3 className="text-base md:text-xl font-semibold">{item.title}</h3>
                     <p className="text-sm leading-relaxed text-muted-foreground">{item.description}</p>
-                    <Button asChild variant="link" className="w-fit p-0 underline mt-auto cursor-pointer hover:text-primary/80">
+                    <Button asChild variant="link" className="w-fit p-0 underline mt-auto cursor-pointer hover:text-primary/80 self-center md:self-start">
                       <Link href={item.href}>{item.cta}</Link>
                     </Button>
                   </CardContent>

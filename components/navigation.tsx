@@ -4,7 +4,7 @@ import { useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { Menu } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { ThemeToggle } from "./theme-toggle"
@@ -39,7 +39,7 @@ export function Navigation() {
                             priority
                         />
                     </div>
-                    <span className="text-xl font-bold text-primary">Ava Bien-Être</span>
+                    <span className="text-xl font-bold text-white">Ava Bien-Être</span>
                 </Link>
 
 
@@ -50,8 +50,8 @@ export function Navigation() {
                             key={item.name}
                             href={item.href}
                             className={cn(
-                                "text-sm font-medium transition-colors text-white hover:text-primary/80",
-                                pathname === item.href ? "text-primary" : "",
+                                "rounded-full p-1 text-sm font-medium transition-colors text-white/85 hover:text-white",
+                                pathname === item.href ? "bg-white/15 text-white" : "",
                             )}
                         >
                             {item.name}
@@ -74,10 +74,11 @@ export function Navigation() {
                     <Sheet open={isOpen} onOpenChange={setIsOpen}>
                         <SheetTrigger asChild className="md:hidden">
                             <Button variant="ghost" size="icon">
-                                <Menu className="h-5 w-5" />
+                                <Menu className="h-5 w-5 text-white" />
                             </Button>
                         </SheetTrigger>
                         <SheetContent side="right" className="w-1/2 px-4">
+                            <SheetTitle className="sr-only">Menu principal</SheetTitle>
                             <nav className="flex flex-col space-y-4 mt-8">
                                 {navigation.map((item) => (
                                     <Link
@@ -85,8 +86,8 @@ export function Navigation() {
                                         href={item.href}
                                         onClick={() => setIsOpen(false)}
                                         className={cn(
-                                            "text-sm font-medium transition-colors hover:text-primary",
-                                            pathname === item.href ? "text-primary" : "text-muted-foreground",
+                                            "rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-primary",
+                                            pathname === item.href ? "bg-primary/10 text-primary" : "text-muted-foreground",
                                         )}
                                     >
                                         {item.name}

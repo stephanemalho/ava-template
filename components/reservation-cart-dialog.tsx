@@ -66,7 +66,7 @@ export function ReservationCartDialog() {
     <Dialog open={isCartDialogOpen} onOpenChange={setCartDialogOpen}>
       <DialogTrigger asChild>
         <Button variant="ghost" size="icon" aria-label="Panier des réservations">
-          <ShoppingCart className="h-5 w-5" />
+          <ShoppingCart className="h-5 w-5 text-white" />
         </Button>
       </DialogTrigger>
 
