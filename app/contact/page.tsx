@@ -16,7 +16,7 @@ const contactItems = [
         icon: Mail,
         title: "Email",
         type: "email",
-        content: "contact@auxbienetre.fr",
+        content: "avabienetre71@gmail.com",
         secondaryLine: "Réponse en général sous 24 à 48h.",
     },
     {

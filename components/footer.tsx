@@ -64,7 +64,11 @@ export function Footer() {
                         <ul className="space-y-2 text-sm text-muted-foreground">
                             <li>Trans-en-Provence</li>
                             <li>Var, France</li>
-                            <li>contact@auxbienetre.fr</li>
+                            <li>
+                                <a href="mailto:avabienetre71@gmail.com" className="hover:text-primary">
+                                    avabienetre71@gmail.com
+                                </a>
+                            </li>
                         </ul>
                     </div>
 

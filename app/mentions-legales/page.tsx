@@ -27,7 +27,11 @@ export default function MentionsLegalesPage() {
           <p className="text-muted-foreground">
             Ce site internet est edite par Ava Bien Etre, entrepreneur individuel sous le numero SIREN 830502555 et
             dont l&apos;adresse professionnelle est situee au 800 chemin de la liambe 71480 dommartin-les-cuiseaux -
-            courriel : avabienetre71@gmail.com - telephone : 06 89 75 80 31.
+            courriel :{" "}
+            <a className="text-primary underline" href="mailto:avabienetre71@gmail.com">
+              avabienetre71@gmail.com
+            </a>{" "}
+            - telephone : 06 89 75 80 31.
           </p>
           <p className="text-muted-foreground">
             Le directeur ou la directrice de publication du site internet et le responsable ou la responsable de la

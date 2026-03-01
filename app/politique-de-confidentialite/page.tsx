@@ -34,7 +34,11 @@ export default function PolitiqueConfidentialitePage() {
           <h2 className="text-base md:text-xl font-semibold">1. Responsable de traitement</h2>
           <p className="text-muted-foreground">
             Responsable : Ava Bien-Etre - 800 chemin de la liambe, 71480 Dommartin-les-Cuiseaux - Email :
-            avabienetre71@gmail.com - Telephone : 06 89 75 80 31.
+            {" "}
+            <a className="text-primary underline" href="mailto:avabienetre71@gmail.com">
+              avabienetre71@gmail.com
+            </a>{" "}
+            - Telephone : 06 89 75 80 31.
           </p>
         </section>
 
