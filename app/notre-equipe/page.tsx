@@ -57,11 +57,11 @@ export default function EquipePage() {
                     {/* Team Grid */}
                     <div className="grid gap-8">
                         {teamMembers.map((member, index) => (
-                            <Card key={member.name} id={toAnchorId(member.name)} className="overflow-hidden scroll-mt-24">
+                            <Card key={member.name} id={toAnchorId(member.name)} className="overflow-hidden scroll-mt-24 max-w-5xl mx-auto">
                                 <CardContent className="p-0">
                                     <div className={`grid gap-0 md:grid-cols-2 ${index % 2 === 1 ? "md:grid-flow-col-dense" : ""}`}>
                                         <div className={`p-4 ${index % 2 === 1 ? "md:order-2" : ""}`}>
-                                            <div className="relative mx-auto w-full max-w-[420px] overflow-hidden rounded-lg aspect-[3/4]">
+                                            <div className="relative mx-auto w-full max-w-105 overflow-hidden rounded-lg aspect-3/4">
                                                 <Image
                                                     src={member.image || "/placeholder.svg"}
                                                     alt={member.name}
