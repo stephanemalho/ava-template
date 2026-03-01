@@ -2,7 +2,7 @@ import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { LinkButton } from "@/components/link-button"
-import { Heart, Leaf, Users, Star } from "lucide-react"
+import { HandCoins, Heart, Leaf, ShieldCheck, Star, Users, UserRoundCheck } from "lucide-react"
 
 export default function PresentationPage() {
     return (
@@ -172,6 +172,9 @@ export default function PresentationPage() {
                     <div className="grid md:grid-cols-2 gap-8">
                         <Card>
                             <CardContent className="p-6">
+                                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+                                    <Leaf className="h-5 w-5" aria-hidden="true" />
+                                </div>
                                 <h3 className="text-base md:text-xl font-semibold mb-4">Respect de l&lsquo;environnement</h3>
                                 <p className="text-muted-foreground text-sm leading-relaxed">
                                     Nous privilégions les produits locaux et biologiques, limitons notre impact écologique et
@@ -182,6 +185,9 @@ export default function PresentationPage() {
 
                         <Card>
                             <CardContent className="p-6">
+                                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+                                    <ShieldCheck className="h-5 w-5" aria-hidden="true" />
+                                </div>
                                 <h3 className="text-base md:text-xl font-semibold mb-4">Qualité et professionnalisme</h3>
                                 <p className="text-muted-foreground text-sm leading-relaxed">
                                     Notre équipe est composée de professionnels certifiés qui s&lsquo;engagent à vous offrir un accompagnement
@@ -192,6 +198,9 @@ export default function PresentationPage() {
 
                         <Card>
                             <CardContent className="p-6">
+                                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+                                    <HandCoins className="h-5 w-5" aria-hidden="true" />
+                                </div>
                                 <h3 className="text-base md:text-xl font-semibold mb-4">Accessibilité</h3>
                                 <p className="text-muted-foreground text-sm leading-relaxed">
                                     Nous proposons différentes formules pour rendre nos retraites accessibles au plus grand nombre, avec
@@ -202,6 +211,9 @@ export default function PresentationPage() {
 
                         <Card>
                             <CardContent className="p-6">
+                                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+                                    <UserRoundCheck className="h-5 w-5" aria-hidden="true" />
+                                </div>
                                 <h3 className="text-base md:text-xl font-semibold mb-4">Suivi personnalisé</h3>
                                 <p className="text-muted-foreground text-sm leading-relaxed">
                                     Chaque participant bénéficie d&lsquo;un accompagnement individualisé avant, pendant et après le séjour pour
