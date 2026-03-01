@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge"
 import { YoutubeClickPlayer } from "@/components/youtube-click-player"
 import { clientInfoCards, founderPreviews } from "./home-content"
 import { toAnchorId } from "@/lib/anchor"
+import { Compass, HeartHandshake, MessageCircle, ShieldCheck, Sparkles, Target, Users } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "Ava Bien-Etre | Retraites bien-etre en Provence",
@@ -18,6 +19,34 @@ export const metadata: Metadata = {
 }
 
 export default function HomePage() {
+  const presentationCards = [
+    {
+      title: "Notre mission",
+      description:
+        "T’aider à te reconnecter à l’essentiel, retrouver un équilibre durable et repartir avec des outils concrets pour ton bien-être quotidien.",
+      icon: Target,
+    },
+    {
+      title: "Nos valeurs",
+      description:
+        "Bienveillance, authenticité et partage guident chaque atelier, chaque échange et chaque accompagnement pendant ton séjour.",
+      icon: HeartHandshake,
+    },
+    {
+      title: "Notre engagement",
+      description:
+        "Te proposer des retraites tout inclus avec un encadrement qualifié, des groupes à taille humaine et un cadre naturel propice au lâcher-prise.",
+      icon: ShieldCheck,
+    },
+  ] as const
+
+  const clientCardIcons = {
+    program: Compass,
+    philosophy: Sparkles,
+    team: Users,
+    contact: MessageCircle,
+  } as const
+
   return (
     <main className="flex flex-col">
       {/* Hero Section */}
@@ -30,6 +59,7 @@ export default function HomePage() {
             fill
             className="object-cover md:hidden"
             priority
+            sizes="100vw"
           />
           <Image
             src="/les-fondateurs-2.jpg"
@@ -37,6 +67,7 @@ export default function HomePage() {
             fill
             className="object-cover hidden md:block"
             priority
+            sizes="100vw"
           />
         </div>
 
@@ -47,10 +78,10 @@ export default function HomePage() {
             Ava bien-être
           </h1>
           <p className="text-base md:mb-6  md:text-md opacity-90 drop-shadow-[0_2px_10px_rgba(0,0,0,0.3)]">
-            Ava Bien-Être organise des séjours retraite bien-être tout inclus en Provence, vos journées seront dédiées à la reconnexion à soi, au lâcher-prise et à l&apos;équilibre corps-esprit, dans un cadre naturel propice au ressourcement.
+            Ava Bien-Être organise des séjours retraite bien-être tout inclus en Provence, tes journées seront dédiées à la reconnexion à soi, au lâcher-prise et à l&apos;équilibre corps-esprit, dans un cadre naturel propice au ressourcement.
           </p>
           <Button asChild size="lg" className="bg-primary hover:bg-primary/80">
-            <Link href="/sejour-a-trans-en-provence">Découvrez nos retraites</Link>
+            <Link href="/sejour-a-trans-en-provence">Découvre nos retraites</Link>
           </Button>
         </div>
       </section>
@@ -108,10 +139,48 @@ export default function HomePage() {
                   <Link href="/presentation">Découvrir Ava Bien-Être</Link>
                 </Button>
                 <Button asChild size="lg" variant="outline">
-                  <Link href="/reservations">Accéder aux réservations</Link>
+                  <Link href="/reservations">Accède aux réservations</Link>
                 </Button>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Présentation condensée */}
+      <section className="py-16">
+        <div className="container mx-auto space-y-10">
+          <div className="text-center space-y-4">
+            <Badge variant="outline" className="w-fit mx-auto">
+              Qui sommes-nous ?
+            </Badge>
+            <h2 className="text-base md:text-xl font-bold">Une présentation rapide d&apos;Ava Bien-Être</h2>
+            <p className="mx-auto max-w-3xl text-muted-foreground">
+              Ava Bien-Être t&apos;accompagne dans une parenthèse de ressourcement en Provence, avec une
+              approche humaine, professionnelle et authentique.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            {presentationCards.map((item) => {
+              const Icon = item.icon
+              return (
+                <Card key={item.title} className="h-full">
+                  <CardContent className="p-6 space-y-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+                      <Icon className="h-5 w-5" aria-hidden />
+                    </div>
+                    <h3 className="text-base md:text-xl font-semibold">{item.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+                  </CardContent>
+                </Card>
+              )
+            })}
+          </div>
+          <div className="flex justify-center">
+            <Button asChild size="lg" variant="outline">
+              <Link href="/presentation">Voir la présentation complète</Link>
+            </Button>
           </div>
         </div>
       </section>
@@ -121,25 +190,31 @@ export default function HomePage() {
         <div className="container mx-auto space-y-10">
           <div className="text-center space-y-4">
             <h2 className="text-base md:text-xl font-bold">
-              Informations essentielles pour votre séjour
+              Informations essentielles pour ton séjour
             </h2>
             <p className="mx-auto max-w-3xl text-muted-foreground">
-              Avant de réserver, consultez les informations utiles sur le programme,
-              les intervenants, le lieu à Trans-en-Provence et les modalités de contact.
+              Avant de réserver, consulte les informations utiles sur le programme, les intervenants, le lieu à
+              Trans-en-Provence et les modalités de contact.
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-2">
-            {clientInfoCards.map((item) => (
-              <Card key={item.title} className="h-full">
-                <CardContent className="flex h-full flex-col gap-4 p-6">
-                  <h3 className="text-base md:text-xl font-semibold">{item.title}</h3>
-                  <p className="text-sm leading-relaxed text-muted-foreground">{item.description}</p>
-                  <Button asChild variant="link" className="w-fit p-0 underline mt-auto cursor-pointer hover:text-primary/80">
-                    <Link href={item.href}>{item.cta}</Link>
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
+            {clientInfoCards.map((item) => {
+              const Icon = clientCardIcons[item.icon]
+              return (
+                <Card key={item.title} className="h-full">
+                  <CardContent className="flex h-full flex-col gap-4 p-6">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+                      <Icon className="h-5 w-5" aria-hidden />
+                    </div>
+                    <h3 className="text-base md:text-xl font-semibold">{item.title}</h3>
+                    <p className="text-sm leading-relaxed text-muted-foreground">{item.description}</p>
+                    <Button asChild variant="link" className="w-fit p-0 underline mt-auto cursor-pointer hover:text-primary/80">
+                      <Link href={item.href}>{item.cta}</Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              )
+            })}
           </div>
         </div>
       </section>
@@ -168,6 +243,7 @@ export default function HomePage() {
                         alt={founder.name}
                         fill
                         className="rounded-full object-cover"
+                        sizes="128px"
                       />
                     </div>
                     <h3 className="text-base md:text-xl font-semibold mb-2">{founder.name}</h3>
