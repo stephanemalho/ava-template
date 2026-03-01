@@ -70,15 +70,15 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
-          <ReservationCartProvider>
-            <div className="min-h-screen bg-background flex flex-col">
+          <div className="min-h-screen bg-background flex flex-col">
+            <ReservationCartProvider>
               <Navigation />
               <main className="px-4 sm:px-6 lg:px-8 flex-1">
                 {children}
               </main>
-              <Footer />
-            </div>
-          </ReservationCartProvider>
+            </ReservationCartProvider>
+            <Footer />
+          </div>
         </ThemeProvider>
         <CookieConsent />
         <AnalyticsConsent />
