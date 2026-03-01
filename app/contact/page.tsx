@@ -217,7 +217,7 @@ export default function ContactPage() {
                                     Demander un devis
                                 </a>
                             </Button>
-                            <LinkButton href="/reservations" variant="outline">Consulter les formats</LinkButton>
+                            <LinkButton href="/reservations#offre-btob" variant="outline">Consulter les formats</LinkButton>
                         </div>
                     </div>
                 </section>

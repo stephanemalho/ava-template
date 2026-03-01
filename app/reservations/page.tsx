@@ -124,7 +124,7 @@ export default function ReservationsPage() {
                     </div>
                 </section>
                 {/* AJouter les section B to B ici */}
-                <section className="mt-16 space-y-6">
+                <section id="offre-btob" className="mt-16 scroll-mt-24 space-y-6">
                     <div className="text-center space-y-3">
                         <Badge className="bg-primary px-3 py-1 font-bold text-white">{enterpriseOffer.badge}</Badge>
                         <h2 className="text-base md:text-xl font-bold">Offre dédiée aux entreprises</h2>
