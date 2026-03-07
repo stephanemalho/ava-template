@@ -17,8 +17,15 @@ import {
   CupSoda,
   Zap,
   Waves,
+  WavesLadder,
   MoonStar,
   BookOpen,
+  Sofa,
+  HandHeart,
+  Trophy,
+  Volleyball,
+  CookingPot,
+  Umbrella,
 } from "lucide-react"
 import { siteConfig } from "@/lib/seo-config"
 
@@ -119,10 +126,27 @@ const chambreSlides = createSlides(
   "Chambre confortable pour un sommeil réparateur"
 )
 
+const stayAmenities = [
+  { label: "Deux piscines ensoleillées", icon: WavesLadder },
+  { label: "Un salon de jardin convivial", icon: Sofa },
+  { label: "Une table de massage", icon: HandHeart },
+  { label: "Une table de ping-pong", icon: Trophy },
+  { label: "Un terrain de volley-ball", icon: Volleyball },
+  { label: "Une cuisine extérieure entièrement équipée", icon: CookingPot },
+]
+
+const programAdjustments = [
+  { label: "le besoin de repos du groupe", icon: MoonStar },
+  { label: "la dynamique collective", icon: Users },
+  { label: "l’enthousiasme partagé", icon: Sparkles },
+  { label: "le temps d’intégration nécessaire", icon: Waves },
+  { label: "les conditions météorologiques", icon: Umbrella },
+]
+
 export const metadata: Metadata = {
-  title: "Sejour a Trans-en-Provence | Ava Bien-Etre",
+  title: "Séjour à Trans-en-Provence | AVA Bien-être",
   description:
-    "Decouvre le programme des sejours bien-etre AVA a Trans-en-Provence: hebergement, espaces, cuisine, activites et FAQ.",
+    "Découvrez le programme du séjour bien-être AVA à Trans-en-Provence : hébergement en mas provençal, espaces intérieurs et extérieurs, cuisine, chambres et activités.",
   keywords: [
     "sejour bien-etre trans-en-provence",
     "programme retraite bien-etre",
@@ -138,14 +162,14 @@ export default function SejoursPage() {
   const retreatServiceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "Sejours bien-etre AVA",
+    name: "Séjours bien-être AVA",
     provider: {
       "@type": "Organization",
       name: siteConfig.name,
       url: siteConfig.siteUrl,
     },
     areaServed: "FR",
-    serviceType: "Retraites bien-etre tout inclus",
+    serviceType: "Retraites bien-être tout inclus",
     url: `${siteConfig.siteUrl}${siteConfig.pages.sejours}`,
     offers: {
       "@type": "AggregateOffer",
@@ -176,7 +200,7 @@ export default function SejoursPage() {
             />
             <div className="absolute inset-0 flex items-center justify-center bg-foreground/40">
               <div className="space-y-4 text-center text-background">
-                <h2 className="text-base md:text-xl font-bold">Séjour à Trans-en-Provence</h2>
+                <h1 className="text-base md:text-xl font-bold">Séjour à Trans-en-Provence</h1>
                 <div className="flex items-center justify-center space-x-4">
                   <Calendar className="h-5 w-5" />
                   <span className="text-lg">du 11 au 17 juillet 2026</span>
@@ -190,37 +214,84 @@ export default function SejoursPage() {
           </div>
         </section>
         <section className="mb-16 rounded-lg bg-muted/30 p-6 md:p-10">
-          <div className="mx-auto max-w-5xl space-y-5">
-            <h1 className="text-base md:text-2xl font-bold">Le programme d&apos;AVA Bien-être</h1>
-            <p className="text-base text-muted-foreground leading-relaxed">
-              Notre programme est une proposition et par conséquent aucune participation à un atelier n&apos;est obligatoire,
-              il est possible de ne pas participer selon vos besoins et préférences, chacun doit se sentir libre.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              Des moments de repos et de temps libre, de relaxation, de partage et d&apos;échange vous seront proposés entre
-              chaque atelier, notre équipe est susceptible d&apos;adapter ou de modifier l&apos;ordre du programme des activités
-              en fonction du besoin de repos, de l&apos;enthousiasme du groupe et le besoin d&apos;intégration.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              Nous nous réservons également le droit de vous apporter une part de mystère et vous concocter de belles
-              surprises.
-            </p>
+          <div className="mx-auto max-w-5xl space-y-8">
+            <div className="space-y-4 text-center">
+              <h2 className="text-base md:text-2xl font-bold">Le programme d&apos;AVA Bien-être</h2>
+              <p className="mx-auto max-w-3xl text-base text-muted-foreground leading-relaxed">
+                Notre programme est une proposition d’exploration. Aucune participation à un atelier n’est obligatoire.
+              </p>
+            </div>
+
+            <div className="grid gap-4 md:grid-cols-2">
+              <Card className="h-full border-primary/20 bg-card/85 text-left shadow-sm">
+                <CardContent className="space-y-4 p-6">
+                  <p className="text-muted-foreground leading-relaxed">
+                    Chacun est libre d’écouter ses besoins, son rythme, son énergie du moment. Vous pouvez choisir de
+                    participer… ou de vous retirer si cela vous semble juste.
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Ici, la liberté et le respect de soi priment.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="h-full border-border/70 bg-background/80 text-left shadow-sm">
+                <CardContent className="space-y-4 p-6">
+                  <p className="text-muted-foreground leading-relaxed">
+                    Entre chaque atelier, des temps de repos, d’intégration, de relaxation et d’échanges seront
+                    naturellement proposés afin de favoriser l’équilibre et l’assimilation des expériences vécues.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+
+            <Card className="border-border/70 bg-background/80 shadow-sm">
+              <CardHeader className="space-y-3">
+                <CardTitle className="text-base md:text-xl">
+                  Notre équipe se réserve la possibilité d’adapter le déroulement ou l’ordre des activités selon :
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-5">
+                  {programAdjustments.map((item) => {
+                    const Icon = item.icon
+
+                    return (
+                      <Card key={item.label} className="h-full border-border/70 bg-card/80 shadow-none">
+                        <CardContent className="flex h-full items-start gap-3 p-2">
+                          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                            <Icon className="h-5 w-5" aria-hidden="true" />
+                          </div>
+                          <p className="text-sm leading-relaxed text-card-foreground">{item.label}</p>
+                        </CardContent>
+                      </Card>
+                    )
+                  })}
+                </div>
+                <p className="text-muted-foreground leading-relaxed">Parce qu’un séjour vivant ne peut être figé.</p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-primary/20 bg-card/90 shadow-sm">
+              <CardContent className="p-6 md:p-8">
+                <div className="flex items-start justify-center gap-3 text-center">
+                  <span className="text-5xl leading-none text-primary/70 md:text-6xl" aria-hidden="true">
+                    &ldquo;
+                  </span>
+                  <p className="max-w-3xl text-base italic leading-relaxed text-card-foreground md:text-lg">
+                    Enfin… nous nous gardons le droit de préserver une part de mystère et de vous préparer quelques
+                    belles surprises, pensées avec soin et intention.
+                  </p>
+                  <span className="text-5xl leading-none text-primary/70 md:text-6xl" aria-hidden="true">
+                    &rdquo;
+                  </span>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </section>
 
-        <section className="mb-16 text-center">
-          <h2 className="mb-4 text-base md:text-xl font-bold">Voici la liste de vos espaces de détente</h2>
-          <div className="mb-8 flex items-center justify-center space-x-6 text-muted-foreground">
-            <div className="flex items-center space-x-2">
-              <MapPin className="h-4 w-4" />
-              <span>Trans-en-Provence, Var</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Users className="h-4 w-4" />
-              <span>Groupe limité</span>
-            </div>
-          </div>
-        </section>
+
 
         <div className="space-y-16">
           <section>
@@ -228,24 +299,108 @@ export default function SejoursPage() {
               <div className="space-y-6">
                 <Badge variant="secondary" className="w-fit">
                   <Bed className="mr-2 h-4 w-4" />
-                  Hébergement
+                  Le lieu de séjour
                 </Badge>
-                <h2 className="text-base md:text-xl font-bold">Hébergement</h2>
+                <h2 className="text-base md:text-xl font-bold">Le lieu de séjour</h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  Bienvenue dans notre cadre idyllique, alliant le confort, le calme, et le charme de la Provence :
-                  Notre MAS PROVENCAL, niché au coeur de la nature, implanté au sein d&apos;un domaine de 4 hectares sera
-                  votre lieu de villégiature : de grands espaces intérieurs et extérieurs sauront vous accueillir dans
-                  ce domaine merveilleux et bucolique. Le soleil, le chant des oiseaux, la pinède, la nature, les
-                  arbres, la forêt, les oliviers et les eucalyptus sont les éléments accompagnateurs de votre voyage.
-                  De nombreux animaux vivent également au sein du domaine, ce qui vous offrira l&apos;opportunité
-                  incroyable d&apos;une mise en pratique de vos capacités lors de nos ateliers de communication animale.
-                  Voici un aperçu du mas et de l&apos;un de nos espaces extérieur : deux piscines ensoleillées, un salon de
-                  jardin, une table de massage, table de ping-pong, un terrain de volley-ball table de cuisine en
-                  plein air dont vous pourrez disposer librement afin de profiter de chaque expérience. Des ateliers,
-                  des moments de détente, de relaxation et de partage en groupe seront au rendez-vous.
+                  Bienvenue dans un cadre idyllique où se rencontrent confort, calme et authenticité provençale.
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  Notre mas provençal, niché au cœur de la nature à Trans-en-Provence et implanté au sein d&apos;un
+                  domaine de 4 hectares, sera votre lieu de villégiature tout au long du séjour bien-être.
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  De grands espaces intérieurs et extérieurs vous accueillent dans un environnement lumineux, paisible
+                  et ressourçant, pensé pour allier détente, confort et profondeur.
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  Le domaine abrite également de nombreux animaux, vous offrant une opportunité rare : expérimenter
+                  concrètement, dans un cadre respectueux et authentique, les ateliers de communication animale proposés
+                  durant le séjour.
                 </p>
               </div>
               <ImageCarousel slides={hebergementSlides} priorityFirstImage className="w-full" />
+            </div>
+          </section>
+
+          <section className="mb-16 rounded-lg bg-muted/30 p-6 text-center md:p-10">
+            <div className="mx-auto max-w-5xl space-y-8">
+              <div className="space-y-4">
+                <h2 className="text-base md:text-xl font-bold">Les espaces à votre disposition</h2>
+                <p className="mx-auto max-w-3xl text-muted-foreground leading-relaxed">
+                  Poussez la porte et découvrez les espaces qui accueilleront vos moments de convivialité durant le
+                  séjour.
+                </p>
+              </div>
+
+              <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-muted-foreground">
+                <div className="flex items-center gap-2">
+                  <MapPin className="h-4 w-4 text-primary" />
+                  <span>Trans-en-Provence, Var</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Users className="h-4 w-4 text-primary" />
+                  <span>Groupe limité</span>
+                </div>
+              </div>
+
+              <Card className="border-primary/20 bg-card/85 text-left shadow-sm">
+                <CardContent className="space-y-4 p-6 md:p-8">
+                  <p className="text-muted-foreground leading-relaxed">Pour accompagner chaque moment de votre voyage :</p>
+                  <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+                    {stayAmenities.map((amenity) => {
+                      const Icon = amenity.icon
+
+                      return (
+                        <Card key={amenity.label} className="h-full border-border/70 bg-background/80 shadow-none">
+                          <CardContent className="flex h-full items-start gap-3 p-5">
+                            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                              <Icon className="h-5 w-5" aria-hidden="true" />
+                            </div>
+                            <p className="text-sm font-medium leading-relaxed text-card-foreground">{amenity.label}</p>
+                          </CardContent>
+                        </Card>
+                      )
+                    })}
+                  </div>
+                </CardContent>
+              </Card>
+
+              <div className="grid gap-4 md:grid-cols-3">
+                <Card className="h-full border-border/70 bg-background/80 text-left shadow-sm md:col-span-1">
+                  <CardContent className="p-6">
+                    <p className="text-muted-foreground leading-relaxed">
+                      Ces espaces sont librement accessibles afin que chacun puisse profiter pleinement du lieu, selon son
+                      rythme.
+                    </p>
+                  </CardContent>
+                </Card>
+
+                <Card className="h-full border-border/70 bg-background/80 text-left shadow-sm md:col-span-2">
+                  <CardContent className="p-6">
+                    <p className="text-muted-foreground leading-relaxed">
+                      Des ateliers inspirants, des temps de détente, de relaxation, de partage et de connexion
+                      collective rythmeront le séjour, dans un équilibre entre expérience guidée et liberté personnelle.
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
+
+              <Card className="border-primary/20 bg-card/90 shadow-sm">
+                <CardContent className="p-6 md:p-8">
+                  <div className="flex items-start justify-center gap-3 text-center">
+                    <span className="text-5xl leading-none text-primary/70 md:text-6xl " aria-hidden="true">
+                      &ldquo;
+                    </span>
+                    <p className="max-w-3xl text-base italic leading-relaxed text-card-foreground md:text-lg mt-2">
+                      Ici, la nature ne sert pas de décor. Elle devient partenaire de votre transformation.
+                    </p>
+                    <span className="text-5xl leading-none text-primary/70 md:text-6xl" aria-hidden="true">
+                      &rdquo;
+                    </span>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </section>
 
@@ -261,9 +416,19 @@ export default function SejoursPage() {
                 </Badge>
                 <h2 className="text-base md:text-xl font-bold">Les espaces intérieurs</h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  Un coup d&apos;œil à l&apos;intérieur pour vous présenter rapidement nos espaces de vie commune durant votre
-                  séjour : la salle à manger et le salon. Espace et convivialité seront au rendez-vous lors de repas
-                  et de discussions animées.
+                  La salle à manger et le salon ont été pensés comme de véritables lieux de rencontre : spacieux,
+                  lumineux et chaleureux.
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  C’est ici que se tisseront les liens autour de repas partagés, de conversations inspirantes, de rires
+                  spontanés et de temps d’échange en toute simplicité.
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  Un cadre confortable, propice à la détente et à la profondeur, où chacun peut se sentir à sa place.
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  Parce qu’au-delà des ateliers, ce sont aussi ces instants de vie commune qui rendent l’expérience
+                  inoubliable.
                 </p>
               </div>
             </div>
@@ -278,7 +443,20 @@ export default function SejoursPage() {
                 </Badge>
                 <h2 className="text-base md:text-xl font-bold">Les espaces extérieurs</h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  La plupart de nos ateliers auront lieu en extérieur, au milieu des arbres et du chant des cigales, de l’odeur de la pinède, des oliviers, des eucalyptus, du chant des oiseaux, dont nous disposons tout autour du mas ! Ambiance relaxante et dépaysante.
+                  La plupart de nos ateliers se déroulent en plein air, au cœur de la nature provençale qui entoure le
+                  mas.
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  Sous les arbres, bercés par le chant des cigales, enveloppés par le parfum de la pinède, des
+                  oliviers et des eucalyptus, vous expérimentez chaque pratique dans un cadre vivant et inspirant. Le
+                  chant des oiseaux accompagne les temps de respiration, de mouvement et de partage.
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  Ici, la nature ne sert pas de décor : elle devient un véritable soutien à l’expérience.
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  L’atmosphère est à la fois relaxante, dépaysante et profondément ressourçante, un espace propice au
+                  lâcher-prise, à la connexion et à l’intégration.
                 </p>
               </div>
               <ImageCarousel slides={exterieurSlides} className="w-full" />
@@ -297,12 +475,23 @@ export default function SejoursPage() {
                 </Badge>
                 <h2 className="text-base md:text-xl font-bold">La cuisine</h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  Nos repas et collations seront confectionnés dans l&apos;espace cuisine que voici. Au programme :
-                  plusieurs menus variés et équilibrés, des produits du terroir : frais et de qualité, des boissons
-                  artisanales et petites collations entre les ateliers. Du petit déjeuner au diner, laissez-vous
-                  surprendre par notre savoir faire alliant à la fois saveur et légèreté, pour un bien être et un
-                  équilibre nutritionnel et physique. Votre corps et vos papilles vous remercieront.
+                  C’est dans cet espace cuisine chaleureux et convivial que seront préparés vos repas et collations
+                  tout au long du séjour.
                 </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  Au programme : des menus variés et équilibrés, élaborés à partir de produits du terroir, frais et
+                  soigneusement sélectionnés. Des saveurs authentiques, des boissons artisanales, ainsi que de
+                  délicates collations viendront rythmer les temps entre les ateliers.
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  Du petit-déjeuner au dîner, chaque repas est pensé comme un moment à part entière : nourrir le corps,
+                  soutenir l’énergie, favoriser la légèreté et l’équilibre.
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  Notre approche allie plaisir gustatif et harmonie nutritionnelle, pour que l’expérience soit aussi
+                  sensorielle qu’intégrative.
+                </p>
+                <p className="text-muted-foreground leading-relaxed">Votre corps… et vos papilles… vous remercieront.</p>
               </div>
             </div>
           </section>
@@ -316,10 +505,26 @@ export default function SejoursPage() {
                 </Badge>
                 <h2 className="text-base md:text-xl font-bold">Les chambres</h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  Composé de 8 chambres à lit simple, et double, climatisées, au charme unique et individuel, à la
-                  décoration soignée, pour un sommeil réparateur. Nous disposons de 4 salles de bains spacieuses avec
-                  des douches, et des baignoires selon les préférences. Nous vous proposons des chambres partagées
-                  avec le binôme de votre choix constitué par affinités.
+                  Le mas accueille ses hôtes au sein de 8 chambres climatisées, simples ou doubles, chacune dotée
+                  d’un charme singulier et d’une décoration raffinée.
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  Pensées comme de véritables cocons, ces chambres allient confort, esthétisme et douceur des matières
+                  afin de favoriser un repos profond et réparateur. Chaque détail a été choisi avec soin pour créer une
+                  atmosphère apaisante, propice à l’intégration des expériences vécues durant la journée.
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  Nous disposons de 4 salles de bains spacieuses, équipées de douches et, pour certaines, de
+                  baignoires, offrant à chacun un moment privilégié de détente et de relaxation.
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  Les chambres sont proposées en formule partagée, avec le binôme de votre choix, constitué par
+                  affinité. Cette organisation favorise une expérience harmonieuse, respectueuse de l’intimité et du
+                  confort de chacun.
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  Ici, le repos devient un art de vivre. Un espace de calme, d’élégance et de régénération au cœur
+                  d’un séjour d’exception.
                 </p>
               </div>
               <ImageCarousel slides={chambreSlides} className="w-full" />
@@ -329,7 +534,7 @@ export default function SejoursPage() {
 
         <section className="my-16">
           <div className="mb-12 text-center">
-            <h2 className="mb-4 text-base md:text-xl font-bold">Journee type durant votre sejour</h2>
+            <h2 className="mb-4 text-base md:text-xl font-bold">Journée type durant votre séjour</h2>
             <div className="mx-auto h-1 w-24 rounded-full bg-primary" />
           </div>
 
@@ -343,31 +548,31 @@ export default function SejoursPage() {
                   <p className="flex items-start gap-2">
                     <Coffee className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
                     <span>
-                      <strong>8h-9h30 :</strong> Petit dejeuner equilibre
+                      <strong>8h-9h30 :</strong> Petit déjeuner équilibré
                     </span>
                   </p>
                   <p className="flex items-start gap-2">
                     <Sparkles className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
                     <span>
-                      <strong>10h :</strong> Mediumnite avec Pierre Yonas
+                      <strong>10h :</strong> Médiumnité avec Pierre Yonas
                     </span>
                   </p>
                   <p className="flex items-start gap-2">
                     <UtensilsCrossed className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
                     <span>
-                      <strong>12h30 :</strong> Dejeuner convivial
+                      <strong>12h30 :</strong> Déjeuner convivial
                     </span>
                   </p>
                   <p className="flex items-start gap-2">
                     <Sparkles className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
                     <span>
-                      <strong>14h :</strong> Atelier meditation avec Aurelie
+                      <strong>14h :</strong> Atelier méditation avec Aurélie
                     </span>
                   </p>
                   <p className="flex items-start gap-2">
                     <CupSoda className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
                     <span>
-                      <strong>15h :</strong> Collation et pause detente
+                      <strong>15h :</strong> Collation et pause détente
                     </span>
                   </p>
                 </div>
@@ -376,38 +581,38 @@ export default function SejoursPage() {
 
             <Card>
               <CardHeader>
-                <CardTitle>Programme apres-midi</CardTitle>
+                <CardTitle>Programme après-midi</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="space-y-2">
                   <p className="flex items-start gap-2">
                     <Zap className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
                     <span>
-                      <strong>16h :</strong> Atelier magnetisme avec Pierre et Aurelie
+                      <strong>16h :</strong> Atelier magnétisme avec Pierre et Aurélie
                     </span>
                   </p>
                   <p className="flex items-start gap-2">
                     <Waves className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
                     <span>
-                      <strong>18h :</strong> Detente, sauna, jaccusi, piscine
+                      <strong>18h :</strong> Détente, sauna, jacuzzi, piscine
                     </span>
                   </p>
                   <p className="flex items-start gap-2">
                     <UtensilsCrossed className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
                     <span>
-                      <strong>19h30 :</strong> Diner sous les etoiles
+                      <strong>19h30 :</strong> Dîner sous les étoiles
                     </span>
                   </p>
                   <p className="flex items-start gap-2">
                     <BookOpen className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
                     <span>
-                      <strong>21h :</strong> Veillee contee avec Patricia
+                      <strong>21h :</strong> Veillée contée avec Patricia
                     </span>
                   </p>
                   <p className="flex items-start gap-2">
                     <MoonStar className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
                     <span>
-                      <strong>22h :</strong> Soiree libre
+                      <strong>22h :</strong> Soirée libre
                     </span>
                   </p>
                 </div>
@@ -416,6 +621,10 @@ export default function SejoursPage() {
           </div>
         </section>
         <section className="mb-16">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-base md:text-xl font-bold">Prochaines sessions</h2>
+            <div className="mx-auto h-1 w-24 rounded-full bg-primary" />
+          </div>
           <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
             {staySessions.map((session, index) => (
               <Card key={session.dateRange} className="overflow-hidden">
@@ -465,30 +674,30 @@ export default function SejoursPage() {
               <div>
                 <h3 className="mb-2 text-base md:text-xl font-semibold">Puis-je venir seul ?</h3>
                 <p className="text-sm text-muted-foreground">
-                  Bien sur. Nos sejours sont parfaits pour les personnes seules souhaitant se ressourcer et rencontrer
+                  Bien sûr. Nos séjours sont parfaits pour les personnes seules souhaitant se ressourcer et rencontrer
                   d&apos;autres participants.
                 </p>
               </div>
               <div>
-                <h3 className="mb-2 text-base md:text-xl font-semibold">Les debutants sont-ils acceptes ?</h3>
+                <h3 className="mb-2 text-base md:text-xl font-semibold">Les débutants sont-ils acceptés ?</h3>
                 <p className="text-sm text-muted-foreground">
-                  Absolument. Nos activites sont adaptees a tous les niveaux, des debutants aux pratiquants
-                  experimentes.
+                  Absolument. Nos activités sont adaptées à tous les niveaux, des débutants aux pratiquants
+                  expérimentés.
                 </p>
               </div>
             </div>
             <div className="space-y-6">
               <div>
-                <h3 className="mb-2 text-base md:text-xl font-semibold">Puis-je annuler ma reservation ?</h3>
+                <h3 className="mb-2 text-base md:text-xl font-semibold">Puis-je annuler ma réservation ?</h3>
                 <p className="text-sm text-muted-foreground">
-                  Les conditions d&apos;annulation sont detaillees dans nos conditions generales de vente disponibles lors de
-                  la reservation.
+                  Les conditions d&apos;annulation sont détaillées dans nos conditions générales de vente disponibles lors
+                  de la réservation.
                 </p>
               </div>
               <div>
                 <h3 className="mb-2 text-base md:text-xl font-semibold">Qu&apos;est-ce qui est inclus dans le prix ?</h3>
                 <p className="text-sm text-muted-foreground">
-                  Hebergement, tous les repas, toutes les activites et l&apos;accompagnement par notre equipe
+                  Hébergement, tous les repas, toutes les activités et l&apos;accompagnement par notre équipe
                   professionnelle.
                 </p>
               </div>
@@ -497,15 +706,15 @@ export default function SejoursPage() {
         </section>
 
         <section className="mt-16 text-center">
-          <h2 className="mb-4 text-base md:text-xl font-bold">Localisation du Mas</h2>
+          <h2 className="mb-4 text-base md:text-xl font-bold">Le mas en pratique</h2>
           <div className="mx-auto mb-8 h-1 w-24 rounded-full bg-primary" />
           <p className="mx-auto max-w-5xl text-muted-foreground">
-            Notre mas provencal, situe a 6 min du village de Trans-en-Provence et a 12 min de la gare TGV Les Arcs /
-            Draguignan, dispose de 7 chambres confortables, lumineuses, equipees de literie haut de gamme,
-            climatisation, et salles de bain partagees ou privatives selon votre reservation. Il dispose egalement
-            d&apos;une piscine, avec transats dedies a la detente, salon de jardin, cuisine exterieure pour des dejeuners,
-            et diners conviviaux. Sur place vous pourrez egalement retrouver un sauna de 4 places, un jaccusi, et une
-            salle de sport pour vos seances de relaxation.
+            Notre mas provençal, situé à 6 min du village de Trans-en-Provence et à 12 min de la gare TGV Les Arcs /
+            Draguignan, dispose de 7 chambres confortables, lumineuses, équipées de literie haut de gamme,
+            climatisation, et salles de bain partagées ou privatives selon votre réservation. Il dispose également
+            d&apos;une piscine, avec transats dédiés à la détente, salon de jardin, cuisine extérieure pour des déjeuners,
+            et dîners conviviaux. Sur place vous pourrez également retrouver un sauna de 4 places, un jacuzzi, et une
+            salle de sport pour vos séances de relaxation.
           </p>
         </section>
       </div>

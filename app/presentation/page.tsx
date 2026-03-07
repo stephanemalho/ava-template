@@ -118,10 +118,9 @@ export default function PresentationPage() {
                                 <Star className="h-4 w-4 mr-2" />
                                 Notre Approche
                             </Badge>
-                            <h2 className="text-base md:text-xl font-bold">Une méthode éprouvée</h2>
+                            <h2 className="text-base md:text-xl font-bold">Des ateliers pour vous découvrir sous un jour nouveau : </h2>
                             <p className="text-muted-foreground leading-relaxed">
-                                Notre approche holistique combine différentes pratiques complémentaires : yoga, méditation,
-                                développement personnel, art-thérapie et connexion à la nature.
+                                Notre approche holistique combine différentes pratiques complémentaires : yoga, méditation, développement personnel, art-thérapie et connexion à la nature.
                             </p>
                             <div className="space-y-3">
                                 <div className="flex items-start space-x-3">
@@ -134,7 +133,7 @@ export default function PresentationPage() {
                                 </div>
                                 <div className="flex items-start space-x-3">
                                     <div className="w-2 h-2 bg-primary rounded-full mt-2" />
-                                    <p className="text-sm">Groupes restreints pour un suivi optimal</p>
+                                    <p className="text-sm">Groupes restreints pour une qualité d’écoute et de partage </p>
                                 </div>
                             </div>
                         </div>
@@ -147,17 +146,13 @@ export default function PresentationPage() {
                         <h2 className="text-base md:text-xl font-bold">Notre Histoire</h2>
                         <div className="w-24 h-1 bg-primary mx-auto rounded-full mb-8" />
                         <p className="text-muted-foreground leading-relaxed">
-                            Ava Bien-Être est né de la rencontre de trois passionnés du bien-être, unis par la même vision : offrir un
-                            espace de ressourcement authentique dans le respect de la tradition provençale.
+                            Ava Bien-Être est né de la rencontre de plusieurs thérapeutes, et passionnées unis par la même vision : offrir un espace de ressourcement authentique et unique en France.
                         </p>
                         <p className="text-muted-foreground leading-relaxed">
-                            Après des années d&lsquo;expérience dans l&lsquo;accompagnement individuel, nous avons souhaité créer un lieu unique
-                            où chacun peut prendre le temps de se retrouver, entouré d&lsquo;une équipe bienveillante et dans un cadre
-                            naturel exceptionnel.
+                            Après des années d‘expérience dans l‘accompagnement individuel, nous avons souhaité créer un lieu unique où chacun peut prendre le temps de se trouver, ou se retrouver en conscience, découvrir et développer de nouvelles capacités, expérimenter et partager, entouré d‘une équipe bienveillante et dans un cadre naturel exceptionnel.
                         </p>
                         <p className="text-muted-foreground leading-relaxed">
-                            Depuis notre création, nous avons accompagné des centaines de personnes dans leur quête de bien-être,
-                            créant une communauté unie par les valeurs de partage et d&lsquo;authenticité.
+                            Depuis notre création, nous avons accompagné des dizaines de personnes dans leur quête de bien-être, créant une communauté unie par des valeurs de partage et d‘authenticité.
                         </p>
                     </div>
                 </section>
@@ -175,11 +170,12 @@ export default function PresentationPage() {
                                 <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
                                     <Leaf className="h-5 w-5" aria-hidden="true" />
                                 </div>
-                                <h3 className="text-base md:text-xl font-semibold mb-4">Respect de l&lsquo;environnement</h3>
+                                <h3 className="text-base md:text-xl font-semibold mb-4">Respect de l‘environnement</h3>
                                 <p className="text-muted-foreground text-sm leading-relaxed">
-                                    Nous privilégions les produits locaux et biologiques, limitons notre impact écologique et
-                                    sensibilisons nos participants à la préservation de la nature.
+                                    Nous limitons notre impact écologique et sensibilisons nos participants à la préservation de la nature.
                                 </p>
+                                <p className="text-muted-foreground text-sm leading-relaxed">
+                                    La connexion avec la nature est essentielle lors de nos retraites : c’est pourquoi nous avons choisi un cadre naturel. </p>
                             </CardContent>
                         </Card>
 
@@ -190,8 +186,7 @@ export default function PresentationPage() {
                                 </div>
                                 <h3 className="text-base md:text-xl font-semibold mb-4">Qualité et professionnalisme</h3>
                                 <p className="text-muted-foreground text-sm leading-relaxed">
-                                    Notre équipe est composée de professionnels certifiés qui s&lsquo;engagent à vous offrir un accompagnement
-                                    de qualité dans le respect de l&lsquo;éthique de notre métier.
+                                    Notre équipe est composée de professionnels qui s‘engagent à vous offrir un accompagnement de qualité dans le respect de l‘éthique de nos métiers respectifs.
                                 </p>
                             </CardContent>
                         </Card>
@@ -203,8 +198,7 @@ export default function PresentationPage() {
                                 </div>
                                 <h3 className="text-base md:text-xl font-semibold mb-4">Accessibilité</h3>
                                 <p className="text-muted-foreground text-sm leading-relaxed">
-                                    Nous proposons différentes formules pour rendre nos retraites accessibles au plus grand nombre, avec
-                                    des possibilités de paiement échelonné.
+                                    Nous proposons des formules avec hébergement en pension complète, avec des possibilités de paiement échelonné.
                                 </p>
                             </CardContent>
                         </Card>
@@ -216,8 +210,7 @@ export default function PresentationPage() {
                                 </div>
                                 <h3 className="text-base md:text-xl font-semibold mb-4">Suivi personnalisé</h3>
                                 <p className="text-muted-foreground text-sm leading-relaxed">
-                                    Chaque participant bénéficie d&lsquo;un accompagnement individualisé avant, pendant et après le séjour pour
-                                    optimiser les bénéfices de l&lsquo;expérience.
+                                    Chaque participant bénéficie d‘un accompagnement individualisé avant, pendant et après le séjour pour optimiser les bénéfices de l‘expérience.
                                 </p>
                             </CardContent>
                         </Card>
