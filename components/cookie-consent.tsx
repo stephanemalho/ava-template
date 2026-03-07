@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import Link from "next/link"
 import { Cookie } from "lucide-react"
 import { Button } from "./ui/button"
 
@@ -129,8 +130,13 @@ gtag('config', '${GA_ID}');`
               <div className="space-y-1">
                 <p className="text-sm font-semibold text-foreground md:text-base">Gestion des cookies</p>
                 <p className="text-sm text-muted-foreground">
-                  Nous utilisons des cookies analytiques pour mesurer l&apos;audience et ameliorer ton experience.
+                  Nous utilisons uniquement des cookies analytiques, actives apres ton consentement, pour mesurer l&apos;audience et ameliorer ton experience.
                   Tu peux accepter ou refuser, puis modifier ce choix a tout moment.
+                </p>
+                <p className="text-xs text-muted-foreground">
+                  <Link href="/politique-de-confidentialite" className="underline underline-offset-4 hover:text-primary">
+                    Consulter la politique de confidentialite
+                  </Link>
                 </p>
               </div>
             </div>

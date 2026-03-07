@@ -55,7 +55,7 @@ export function NavigationMenuClient({ items }: NavigationMenuClientProps) {
 
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild className="md:hidden">
-            <Button variant="ghost" size="icon">
+            <Button variant="ghost" size="icon" aria-label="Ouvrir le menu principal">
               <Menu className="h-5 w-5 text-white" />
             </Button>
           </SheetTrigger>
@@ -82,4 +82,3 @@ export function NavigationMenuClient({ items }: NavigationMenuClientProps) {
     </>
   )
 }
-

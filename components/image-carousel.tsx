@@ -74,10 +74,18 @@ export function ImageCarousel({ slides, className, priorityFirstImage = false }:
             key={`${slide.caption}-${index}`}
             type="button"
             onClick={() => setCurrentIndex(index)}
-            className={cn("h-2.5 w-2.5 rounded-full transition", index === currentIndex ? "bg-primary" : "bg-muted-foreground/40")}
+            className="flex h-10 w-10 items-center justify-center"
             aria-label={`Afficher l'image ${index + 1}`}
             aria-current={index === currentIndex}
-          />
+          >
+            <span
+              className={cn(
+                "h-2.5 w-2.5 rounded-full transition",
+                index === currentIndex ? "bg-primary" : "bg-muted-foreground/40"
+              )}
+              aria-hidden="true"
+            />
+          </button>
         ))}
       </div>
     </div>

@@ -12,7 +12,6 @@ export function ReservationCartPill() {
         type="button"
         className="inline-flex items-center gap-3 rounded-full border bg-background px-4 py-2 text-sm transition-colors hover:bg-muted/40"
         onClick={() => setCartDialogOpen(true)}
-        aria-label="Ouvrir le récapitulatif panier"
       >
         <span className="relative inline-flex">
           <ShoppingCart className="h-4 w-4 text-primary" aria-hidden="true" />

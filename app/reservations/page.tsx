@@ -10,7 +10,7 @@ import { reservationPackages } from "./_data/packages"
 import { ReservationPackageControls } from "./_components/reservation-package-controls"
 import { ReservationCartPill } from "./_components/reservation-cart-pill"
 import { STRIPE_ACOMPTE_PER_PERSON_EUR } from "@/lib/reservation-pricing"
-import { generateStayOffersSchema } from "@/lib/schema-generators"
+import { generateStayEventsSchema, generateStayOffersSchema } from "@/lib/schema-generators"
 import { siteConfig } from "@/lib/seo-config"
 
 const enterpriseOffer = {
@@ -45,12 +45,17 @@ export const metadata: Metadata = {
 
 export default function ReservationsPage() {
     const stayOffersSchema = generateStayOffersSchema()
+    const stayEventsSchema = generateStayEventsSchema()
 
     return (
         <main className="py-16">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(stayOffersSchema) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(stayEventsSchema) }}
             />
             <div className="container mx-auto">
                 <header className="mb-16 space-y-6 text-center">

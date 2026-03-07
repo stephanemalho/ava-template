@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import Image from "next/image"
+import Image, { getImageProps } from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -19,6 +19,27 @@ export const metadata: Metadata = {
 }
 
 export default function HomePage() {
+  const {
+    props: { srcSet: mobileHeroSrcSet },
+  } = getImageProps({
+    alt: "",
+    src: "/Aurelie-Pierre.jpg",
+    width: 960,
+    height: 1440,
+    sizes: "100vw",
+    quality: 85,
+  })
+
+  const { props: desktopHeroImageProps } = getImageProps({
+    alt: "Equipe Ava Bien-Etre en Provence",
+    src: "/les-fondateurs-2.jpg",
+    width: 1800,
+    height: 1200,
+    sizes: "100vw",
+    quality: 85,
+    priority: true,
+  })
+
   const presentationCards = [
     {
       title: "Notre mission",
@@ -53,22 +74,15 @@ export default function HomePage() {
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden group">
         {/* Image de fond */}
         <div className="absolute inset-0 z-0">
-          <Image
-            src="/Aurelie-Pierre.jpg"
-            alt="Equipe Ava Bien-Etre"
-            fill
-            className="object-cover md:hidden"
-            priority
-            sizes="100vw"
-          />
-          <Image
-            src="/les-fondateurs-2.jpg"
-            alt="Fondatrices et fondateur Ava Bien-Etre"
-            fill
-            className="object-cover hidden md:block"
-            priority
-            sizes="100vw"
-          />
+          <picture className="block h-full w-full">
+            <source media="(max-width: 767px)" srcSet={mobileHeroSrcSet} />
+            <img
+              {...desktopHeroImageProps}
+              alt="Equipe Ava Bien-Etre en Provence"
+              className="h-full w-full object-cover"
+              fetchPriority="high"
+            />
+          </picture>
         </div>
 
         {/* Contenu centré */}
@@ -233,7 +247,6 @@ export default function HomePage() {
                 key={founder.name}
                 href={`/notre-equipe#${toAnchorId(founder.name)}`}
                 className="group block h-full"
-                aria-label={`Voir le profil de ${founder.name}`}
               >
                 <Card className="h-full text-center transition-colors group-hover:border-primary/50">
                   <CardContent className="p-6">

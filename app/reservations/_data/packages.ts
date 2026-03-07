@@ -2,6 +2,8 @@ export type ReservationPackage = {
   id: string
   title: string
   dateRange: string
+  startDate: string
+  endDate: string
   subtitle: string
   price: number
   image: string
@@ -19,6 +21,8 @@ export const reservationPackages: ReservationPackage[] = [
     id: "shared-room",
     title: "Séjour du 11 au 17 Juillet 2026",
     dateRange: "11 au 17 juillet 2026",
+    startDate: "2026-07-11",
+    endDate: "2026-07-17",
     subtitle: "(chambre partagée)",
     price: 1800,
     image: "/sejour-11-17-Juillet.jpeg",
@@ -38,6 +42,8 @@ export const reservationPackages: ReservationPackage[] = [
     id: "shared-room-2",
     title: "Séjour du 22 au 28 Octobre 2026",
     dateRange: "22 au 28 octobre 2026",
+    startDate: "2026-10-22",
+    endDate: "2026-10-28",
     subtitle: "(chambre partagée)",
     price: 1800,
     image: "/sejour-22-28-Octobre.jpeg",

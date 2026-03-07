@@ -8,6 +8,27 @@ export const siteConfig = {
         "Retraites bien-etre tout inclus en Provence: séjours ressourcants, équipe pluridisciplinaire et accompagnement personnalisé.",
     locale: "fr_FR",
     author: "Ava Bien-Etre",
+    contact: {
+        email: "avabienetre71@gmail.com",
+        telephone: "+33689758031",
+    },
+    socials: {
+        instagram: "https://www.instagram.com/ava.bienetre/",
+    },
+    locations: {
+        headquarters: {
+            streetAddress: "800 chemin de la liambe",
+            postalCode: "71480",
+            addressLocality: "Dommartin-les-Cuiseaux",
+            addressCountry: "FR",
+        },
+        retreatVenue: {
+            name: "Séjour AVA Bien-Etre à Trans-en-Provence",
+            addressLocality: "Trans-en-Provence",
+            addressRegion: "Provence-Alpes-Côte d'Azur",
+            addressCountry: "FR",
+        },
+    },
     ogImage: "/sejours-ava.jpg",
     ogImageAlt: "Retraite bien-etre AVA en Provence",
     ogImageWidth: 2000,
