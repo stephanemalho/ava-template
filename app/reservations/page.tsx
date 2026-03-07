@@ -128,6 +128,7 @@ export default function ReservationsPage() {
                 <section className="mt-16 rounded-lg bg-muted/30 p-8">
                     <div className="space-y-4 text-center">
                         <h2 className="text-base md:text-xl font-bold">Informations importantes</h2>
+                        <div className="mx-auto h-1 w-24 rounded-full bg-primary" />
                         <div className="grid gap-6 text-sm text-muted-foreground md:grid-cols-3">
                             <article className="space-y-2">
                                 <h3 className="text-base md:text-xl font-semibold text-foreground">Réservation</h3>
@@ -152,6 +153,7 @@ export default function ReservationsPage() {
                     <div className="text-center space-y-3">
                         <Badge className="bg-primary px-3 py-1 font-bold text-white">{enterpriseOffer.badge}</Badge>
                         <h2 className="text-base md:text-xl font-bold">Offre dédiée aux entreprises</h2>
+                        <div className="mx-auto h-1 w-24 rounded-full bg-primary" />
                         <p className="text-muted-foreground max-w-3xl mx-auto">
                             Un format professionnel pensé pour la cohésion d&apos;équipe, avec un accompagnement entièrement sur mesure.
                         </p>
