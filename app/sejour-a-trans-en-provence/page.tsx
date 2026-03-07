@@ -143,6 +143,68 @@ const programAdjustments = [
   { label: "les conditions météorologiques", icon: Umbrella },
 ]
 
+const faqItems = [
+  {
+    question: "Puis-je venir seul(e) ?",
+    paragraphs: [
+      "Bien sûr.",
+      "Nos séjours sont particulièrement adaptés aux personnes venant seules, désireuses de se ressourcer et de rencontrer d’autres participants dans un cadre bienveillant et sécurisant.",
+      "Beaucoup de liens authentiques naissent durant ces parenthèses hors du temps.",
+    ],
+  },
+  {
+    question: "Les débutants sont-ils acceptés ?",
+    paragraphs: [
+      "Absolument.",
+      "Nos activités sont pensées pour être accessibles à tous les niveaux, des débutants aux pratiquants expérimentés.",
+      "Chacun avance à son rythme, dans le respect de ses capacités et de son expérience.",
+    ],
+  },
+  {
+    question: "Puis-je annuler ma réservation ?",
+    paragraphs: [
+      "Les conditions d’annulation sont détaillées dans nos Conditions Générales de Vente, consultables lors de votre inscription.",
+      "Nous vous invitons à en prendre connaissance attentivement avant votre inscription.",
+    ],
+  },
+  {
+    question: "L’expérience est-elle religieuse ?",
+    paragraphs: [
+      "Non.",
+      "Ava Bien-Être propose un cadre ouvert, respectueux de toutes les sensibilités.",
+      "Nos pratiques s’inscrivent dans une démarche de développement personnel, de reconnexion à soi et d’exploration intérieure, sans dogme ni obligation de croyance.",
+    ],
+  },
+  {
+    question: "Que dois-je apporter ?",
+    paragraphs: [
+      "Une liste détaillée vous sera transmise avant votre arrivée (tenues confortables, affaires personnelles, éventuel matériel spécifique).",
+      "L’essentiel reste : venir avec ouverture et bienveillance envers vous-même.",
+    ],
+  },
+  {
+    question: "Le séjour est-il confidentiel ?",
+    paragraphs: [
+      "Oui.",
+      "Le respect de la confidentialité, de l’intimité et du parcours de chacun fait partie intégrante de notre éthique.",
+    ],
+  },
+  {
+    question: "Pourquoi choisir Ava Bien-Être ?",
+    paragraphs: [
+      "Parce que nous allions :",
+      "Ava Bien-Être est une expérience à la fois structurée et vivante, ancrée et inspirée.",
+    ],
+    bullets: [
+      "cadre naturel exceptionnel en Provence",
+      "accompagnement professionnel",
+      "liberté individuelle",
+      "profondeur humaine",
+      "authenticité",
+    ],
+  },
+]
+
 export const metadata: Metadata = {
   title: "Séjour à Trans-en-Provence | AVA Bien-être",
   description:
@@ -669,39 +731,34 @@ export default function SejoursPage() {
             <div className="mx-auto h-1 w-24 rounded-full bg-primary" />
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2">
-            <div className="space-y-6">
-              <div>
-                <h3 className="mb-2 text-base md:text-xl font-semibold">Puis-je venir seul ?</h3>
-                <p className="text-sm text-muted-foreground">
-                  Bien sûr. Nos séjours sont parfaits pour les personnes seules souhaitant se ressourcer et rencontrer
-                  d&apos;autres participants.
-                </p>
-              </div>
-              <div>
-                <h3 className="mb-2 text-base md:text-xl font-semibold">Les débutants sont-ils acceptés ?</h3>
-                <p className="text-sm text-muted-foreground">
-                  Absolument. Nos activités sont adaptées à tous les niveaux, des débutants aux pratiquants
-                  expérimentés.
-                </p>
-              </div>
-            </div>
-            <div className="space-y-6">
-              <div>
-                <h3 className="mb-2 text-base md:text-xl font-semibold">Puis-je annuler ma réservation ?</h3>
-                <p className="text-sm text-muted-foreground">
-                  Les conditions d&apos;annulation sont détaillées dans nos conditions générales de vente disponibles lors
-                  de la réservation.
-                </p>
-              </div>
-              <div>
-                <h3 className="mb-2 text-base md:text-xl font-semibold">Qu&apos;est-ce qui est inclus dans le prix ?</h3>
-                <p className="text-sm text-muted-foreground">
-                  Hébergement, tous les repas, toutes les activités et l&apos;accompagnement par notre équipe
-                  professionnelle.
-                </p>
-              </div>
-            </div>
+          <div className="grid gap-6 md:grid-cols-2">
+            {faqItems.map((item) => (
+              <Card key={item.question} className="h-full border-border/70 bg-background/80 shadow-sm">
+                <CardContent className="space-y-4 p-6">
+                  <h3 className="text-base md:text-xl font-semibold">{item.question}</h3>
+                  <div className="space-y-3">
+                    {item.paragraphs[0] ? (
+                      <p className="text-sm leading-relaxed text-muted-foreground">{item.paragraphs[0]}</p>
+                    ) : null}
+                    {item.bullets ? (
+                      <ul className="space-y-2 text-sm leading-relaxed text-muted-foreground">
+                        {item.bullets.map((bullet) => (
+                          <li key={bullet} className="flex items-start gap-3">
+                            <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />
+                            <span>{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : null}
+                    {item.paragraphs.slice(item.bullets ? 1 : 1).map((paragraph) => (
+                      <p key={paragraph} className="text-sm leading-relaxed text-muted-foreground">
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </section>
 

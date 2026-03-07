@@ -51,6 +51,6 @@ export const reservationPackages: ReservationPackage[] = [
     location: "Trans-en-Provence",
     type: "Chambre Partagée",
     totalPlaces: 11,
-    availablePlaces: 11,
+    availablePlaces: 4,
   },
 ]
