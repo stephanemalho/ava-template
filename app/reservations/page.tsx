@@ -59,7 +59,7 @@ export default function ReservationsPage() {
                     <p className="mx-auto max-w-3xl text-base text-muted-foreground">
                         Choisissez la formule qui vous correspond le mieux pour votre retraite bien-être
                     </p>
-                    <p className="mx-auto w-fit rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
+                    <p className="mx-auto w-fit md:rounded-full rounded-xl border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
                         Acompte à la réservation : 500€ par personne. Le solde est à régler plus tard.
                     </p>
                 </header>
