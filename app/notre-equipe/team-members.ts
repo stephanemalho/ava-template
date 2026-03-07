@@ -77,34 +77,34 @@ J’ai déjà hâte de vous retrouver et je vous remercie pour ce merveilleux ca
             "Gestion des émotions par l’alimentation",
         ],
     },
-    {
-        name: "Léa Gabriele",
-        role: "Professeure de yoga, pilates et sonothérapeute",
-        image: "/Lea_Gabriele.jpg",
-        description:
-            "Un sourire radieux et une énergie débordante caractérisent Léa, dont la pratique allie douceur, spontanéité, bienveillance et professionnalisme. Professeure de yoga et de pilates depuis plus de dix ans, elle pratique également la sonothérapie. Lors des séjours AVA Bien-Être, Léa vous emmène dans son univers à travers des voyages sonores, des séances de relaxation, des méditations guidées ainsi que des pratiques de yoga accessibles à tous les niveaux et à tous les âges. Elle vous accompagne avec joie sur le chemin de la détente, du partage et du mieux-être, dans une approche à la fois corporelle, sensorielle et profondément humaine.",
-        specialties: [
-            "Yoga",
-            "Pilates",
-            "Sonothérapie",
-            "Relaxation",
-            "Méditation guidée",
-        ],
-    },
-    {
-        name: "Sophie T.",
-        role: "Maître Reiki et praticienne en lithothérapie",
-        image: "/Sophie-2.jpg",
-        description:
-            "Passionnée par la nature, la spiritualité et les soins énergétiques, Sophie accompagne depuis plus de dix-sept ans les personnes en quête de mieux-être à travers la pratique du Reiki. Certifiée Maître Reiki, elle a acquis au fil des années de nombreuses techniques qu’elle souhaite aujourd’hui transmettre avec pédagogie et bienveillance. Lors des séjours AVA Bien-Être, Sophie vous propose de découvrir le Reiki à différents niveaux, en commençant par l’auto-soin, afin de vous permettre d’améliorer votre quotidien tout en explorant cette pratique de manière ludique et accessible. Créatrice de bijoux en lithothérapie, elle animera également des ateliers autour des vertus des pierres, pour partager son savoir-faire et vous guider vers une meilleure compréhension des énergies qui nous entourent.",
-        specialties: [
-            "Reiki",
-            "Soins énergétiques",
-            "Auto-soin",
-            "Lithothérapie",
-            "Transmission et initiation",
-        ],
-    },
+    // {
+    //     name: "Léa Gabriele",
+    //     role: "Professeure de yoga, pilates et sonothérapeute",
+    //     image: "/Lea_Gabriele.jpg",
+    //     description:
+    //         "Un sourire radieux et une énergie débordante caractérisent Léa, dont la pratique allie douceur, spontanéité, bienveillance et professionnalisme. Professeure de yoga et de pilates depuis plus de dix ans, elle pratique également la sonothérapie. Lors des séjours AVA Bien-Être, Léa vous emmène dans son univers à travers des voyages sonores, des séances de relaxation, des méditations guidées ainsi que des pratiques de yoga accessibles à tous les niveaux et à tous les âges. Elle vous accompagne avec joie sur le chemin de la détente, du partage et du mieux-être, dans une approche à la fois corporelle, sensorielle et profondément humaine.",
+    //     specialties: [
+    //         "Yoga",
+    //         "Pilates",
+    //         "Sonothérapie",
+    //         "Relaxation",
+    //         "Méditation guidée",
+    //     ],
+    // },
+    // {
+    //     name: "Sophie T.",
+    //     role: "Maître Reiki et praticienne en lithothérapie",
+    //     image: "/Sophie-2.jpg",
+    //     description:
+    //         "Passionnée par la nature, la spiritualité et les soins énergétiques, Sophie accompagne depuis plus de dix-sept ans les personnes en quête de mieux-être à travers la pratique du Reiki. Certifiée Maître Reiki, elle a acquis au fil des années de nombreuses techniques qu’elle souhaite aujourd’hui transmettre avec pédagogie et bienveillance. Lors des séjours AVA Bien-Être, Sophie vous propose de découvrir le Reiki à différents niveaux, en commençant par l’auto-soin, afin de vous permettre d’améliorer votre quotidien tout en explorant cette pratique de manière ludique et accessible. Créatrice de bijoux en lithothérapie, elle animera également des ateliers autour des vertus des pierres, pour partager son savoir-faire et vous guider vers une meilleure compréhension des énergies qui nous entourent.",
+    //     specialties: [
+    //         "Reiki",
+    //         "Soins énergétiques",
+    //         "Auto-soin",
+    //         "Lithothérapie",
+    //         "Transmission et initiation",
+    //     ],
+    // },
     {
         name: "Bérengère",
         role: "Accompagnement bien-être et coaching de vie",
