@@ -1,10 +1,34 @@
+import type { Metadata } from "next"
 import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { LinkButton } from "@/components/link-button"
 import { toAnchorId } from "@/lib/anchor"
+import { siteConfig } from "@/lib/seo-config"
 import { teamMembers } from "./team-members"
+
+export const metadata: Metadata = {
+    title: "Notre equipe | Ava Bien-Etre",
+    description:
+        "Rencontrez les praticiens et intervenants d'Ava Bien-Etre qui accompagnent les retraites et sejours bien-etre en Provence.",
+    keywords: [
+        "equipe ava bien-etre",
+        "intervenants retraite bien-etre",
+        "praticiens bien-etre provence",
+        "notre equipe ava",
+    ],
+    alternates: {
+        canonical: siteConfig.pages.team,
+    },
+    openGraph: {
+        title: "Notre equipe | Ava Bien-Etre",
+        description:
+            "Decouvrez l'equipe AVA Bien-Etre et les expertises qui accompagnent chaque sejour en Provence.",
+        url: siteConfig.pages.team,
+        type: "website",
+    },
+}
 
 export default function EquipePage() {
     return (

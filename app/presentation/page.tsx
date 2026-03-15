@@ -1,8 +1,32 @@
+import type { Metadata } from "next"
 import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { LinkButton } from "@/components/link-button"
 import { HandCoins, Heart, Leaf, ShieldCheck, Star, Users, UserRoundCheck } from "lucide-react"
+import { siteConfig } from "@/lib/seo-config"
+
+export const metadata: Metadata = {
+    title: "Presentation | Ava Bien-Etre",
+    description:
+        "Decouvrez la mission, les valeurs et l'approche d'Ava Bien-Etre pour ses retraites bien-etre tout inclus en Provence.",
+    keywords: [
+        "presentation ava bien-etre",
+        "mission ava bien-etre",
+        "valeurs retraite bien-etre",
+        "approche bien-etre provence",
+    ],
+    alternates: {
+        canonical: siteConfig.pages.presentation,
+    },
+    openGraph: {
+        title: "Presentation | Ava Bien-Etre",
+        description:
+            "Une presentation de l'univers Ava Bien-Etre, de sa mission et de son accompagnement humain en Provence.",
+        url: siteConfig.pages.presentation,
+        type: "website",
+    },
+}
 
 export default function PresentationPage() {
     return (

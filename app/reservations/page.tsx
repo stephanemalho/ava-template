@@ -43,9 +43,36 @@ export const metadata: Metadata = {
     },
 }
 
-export default function ReservationsPage() {
+type ReservationsPageProps = {
+    searchParams?: Promise<{
+        payment?: string
+        session_id?: string
+    }>
+}
+
+export default async function ReservationsPage({ searchParams }: ReservationsPageProps) {
+    const resolvedSearchParams = searchParams ? await searchParams : undefined
     const stayOffersSchema = generateStayOffersSchema()
     const stayEventsSchema = generateStayEventsSchema()
+    const paymentState = resolvedSearchParams?.payment
+    const sessionId = resolvedSearchParams?.session_id
+
+    const paymentMessage =
+        paymentState === "success"
+            ? {
+                title: "Acompte recu",
+                description: sessionId
+                    ? `Votre acompte Stripe a ete confirme. Reference de session: ${sessionId}. L'equipe AVA reprendra contact avec vous pour la suite.`
+                    : "Votre acompte Stripe a ete confirme. L'equipe AVA reprendra contact avec vous pour la suite.",
+                className: "border-green-200 bg-green-50 text-green-900",
+            }
+            : paymentState === "cancelled"
+                ? {
+                    title: "Paiement annule",
+                    description: "Le paiement de l'acompte a ete annule. Vous pouvez reprendre votre reservation quand vous le souhaitez.",
+                    className: "border-amber-200 bg-amber-50 text-amber-900",
+                }
+                : null
 
     return (
         <main className="py-16">
@@ -58,6 +85,12 @@ export default function ReservationsPage() {
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(stayEventsSchema) }}
             />
             <div className="container mx-auto">
+                {paymentMessage ? (
+                    <section className={`mb-10 rounded-lg border p-4 text-sm ${paymentMessage.className}`}>
+                        <p className="font-semibold">{paymentMessage.title}</p>
+                        <p className="mt-1">{paymentMessage.description}</p>
+                    </section>
+                ) : null}
                 <header className="mb-16 space-y-6 text-center">
                     <h1 className="text-base font-bold md:text-5xl">Réservez votre séjour à Trans-en-Provence</h1>
                     <div className="mx-auto h-1 w-24 rounded-full bg-primary" />

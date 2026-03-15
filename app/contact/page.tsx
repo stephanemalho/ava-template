@@ -1,8 +1,10 @@
+import type { Metadata } from "next"
 import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { LinkButton } from "@/components/link-button"
 import { BriefcaseBusiness, CalendarDays, Chrome, Clock, Mail, MapPin, PawPrint, Sparkles, Users } from "lucide-react"
+import { siteConfig } from "@/lib/seo-config"
 
 const contactItems = [
     {
@@ -35,6 +37,28 @@ const contactItems = [
         secondaryLine: "Actualités des séjours et coulisses de l'équipe.",
     },
 ] as const
+
+export const metadata: Metadata = {
+    title: "Contact | Ava Bien-Etre",
+    description:
+        "Contactez Ava Bien-Etre pour preparer votre retraite bien-etre en Provence, obtenir des informations pratiques ou demander un accompagnement avant reservation.",
+    keywords: [
+        "contact ava bien-etre",
+        "contact retraite bien-etre provence",
+        "email ava bien-etre",
+        "informations reservation sejour bien-etre",
+    ],
+    alternates: {
+        canonical: siteConfig.pages.contact,
+    },
+    openGraph: {
+        title: "Contact | Ava Bien-Etre",
+        description:
+            "Contactez Ava Bien-Etre pour preparer votre sejour, poser vos questions et etre oriente vers la session adaptee.",
+        url: siteConfig.pages.contact,
+        type: "website",
+    },
+}
 
 const renderContactContent = (item: (typeof contactItems)[number]) => {
     switch (item.type) {

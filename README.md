@@ -1,5 +1,16 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Environment
+
+Copy `.env.example` to `.env` and configure the required variables:
+
+- `NEXT_PUBLIC_APP_URL`: public origin of the current deployment.
+- `ALLOWED_ORIGINS`: comma-separated list of allowed origins for the Stripe checkout endpoint.
+- `STRIPE_SECRET_KEY`: Stripe server secret key.
+- `STRIPE_WEBHOOK_SECRET`: signing secret for `POST /api/stripe/webhook`.
+- `STRIPE_ACOMPTE_PER_PERSON_EUR`: deposit amount charged now for each participant.
+- `NEXT_PUBLIC_GA_ID`: Google Analytics measurement ID.
+
 ## Getting Started
 
 First, run the development server:

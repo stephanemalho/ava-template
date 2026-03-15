@@ -30,6 +30,10 @@ const globalForRateLimit = globalThis as typeof globalThis & {
 const checkoutRateLimit = globalForRateLimit.__checkoutRateLimit ?? new Map<string, RateLimitEntry>()
 globalForRateLimit.__checkoutRateLimit = checkoutRateLimit
 
+function buildReservationItemsMetadata(items: CheckoutItem[]) {
+  return items.map((item) => `${item.id}:${item.peopleCount}`).join(",")
+}
+
 function getClientIp(request: Request) {
   const forwardedFor = request.headers.get("x-forwarded-for")
   if (forwardedFor) return forwardedFor.split(",")[0]?.trim() || "unknown"
@@ -149,7 +153,21 @@ export async function POST(request: Request) {
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       line_items: lineItems,
-      success_url: `${origin}/reservations?payment=success`,
+      billing_address_collection: "auto",
+      customer_creation: "always",
+      locale: "fr",
+      metadata: {
+        reservation_items: buildReservationItemsMetadata(items),
+      },
+      payment_intent_data: {
+        metadata: {
+          reservation_items: buildReservationItemsMetadata(items),
+        },
+      },
+      phone_number_collection: {
+        enabled: true,
+      },
+      success_url: `${origin}/reservations?payment=success&session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/reservations?payment=cancelled`,
     })
 
