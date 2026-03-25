@@ -86,17 +86,13 @@ export default function HomePage() {
         </div>
 
         {/* Contenu centré */}
-        <div className="absolute text-white z-10 bottom-0 text-center space-y-2 px-4 max-w-2xl mx-auto md:bg-[#4D6C4D] bg-[#544c41cc]  md:rounded-t-lg py-8">
+        <div className="absolute text-white z-10 bottom-0 text-center space-y-2 px-4 max-w-2xl mx-auto bg-[#544c41cc]  md:rounded-t-lg py-8">
           <h1 className="text-xl md:text-2xl font-bold drop-shadow-[0_3px_14px_rgba(0,0,0,0.35)]">
             Bienvenue chez
             Ava bien-être
           </h1>
           <p className="text-base md:mb-6  md:text-md opacity-90 drop-shadow-[0_2px_10px_rgba(0,0,0,0.3)]">
-            AVA Bien-Être organise des séjours tout inclus dans des cadres exceptionnels : hébergement, repas et activités réunis pour une expérience complète et immersive.
-          </p>
-          <p className="text-base md:mb-6  md:text-md opacity-90 drop-shadow-[0_2px_10px_rgba(0,0,0,0.3)]">Des ateliers puissants, une ambiance conviviale, des rencontres authentiques et une énergie collective forte t’attendent.
-          </p>
-          <p className="text-base md:mb-6  md:text-md opacity-90 drop-shadow-[0_2px_10px_rgba(0,0,0,0.3)]">Viens vivre un séjour extraordinaire, relaxant et profondément dépaysant.
+            AVA Bien-Être organise des séjours tout inclus dans des cadres exceptionnels : hébergement, repas et activités réunis pour une expérience complète et immersive.Des ateliers puissants, une ambiance conviviale, des rencontres authentiques et une énergie collective forte t’attendent.Viens vivre un séjour extraordinaire, relaxant et profondément dépaysant.
             L’aventure commence ici.
           </p>
           <Button asChild size="lg" className="bg-primary hover:bg-primary/80">
