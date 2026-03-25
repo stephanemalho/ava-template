@@ -10,9 +10,9 @@ import { toAnchorId } from "@/lib/anchor"
 import { Compass, HeartHandshake, MessageCircle, ShieldCheck, Sparkles, Target, Users } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Ava Bien-Etre | Retraites bien-etre en Provence",
+  title: "Retraites et séjours bien-être tout inclus en Provence | AVA Bien-Être",
   description:
-    "Decouvrez Ava Bien-Etre a Trans-en-Provence: retraites tout inclus, equipe pluridisciplinaire, sejours ressourcants et accompagnement personnalise.",
+    "Decouvrez Ava Bien-Etre a Trans-en-Provence: retraites tout inclus, equipe pluridisciplinaire, sejours ressourcants et accompagnement personnalise. Avec Pierre Yonas et Aurélie Ava",
   alternates: {
     canonical: "/",
   },
@@ -92,7 +92,7 @@ export default function HomePage() {
             Ava bien-être
           </h1>
           <p className="text-base md:mb-6  md:text-md opacity-90 drop-shadow-[0_2px_10px_rgba(0,0,0,0.3)]">
-            AVA Bien-Être organise des séjours tout inclus dans des cadres exceptionnels : hébergement, repas et activités réunis pour une expérience complète et immersive.Des ateliers puissants, une ambiance conviviale, des rencontres authentiques et une énergie collective forte t’attendent.Viens vivre un séjour extraordinaire, relaxant et profondément dépaysant.
+            AVA Bien-Être organise des séjours tout inclus dans des cadres exceptionnels : hébergement, repas et activités réunis pour une expérience complète et immersive. Des ateliers puissants, une ambiance conviviale, des rencontres authentiques et une énergie collective forte t’attendent.Viens vivre un séjour extraordinaire, relaxant et profondément dépaysant.
             L’aventure commence ici.
           </p>
           <Button asChild size="lg" className="bg-primary hover:bg-primary/80">
@@ -119,34 +119,12 @@ export default function HomePage() {
               <h2 className="text-base md:text-xl font-bold">
                 Besoin de te ressourcer ?
               </h2>
-              <p>
-                Retrouve sur cette page toutes les informations et les liens vers les pages qui te permettront de
-                mieux connaître nos séjours, notre équipe et les raisons pour lesquelles
-                tu devrais nous rejoindre pour une expérience de reconnexion à soi
-                inoubliable&nbsp;!
+              <p className="text-muted-foreground">
+                Ici, tout est pensé pour t’aider à ralentir, te reconnecter à ton essentiel et vivre un séjour profondément apaisant et inspirant.
               </p>
               <div className="space-y-2 mt-6">
-                <h3 className="font-semibold">
-                  Nos séjours tout inclus proposent une expérience de ressourcement
-                  complète, alliant&nbsp;:
-                </h3>
-                <p className="text-sm text-muted-foreground">
-                  Hébergement, repas, ateliers et accompagnement humain dans un cadre
-                  naturel propice à la reconnexion à soi.
-                </p>
-              </div>
-              <div className="space-y-2">
-                <h3 className="font-semibold">
-                  Toute notre énergie est consacrée à faire de ton séjour une expérience
-                  extraordinaire, relaxante et dépaysante&nbsp;!
-                </h3>
-
-                <p className="text-sm text-muted-foreground">
-                  Nous canalisons cette énergie à travers de nombreux ateliers afin que tu
-                  vives un séjour apaisant, ressourçant et profondément dépaysant en notre
-                  compagnie&nbsp;! N’attends plus pour te joindre à cette merveilleuse aventure
-                  humaine, qui te permettra de revoir la vie sous un angle nouveau et plus
-                  serein&nbsp;!
+                <p className="text-muted-foreground">
+                  Plus qu’un simple séjour, c’est une expérience humaine qui peut transformer ton regard sur la vie.
                 </p>
               </div>
               <div className="flex flex-wrap justify-center gap-3 md:justify-start">
