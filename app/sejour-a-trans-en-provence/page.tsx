@@ -49,7 +49,7 @@ const staySessions: StaySession[] = [
   {
     title: "Séjour d'été",
     dateRange: "du 10 au 16 juillet 2026",
-    image: "/sejour-11-17-Juillet.jpeg",
+    image: "/sejour-10-16-Juillet.jpeg",
     imageAlt: "Participants d'un séjour bien-être AVA en juillet 2026",
     badge: "Juillet 2026",
     description: "Retraite bien-être immersive avec ateliers, détente et accompagnement en petit groupe.",
