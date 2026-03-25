@@ -10,7 +10,7 @@ export function ReservationCartPill() {
     <div className="flex items-center justify-center">
       <button
         type="button"
-        className="inline-flex items-center gap-3 rounded-full border bg-background px-4 py-2 text-sm transition-colors hover:bg-muted/40"
+        className="inline-flex text-white items-center gap-3 rounded-full border bg-muted-foreground px-4 py-2 text-sm transition-colors hover:bg-muted-foreground/40"
         onClick={() => setCartDialogOpen(true)}
       >
         <span className="relative inline-flex">
@@ -21,7 +21,7 @@ export function ReservationCartPill() {
             </span>
           )}
         </span>
-        <span className="text-muted-foreground">
+        <span>
           {totalPeople > 0 ? `${totalPeople} personne(s) sélectionnée(s)` : "Aucune sélection validée"}
         </span>
         {totalPeople > 0 && <span className="font-semibold">{totalPrice}.00 €</span>}

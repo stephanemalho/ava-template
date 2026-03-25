@@ -171,7 +171,7 @@ export default function ContactPage() {
                                 <div className="flex flex-col items-center gap-2 md:items-start">
                                     <LinkButton href="/reservations">Revoir les séjours disponibles</LinkButton>
                                     <Button asChild variant="outline">
-                                        <a href="https://forms.gle/gFuHdXa9z6anSEJR8" target="_blank" rel="noreferrer">
+                                        <a href="https://forms.gle/NeGMaieNjjgbXdRs5" target="_blank" rel="noreferrer">
                                             Posez nous toutes vos questions
                                         </a>
                                     </Button>
