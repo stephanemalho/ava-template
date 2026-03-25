@@ -61,10 +61,10 @@ export default function EquipePage() {
                             Équipe AVA Bien-Être
                         </p>
                         <p className="text-base leading-relaxed text-white/90">
-                            Rencontrez celles et ceux qui donnent vie à l’esprit AVA Bien-Être.
-                            Une équipe d’âmes engagées, réunies pour vous accompagner dans un voyage intérieur unique, à travers le yoga, la méditation, les soins énergétiques, l’art-thérapie, la communication animale et bien plus encore…
-                            Ici, chaque pratique devient un passage vers vous-même.
+                            Rencontrez l’équipe qui incarne l’âme d’AVA Bien-Être.
                         </p>
+                        <p className="text-base leading-relaxed text-white/90">Une équipe réunie non pas pour enseigner… mais pour ouvrir des espaces où quelque chose en vous peut enfin se révéler.</p>
+                        <p className="text-base leading-relaxed text-white/90">Notre rôle est de vous accompagner sur ce chemin</p>
                     </div>
                 </div>
             </section>

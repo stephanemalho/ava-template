@@ -3,7 +3,7 @@ import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { LinkButton } from "@/components/link-button"
-import { BriefcaseBusiness, CalendarDays, Chrome, Clock, Mail, MapPin, PawPrint, Sparkles, Users } from "lucide-react"
+import { BriefcaseBusiness, CalendarDays, Chrome, Clock, Compass, Mail, MapPin, MessageCircle, Sparkles, Users } from "lucide-react"
 import { siteConfig } from "@/lib/seo-config"
 
 const contactItems = [
@@ -140,19 +140,19 @@ export default function ContactPage() {
                             </p>
                             <div className="space-y-3">
                                 <div className="flex items-center gap-2">
-                                    <PawPrint className="h-4 w-4 text-primary" aria-hidden="true" />
+                                    <MessageCircle className="h-4 w-4 text-primary" aria-hidden="true" />
                                     <span className="text-sm text-muted-foreground">
                                         Échange personnalisé avant réservation
                                     </span>
                                 </div>
                                 <div className="flex items-center gap-2">
-                                    <PawPrint className="h-4 w-4 text-primary" aria-hidden="true" />
+                                    <Compass className="h-4 w-4 text-primary" aria-hidden="true" />
                                     <span className="text-sm text-muted-foreground">
                                         Conseils sur le format de séjour le plus adapté
                                     </span>
                                 </div>
                                 <div className="flex items-center gap-2">
-                                    <PawPrint className="h-4 w-4 text-primary" aria-hidden="true" />
+                                    <Mail className="h-4 w-4 text-primary" aria-hidden="true" />
                                     <span className="text-sm text-muted-foreground">
                                         Informations pratiques envoyées par email
                                     </span>
