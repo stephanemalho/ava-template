@@ -1,4 +1,4 @@
-const DEFAULT_ACOMPTE_PER_PERSON_EUR = 1
+const DEFAULT_ACOMPTE_PER_PERSON_EUR = 500
 
 function parseAcompteValue(rawValue: string | undefined) {
   if (!rawValue) return DEFAULT_ACOMPTE_PER_PERSON_EUR
