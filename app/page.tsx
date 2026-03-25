@@ -22,7 +22,7 @@ export default function HomePage() {
   const {
     props: { srcSet: mobileHeroSrcSet },
   } = getImageProps({
-    alt: "",
+    alt: "Les fondateurs d'Ava Bien-Etre en Provence",
     src: "/Aurelie-Pierre-2026.jpeg",
     width: 960,
     height: 1440,
@@ -31,8 +31,8 @@ export default function HomePage() {
   })
 
   const { props: desktopHeroImageProps } = getImageProps({
-    alt: "Equipe Ava Bien-Etre en Provence",
-    src: "/les-fondateurs-2.jpg",
+    alt: "Les fondateurs d'Ava Bien-Etre en Provence",
+    src: "/Aurelie-Pierre-2026.jpeg",
     width: 1800,
     height: 1200,
     sizes: "100vw",
@@ -79,7 +79,7 @@ export default function HomePage() {
             <img
               {...desktopHeroImageProps}
               alt="Equipe Ava Bien-Etre en Provence"
-              className="h-full w-full object-cover"
+              className="h-full w-full object-cover object-center md:object-[center_32%]"
               fetchPriority="high"
             />
           </picture>
@@ -92,7 +92,12 @@ export default function HomePage() {
             Ava bien-être
           </h1>
           <p className="text-base md:mb-6  md:text-md opacity-90 drop-shadow-[0_2px_10px_rgba(0,0,0,0.3)]">
-            Ava Bien-Être organise des séjours retraite bien-être tout inclus en Provence, tes journées seront dédiées à la reconnexion à soi, au lâcher-prise et à l&apos;équilibre corps-esprit, dans un cadre naturel propice au ressourcement.
+            AVA Bien-Être organise des séjours tout inclus dans des cadres exceptionnels : hébergement, repas et activités réunis pour une expérience complète et immersive.
+          </p>
+          <p className="text-base md:mb-6  md:text-md opacity-90 drop-shadow-[0_2px_10px_rgba(0,0,0,0.3)]">Des ateliers puissants, une ambiance conviviale, des rencontres authentiques et une énergie collective forte t’attendent.
+          </p>
+          <p className="text-base md:mb-6  md:text-md opacity-90 drop-shadow-[0_2px_10px_rgba(0,0,0,0.3)]">Viens vivre un séjour extraordinaire, relaxant et profondément dépaysant.
+            L’aventure commence ici.
           </p>
           <Button asChild size="lg" className="bg-primary hover:bg-primary/80">
             <Link href="/sejour-a-trans-en-provence">Découvre nos retraites</Link>
