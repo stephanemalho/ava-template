@@ -74,7 +74,7 @@ export default function EquipePage() {
                     <div className="text-center space-y-6 mb-16">
                         <h2 className="text-base md:text-xl font-bold">Notre Équipe</h2>
                         <p className="text-base text-muted-foreground max-w-3xl mx-auto">
-                            Cette section liste les Avayens passionnés qui vous accompagneront tout au long de votre séjour bien-être
+                            Aux côtés de personnalités inspirantes telles que Pierre Yonas et Laila Del Monte, notre équipe vous accompagne tout au long de votre séjour avec des approches complémentaires, au service de votre transformation intérieure.
                         </p>
                     </div>
 
