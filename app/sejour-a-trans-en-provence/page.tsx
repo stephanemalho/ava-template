@@ -282,7 +282,7 @@ export default function SejoursPage() {
                 <h1 className="text-base md:text-xl font-bold">Séjour à Trans-en-Provence</h1>
                 <div className="flex items-center justify-center space-x-4">
                   <Calendar className="h-5 w-5" />
-                  <span className="text-lg">du 11 au 17 juillet 2026</span>
+                  <span className="text-lg">du 10 au 16 juillet 2026</span>
                 </div>
                 <div className="flex items-center justify-center space-x-4">
                   <Calendar className="h-5 w-5" />

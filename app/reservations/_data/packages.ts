@@ -25,11 +25,11 @@ export const reservationPackages: ReservationPackage[] = [
         endDate: "2026-07-17",
         subtitle: "(chambre partagée)",
         price: 1800,
-        image: "/sejour-11-17-Juillet.jpeg",
+        image: "/sejour-10-16-Juillet.jpeg",
         badge: "1800 € / personne",
         badgeColor: "bg-primary",
         features: [
-            "Séjour en pension complète du samedi 10 au 16 juillet 2026",
+            "Séjour en pension complète du vendredi 10 au 16 juillet 2026",
             "Hébergement, repas, collations, intervenants, animations, ateliers inclus",
             "Option de règlement de votre séjour en plusieurs fois disponible sur demande (Paypal / Alma)"
         ],

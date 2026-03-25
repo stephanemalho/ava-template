@@ -2,7 +2,7 @@ import { createLastmodGetter } from "./lastmod";
 
 export const siteConfig = {
     name: "Ava Bien-Etre",
-    siteUrl: "https://avabienetre.fr",
+    siteUrl: "https://www.avabienetre.fr",
     title: "Ava Bien-Etre | Retraites bien-etre en Provence",
     description:
         "Retraites bien-etre tout inclus en Provence: séjours ressourcants, équipe pluridisciplinaire et accompagnement personnalisé.",
