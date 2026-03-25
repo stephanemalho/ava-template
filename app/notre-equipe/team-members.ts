@@ -23,8 +23,8 @@ Il animera notamment des ateliers d’initiation au magnétisme, à la médiumni
             "Magnétisme",
             "Guérison spirituelle",
             "Transmission et pédagogie",
-            "Conférences et ateliers",
-        ],
+            "Conférences et ateliers"
+        ]
     },
     {
         name: "Aurélie",
@@ -60,13 +60,13 @@ J’ai déjà hâte de vous retrouver et je vous remercie pour ce merveilleux ca
         specialties: [
             "Thérapie holistique",
             "Développement personnel",
-            "Bien-être",
-        ],
+            "Bien-être"
+        ]
     },
     {
         name: "Émilie",
         role: "Healthy food, aromathérapie, ateliers de fabrication de produits naturels.",
-        image: "/Emilie.jpg",
+        image: "/Emilie-presentation-2026.jpeg",
         description:
             "Émilie est la cheffe cuisinière d’AVA Bien-Être. Après plus de vingt ans d’expérience dans le domaine de la restauration, elle a choisi de donner un nouveau sens à son parcours en se consacrant pleinement au bien-être. Lors des retraites, elle prépare avec passion des repas et collations healthy, pensés pour nourrir le corps tout en éveillant les sens, et vous faire découvrir le bien-être jusque dans l’assiette. En dehors de la cuisine, Émilie anime des ateliers d’aromathérapie et de fabrication de produits naturels à base d’huiles essentielles, afin de transmettre des pratiques simples, utiles et applicables au quotidien. Elle est heureuse de partager cette aventure humaine aux côtés d’Aurélie et de Pierre, et se réjouit de vous rencontrer lors de nos séjours.",
         specialties: [
@@ -74,8 +74,8 @@ J’ai déjà hâte de vous retrouver et je vous remercie pour ce merveilleux ca
             "Nutrition saine",
             "Aromathérapie",
             "Fabrication de produits naturels",
-            "Gestion des émotions par l’alimentation",
-        ],
+            "Gestion des émotions par l’alimentation"
+        ]
     },
     // {
     //     name: "Léa Gabriele",
@@ -116,8 +116,8 @@ J’ai déjà hâte de vous retrouver et je vous remercie pour ce merveilleux ca
             "Accompagnement émotionnel",
             "Bien-être corporel",
             "Recentrage et relaxation",
-            "Transitions de vie",
-        ],
+            "Transitions de vie"
+        ]
     },
     {
         name: "Patricia",
@@ -125,7 +125,7 @@ J’ai déjà hâte de vous retrouver et je vous remercie pour ce merveilleux ca
         image: "/Patricia.jpg",
         description:
             "L'art thérapie, comme son nom l'indique est une démarche d'accompagnement thérapeutique par la création, ou l'expression artistique. Libérez les tensions, focalisez sur l'instant présent… laissez votre corps s'exprimer à travers votre propre rythme : des mouvements lents, ou rapides. Laissez-vous guider par la voix de patricia, par la musique… créez votre bulle de bien être ! ces ateliers sont une invitation au lâcher prise ! L'art thérapie s'adresse à tous sans distinction d'âge et sans prérequis.",
-        specialties: ["Massages", "Relaxation", "Énergétique"],
+        specialties: ["Massages", "Relaxation", "Énergétique"]
     },
     {
         name: "Johan",
@@ -138,8 +138,8 @@ J’ai déjà hâte de vous retrouver et je vous remercie pour ce merveilleux ca
             "Massage musculaire sportif",
             "Massage ayurvédique",
             "Massage relaxant",
-            "Détente et récupération",
-        ],
+            "Détente et récupération"
+        ]
     },
     {
         name: "Laila Delmonte",
@@ -147,6 +147,6 @@ J’ai déjà hâte de vous retrouver et je vous remercie pour ce merveilleux ca
         image: "/Laila-Delmonte.jpeg",
         description:
             "Laïla Del Monte est une professionnelle et spécialiste de la communication animale : elle a suivi ses études secondaires et universitaires à Paris, jusqu'au niveau d'une Maîtrise en Religions comparées à la Sorbonne. Elle se consacre essentiellement à la communication animale, dont elle est l'une des pionnières en Europe. Elle enseigne son savoir dans plusieurs pays du monde. De nombreux vétérinaires font appel à Laïla Del Monte, mais aussi des éleveurs, des entraîneurs de chevaux, des cavaliers de haut niveau, des comportementalismes, des parcs animaliers, dentistes équins, dresseurs, ostéopathes, éducateurs canin, S.P.A, refuges etc. Laïla sera parmi nous pour animer des conférences, des discussions et ateliers dont nous dévoilerons le contenu et thèmes lors de la présentation des séjours. L'authenticité de la démarche de Laïla Del Monte fait naître le désir d'entreprendre, à notre tour, ce chemin vers l'animal et, par ce biais, vers nous-même. Nous remercions Laïla pour son engagement et sa présence lors de nos retraites, et nous sommes sûrs qu'elle marquera votre esprit comme personne.",
-        specialties: ["Coordination", "Accueil", "Suivi personnalisé"],
-    },
-]
+        specialties: ["Coordination", "Accueil", "Suivi personnalisé"]
+    }
+];

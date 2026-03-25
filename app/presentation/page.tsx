@@ -63,7 +63,7 @@ export default function PresentationPage() {
                         </div>
                         <div className="relative h-64 md:h-80 rounded-lg overflow-hidden">
                             <Image
-                                src="/exterieur-2.jpg"
+                                src="/ava-seance-magnatisme-pierre-yonas.jpeg"
                                 alt="Mission Ava Bien-Être"
                                 fill
                                 className="object-cover"

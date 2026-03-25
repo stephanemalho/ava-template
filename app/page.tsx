@@ -23,7 +23,7 @@ export default function HomePage() {
     props: { srcSet: mobileHeroSrcSet },
   } = getImageProps({
     alt: "",
-    src: "/Aurelie-Pierre.jpg",
+    src: "/Aurelie-Pierre-2026.jpeg",
     width: 960,
     height: 1440,
     sizes: "100vw",
