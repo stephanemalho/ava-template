@@ -2,7 +2,7 @@ export const teamMembers = [
     {
         name: "Pierre Yonas",
         role: "Médium, guérisseur spirituel, magnétiseur et conférencier",
-        image: "/Pierre_Yonas.jpg",
+        image: "/Pierre_Yonas-profil.jpg",
         description: `
 Sous sa peau est ancré le mot « honneur » en japonais. Son regard sincère, intense et profond semble aller au-delà des apparences : voici Pierre Yonas.
 

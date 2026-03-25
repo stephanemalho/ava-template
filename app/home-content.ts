@@ -27,7 +27,7 @@ export const founderPreviews: FounderPreview[] = [
   },
   {
     name: "Pierre Yonas",
-    image: "/Pierre_Yonas-2.jpg",
+    image: "/Pierre_Yonas-profil-2.jpg",
     description:
       "Pierre Yonas anime des accompagnements autour du développement personnel, de la conscience de soi et de l’intuition.",
   },

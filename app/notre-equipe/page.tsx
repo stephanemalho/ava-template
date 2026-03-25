@@ -61,9 +61,9 @@ export default function EquipePage() {
                             Équipe AVA Bien-Être
                         </p>
                         <p className="text-base leading-relaxed text-white/90">
-                            Découvrez la famille AVA Bien-Être qui accompagnent vos retraites et séjours avec des
-                            approches complémentaires : yoga, méditation, soins énergétiques, art-thérapie,
-                            communication animale et développement personnel.
+                            Rencontrez celles et ceux qui donnent vie à l’esprit AVA Bien-Être.
+                            Une équipe d’âmes engagées, réunies pour vous accompagner dans un voyage intérieur unique, à travers le yoga, la méditation, les soins énergétiques, l’art-thérapie, la communication animale et bien plus encore…
+                            Ici, chaque pratique devient un passage vers vous-même.
                         </p>
                     </div>
                 </div>
