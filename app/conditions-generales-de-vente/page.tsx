@@ -1,15 +1,14 @@
 import type { Metadata } from "next"
-import Link from "next/link"
 import { returnLastmod, siteConfig } from "@/lib/seo-config"
 
 export const metadata: Metadata = {
   title: "CGV | Ava Bien-Etre",
-  description: "Conditions generales de vente des sejours AVA BIEN ETRE.",
+  description: "Conditions generales de vente des sejours AVA Bien-Etre.",
   keywords: [
     "cgv ava bien-etre",
-    "conditions reservation sejour bien-etre",
-    "annulation retraite bien-etre",
-    "paiement sejour ava",
+    "conditions generales de vente ava",
+    "reservation sejour bien-etre",
+    "annulation sejour ava",
   ],
   alternates: {
     canonical: siteConfig.pages.cgv,
@@ -20,304 +19,241 @@ export default function ConditionsGeneralesDeVentePage() {
   const lastMod = returnLastmod(siteConfig.pages.cgv)
 
   return (
-    <main className="py-16">
-      <div className="container mx-auto max-w-5xl space-y-8">
-        <header className="space-y-4 text-center">
-          <h1 className="text-base md:text-2xl font-bold">Conditions Générales de Vente (CGV)</h1>
-          <p className="text-sm text-muted-foreground">
-            Vous avez la possibilité de consulter à tout moment les présentes CGV sur notre site{" "}
-            <a href="https://www.avabienetre.fr" target="_blank" rel="noreferrer" className="text-primary underline">
+    <main className="px-4 py-16">
+      <article className="mx-auto max-w-4xl space-y-8">
+        <header className="space-y-4">
+          <h1 className="text-3xl font-bold">Conditions Générales de Vente - AVA Bien-Être</h1>
+          <p>
+            Les présentes Conditions Générales de Vente (CGV) sont consultables à tout moment sur le site :{" "}
+            <a href="https://www.avabienetre.fr" target="_blank" rel="noreferrer" className="underline">
               https://www.avabienetre.fr
             </a>
-            .
           </p>
-          <p className="text-sm text-muted-foreground">
-            Nous nous réservons le droit d&apos;adapter ou de modifier à tout moment et sans préavis les présentes CGV.
-            Dans ce cas, les adaptations ou modifications seront applicables à toutes inscriptions intervenant à compter
-            de la publication des CGV modifiées sur le site sur lequel vous effectuerez votre réservation.
+          <p>
+            AVA Bien-Être se réserve le droit de modifier les présentes CGV à tout moment. Les conditions applicables
+            sont celles en vigueur à la date de la réservation.
           </p>
         </header>
 
-        <section className="space-y-4">
-          <h2 className="text-base md:text-xl font-semibold">I. DOMAINE D&apos;APPLICATION DES CGV - OPPOSABILITÉ</h2>
-          <ol className="list-decimal space-y-2 pl-5 text-sm text-muted-foreground">
-            <li>
-              L&apos;inscription à l&apos;un des séjours AVA BIEN ÊTRE implique l&apos;adhésion entière et sans réserves du participant aux
-              conditions générales de ventes (CGV), à l&apos;exclusion de tout autre document. Ces conditions générales
-              s&apos;appliquent aux contrats ayant trait à un séjour proposé par AVA BIEN ÊTRE, ainsi qu&apos;à toutes les autres
-              prestations fournies intrinsèquement aux participants par le lieu de séjour AVA BIEN ÊTRE.
-            </li>
-          </ol>
+        <section className="space-y-3">
+          <h2 className="text-2xl font-semibold">I. Champ d&apos;application</h2>
+          <p>Les présentes CGV régissent l&apos;ensemble des prestations proposées par AVA Bien-Être.</p>
+          <p>
+            Toute inscription à un séjour implique l&apos;adhésion pleine et entière du participant aux présentes
+            conditions, à l&apos;exclusion de tout autre document.
+          </p>
         </section>
 
-        <section className="space-y-4">
-          <h2 className="text-base md:text-xl font-semibold">II. CONCLUSION DU CONTRAT</h2>
-          <ol className="list-decimal space-y-2 pl-5 text-sm text-muted-foreground">
-            <li>La réservation d&apos;un séjour AVA BIEN ÊTRE s&apos;effectue directement via le formulaire d&apos;inscription en ligne.</li>
-            <li>La réservation d&apos;un séjour AVA BIEN ÊTRE s&apos;effectue également par e-mail.</li>
-            <li>
-              La réservation ferme d&apos;un séjour AVA BIEN ÊTRE est prise en compte dès réception du versement d&apos;arrhes d&apos;un
-              montant de 500€ ou bien du paiement intégral du séjour.
-            </li>
-            <li>Une réservation devient effective par le renvoi de la confirmation d&apos;inscription par nos services.</li>
-            <li>
-              Le participant atteste, dans une démarche libre et volontaire, souhaiter effectuer un séjour bien-être
-              dans l&apos;un des lieux proposés par AVA BIEN ÊTRE et pour lequel il s&apos;inscrit (lieu fonction de la semaine choisie).
-            </li>
-            <li>
-              Le participant atteste, pour ce faire, être en bonne santé et s&apos;engage à assurer ses responsabilités
-              personnelles et en groupe.
-            </li>
-            <li>
-              Le participant atteste avoir été informé(e) que la conduite d&apos;un véhicule, motorisé ou non, est fortement
-              déconseillée durant toute la durée du séjour.
-            </li>
-            <li>Ces séjours s&apos;adressent à des personnes majeures et en bonne santé.</li>
-            <li>
-              Il relève de l&apos;entière responsabilité du participant de vérifier auprès des autorités médicales
-              compétentes que sa condition physique et psychique est compatible avec un stage comportant des activités
-              de méditation, respiration, relaxation.
-            </li>
-            <li>
-              Le participant certifie ses déclarations étant sincères et véritables et dégage Aurélie VIOLETTE et Frank CASTELLANO de toute responsabilité à ce sujet. Il s&apos;engage également à avertir
-              tout changement de situation sur sa santé pouvant survenir avant le séjour.
-            </li>
-            <li>
-              En cas de ronchopathie (ronflement), le participant s&apos;engage à prévenir l&apos;équipe ou retenir une chambre
-              en individuel dès l&apos;inscription.
-            </li>
-            <li>
-              Le participant déclare avoir souscrit un contrat d&apos;assurance couvrant sa Responsabilité Civile
-              Individuelle (en cas de dommages causés à des tiers). Celle-ci est normalement incluse dans un contrat
-              multirisque habitation disposant d&apos;une clause de villégiature ou une responsabilité civile hors domicile.
-              À défaut, le participant s&apos;engage à souscrire une garantie temporaire pour la durée du séjour.
-            </li>
-            <li>
-              Les offres de séjour bien-être ne s&apos;adressent pas aux mineurs de moins de 18 ans non accompagnés de leur
-              responsable légal.
-            </li>
-            <li>
-              Les animaux de compagnie ne sont pas admis en stage mais peuvent l&apos;être si le lieu de stage le permet.
-            </li>
-            <li>Il est interdit de fumer à l&apos;intérieur des bâtiments et les zones non dallées du site.</li>
-            <li>
-              Pour des raisons de sécurité incendie, les feux, bougies et encens allumés par les participants sont
-              également interdits.
-            </li>
-            <li>
-              Pour des questions de souplesse d&apos;organisation, de congruence avec la taille des groupes (nombre de
-              participants par session) ou encore en cas de nécessité, AVA BIEN ÊTRE se réserve le droit de changer le
-              programme de déroulement du séjour, ainsi que la date du séjour. Ce changement sera totalement transparent
-              pour les personnes demandant à bénéficier de la navette gratuite entre la gare TGV et le centre
-              (horaires des billets arrivée/départ inchangés).
-            </li>
-          </ol>
+        <section className="space-y-3">
+          <h2 className="text-2xl font-semibold">II. Réservation et formation du contrat</h2>
+          <p>La réservation peut être effectuée :</p>
+          <ul className="list-disc pl-6">
+            <li>via le formulaire en ligne</li>
+            <li>par e-mail</li>
+          </ul>
+          <p>Elle devient ferme et définitive :</p>
+          <ul className="list-disc pl-6">
+            <li>à réception d&apos;un versement de 500 EUR d&apos;arrhes ou du paiement intégral</li>
+            <li>et après confirmation écrite d&apos;AVA Bien-Être</li>
+          </ul>
+          <p>Le participant reconnaît :</p>
+          <ul className="list-disc pl-6">
+            <li>s&apos;inscrire librement et volontairement</li>
+            <li>être majeur et juridiquement capable</li>
+            <li>être en bon état de santé physique et psychique</li>
+          </ul>
+          <p>
+            Les séjours proposés relèvent du bien-être et du développement personnel et ne constituent pas des actes
+            médicaux ou thérapeutiques.
+          </p>
+          <p>Le participant s&apos;engage à :</p>
+          <ul className="list-disc pl-6">
+            <li>vérifier la compatibilité de sa condition de santé avec les activités proposées</li>
+            <li>informer l&apos;organisateur de toute situation particulière</li>
+            <li>être couvert par une assurance responsabilité civile</li>
+          </ul>
         </section>
 
-        <section className="space-y-4">
-          <h2 className="text-base md:text-xl font-semibold">III. SERVICES, TARIFS, PAIEMENTS ET FACTURATIONS</h2>
-          <ol className="list-decimal space-y-2 pl-5 text-sm text-muted-foreground">
-            <li>
-              Toutes les prestations seront facturées sur la base des tarifs en vigueur. Les prix / indications
-              tarifaires sont donnés en EURO et non négociables. AVA BIEN ÊTRE se réserve le droit de modifier ses prix
-              à tout moment, mais s&apos;engage à appliquer les tarifs en vigueur indiqués au moment de la réservation, sous
-              réserve de disponibilité à cette date.
-            </li>
-            <li>
-              Le participant peut régler sa réservation par chèque à l&apos;ordre de « AVA BIEN ÊTRE », par virement SEPA ou
-              bien également par carte bancaire pour les ressortissants hors zone Euro. Le solde complet du stage est à
-              régler par virement SEPA ou espèces dans les 24h suivant l&apos;arrivée du participant.
-            </li>
-            <li>
-              Quel que soit le mode de règlement que vous choisirez, tout paiement ne sera considéré comme définitif
-              qu&apos;après encaissement effectif et complet des sommes par nous. Nous ne prenons pas en charge les frais
-              afférents à des paiements en provenance de pays tiers de l&apos;Union Européenne.
-            </li>
-            <li>
-              Le prix du stage AVA BIEN ÊTRE inclut l&apos;accompagnement ainsi que l&apos;ensemble des activités collectives, il
-              comprend :
-              <ol className="list-[lower-alpha] space-y-1 pl-5 pt-1">
-                <li>
-                  Le coût de l&apos;hébergement durant toute la durée du stage. Si vous habitez ou pouvez être hébergé à
-                  proximité, cette charge financière sera nulle.
-                </li>
-                <li>
-                  Le coût optionnel des prestations individuelles de type massage ou soins proposés durant le séjour.
-                  AVA BIEN ÊTRE n&apos;a qu&apos;un rôle de sélection et mise en relation de ces praticiens externes et
-                  indépendants avec la clientèle.
-                </li>
-              </ol>
-            </li>
-            <li>
-              L&apos;hébergement est libre de choix. Le stagiaire peut tout à fait opter pour un autre hébergement que ceux
-              proposés par AVA BIEN ÊTRE. Nos propositions d&apos;hébergements jouent un rôle centralisateur et prennent tout
-              leur sens du point de vue organisationnel et logistique, mais également pour l&apos;esprit et la dynamique de
-              groupe. Il est nécessaire de se retrouver tous physiquement en un lieu pour l&apos;ensemble des activités
-              collectives proposées (méditations / ateliers / repas / espaces détente), qui font partie intégrante et
-              non dissociable du programme proposé. Par ailleurs, les hébergements proposés disposent d&apos;infrastructures
-              et d&apos;équipements spécifiquement adaptés aux séjours bien-être, tels sauna, jacuzzi et espace de pratiques
-              d&apos;ateliers corporels ou de soins. Si vous optez pour un autre hébergement, il est nécessaire que celui-ci
-              soit à proximité immédiate du centre proposé où se tiendront toutes les activités collectives.
-            </li>
-            <li>
-              Inscription pour un hébergement en chambre partagée (prévue pour 2 personnes) au sein du séjour :
-              <ol className="list-[lower-alpha] space-y-1 pl-5 pt-1">
-                <li>
-                  Dans le cas d&apos;une inscription en chambre partagée avec un membre de la famille ou une connaissance, la
-                  chambre sera facturée pour 2 personnes et donc 2 séjours. En cas d&apos;annulation de l&apos;une des 2 personnes
-                  inscrites, 3 cas de figure sont possibles :
-                  <ol className="list-[upper-roman] space-y-1 pl-5 pt-1">
-                    <li>La personne annulant son séjour est remplacée par un autre participant. Le tarif reste inchangé.</li>
-                    <li>
-                      À défaut de remplacement ou si le participant inscrit refuse de partager la chambre, celui-ci
-                      accepte une chambre individuelle disponible et le surcoût tarifaire induit.
-                    </li>
-                    <li>
-                      La personne souhaite conserver sa chambre partagée pour elle seule et accepte de régler le total
-                      des 2 cures initialement prévues (hébergement + séjour).
-                    </li>
-                  </ol>
-                </li>
-                <li>
-                  Toute personne s&apos;inscrivant en chambre partagée accepte de partager sa chambre avec une autre personne
-                  du même sexe. Dans le cas où aucune autre inscription ne permet de remplir cette chambre prévue pour 2
-                  participants de même sexe, la personne inscrite accepte de se voir surclassée et attribuée une autre
-                  chambre de tarif supérieur mais au tarif de la chambre Duo.
-                </li>
-              </ol>
-            </li>
-            <li>
-              Une facture de séjour AVA BIEN ÊTRE est systématiquement émise et vous sera remise à la demande. Dans
-              certaines situations, nous pouvons être amenés à vous demander une autorisation de débours.
-            </li>
-            <li>
-              Lors de nos stages, vous pouvez changer de formule diététique, soit de votre propre chef, soit suite à nos recommandations.
-            </li>
-            <li>Les transports sont proposés à titre gratuit.</li>
-          </ol>
+        <section className="space-y-3">
+          <h2 className="text-2xl font-semibold">III. Conditions de participation</h2>
+          <p>Les séjours sont réservés aux personnes majeures.</p>
+          <p>Le participant s&apos;engage à :</p>
+          <ul className="list-disc pl-6">
+            <li>respecter les lieux, les équipes et les autres participants</li>
+            <li>adopter un comportement respectueux et bienveillant</li>
+          </ul>
+          <p>
+            AVA Bien-Être se réserve le droit d&apos;exclure toute personne dont le comportement nuirait au bon
+            déroulement du séjour, sans remboursement.
+          </p>
         </section>
 
-        <section className="space-y-4">
-          <h2 className="text-base md:text-xl font-semibold">IV. ANNULATION / RÉSILIATION</h2>
-          <ol className="list-decimal space-y-2 pl-5 text-sm text-muted-foreground">
-            <li>
-              Les contrats de séjour AVA BIEN ÊTRE rentrent dans la catégorie des contrats exclus du droit de
-              rétractation définis par l&apos;article L.121-21-8 du Code de la consommation. Le délai de rétractation
-              standard de 14 jours n&apos;est donc pas applicable.
-            </li>
-            <li>
-              Le participant a la possibilité de reporter la date de son séjour jusqu&apos;à 28 jours avant la date de
-              séjour initialement prévue, sans frais et selon les disponibilités.
-            </li>
-            <li>Le participant ne peut annuler sa réservation par écrit (voie postale ou courriel).</li>
-            <li>
-              La conclusion du contrat implique l&apos;acceptation, de la part du participant, du versement de frais
-              d&apos;annulation selon les modalités suivantes :
-              <ol className="list-[lower-alpha] space-y-1 pl-5 pt-1">
-                <li>
-                  Pour toute annulation jusqu&apos;à 28 jours avant le début du séjour, les frais d&apos;annulation correspondent
-                  aux frais de dossier, soit 50€. Le montant remboursé sera donc celui des arrhes (500€) déduit des frais
-                  de dossier, soit un total de 270€.
-                </li>
-                <li>
-                  Pour toute annulation entre 14 et 28 jours avant la date de début du séjour, et ce quel que soit le
-                  motif, les frais d&apos;annulation correspondent au montant des arrhes versées (500€).
-                </li>
-                <li>
-                  Pour toute annulation en deçà de 14 jours avant le début du séjour, et ce quel que soit le motif, la
-                  totalité du séjour est due (hébergement y compris).
-                </li>
-                <li>Tout séjour commencé est dû dans sa totalité (activités + hébergement).</li>
-              </ol>
-            </li>
-            <li>
-              Le principe de précaution prévaut en cas de doute sur l&apos;état de santé ou de contre-indication due à la
-              santé du participant. AVA BIEN ÊTRE se réserve le droit, à tout moment, de mettre fin au processus
-              d&apos;inscription ou au déroulement du séjour en cours. Les sommes versées seront alors intégralement remboursées.
-            </li>
-            <li>
-              AVA BIEN ÊTRE se réserve le droit d&apos;annuler tout stage et remboursera intégralement les versements du
-              participant. Les frais connexes engagés par les participants (transports, logement, etc.) ne seront pas
-              pris en charge.
-            </li>
-            <li>
-              En cas de non-respect des règles élémentaires de comportement en collectivité, AVA BIEN ÊTRE se réserve le
-              droit d&apos;interrompre la participation du stagiaire à ses frais.
-            </li>
-          </ol>
+        <section className="space-y-3">
+          <h2 className="text-2xl font-semibold">IV. Tarifs et modalités de paiement</h2>
+          <p>Les prix sont exprimés en euros et sont non négociables.</p>
+          <p>Les tarifs applicables sont ceux en vigueur au moment de la réservation.</p>
+          <p>Modalités :</p>
+          <ul className="list-disc pl-6">
+            <li>Arrhes : 500 EUR à la réservation</li>
+            <li>Solde : à régler au plus tard 30 jours avant le début du séjour</li>
+          </ul>
+          <p>
+            À défaut de paiement du solde dans les délais, la réservation pourra être annulée sans remboursement des
+            arrhes.
+          </p>
+          <p>Moyens de paiement :</p>
+          <ul className="list-disc pl-6">
+            <li>virement bancaire (SEPA)</li>
+            <li>carte bancaire (hors zone euro)</li>
+            <li>espèces (sur place uniquement)</li>
+          </ul>
+          <p>Tout paiement est considéré comme définitif après encaissement effectif.</p>
         </section>
 
-        <section className="space-y-4">
-          <h2 className="text-base md:text-xl font-semibold">V. ARRIVÉE / DÉPART</h2>
-          <ol className="list-decimal space-y-2 pl-5 text-sm text-muted-foreground">
-            <li>Le participant ne peut revendiquer une chambre spécifique au sein du séjour.</li>
-            <li>La chambre réservée est mise à disposition à partir de 10h00 le jour de l&apos;arrivée.</li>
-            <li>Le jour du départ, la chambre doit être libérée avant 16h00.</li>
-          </ol>
+        <section className="space-y-3">
+          <h2 className="text-2xl font-semibold">V. Prestations et hébergement</h2>
+          <p>Le prix du séjour comprend :</p>
+          <ul className="list-disc pl-6">
+            <li>l&apos;accompagnement</li>
+            <li>les activités collectives</li>
+            <li>l&apos;organisation globale du séjour</li>
+          </ul>
+          <p>L&apos;hébergement peut être :</p>
+          <ul className="list-disc pl-6">
+            <li>inclus dans la formule choisie</li>
+            <li>ou organisé librement par le participant à proximité du lieu du séjour</li>
+          </ul>
+          <p>
+            Certaines prestations complémentaires (massages, soins...) peuvent être proposées par des intervenants
+            indépendants. AVA Bien-Être agit uniquement en tant qu&apos;intermédiaire.
+          </p>
         </section>
 
-        <section className="space-y-4">
-          <h2 className="text-base md:text-xl font-semibold">VI. RESPONSABILITÉ POUR LES OBJETS APPORTÉS</h2>
-          <ol className="list-decimal space-y-2 pl-5 text-sm text-muted-foreground">
-            <li>
-              AVA BIEN ÊTRE décline toute responsabilité pour les objets apportés par les participants, en particulier
-              les bijoux, les documents et l&apos;argent en espèces.
-            </li>
-            <li>AVA BIEN ÊTRE décline toute responsabilité pour l&apos;utilisation d&apos;un parking extérieur.</li>
-          </ol>
+        <section className="space-y-3">
+          <h2 className="text-2xl font-semibold">VI. Hébergement partagé</h2>
+          <p>Dans le cadre d&apos;une chambre partagée :</p>
+          <ul className="list-disc pl-6">
+            <li>le participant accepte de partager sa chambre avec une personne du même sexe</li>
+            <li>en cas d&apos;impossibilité d&apos;appariement, une solution équivalente sera proposée</li>
+          </ul>
+          <p>En cas d&apos;annulation d&apos;un des participants partageant une chambre :</p>
+          <ul className="list-disc pl-6">
+            <li>un remplacement pourra être proposé</li>
+            <li>ou un ajustement tarifaire pourra être appliqué</li>
+          </ul>
         </section>
 
-        <section className="space-y-4">
-          <h2 className="text-base md:text-xl font-semibold">VII. DISPOSITIONS FINALES</h2>
-          <ol className="list-decimal space-y-2 pl-5 text-sm text-muted-foreground">
-            <li>C&apos;est le droit français qui s&apos;applique aux présentes conditions.</li>
-            <li>
-              Si des dispositions de ces CGV sont devenues caduques ou nulles, les autres dispositions demeurent
-              valides. Ce sont alors les prescriptions légales qui s&apos;appliquent.
-            </li>
-            <li>Le lieu de facturation est le siège social de AVA BIEN ÊTRE : 800 CHEMIN DE LA LIAMBE 71480 DOMMARTIN-LES-CUISEAUX.</li>
-            <li>
-              Le lieu de séjour est situé au MAS CALISTO, 738 CHEMIN DES EYSSARES 83720 TRANS-EN-PROVENCE.
-              AVA BIEN ÊTRE n&apos;est pas propriétaire de ce lieu de séjour.
-            </li>
-          </ol>
+        <section className="space-y-3">
+          <h2 className="text-2xl font-semibold">VII. Conditions d&apos;annulation</h2>
+          <h3 className="text-xl font-medium">Annulation du participant</h3>
+          <ul className="list-disc pl-6">
+            <li>Les arrhes (500 EUR) ne sont pas remboursables</li>
+            <li>Plus de 60 jours avant le séjour : perte des arrhes uniquement</li>
+            <li>Entre 30 et 14 jours : arrhes conservées</li>
+            <li>Moins de 14 jours : la totalité du séjour est due</li>
+          </ul>
+          <p>Tout séjour commencé est dû dans sa totalité.</p>
+
+          <h3 className="text-xl font-medium">Report</h3>
+          <p>Un report peut être envisagé jusqu&apos;à 28 jours avant le séjour, selon disponibilités.</p>
+
+          <h3 className="text-xl font-medium">Annulation par AVA Bien-Être</h3>
+          <p>En cas d&apos;annulation du séjour :</p>
+          <ul className="list-disc pl-6">
+            <li>remboursement intégral des sommes versées</li>
+            <li>ou proposition de report</li>
+          </ul>
+          <p>Les frais annexes engagés par le participant (transport, etc.) restent à sa charge.</p>
         </section>
 
-        <section className="space-y-4">
-          <h2 className="text-base md:text-xl font-semibold">VIII. MÉDIATION À LA CONSOMMATION</h2>
-          <ol className="list-decimal space-y-2 pl-5 text-sm text-muted-foreground">
-            <li>
-              Conformément aux dispositions du Code de la consommation concernant le règlement amiable des litiges, AVA
-              BIEN ÊTRE adhère au service de médiation du Centre de la Médiation de la Consommation de Conciliateurs de
-              Justice (CM2C).
-            </li>
-            <li>
-              En cas de litige, vous pouvez adresser une réclamation écrite à : Centre de la Médiation de la
-              Consommation de Conciliateurs de Justice (CM2C), 49 Rue de Ponthieu, 75008 Paris. Site internet :{" "}
-              <a href="https://www.cm2c.net" target="_blank" rel="noreferrer" className="text-primary underline">
-                www.cm2c.net
-              </a>
-              {" "} - Courriel :{" "}
-              <a href="mailto:cm2c@cm2c.net" className="text-primary underline">
-                cm2c@cm2c.net
-              </a>
-              .
-            </li>
-            <li>
-              Le recours à la médiation est gratuit pour le consommateur. Avant de saisir le médiateur, le consommateur
-              doit adresser une réclamation écrite à notre service client. Si aucune solution n&apos;a été trouvée dans un
-              délai de 45 jours, il pourra alors saisir le médiateur de la consommation dont nous dépendons.
-            </li>
-          </ol>
+        <section className="space-y-3">
+          <h2 className="text-2xl font-semibold">VIII. Intervenants extérieurs</h2>
+          <p>Dans le cadre des séjours, des intervenants extérieurs peuvent participer à certaines activités.</p>
+          <p>Ces interventions s&apos;inscrivent dans une démarche de bien-être et de développement personnel.</p>
+          <p>Elles ne constituent pas :</p>
+          <ul className="list-disc pl-6">
+            <li>un acte médical</li>
+            <li>une pratique thérapeutique réglementée</li>
+          </ul>
+          <p>Les intervenants agissent de manière indépendante.</p>
+          <p>
+            AVA Bien-Être ne saurait être tenu responsable des propos, pratiques ou accompagnements proposés par ces
+            intervenants.
+          </p>
+          <p>
+            AVA Bien-Être se réserve le droit de modifier le programme ou les intervenants sans que cela ne constitue
+            un motif de remboursement.
+          </p>
         </section>
 
-        <div className="text-sm text-muted-foreground">
-          <Link href="/contact#contact-direct" className="text-primary underline">
-            Pour toute question sur ces CGV, contacte notre équipe.
-          </Link>
-        </div>
-        <p className="text-right text-xs text-muted-foreground">Derniere mise a jour : {lastMod}</p>
-      </div>
+        <section className="space-y-3">
+          <h2 className="text-2xl font-semibold">IX. Responsabilité</h2>
+          <p>Chaque participant reste responsable de sa participation aux activités.</p>
+          <p>AVA Bien-Être ne pourra être tenu responsable :</p>
+          <ul className="list-disc pl-6">
+            <li>des conséquences liées à une condition de santé non signalée</li>
+            <li>des incidents liés à une mauvaise appréciation personnelle</li>
+          </ul>
+          <p>Les effets personnels restent sous la responsabilité du participant.</p>
+        </section>
+
+        <section className="space-y-3">
+          <h2 className="text-2xl font-semibold">X. Règles de sécurité et de vie</h2>
+          <p>Il est interdit :</p>
+          <ul className="list-disc pl-6">
+            <li>de fumer à l&apos;intérieur des bâtiments</li>
+            <li>d&apos;allumer bougies, encens ou feux</li>
+          </ul>
+          <p>Les animaux ne sont admis que si le lieu le permet.</p>
+        </section>
+
+        <section className="space-y-3">
+          <h2 className="text-2xl font-semibold">XI. Droit à l&apos;image</h2>
+          <p>
+            Sauf opposition écrite préalable, le participant autorise AVA Bien-Être à utiliser des photos ou vidéos
+            prises lors du séjour à des fins de communication.
+          </p>
+        </section>
+
+        <section className="space-y-3">
+          <h2 className="text-2xl font-semibold">XII. Données personnelles</h2>
+          <p>
+            Les données collectées sont utilisées uniquement dans le cadre de la gestion des séjours et ne sont pas
+            transmises à des tiers sans consentement.
+          </p>
+        </section>
+
+        <section className="space-y-3">
+          <h2 className="text-2xl font-semibold">XIII. Droit applicable</h2>
+          <p>Les présentes CGV sont soumises au droit français.</p>
+        </section>
+
+        <section className="space-y-3">
+          <h2 className="text-2xl font-semibold">XIV. Informations légales</h2>
+          <ul className="list-disc pl-6">
+            <li>Siège : 800 chemin de la Liambe, 71480 Dommartin-les-Cuiseaux</li>
+            <li>Lieu des séjours : variable selon les sessions</li>
+          </ul>
+        </section>
+
+        <section className="space-y-3">
+          <h2 className="text-2xl font-semibold">XV. Médiation à la consommation</h2>
+          <p>Conformément aux dispositions du Code de la consommation, le client peut recourir gratuitement à un médiateur :</p>
+          <p>
+            CM2C - 49 Rue de Ponthieu, 75008 Paris
+            <br />
+            <a href="https://www.cm2c.net" target="_blank" rel="noreferrer" className="underline">
+              www.cm2c.net
+            </a>
+          </p>
+          <p>
+            Avant toute médiation, une réclamation écrite doit être adressée à AVA Bien-Être. À défaut de réponse
+            satisfaisante dans un délai de 45 jours, le médiateur pourra être saisi.
+          </p>
+        </section>
+
+        <p className="text-sm text-muted-foreground">Dernière mise à jour : {lastMod}</p>
+      </article>
     </main>
   )
 }

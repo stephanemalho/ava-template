@@ -43,19 +43,19 @@ export default function PolitiqueConfidentialitePage() {
         </section>
 
         <section className="space-y-2">
-          <h2 className="text-base md:text-xl font-semibold">2. Donnees collectees</h2>
+          <h2 className="text-base md:text-xl font-semibold">2. Données collectées</h2>
           <ul className="list-disc space-y-1 pl-5 text-muted-foreground">
-            <li>Identite et coordonnees transmises via formulaire ou email.</li>
-            <li>Informations necessaires a la reservation d&apos;un sejour.</li>
-            <li>Donnees de navigation et audience (Google Analytics et Vercel Analytics) apres consentement.</li>
+            <li>Identité et coordonnées transmises via formulaire ou email.</li>
+            <li>Informations nécessaires à la réservation d&apos;un séjour.</li>
+            <li>Données de navigation et audience (Google Analytics et Vercel Analytics) après consentement.</li>
           </ul>
         </section>
 
         <section className="space-y-2">
-          <h2 className="text-base md:text-xl font-semibold">3. Finalites</h2>
+          <h2 className="text-base md:text-xl font-semibold">3. Finalités</h2>
           <ul className="list-disc space-y-1 pl-5 text-muted-foreground">
             <li>Repondre aux demandes de contact et d&apos;information.</li>
-            <li>Gerer les reservations de sejours et l&apos;accompagnement client.</li>
+            <li>Gérer les réservations de sejours et l&apos;accompagnement client.</li>
             <li>Mesurer l&apos;audience du site et ameliorer les contenus.</li>
           </ul>
         </section>
@@ -70,26 +70,26 @@ export default function PolitiqueConfidentialitePage() {
         </section>
 
         <section className="space-y-2">
-          <h2 className="text-base md:text-xl font-semibold">5. Duree de conservation</h2>
+          <h2 className="text-base md:text-xl font-semibold">5. Durée de conservation</h2>
           <p className="text-muted-foreground">
-            Les donnees sont conservees pendant la duree strictement necessaire a la finalite du traitement, puis
-            archivees ou supprimees conformement aux obligations legales applicables.
+            Les données sont conservées pendant la durée strictement nécessaire à la finalité du traitement, puis
+            archivées ou supprimées conformément aux obligations légales applicables.
           </p>
         </section>
 
         <section className="space-y-2">
           <h2 className="text-base md:text-xl font-semibold">6. Vos droits</h2>
           <p className="text-muted-foreground">
-            Vous disposez des droits d&apos;acces, rectification, effacement, opposition, limitation et portabilite de vos
-            donnees. Pour exercer vos droits, contactez :{" "}
+            Vous disposez des droits d&apos;accès, réctification, effacement, opposition, limitation et portabilité de vos
+            données. Pour exercer vos droits, contactez :{" "}
             <a className="text-primary underline" href="mailto:avabienetre71@gmail.com">
               avabienetre71@gmail.com
             </a>
-            . Vous pouvez egalement introduire une reclamation aupres de la CNIL.
+            . Vous pouvez egalement introduire une reclamation auprès de la CNIL.
           </p>
         </section>
 
-        <p className="text-right text-xs text-muted-foreground">Derniere mise a jour : {lastMod}</p>
+        <p className="text-right text-xs text-muted-foreground">Dernière mise à jour : {lastMod}</p>
       </div>
     </main>
   )
