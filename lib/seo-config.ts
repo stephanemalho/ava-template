@@ -55,54 +55,54 @@ export const siteConfig = {
 } as const;
 
 export const sitemapPages = [
-    { url: "/", changefreq: "monthly", priority: 1.0, lastmod: "2026-03-01" },
+    { url: "/", changefreq: "monthly", priority: 1.0, lastmod: "2026-04-03" },
     {
         url: "/presentation",
         changefreq: "monthly",
         priority: 0.8,
-        lastmod: "2026-03-01"
+        lastmod: "2026-04-03"
     },
     {
         url: "/notre-equipe",
         changefreq: "monthly",
         priority: 0.8,
-        lastmod: "2026-03-01"
+        lastmod: "2026-04-03"
     },
     {
         url: "/sejour-a-trans-en-provence",
         changefreq: "monthly",
         priority: 0.9,
-        lastmod: "2026-03-01"
+        lastmod: "2026-04-03"
     },
     {
         url: "/reservations",
         changefreq: "monthly",
         priority: 0.9,
-        lastmod: "2026-03-01"
+        lastmod: "2026-04-03"
     },
     {
         url: "/contact",
         changefreq: "monthly",
         priority: 0.8,
-        lastmod: "2026-03-01"
+        lastmod: "2026-04-03"
     },
     {
         url: "/mentions-legales",
         changefreq: "yearly",
         priority: 0.4,
-        lastmod: "2026-03-01"
+        lastmod: "2026-04-03"
     },
     {
         url: "/politique-de-confidentialite",
         changefreq: "yearly",
         priority: 0.4,
-        lastmod: "2026-03-01"
+        lastmod: "2026-04-03"
     },
     {
         url: "/conditions-generales-de-vente",
         changefreq: "yearly",
         priority: 0.5,
-        lastmod: "2026-03-01"
+        lastmod: "2026-04-03"
     }
 ];
 
