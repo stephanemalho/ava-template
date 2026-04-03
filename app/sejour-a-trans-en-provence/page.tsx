@@ -207,14 +207,14 @@ const faqItems = [
 ]
 
 export const metadata: Metadata = {
-  title: "Séjour à Trans-en-Provence | AVA Bien-être",
+  title: "Séjour à Trans-en-Provence | AVA Bien-Être",
   description:
     "Découvrez le programme du séjour bien-être AVA à Trans-en-Provence : hébergement en mas provençal, espaces intérieurs et extérieurs, cuisine, chambres et activités.",
   keywords: [
-    "sejour bien-etre trans-en-provence",
-    "programme retraite bien-etre",
-    "hebergement retraite provence",
-    "activites bien-etre",
+    "séjour bien-être trans-en-provence",
+    "programme retraite bien-être",
+    "hébergement retraite provence",
+    "activités bien-être",
   ],
   alternates: {
     canonical: siteConfig.pages.sejours,

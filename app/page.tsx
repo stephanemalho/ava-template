@@ -12,7 +12,7 @@ import { Compass, HeartHandshake, MessageCircle, ShieldCheck, Sparkles, Target, 
 export const metadata: Metadata = {
   title: "Retraites et séjours bien-être tout inclus en Provence | AVA Bien-Être",
   description:
-    "Decouvrez Ava Bien-Etre a Trans-en-Provence: retraites tout inclus, equipe pluridisciplinaire, sejours ressourcants et accompagnement personnalise. Avec Pierre Yonas et Aurélie Ava",
+    "Découvrez Ava Bien-Être à Trans-en-Provence : retraites tout inclus, équipe pluridisciplinaire, séjours ressourçants et accompagnement personnalisé. Avec Pierre Yonas et Aurélie Ava.",
   alternates: {
     canonical: "/",
   },
@@ -22,7 +22,7 @@ export default function HomePage() {
   const {
     props: { srcSet: mobileHeroSrcSet },
   } = getImageProps({
-    alt: "Les fondateurs d'Ava Bien-Etre en Provence",
+    alt: "Les fondateurs d'Ava Bien-Être en Provence",
     src: "/Aurelie-Pierre-2026.jpeg",
     width: 960,
     height: 1440,
@@ -31,7 +31,7 @@ export default function HomePage() {
   })
 
   const { props: desktopHeroImageProps } = getImageProps({
-    alt: "Les fondateurs d'Ava Bien-Etre en Provence",
+    alt: "Les fondateurs d'Ava Bien-Être en Provence",
     src: "/Aurelie-Pierre-2026.jpeg",
     width: 1800,
     height: 1200,
@@ -78,7 +78,7 @@ export default function HomePage() {
             <source media="(max-width: 767px)" srcSet={mobileHeroSrcSet} />
             <img
               {...desktopHeroImageProps}
-              alt="Equipe Ava Bien-Etre en Provence"
+              alt="Équipe Ava Bien-Être en Provence"
               className="h-full w-full object-cover object-center md:object-[center_32%]"
               fetchPriority="high"
             />
@@ -92,7 +92,7 @@ export default function HomePage() {
             Ava bien-être
           </h1>
           <p className="text-base md:mb-6  md:text-md opacity-90 drop-shadow-[0_2px_10px_rgba(0,0,0,0.3)]">
-            AVA Bien-Être organise des séjours tout inclus dans des cadres exceptionnels : hébergement, repas et activités réunis pour une expérience complète et immersive. Des ateliers puissants, une ambiance conviviale, des rencontres authentiques et une énergie collective forte t’attendent.Viens vivre un séjour extraordinaire, relaxant et profondément dépaysant.
+            AVA Bien-Être organise des séjours tout inclus dans des cadres exceptionnels : hébergement, repas et activités réunis pour une expérience complète et immersive. Des ateliers puissants, une ambiance conviviale, des rencontres authentiques et une énergie collective forte t’attendent. Viens vivre un séjour extraordinaire, relaxant et profondément dépaysant.
             L’aventure commence ici.
           </p>
           <Button asChild size="lg" className="bg-primary hover:bg-primary/80">

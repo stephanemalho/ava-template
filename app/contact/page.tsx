@@ -39,22 +39,22 @@ const contactItems = [
 ] as const
 
 export const metadata: Metadata = {
-    title: "Contact | Ava Bien-Etre",
+    title: "Contact | Ava Bien-Être",
     description:
-        "Contactez Ava Bien-Etre pour preparer votre retraite bien-etre en Provence, obtenir des informations pratiques ou demander un accompagnement avant reservation.",
+        "Contactez Ava Bien-Être pour préparer votre retraite bien-être en Provence, obtenir des informations pratiques ou demander un accompagnement avant réservation.",
     keywords: [
-        "contact ava bien-etre",
-        "contact retraite bien-etre provence",
-        "email ava bien-etre",
-        "informations reservation sejour bien-etre",
+        "contact ava bien-être",
+        "contact retraite bien-être provence",
+        "email ava bien-être",
+        "informations réservation séjour bien-être",
     ],
     alternates: {
         canonical: siteConfig.pages.contact,
     },
     openGraph: {
-        title: "Contact | Ava Bien-Etre",
+        title: "Contact | Ava Bien-Être",
         description:
-            "Contactez Ava Bien-Etre pour preparer votre sejour, poser vos questions et etre oriente vers la session adaptee.",
+            "Contactez Ava Bien-Être pour préparer votre séjour, poser vos questions et être orienté vers la session adaptée.",
         url: siteConfig.pages.contact,
         type: "website",
     },
@@ -172,7 +172,7 @@ export default function ContactPage() {
                                     <LinkButton href="/reservations">Revoir les séjours disponibles</LinkButton>
                                     <Button asChild variant="outline">
                                         <a href="https://forms.gle/NeGMaieNjjgbXdRs5" target="_blank" rel="noreferrer">
-                                            Posez nous toutes vos questions
+                                            Posez-nous toutes vos questions
                                         </a>
                                     </Button>
                                 </div>

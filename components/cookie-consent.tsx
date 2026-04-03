@@ -14,7 +14,7 @@ type WindowWithAnalytics = Window & {
 }
 
 export default function CookieConsent() {
-  // Rendu initial stable SSR/CSR pour eviter les mismatch d'hydratation.
+  // Rendu initial stable SSR/CSR pour éviter les mismatch d'hydratation.
   const [consent, setConsent] = useState<ConsentState>("unknown")
   const [managerOpen, setManagerOpen] = useState(false)
   const open = consent === "unknown" || managerOpen
@@ -130,12 +130,12 @@ gtag('config', '${GA_ID}');`
               <div className="space-y-1">
                 <p className="text-sm font-semibold text-foreground md:text-base">Gestion des cookies</p>
                 <p className="text-sm text-muted-foreground">
-                  Nous utilisons uniquement des cookies analytiques, actives apres ton consentement, pour mesurer l&apos;audience et ameliorer ton experience.
-                  Tu peux accepter ou refuser, puis modifier ce choix a tout moment.
+                  Nous utilisons uniquement des cookies analytiques, activés après ton consentement, pour mesurer l&apos;audience et améliorer ton expérience.
+                  Tu peux accepter ou refuser, puis modifier ce choix à tout moment.
                 </p>
                 <p className="text-xs text-muted-foreground">
                   <Link href="/politique-de-confidentialite" className="underline underline-offset-4 hover:text-primary">
-                    Consulter la politique de confidentialite
+                    Consulter la politique de confidentialité
                   </Link>
                 </p>
               </div>
@@ -154,8 +154,8 @@ gtag('config', '${GA_ID}');`
 
       {consent !== "unknown" && (
         <button
-          aria-label="Gerer les cookies"
-          title="Gerer les cookies"
+          aria-label="Gérer les cookies"
+          title="Gérer les cookies"
           onClick={() => setManagerOpen(true)}
           className="fixed bottom-4 left-4 z-40 rounded-full border border-primary bg-background/60 p-2 text-primary shadow-md transition hover:bg-accent"
         >

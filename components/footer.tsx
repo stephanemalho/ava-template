@@ -48,12 +48,12 @@ export function Footer() {
                             </li>
                             <li>
                                 <Link href="/mentions-legales" className="text-muted-foreground hover:text-primary">
-                                    Mentions legales
+                                    Mentions légales
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/politique-de-confidentialite" className="text-muted-foreground hover:text-primary">
-                                    Politique de confidentialite
+                                    Politique de confidentialité
                                 </Link>
                             </li>
                         </ul>

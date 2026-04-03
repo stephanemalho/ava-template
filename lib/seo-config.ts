@@ -1,13 +1,13 @@
 import { createLastmodGetter } from "./lastmod";
 
 export const siteConfig = {
-    name: "Ava Bien-Etre",
+    name: "Ava Bien-Être",
     siteUrl: "https://www.avabienetre.fr",
-    title: "Ava Bien-Etre | Retraites bien-etre en Provence",
+    title: "Ava Bien-Être | Retraites bien-être en Provence",
     description:
-        "Retraites bien-etre tout inclus en Provence: séjours ressourcants, équipe pluridisciplinaire et accompagnement personnalisé.",
+        "Retraites bien-être tout inclus en Provence : séjours ressourçants, équipe pluridisciplinaire et accompagnement personnalisé.",
     locale: "fr_FR",
-    author: "Ava Bien-Etre",
+    author: "Ava Bien-Être",
     contact: {
         email: "avabienetre71@gmail.com",
         telephone: "+33689758031",
@@ -23,23 +23,23 @@ export const siteConfig = {
             addressCountry: "FR",
         },
         retreatVenue: {
-            name: "Séjour AVA Bien-Etre à Trans-en-Provence",
+            name: "Séjour AVA Bien-Être à Trans-en-Provence",
             addressLocality: "Trans-en-Provence",
             addressRegion: "Provence-Alpes-Côte d'Azur",
             addressCountry: "FR",
         },
     },
     ogImage: "/sejours-ava.jpg",
-    ogImageAlt: "Retraite bien-etre AVA en Provence",
+    ogImageAlt: "Retraite bien-être AVA en Provence",
     ogImageWidth: 2000,
     ogImageHeight: 1333,
     keywords: [
-        "retraite bien-etre provence",
-        "sejour bien-etre trans-en-provence",
+        "retraite bien-être provence",
+        "séjour bien-être trans-en-provence",
         "stage ressourcement",
-        "reconnexion a soi",
-        "sejour yoga meditation",
-        "reservation retraite bien-etre"
+        "reconnexion à soi",
+        "séjour yoga méditation",
+        "réservation retraite bien-être"
     ],
     pages: {
         home: "/",

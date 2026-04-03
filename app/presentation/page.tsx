@@ -7,22 +7,22 @@ import { HandCoins, Heart, Leaf, ShieldCheck, Star, Users, UserRoundCheck } from
 import { siteConfig } from "@/lib/seo-config"
 
 export const metadata: Metadata = {
-    title: "Presentation | Ava Bien-Etre",
+    title: "Présentation | Ava Bien-Être",
     description:
-        "Decouvrez la mission, les valeurs et l'approche d'Ava Bien-Etre pour ses retraites bien-etre tout inclus en Provence.",
+        "Découvrez la mission, les valeurs et l'approche d'Ava Bien-Être pour ses retraites bien-être tout inclus en Provence.",
     keywords: [
-        "presentation ava bien-etre",
-        "mission ava bien-etre",
-        "valeurs retraite bien-etre",
-        "approche bien-etre provence",
+        "présentation ava bien-être",
+        "mission ava bien-être",
+        "valeurs retraite bien-être",
+        "approche bien-être provence",
     ],
     alternates: {
         canonical: siteConfig.pages.presentation,
     },
     openGraph: {
-        title: "Presentation | Ava Bien-Etre",
+        title: "Présentation | Ava Bien-Être",
         description:
-            "Une presentation de l'univers Ava Bien-Etre, de sa mission et de son accompagnement humain en Provence.",
+            "Une présentation de l'univers Ava Bien-Être, de sa mission et de son accompagnement humain en Provence.",
         url: siteConfig.pages.presentation,
         type: "website",
     },

@@ -2,13 +2,13 @@ import type { Metadata } from "next"
 import { returnLastmod, siteConfig } from "@/lib/seo-config"
 
 export const metadata: Metadata = {
-  title: "CGV | Ava Bien-Etre",
-  description: "Conditions generales de vente des sejours AVA Bien-Etre.",
+  title: "CGV | Ava Bien-Être",
+  description: "Conditions générales de vente des séjours AVA Bien-Être.",
   keywords: [
-    "cgv ava bien-etre",
-    "conditions generales de vente ava",
-    "reservation sejour bien-etre",
-    "annulation sejour ava",
+    "cgv ava bien-être",
+    "conditions générales de vente ava",
+    "réservation séjour bien-être",
+    "annulation séjour ava",
   ],
   alternates: {
     canonical: siteConfig.pages.cgv,

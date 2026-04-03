@@ -29,12 +29,12 @@ const enterpriseOffer = {
 }
 
 export const metadata: Metadata = {
-    title: "Reservations | Ava Bien-Etre",
+    title: "Réservations | Ava Bien-Être",
     description:
-        "Reserve ton sejour bien-etre AVA en Provence. Acompte de 500 EUR, disponibilites en temps reel et offre entreprise sur devis.",
+        "Réserve ton séjour bien-être AVA en Provence. Acompte de 500 EUR, disponibilités en temps réel et offre entreprise sur devis.",
     keywords: [
-        "reservation retraite bien-etre",
-        "prix sejour bien-etre provence",
+        "réservation retraite bien-être",
+        "prix séjour bien-être provence",
         "acompte 500 euros retraite",
         "offre entreprise qvct",
     ],
@@ -60,16 +60,16 @@ export default async function ReservationsPage({ searchParams }: ReservationsPag
     const paymentMessage =
         paymentState === "success"
             ? {
-                title: "Acompte recu",
+                title: "Acompte reçu",
                 description: sessionId
-                    ? `Votre acompte Stripe a ete confirme. Reference de session: ${sessionId}. L'equipe AVA reprendra contact avec vous pour la suite.`
-                    : "Votre acompte Stripe a ete confirme. L'equipe AVA reprendra contact avec vous pour la suite.",
+                    ? `Votre acompte Stripe a été confirmé. Référence de session : ${sessionId}. L'équipe AVA reprendra contact avec vous pour la suite.`
+                    : "Votre acompte Stripe a été confirmé. L'équipe AVA reprendra contact avec vous pour la suite.",
                 className: "border-green-200 bg-green-50 text-green-900",
             }
             : paymentState === "cancelled"
                 ? {
-                    title: "Paiement annule",
-                    description: "Le paiement de l'acompte a ete annule. Vous pouvez reprendre votre reservation quand vous le souhaitez.",
+                    title: "Paiement annulé",
+                    description: "Le paiement de l'acompte a été annulé. Vous pouvez reprendre votre réservation quand vous le souhaitez.",
                     className: "border-amber-200 bg-amber-50 text-amber-900",
                 }
                 : null

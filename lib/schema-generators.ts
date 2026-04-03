@@ -20,7 +20,7 @@ function buildRetreatOffer(pkg: ReservationPackage) {
             value: pkg.availablePlaces,
         },
         validFrom: "2026-01-01",
-        category: "Sejour bien-etre",
+        category: "Séjour bien-être",
     };
 }
 
@@ -74,7 +74,7 @@ export function generateStayOffersSchema() {
         description: `${pkg.subtitle} - ${pkg.location}`,
         itemOffered: {
             "@type": "Service",
-            name: "Retraite bien-etre tout inclus",
+            name: "Retraite bien-être tout inclus",
         },
         ...buildRetreatOffer(pkg),
     }));
@@ -83,7 +83,7 @@ export function generateStayOffersSchema() {
         "@context": "https://schema.org",
         "@type": "OfferCatalog",
         "@id": `${siteConfig.siteUrl}${siteConfig.pages.reservations}#offer-catalog`,
-        name: "Offres de sejours AVA Bien-Etre",
+        name: "Offres de séjours AVA Bien-Être",
         url: `${siteConfig.siteUrl}${siteConfig.pages.reservations}`,
         seller: {
             "@id": `${siteConfig.siteUrl}/#organization`,
@@ -98,7 +98,7 @@ export function generateStayEventsSchema() {
         "@type": "Event",
         "@id": `${siteConfig.siteUrl}${siteConfig.pages.reservations}#event-${pkg.id}`,
         name: pkg.title,
-        description: `Retraite bien-etre AVA en pension complete a ${pkg.location} ${pkg.subtitle}.`,
+        description: `Retraite bien-être AVA en pension complète à ${pkg.location} ${pkg.subtitle}.`,
         image: [`${siteConfig.siteUrl}${pkg.image}`],
         startDate: `${pkg.startDate}T16:00:00+02:00`,
         endDate: `${pkg.endDate}T11:00:00+02:00`,

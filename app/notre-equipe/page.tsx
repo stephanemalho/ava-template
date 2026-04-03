@@ -9,22 +9,22 @@ import { siteConfig } from "@/lib/seo-config"
 import { teamMembers } from "./team-members"
 
 export const metadata: Metadata = {
-    title: "Notre equipe | Ava Bien-Etre",
+    title: "Notre équipe | Ava Bien-Être",
     description:
-        "Rencontrez les praticiens et intervenants d'Ava Bien-Etre qui accompagnent les retraites et sejours bien-etre en Provence.",
+        "Rencontrez les praticiens et intervenants d'Ava Bien-Être qui accompagnent les retraites et séjours bien-être en Provence.",
     keywords: [
-        "equipe ava bien-etre",
-        "intervenants retraite bien-etre",
-        "praticiens bien-etre provence",
-        "notre equipe ava",
+        "équipe ava bien-être",
+        "intervenants retraite bien-être",
+        "praticiens bien-être provence",
+        "notre équipe ava",
     ],
     alternates: {
         canonical: siteConfig.pages.team,
     },
     openGraph: {
-        title: "Notre equipe | Ava Bien-Etre",
+        title: "Notre équipe | Ava Bien-Être",
         description:
-            "Decouvrez l'equipe AVA Bien-Etre et les expertises qui accompagnent chaque sejour en Provence.",
+            "Découvrez l'équipe AVA Bien-Être et les expertises qui accompagnent chaque séjour en Provence.",
         url: siteConfig.pages.team,
         type: "website",
     },
@@ -38,7 +38,7 @@ export default function EquipePage() {
                 <div className="absolute inset-0">
                     <Image
                         src="/groupe-ava.jpg"
-                        alt="Image de toutes l'équipe de AVA Bien-Etre prete à vous accueillir pour vos retraites bien-être en Provence"
+                        alt="Image de toute l'équipe d'AVA Bien-Être prête à vous accueillir pour vos retraites bien-être en Provence"
                         fill
                         priority
                         aria-hidden="true"
