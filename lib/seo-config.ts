@@ -78,7 +78,7 @@ export const sitemapPages = [
         url: "/reservations",
         changefreq: "monthly",
         priority: 0.9,
-        lastmod: "2026-04-03"
+        lastmod: "2026-04-04"
     },
     {
         url: "/contact",

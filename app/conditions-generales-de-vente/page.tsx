@@ -103,7 +103,7 @@ export default function ConditionsGeneralesDeVentePage() {
           </p>
           <p className="text-muted-foreground">Moyens de paiement :</p>
           <ul className="list-disc space-y-1 pl-5 text-muted-foreground">
-            <li>virement bancaire (SEPA)</li>
+            <li>Virement bancaire (SEPA)</li>
             <li>carte bancaire (hors zone euro)</li>
             <li>espèces (sur place uniquement)</li>
           </ul>

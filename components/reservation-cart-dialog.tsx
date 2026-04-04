@@ -20,7 +20,7 @@ import { STRIPE_ACOMPTE_PER_PERSON_EUR } from "@/lib/reservation-pricing"
 import { CalendarDays, CreditCard, ShieldCheck, ShoppingCart, Users } from "lucide-react"
 
 export function ReservationCartDialog() {
-  const { items, totalPeople, totalPrice, totalAcompte, isCartDialogOpen, setCartDialogOpen } = useReservationCart()
+  const { items, totalPeople, totalPrice, totalArrhes, isCartDialogOpen, setCartDialogOpen } = useReservationCart()
   const pathname = usePathname()
   const isReservationsPage = pathname === "/reservations"
   const selections = Object.values(items)
@@ -74,7 +74,7 @@ export function ReservationCartDialog() {
         <DialogHeader>
           <DialogTitle>Récapitulatif de votre séjour</DialogTitle>
           <DialogDescription>
-            Le paiement Stripe correspond à un acompte de {STRIPE_ACOMPTE_PER_PERSON_EUR}.00 € par personne.
+            Le paiement Stripe correspond à un Arrhes de {STRIPE_ACOMPTE_PER_PERSON_EUR}.00 € par personne.
           </DialogDescription>
         </DialogHeader>
 
@@ -125,14 +125,14 @@ export function ReservationCartDialog() {
                 <p className="font-medium">Moyen de paiement</p>
                 <div className="flex items-center gap-2 text-sm">
                   <CreditCard className="h-4 w-4 text-primary" aria-hidden="true" />
-                  <span>Paiement sécurisé par Stripe (acompte)</span>
+                  <span>Paiement sécurisé par Stripe (Arrhes)</span>
                 </div>
                 <div className="flex items-center gap-2 text-xs text-muted-foreground">
                   <ShieldCheck className="h-4 w-4" aria-hidden="true" />
                   <span>Carte bancaire, Apple Pay / Google Pay (selon disponibilité)</span>
                 </div>
                 <p className="text-xs text-muted-foreground">
-                  Acompte Stripe: {STRIPE_ACOMPTE_PER_PERSON_EUR}.00 € x {totalPeople} personne{totalPeople > 1 ? "s" : ""}
+                  Arrhes Stripe: {STRIPE_ACOMPTE_PER_PERSON_EUR}.00 € x {totalPeople} personne{totalPeople > 1 ? "s" : ""}
                 </p>
               </div>
 
@@ -141,8 +141,8 @@ export function ReservationCartDialog() {
                 <p className="text-base font-semibold">{totalPeople}</p>
                 <p className="mt-2 text-sm text-muted-foreground">Prix total du séjour</p>
                 <p className="text-base font-bold">{totalPrice}.00 €</p>
-                <p className="mt-2 text-sm text-muted-foreground">Acompte à payer maintenant (Stripe)</p>
-                <p className="text-base font-bold">{totalAcompte}.00 €</p>
+                <p className="mt-2 text-sm text-muted-foreground">Arrhes à payer maintenant (Stripe)</p>
+                <p className="text-base font-bold">{totalArrhes}.00 €</p>
               </div>
             </div>
           </div>

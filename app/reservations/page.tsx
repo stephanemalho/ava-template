@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Image from "next/image"
+import Link from "next/link"
 import { BriefcaseBusiness, CalendarDays, MapPin, Users, Check } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -12,6 +13,56 @@ import { ReservationCartPill } from "./_components/reservation-cart-pill"
 import { STRIPE_ACOMPTE_PER_PERSON_EUR } from "@/lib/reservation-pricing"
 import { generateStayEventsSchema, generateStayOffersSchema } from "@/lib/schema-generators"
 import { siteConfig } from "@/lib/seo-config"
+
+const faqItems = [
+    {
+        question: "Le paiement en ligne est-il sécurisé ?",
+        paragraphs: [
+            "Oui. Afin de vous garantir une réservation simple et sereine, le paiement des arrhes s’effectue via une page entièrement sécurisée.",
+            "Le règlement est traité par Stripe, une solution de paiement reconnue, qui propose notamment un formulaire de paiement sécurisé, le chiffrement des échanges et des mécanismes de protection contre la fraude.",
+            "Vos données bancaires ne sont pas conservées directement sur le site. Vous pouvez ainsi confirmer votre séjour en toute confiance.",
+        ],
+        link: {
+            href: "https://stripe.com/fr/resources/more/how-to-create-a-secure-checkout-for-your-business",
+            label: "En savoir plus sur la sécurité des paiements Stripe",
+        },
+    },
+    {
+        question: "Qu’est-ce que des arrhes ?",
+        paragraphs: [
+            "Les arrhes sont une somme versée à l’avance pour réserver votre place.",
+            "Elles se distinguent d’un acompte : en cas d’annulation par le client, elles restent en principe acquises ; en cas d’annulation par l’organisateur, elles doivent être remboursées au double.",
+            "Pour en savoir plus, vous pouvez consulter la fiche pratique officielle de l’administration française.",
+        ],
+        link: {
+            href: "https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/acompte-arrhes-avoir.com",
+            label: "Lire la fiche officielle sur les arrhes et l’acompte",
+        },
+    },
+    {
+        question: "Dois-je payer la totalité du séjour dès la réservation ?",
+        paragraphs: [
+            "Non. Lors de la réservation, vous réglez uniquement les arrhes pour bloquer votre place.",
+            "Le reste du montant est réglé ensuite selon les modalités prévues.",
+            "Vous pouvez consulter nos Conditions Générales de Vente pour connaître le détail des modalités applicables.",
+        ],
+        link: {
+            href: "/conditions-generales-de-vente",
+            label: "Voir les Conditions Générales de Vente",
+        },
+    },
+    {
+        question: "Peut-on payer en plusieurs fois ?",
+        paragraphs: [
+            "Oui, un paiement en plusieurs fois peut être mis en place sur demande, notamment via Paypal ou Virement bancaire selon le séjour choisi.",
+            "Si vous avez besoin d’un aménagement, notre équipe peut vous orienter vers la solution la plus adaptée.",
+        ],
+        link: {
+            href: "/contact#contact-direct",
+            label: "Nous contacter",
+        },
+    },
+] as const
 
 const enterpriseOffer = {
     title: "Offre Entreprise sur mesure",
@@ -31,11 +82,11 @@ const enterpriseOffer = {
 export const metadata: Metadata = {
     title: "Réservations | Ava Bien-Être",
     description:
-        "Réserve ton séjour bien-être AVA en Provence. Acompte de 500 EUR, disponibilités en temps réel et offre entreprise sur devis.",
+        "Réserve ton séjour bien-être AVA en Provence. Arrhes de 500 EUR, disponibilités en temps réel et offre entreprise sur devis.",
     keywords: [
         "réservation retraite bien-être",
         "prix séjour bien-être provence",
-        "acompte 500 euros retraite",
+        "arrhes 500 euros retraite",
         "offre entreprise qvct",
     ],
     alternates: {
@@ -54,22 +105,35 @@ export default async function ReservationsPage({ searchParams }: ReservationsPag
     const resolvedSearchParams = searchParams ? await searchParams : undefined
     const stayOffersSchema = generateStayOffersSchema()
     const stayEventsSchema = generateStayEventsSchema()
+    const faqSchema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "@id": `${siteConfig.siteUrl}${siteConfig.pages.reservations}#faq`,
+        mainEntity: faqItems.map((item) => ({
+            "@type": "Question",
+            name: item.question,
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: item.paragraphs.join(" "),
+            },
+        })),
+    }
     const paymentState = resolvedSearchParams?.payment
     const sessionId = resolvedSearchParams?.session_id
 
     const paymentMessage =
         paymentState === "success"
             ? {
-                title: "Acompte reçu",
+                title: "Arrhes reçues",
                 description: sessionId
-                    ? `Votre acompte Stripe a été confirmé. Référence de session : ${sessionId}. L'équipe AVA reprendra contact avec vous pour la suite.`
-                    : "Votre acompte Stripe a été confirmé. L'équipe AVA reprendra contact avec vous pour la suite.",
+                    ? `Vos arrhes ont bien été reçues. Référence de session : ${sessionId}. L'équipe AVA reprendra contact avec vous pour la suite.`
+                    : "Vos arrhes ont bien été reçues. L'équipe AVA reprendra contact avec vous pour la suite.",
                 className: "border-green-200 bg-green-50 text-green-900",
             }
             : paymentState === "cancelled"
                 ? {
                     title: "Paiement annulé",
-                    description: "Le paiement de l'acompte a été annulé. Vous pouvez reprendre votre réservation quand vous le souhaitez.",
+                    description: "Le paiement des arrhes a été annulé. Vous pouvez reprendre votre réservation quand vous le souhaitez.",
                     className: "border-amber-200 bg-amber-50 text-amber-900",
                 }
                 : null
@@ -83,6 +147,10 @@ export default async function ReservationsPage({ searchParams }: ReservationsPag
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(stayEventsSchema) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
             />
             <div className="container mx-auto">
                 {paymentMessage ? (
@@ -98,7 +166,7 @@ export default async function ReservationsPage({ searchParams }: ReservationsPag
                         Choisissez la formule qui vous correspond le mieux pour votre retraite bien-être
                     </p>
                     <p className="mx-auto w-fit md:rounded-full rounded-xl border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
-                        Acompte à la réservation : 500€ par personne. Le solde est à régler plus tard.
+                        Arrhes à la réservation : 500€ par personne. Le solde est à régler plus tard.
                     </p>
                 </header>
 
@@ -175,7 +243,7 @@ export default async function ReservationsPage({ searchParams }: ReservationsPag
                             <article className="space-y-2">
                                 <h3 className="text-base md:text-xl font-semibold text-foreground">Paiement</h3>
                                 <p>
-                                    Le paiement Stripe correspond uniquement à un acompte de {STRIPE_ACOMPTE_PER_PERSON_EUR}.00 € par personne.
+                                    Le paiement Stripe correspond uniquement à des arrhes de {STRIPE_ACOMPTE_PER_PERSON_EUR}.00 € par personne.
                                     Le solde du séjour sera réglé selon les modalités convenues.
                                 </p>
                             </article>
@@ -184,6 +252,50 @@ export default async function ReservationsPage({ searchParams }: ReservationsPag
                                 <p>Conditions d&lsquo;annulation détaillées dans nos CGV</p>
                             </article>
                         </div>
+                        <p className="mx-auto max-w-3xl text-sm text-muted-foreground">
+                            Le versement demandé lors de la réservation correspond à des arrhes, et non à un acompte.
+                        </p>
+                    </div>
+                </section>
+                <section id="faq" className="mt-16 scroll-mt-24">
+                    <div className="mb-12 text-center">
+                        <h2 className="mb-4 text-base md:text-xl font-bold">FAQ</h2>
+                        <div className="mx-auto h-1 w-24 rounded-full bg-primary" />
+                    </div>
+
+                    <div className="grid gap-6 md:grid-cols-2">
+                        {faqItems.map((item) => (
+                            <Card key={item.question} className="h-full border-border/70 bg-background/80 shadow-sm">
+                                <CardContent className="space-y-4 p-6">
+                                    <h3 className="text-base md:text-xl font-semibold">{item.question}</h3>
+                                    <div className="space-y-3">
+                                        {item.paragraphs.map((paragraph) => (
+                                            <p key={paragraph} className="text-sm leading-relaxed text-muted-foreground">
+                                                {paragraph}
+                                            </p>
+                                        ))}
+                                        {"link" in item ? (
+                                            <p className="text-sm leading-relaxed text-muted-foreground">
+                                                {item.link.href.startsWith("/") ? (
+                                                    <Link href={item.link.href} className="text-primary underline underline-offset-4">
+                                                        {item.link.label}
+                                                    </Link>
+                                                ) : (
+                                                    <a
+                                                        href={item.link.href}
+                                                        target="_blank"
+                                                        rel="noreferrer"
+                                                        className="text-primary underline underline-offset-4"
+                                                    >
+                                                        {item.link.label}
+                                                    </a>
+                                                )}
+                                            </p>
+                                        ) : null}
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        ))}
                     </div>
                 </section>
                 {/* AJouter les section B to B ici */}

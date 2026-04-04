@@ -31,7 +31,7 @@ export const reservationPackages: ReservationPackage[] = [
         features: [
             "Séjour en pension complète du vendredi 10 au 16 juillet 2026",
             "Hébergement, repas, collations, intervenants, animations, ateliers inclus",
-            "Option de règlement de votre séjour en plusieurs fois disponible sur demande (Paypal / Alma)"
+            "Option de règlement de votre séjour en plusieurs fois disponible sur demande (Paypal / Virement bancaire)"
         ],
         location: "Trans-en-Provence",
         type: "Chambre Partagée",
@@ -52,7 +52,7 @@ export const reservationPackages: ReservationPackage[] = [
         features: [
             "Séjour en pension complète du Jeudi 22 au Mercredi 28 Octobre 2026",
             "Hébergement, repas, collations, intervenants, animations, ateliers inclus",
-            "Option de règlement de votre séjour en plusieurs fois disponible sur demande (Paypal / Alma)"
+            "Option de règlement de votre séjour en plusieurs fois disponible sur demande (Paypal / Virement bancaire)"
         ],
         location: "Trans-en-Provence",
         type: "Chambre Partagée",
