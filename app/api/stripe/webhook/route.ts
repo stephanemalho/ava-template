@@ -76,11 +76,11 @@ async function persistReservationStatus(params: {
 }) {
     const { stripe, sessionId, paymentIntentId, metadata } = params;
 
-    await stripe.checkout.sessions.update(sessionId, { metadata });
-
     if (paymentIntentId) {
         await stripe.paymentIntents.update(paymentIntentId, { metadata });
     }
+
+    await stripe.checkout.sessions.update(sessionId, { metadata });
 }
 
 async function handleConfirmedDeposit(params: {
@@ -217,15 +217,25 @@ export async function POST(request: Request) {
         );
     }
 
+    const payload = await request.text();
+    const stripe = createStripeClient(secretKey);
+
+    let event: Stripe.Event;
     try {
-        const payload = await request.text();
-        const stripe = createStripeClient(secretKey);
-        const event = stripe.webhooks.constructEvent(
+        event = stripe.webhooks.constructEvent(
             payload,
             signature,
             webhookSecret
         );
+    } catch (error) {
+        const message =
+            error instanceof Error
+                ? error.message
+                : "Signature Stripe invalide.";
+        return NextResponse.json({ error: message }, { status: 400 });
+    }
 
+    try {
         switch (event.type) {
             case "checkout.session.completed":
             case "checkout.session.async_payment_succeeded": {
@@ -254,6 +264,10 @@ export async function POST(request: Request) {
     } catch (error) {
         const message =
             error instanceof Error ? error.message : "Erreur webhook Stripe.";
-        return NextResponse.json({ error: message }, { status: 400 });
+        console.error("stripe.webhook.handler_failed", {
+            type: event.type,
+            message
+        });
+        return NextResponse.json({ error: message }, { status: 500 });
     }
 }
