@@ -28,7 +28,11 @@ import {
   Umbrella,
 } from "lucide-react"
 import { siteConfig } from "@/lib/seo-config"
-import { generateStayEventsSchema, generateStayFaqSchema } from "@/lib/schema-generators"
+import {
+  generateRetreatServiceSchema,
+  generateStayEventsSchema,
+  generateStayFaqSchema,
+} from "@/lib/schema-generators"
 
 type StaySession = {
   title: string
@@ -222,6 +226,7 @@ export const metadata: Metadata = {
 }
 
 export default function SejoursPage() {
+  const retreatServiceSchema = generateRetreatServiceSchema()
   const stayEventsSchema = generateStayEventsSchema()
   const stayFaqSchema = generateStayFaqSchema(
     faqItems.map((item) => ({
@@ -229,28 +234,6 @@ export default function SejoursPage() {
       answer: [...item.paragraphs, ...(item.bullets ? item.bullets : [])].join(" "),
     }))
   )
-
-  const retreatServiceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "@id": `${siteConfig.siteUrl}${siteConfig.pages.sejours}#service`,
-    name: "Séjours bien-être AVA",
-    provider: {
-      "@id": `${siteConfig.siteUrl}/#organization`,
-    },
-    areaServed: "FR",
-    serviceType: "Retraites bien-être tout inclus",
-    url: `${siteConfig.siteUrl}${siteConfig.pages.sejours}`,
-    image: [`${siteConfig.siteUrl}${siteConfig.ogImage}`],
-    offers: {
-      "@type": "AggregateOffer",
-      priceCurrency: "EUR",
-      lowPrice: "1800",
-      highPrice: "1800",
-      offerCount: "2",
-      url: `${siteConfig.siteUrl}${siteConfig.pages.reservations}`,
-    },
-  }
 
   return (
     <main className="py-16">

@@ -24,6 +24,49 @@ function buildRetreatOffer(pkg: ReservationPackage) {
     };
 }
 
+export function generateRetreatServiceSchema() {
+    const availablePackages = reservationPackages.filter(
+        (pkg) => pkg.availablePlaces > 0
+    );
+    const pricedPackages =
+        availablePackages.length > 0 ? availablePackages : reservationPackages;
+    const prices = pricedPackages.map((pkg) => pkg.price);
+    const totalAvailablePlaces = reservationPackages.reduce(
+        (sum, pkg) => sum + pkg.availablePlaces,
+        0
+    );
+
+    return {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "@id": `${siteConfig.siteUrl}${siteConfig.pages.sejours}#service`,
+        name: "Séjours bien-être AVA",
+        provider: {
+            "@id": `${siteConfig.siteUrl}/#organization`,
+        },
+        areaServed: "FR",
+        serviceType: "Retraites bien-être tout inclus",
+        url: `${siteConfig.siteUrl}${siteConfig.pages.sejours}`,
+        image: [`${siteConfig.siteUrl}${siteConfig.ogImage}`],
+        offers: {
+            "@type": "AggregateOffer",
+            priceCurrency: "EUR",
+            lowPrice: Math.min(...prices).toString(),
+            highPrice: Math.max(...prices).toString(),
+            offerCount: availablePackages.length.toString(),
+            availability:
+                availablePackages.length > 0
+                    ? "https://schema.org/InStock"
+                    : "https://schema.org/SoldOut",
+            inventoryLevel: {
+                "@type": "QuantitativeValue",
+                value: totalAvailablePlaces,
+            },
+            url: `${siteConfig.siteUrl}${siteConfig.pages.reservations}`,
+        },
+    };
+}
+
 export function generateOrganizationSchema() {
     return {
         "@context": "https://schema.org",
