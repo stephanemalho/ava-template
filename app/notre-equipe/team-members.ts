@@ -40,7 +40,7 @@ Il animera notamment des ateliers d’initiation au magnétisme, à la médiumni
         name: "Aurélie",
         role: "Ateliers : méditation, hypnose, breathwork, cérémonies, ateliers créatifs, chant intuitif",
         image: "/Aurelie.jpg",
-        linkedinUrl: "",
+        linkedinUrl: "https://www.instagram.com/ava.magnetisme/",
         description: `
 Bonjour à tous,
 
@@ -121,7 +121,7 @@ J’ai déjà hâte de vous retrouver et je vous remercie pour ce merveilleux ca
         name: "Bérengère",
         role: "Accompagnement bien-être et coaching de vie",
         image: "/staff/Berengere-Ava.jpg",
-        linkedinUrl: "",
+        linkedinUrl: "https://www.instagram.com/innerharmonie_/",
         description:
             "Bérengère accompagne les personnes vers un mieux-être global à travers une approche douce, intuitive et profondément humaine. Elle aide à relâcher les tensions, à se recentrer dans le corps et à apaiser les émotions, afin de retrouver clarté intérieure, confiance et énergie plus légère. Son accompagnement s’adresse tout particulièrement aux personnes traversant des périodes de doute, de transition ou de remise en question, auxquelles elle offre un espace sécurisant pour se reconnecter à soi. Heureuse de faire partie de l’aventure AVA Bien-Être, Bérengère met tout son engagement et sa sensibilité au service de votre transformation, pour vous permettre de repartir plus aligné(e), apaisé(e) et recentré(e).",
         specialties: [
