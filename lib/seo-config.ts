@@ -66,7 +66,7 @@ export const sitemapPages = [
         url: "/notre-equipe",
         changefreq: "monthly",
         priority: 0.8,
-        lastmod: "2026-04-03"
+        lastmod: "2026-04-17"
     },
     {
         url: "/sejour-a-trans-en-provence",
@@ -78,7 +78,7 @@ export const sitemapPages = [
         url: "/reservations",
         changefreq: "monthly",
         priority: 0.9,
-        lastmod: "2026-04-04"
+        lastmod: "2026-04-17"
     },
     {
         url: "/contact",
