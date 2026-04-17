@@ -1,8 +1,18 @@
-export const teamMembers = [
+export type TeamMember = {
+    name: string;
+    role: string;
+    image: string;
+    description: string;
+    specialties: string[];
+    linkedinUrl: string;
+};
+
+export const teamMembers: TeamMember[] = [
     {
         name: "Pierre Yonas",
         role: "Médium, guérisseur spirituel, magnétiseur et conférencier",
         image: "/Pierre_Yonas-profil.jpg",
+        linkedinUrl: "https://www.instagram.com/pierre_yonas_/",
         description: `
 Sous sa peau est ancré le mot « honneur » en japonais. Son regard sincère, intense et profond semble aller au-delà des apparences : voici Pierre Yonas.
 
@@ -30,6 +40,7 @@ Il animera notamment des ateliers d’initiation au magnétisme, à la médiumni
         name: "Aurélie",
         role: "Ateliers : méditation, hypnose, breathwork, cérémonies, ateliers créatifs, chant intuitif",
         image: "/Aurelie.jpg",
+        linkedinUrl: "",
         description: `
 Bonjour à tous,
 
@@ -67,6 +78,7 @@ J’ai déjà hâte de vous retrouver et je vous remercie pour ce merveilleux ca
         name: "Émilie",
         role: "Healthy food, aromathérapie, ateliers de fabrication de produits naturels.",
         image: "/Emilie-presentation-2026.jpeg",
+        linkedinUrl: "",
         description:
             "Émilie est la cheffe cuisinière d’AVA Bien-Être. Après plus de vingt ans d’expérience dans le domaine de la restauration, elle a choisi de donner un nouveau sens à son parcours en se consacrant pleinement au bien-être. Lors des retraites, elle prépare avec passion des repas et collations healthy, pensés pour nourrir le corps tout en éveillant les sens, et vous faire découvrir le bien-être jusque dans l’assiette. En dehors de la cuisine, Émilie anime des ateliers d’aromathérapie et de fabrication de produits naturels à base d’huiles essentielles, afin de transmettre des pratiques simples, utiles et applicables au quotidien. Elle est heureuse de partager cette aventure humaine aux côtés d’Aurélie et de Pierre, et se réjouit de vous rencontrer lors de nos séjours.",
         specialties: [
@@ -109,6 +121,7 @@ J’ai déjà hâte de vous retrouver et je vous remercie pour ce merveilleux ca
         name: "Bérengère",
         role: "Accompagnement bien-être et coaching de vie",
         image: "/staff/Berengere-Ava.jpg",
+        linkedinUrl: "",
         description:
             "Bérengère accompagne les personnes vers un mieux-être global à travers une approche douce, intuitive et profondément humaine. Elle aide à relâcher les tensions, à se recentrer dans le corps et à apaiser les émotions, afin de retrouver clarté intérieure, confiance et énergie plus légère. Son accompagnement s’adresse tout particulièrement aux personnes traversant des périodes de doute, de transition ou de remise en question, auxquelles elle offre un espace sécurisant pour se reconnecter à soi. Heureuse de faire partie de l’aventure AVA Bien-Être, Bérengère met tout son engagement et sa sensibilité au service de votre transformation, pour vous permettre de repartir plus aligné(e), apaisé(e) et recentré(e).",
         specialties: [
@@ -123,6 +136,7 @@ J’ai déjà hâte de vous retrouver et je vous remercie pour ce merveilleux ca
         name: "Patricia",
         role: "Art thérapeute, professeur de danse Africaine",
         image: "/Patricia.jpg",
+        linkedinUrl: "",
         description:
             "L'art thérapie, comme son nom l'indique est une démarche d'accompagnement thérapeutique par la création, ou l'expression artistique. Libérez les tensions, focalisez sur l'instant présent… laissez votre corps s'exprimer à travers votre propre rythme : des mouvements lents, ou rapides. Laissez-vous guider par la voix de patricia, par la musique… créez votre bulle de bien être ! ces ateliers sont une invitation au lâcher prise ! L'art thérapie s'adresse à tous sans distinction d'âge et sans prérequis.",
         specialties: ["Massages", "Relaxation", "Énergétique"]
@@ -131,6 +145,7 @@ J’ai déjà hâte de vous retrouver et je vous remercie pour ce merveilleux ca
         name: "Johan",
         role: "Praticien en massages bien-être et musculaires",
         image: "/staff/JOHAN-Massage-Ava.jpg",
+        linkedinUrl: "https://www.instagram.com/lesmassagesdejohan/",
         description:
             "Formé au massage relaxant au sein d’une école reconnue par la Fédération Française du Massage Traditionnel de Relaxation, Johan pratique différentes techniques telles que le massage ayurvédique, polynésien, amma, californien et drainant. Souhaitant approfondir son approche, il s’est également spécialisé en massage musculaire sportif, en se formant auprès de la championne de France de massage 2022, afin de proposer des soins d’une grande qualité. Attentif aux besoins de chacun, Johan adapte ses techniques et ses gestes aux attentes spécifiques de chaque personne pour offrir un moment de détente sur mesure. Heureux de faire partie de l’aventure AVA Bien-Être, il vous accompagnera avec professionnalisme et bienveillance pour vous faire vivre des instants de relaxation profonde et de lâcher-prise.",
         specialties: [
@@ -145,6 +160,7 @@ J’ai déjà hâte de vous retrouver et je vous remercie pour ce merveilleux ca
         name: "Laila Delmonte",
         role: "Spécialiste de la communication animale",
         image: "/Laila-Delmonte.jpeg",
+        linkedinUrl: "https://www.instagram.com/lailadelmonte/",
         description:
             "Laïla Del Monte est une professionnelle et spécialiste de la communication animale : elle a suivi ses études secondaires et universitaires à Paris, jusqu'au niveau d'une Maîtrise en Religions comparées à la Sorbonne. Elle se consacre essentiellement à la communication animale, dont elle est l'une des pionnières en Europe. Elle enseigne son savoir dans plusieurs pays du monde. De nombreux vétérinaires font appel à Laïla Del Monte, mais aussi des éleveurs, des entraîneurs de chevaux, des cavaliers de haut niveau, des comportementalismes, des parcs animaliers, dentistes équins, dresseurs, ostéopathes, éducateurs canin, S.P.A, refuges etc. Laïla sera parmi nous pour animer des conférences, des discussions et ateliers dont nous dévoilerons le contenu et thèmes lors de la présentation des séjours. L'authenticité de la démarche de Laïla Del Monte fait naître le désir d'entreprendre, à notre tour, ce chemin vers l'animal et, par ce biais, vers nous-même. Nous remercions Laïla pour son engagement et sa présence lors de nos retraites, et nous sommes sûrs qu'elle marquera votre esprit comme personne.",
         specialties: ["Coordination", "Accueil", "Suivi personnalisé"]

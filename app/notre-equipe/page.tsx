@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Image from "next/image"
+import { Instagram } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -109,17 +110,21 @@ export default function EquipePage() {
                                                         </Badge>
                                                     ))}
                                                 </div>
-                                                <div className="flex justify-center md:justify-start">
-                                                    <Button asChild variant="outline" size="sm">
-                                                        <a
-                                                            href={`https://www.linkedin.com/in/${toAnchorId(member.name)}`}
-                                                            target="_blank"
-                                                            rel="noreferrer"
-                                                        >
-                                                            {`Contacter ${member.name}`}
-                                                        </a>
-                                                    </Button>
-                                                </div>
+                                                {member.linkedinUrl ? (
+                                                    <div className="flex justify-center md:justify-start">
+                                                        <Button asChild variant="outline" size="sm">
+                                                            <a
+                                                                href={member.linkedinUrl}
+                                                                target="_blank"
+                                                                rel="noreferrer"
+                                                                className="inline-flex items-center"
+                                                            >
+                                                                <Instagram className="mr-2 h-4 w-4" />
+                                                                {`Contacter ${member.name}`}
+                                                            </a>
+                                                        </Button>
+                                                    </div>
+                                                ) : null}
                                             </div>
                                         </div>
                                     </div>
