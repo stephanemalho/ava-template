@@ -1,6 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { Questrial } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "next-themes"
 import { Navigation } from "../components/navigation"
@@ -11,7 +11,13 @@ import AnalyticsConsent from "@/components/analytics-consent"
 import { siteConfig } from "@/lib/seo-config"
 import { generateOrganizationSchema, generateWebsiteSchema } from "@/lib/schema-generators"
 
-const inter = Inter({ subsets: ["latin"], display: "swap" })
+const questrial = Questrial({
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+  variable: "--font-questrial",
+  fallback: ["Arial", "Helvetica", "ui-sans-serif", "system-ui", "sans-serif"],
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.siteUrl),
@@ -54,7 +60,7 @@ export default function RootLayout({
   const websiteSchema = generateWebsiteSchema()
 
   return (
-    <html lang="fr" suppressHydrationWarning>
+    <html lang="fr" suppressHydrationWarning className={questrial.variable}>
       <head>
         <meta charSet="utf-8" />
         <script
@@ -66,7 +72,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
       </head>
-      <body className={inter.className}>
+      <body className="font-sans">
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
           <div className="min-h-screen bg-background flex flex-col">
             <ReservationCartProvider>
