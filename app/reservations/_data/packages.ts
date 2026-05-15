@@ -36,7 +36,7 @@ export const reservationPackages: ReservationPackage[] = [
         location: "Trans-en-Provence",
         type: "Chambre Partagée",
         totalPlaces: 11,
-        availablePlaces: 1
+        availablePlaces: 2
     },
     {
         id: "shared-room-2",
@@ -57,6 +57,6 @@ export const reservationPackages: ReservationPackage[] = [
         location: "Trans-en-Provence",
         type: "Chambre Partagée",
         totalPlaces: 11,
-        availablePlaces: 0
+        availablePlaces: 1
     }
 ];
