@@ -84,7 +84,7 @@ export const sitemapPages = [
         url: "/contact",
         changefreq: "monthly",
         priority: 0.8,
-        lastmod: "2026-04-03"
+        lastmod: "2026-05-23"
     },
     {
         url: "/mentions-legales",

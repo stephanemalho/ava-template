@@ -161,7 +161,7 @@ export default function ContactPage() {
                             <div className="flex flex-col items-center gap-4 md:flex-row md:items-center md:justify-between">
                                 <div className="mt-12 relative h-28 w-28">
                                     <Image
-                                        src="/contact/adobe-express-qr-code.png"
+                                        src="/contact/adobe-express-qr-code-new.png"
                                         alt="QR code de contact Ava Bien-Être"
                                         fill
                                         className="object-contain"
@@ -237,7 +237,7 @@ export default function ContactPage() {
                         </div>
                         <div className="flex flex-col items-center gap-2 sm:flex-row">
                             <Button asChild>
-                                <a href="https://forms.gle/gFuHdXa9z6anSEJR8" target="_blank" rel="noreferrer">
+                                <a href="https://forms.gle/NeGMaieNjjgbXdRs5" target="_blank" rel="noreferrer">
                                     Demander un devis
                                 </a>
                             </Button>
