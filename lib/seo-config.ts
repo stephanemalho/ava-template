@@ -72,13 +72,13 @@ export const sitemapPages = [
         url: "/sejour-a-trans-en-provence",
         changefreq: "monthly",
         priority: 0.9,
-        lastmod: "2026-04-03"
+        lastmod: "2026-07-21"
     },
     {
         url: "/reservations",
         changefreq: "monthly",
         priority: 0.9,
-        lastmod: "2026-05-17"
+        lastmod: "2026-07-21"
     },
     {
         url: "/contact",
