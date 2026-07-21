@@ -1,7 +1,10 @@
 import { headers } from "next/headers";
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
-import { reservationPackages } from "@/app/reservations/_data/packages";
+import {
+    isReservationOpen,
+    reservationPackages
+} from "@/app/reservations/_data/packages";
 import { STRIPE_ACOMPTE_PER_PERSON_EUR } from "@/lib/reservation-pricing";
 
 export const runtime = "nodejs";
@@ -144,6 +147,12 @@ export async function POST(request: Request) {
             const pkg = packageMap.get(item.id);
             if (!pkg) {
                 throw new Error(`BAD_REQUEST: Formule invalide: ${item.id}`);
+            }
+
+            if (!isReservationOpen(pkg)) {
+                throw new Error(
+                    `BAD_REQUEST: Les reservations sont closes pour ${item.id}`
+                );
             }
 
             if (!Number.isInteger(item.peopleCount) || item.peopleCount < 1) {

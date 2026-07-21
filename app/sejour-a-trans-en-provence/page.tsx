@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Image from "next/image"
+import Link from "next/link"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { ImageCarousel } from "@/components/image-carousel"
@@ -37,6 +38,7 @@ import {
 type StaySession = {
   title: string
   dateRange: string
+  reservationPackageId: string
   image: string
   imageAlt: string
   badge: string
@@ -53,6 +55,7 @@ const staySessions: StaySession[] = [
   {
     title: "Séjour d'été",
     dateRange: "du 10 au 16 juillet 2026",
+    reservationPackageId: "shared-room",
     image: "/sejour-10-16-Juillet.jpeg",
     imageAlt: "Participants d'un séjour bien-être AVA en juillet 2026",
     badge: "Juillet 2026",
@@ -61,7 +64,8 @@ const staySessions: StaySession[] = [
   {
     title: "Séjour d'automne",
     dateRange: "du 22 au 28 octobre 2026",
-    image: "/sejour-22-28-Octobre.jpeg",
+    reservationPackageId: "shared-room-2",
+    image: "/sejours/espaces-exterieurs/evenement-ava-bien-etre-octobre-2026.jpg",
     imageAlt: "Participants d'un séjour bien-être AVA en octobre 2026",
     badge: "Octobre 2026",
     description: "Une session propice au recentrage, à la relaxation profonde et au ressourcement en Provence.",
@@ -689,39 +693,45 @@ export default function SejoursPage() {
           </div>
           <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
             {staySessions.map((session, index) => (
-              <Card key={session.dateRange} className="overflow-hidden">
-                <div className="grid grid-cols-1 lg:grid-cols-[220px_1fr]">
-                  <div className="p-3 pb-0 lg:pb-3">
-                    <figure className="relative min-h-80 overflow-hidden rounded-md aspect-3/4 lg:min-h-full">
-                      <Image
-                        src={session.image}
-                        alt={session.imageAlt}
-                        fill
-                        priority={index === 0}
-                        sizes="(max-width: 1024px) 100vw, 220px"
-                        className="object-cover object-top"
-                      />
-                      <figcaption className="sr-only">{session.title}</figcaption>
-                    </figure>
-                  </div>
-                  <CardContent className="flex flex-col justify-center p-6">
-                    <div className="space-y-4">
-                      <Badge variant="secondary" className="w-fit">
-                        {session.badge}
-                      </Badge>
-                      <div className="space-y-1">
-                        <h3 className="text-base md:text-xl font-semibold">{session.title}</h3>
-                        <p className="font-medium text-primary">{session.dateRange}</p>
-                      </div>
-                      <p className="text-sm leading-relaxed text-muted-foreground">{session.description}</p>
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <MapPin className="h-4 w-4 shrink-0" aria-hidden="true" />
-                        <span>Trans-en-Provence, Var</span>
-                      </div>
+              <Link
+                key={session.dateRange}
+                href={`/reservations#sejour-${session.reservationPackageId}`}
+                className="group block rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+              >
+                <Card className="h-full overflow-hidden transition-shadow group-hover:shadow-md">
+                  <div className="grid grid-cols-1 lg:grid-cols-[220px_1fr]">
+                    <div className="p-3 pb-0 lg:pb-3">
+                      <figure className="relative min-h-80 overflow-hidden rounded-md aspect-3/4 lg:min-h-full">
+                        <Image
+                          src={session.image}
+                          alt={session.imageAlt}
+                          fill
+                          priority={index === 0}
+                          sizes="(max-width: 1024px) 100vw, 220px"
+                          className="object-cover object-top"
+                        />
+                        <figcaption className="sr-only">{session.title}</figcaption>
+                      </figure>
                     </div>
-                  </CardContent>
-                </div>
-              </Card>
+                    <CardContent className="flex flex-col justify-center p-6">
+                      <div className="space-y-4">
+                        <Badge variant="secondary" className="w-fit">
+                          {session.badge}
+                        </Badge>
+                        <div className="space-y-1">
+                          <h3 className="text-base md:text-xl font-semibold">{session.title}</h3>
+                          <p className="font-medium text-primary">{session.dateRange}</p>
+                        </div>
+                        <p className="text-sm leading-relaxed text-muted-foreground">{session.description}</p>
+                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                          <MapPin className="h-4 w-4 shrink-0" aria-hidden="true" />
+                          <span>Trans-en-Provence, Var</span>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </div>
+                </Card>
+              </Link>
             ))}
           </div>
         </section>

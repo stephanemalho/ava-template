@@ -4,6 +4,7 @@ export type ReservationPackage = {
     dateRange: string;
     startDate: string;
     endDate: string;
+    bookingDeadline: string;
     subtitle: string;
     price: number;
     image: string;
@@ -23,6 +24,7 @@ export const reservationPackages: ReservationPackage[] = [
         dateRange: "10 au 16 juillet 2026",
         startDate: "2026-07-11",
         endDate: "2026-07-17",
+        bookingDeadline: "2026-07-10T00:00:00+02:00",
         subtitle: "(chambre partagée)",
         price: 1800,
         image: "/sejour-10-16-Juillet.jpeg",
@@ -44,9 +46,10 @@ export const reservationPackages: ReservationPackage[] = [
         dateRange: "22 au 28 octobre 2026",
         startDate: "2026-10-22",
         endDate: "2026-10-28",
+        bookingDeadline: "2026-10-22T00:00:00+02:00",
         subtitle: "(chambre partagée)",
         price: 1800,
-        image: "/sejour-22-28-Octobre.jpeg",
+        image: "/sejours/espaces-exterieurs/evenement-ava-bien-etre-octobre-2026.jpg",
         badge: "1800 € / personne",
         badgeColor: "bg-primary",
         features: [
@@ -57,6 +60,10 @@ export const reservationPackages: ReservationPackage[] = [
         location: "Trans-en-Provence",
         type: "Chambre Partagée",
         totalPlaces: 11,
-        availablePlaces: 1
+        availablePlaces: 6
     }
 ];
+
+export function isReservationOpen(pkg: ReservationPackage, now = new Date()) {
+    return now.getTime() < new Date(pkg.bookingDeadline).getTime();
+}

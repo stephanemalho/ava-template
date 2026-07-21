@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import { LinkButton } from "@/components/link-button"
-import { reservationPackages } from "./_data/packages"
+import { isReservationOpen, reservationPackages } from "./_data/packages"
 import { ReservationPackageControls } from "./_components/reservation-package-controls"
 import { ReservationCartPill } from "./_components/reservation-cart-pill"
 import { STRIPE_ACOMPTE_PER_PERSON_EUR } from "@/lib/reservation-pricing"
@@ -172,7 +172,11 @@ export default async function ReservationsPage({ searchParams }: ReservationsPag
 
                 <section className="grid grid-cols-1 gap-12 lg:grid-cols-2">
                     {reservationPackages.map((pkg) => (
-                        <Card key={pkg.id} className="overflow-hidden">
+                        <Card
+                            key={pkg.id}
+                            id={`sejour-${pkg.id}`}
+                            className="scroll-mt-24 overflow-hidden"
+                        >
                             <CardContent className="p-0">
                                 <div className="grid grid-cols-1 gap-0">
                                     <div className="p-4 pb-0">
@@ -221,7 +225,13 @@ export default async function ReservationsPage({ searchParams }: ReservationsPag
                                             </div>
                                         </div>
 
-                                        <ReservationPackageControls pkg={pkg} />
+                                        {isReservationOpen(pkg) ? (
+                                            <ReservationPackageControls pkg={pkg} />
+                                        ) : (
+                                            <p className="mt-8 text-sm font-medium text-muted-foreground">
+                                                Les réservations pour ce séjour sont closes.
+                                            </p>
+                                        )}
                                     </div>
                                 </div>
                             </CardContent>
