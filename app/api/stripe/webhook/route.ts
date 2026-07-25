@@ -2,88 +2,57 @@ import { NextResponse } from "next/server";
 import Stripe from "stripe";
 import { reservationPackages } from "@/app/reservations/_data/packages";
 import { STRIPE_ACOMPTE_PER_PERSON_EUR } from "@/lib/reservation-pricing";
+import {
+    buildReservationSummary,
+    inspectReservationCheckoutSession
+} from "@/lib/stripe-reservation";
+import { getStripeClient } from "@/lib/stripe-server";
 
 export const runtime = "nodejs";
 
-type ReservationSelection = {
-    id: string;
-    peopleCount: number;
-    title: string;
-};
+function getPaymentIntentId(session: Stripe.Checkout.Session) {
+    if (typeof session.payment_intent === "string") {
+        return session.payment_intent;
+    }
 
-function createStripeClient(secretKey: string) {
-    return new Stripe(secretKey);
-}
-
-function parseReservationItems(rawValue: string | null | undefined) {
-    if (!rawValue) return [];
-
-    const packageMap = new Map(reservationPackages.map((pkg) => [pkg.id, pkg]));
-
-    return rawValue
-        .split(",")
-        .map((entry) => entry.trim())
-        .filter(Boolean)
-        .flatMap((entry) => {
-            const [id, peopleCountRaw] = entry.split(":");
-            const peopleCount = Number(peopleCountRaw);
-            const pkg = packageMap.get(id);
-
-            if (!pkg || !Number.isInteger(peopleCount) || peopleCount < 1) {
-                return [];
-            }
-
-            return [
-                {
-                    id,
-                    peopleCount,
-                    title: pkg.title
-                } satisfies ReservationSelection
-            ];
-        });
-}
-
-function buildReservationSummary(items: ReservationSelection[]) {
-    return items
-        .map((item) => `${item.title} x${item.peopleCount}`)
-        .join(" | ");
-}
-
-function buildReservationAmounts(items: ReservationSelection[]) {
-    const totalPeople = items.reduce((sum, item) => sum + item.peopleCount, 0);
-    return {
-        totalPeople,
-        expectedAmountCents: totalPeople * STRIPE_ACOMPTE_PER_PERSON_EUR * 100
-    };
-}
-
-function getSessionCustomerFields(session: Stripe.Checkout.Session) {
-    const name =
-        session.customer_details?.name?.trim() ||
-        session.customer_details?.email?.trim() ||
-        "Client inconnu";
-    const email = session.customer_details?.email?.trim() || "non-renseigne";
-    const phone = session.customer_details?.phone?.trim() || "non-renseigne";
-
-    return { name, email, phone };
+    return session.payment_intent?.id ?? null;
 }
 
 async function persistReservationStatus(params: {
     stripe: Stripe;
+    eventId: string;
     sessionId: string;
     paymentIntentId: string | null;
     metadata: Record<string, string>;
 }) {
-    const { stripe, sessionId, paymentIntentId, metadata } = params;
+    const {
+        stripe,
+        eventId,
+        sessionId,
+        paymentIntentId,
+        metadata
+    } = params;
 
     if (paymentIntentId) {
-        await stripe.paymentIntents.update(paymentIntentId, { metadata });
+        await stripe.paymentIntents.update(
+            paymentIntentId,
+            { metadata },
+            {
+                idempotencyKey: `ava-reservation-payment-intent-${eventId}`
+            }
+        );
     }
 
-    await stripe.checkout.sessions.update(sessionId, { metadata });
+    await stripe.checkout.sessions.update(
+        sessionId,
+        { metadata },
+        {
+            idempotencyKey: `ava-reservation-checkout-session-${eventId}`
+        }
+    );
 }
 
-async function handleConfirmedDeposit(params: {
+async function handlePaymentEvent(params: {
     stripe: Stripe;
     event: Stripe.Event;
     session: Stripe.Checkout.Session;
@@ -96,46 +65,91 @@ async function handleConfirmedDeposit(params: {
         return { status: "already_processed" as const };
     }
 
-    const reservationItems = parseReservationItems(
-        currentMetadata.reservation_items ?? session.metadata?.reservation_items
+    const verification = inspectReservationCheckoutSession(
+        currentSession,
+        reservationPackages,
+        STRIPE_ACOMPTE_PER_PERSON_EUR
     );
-    if (reservationItems.length === 0) {
-        throw new Error(
-            "Aucune reservation exploitable trouvee dans les metadonnees Stripe."
-        );
+    const processedAt = new Date().toISOString();
+
+    if (verification.status === "invalid") {
+        const metadata = {
+            ...currentMetadata,
+            reservation_status: "payment_invalid",
+            reservation_validation_error: verification.reason,
+            reservation_event_id: event.id,
+            reservation_processed_at: processedAt,
+            reservation_payment_status: currentSession.payment_status,
+            reservation_amount_paid: String(currentSession.amount_total ?? 0),
+            reservation_currency_received:
+                currentSession.currency ?? "non-renseignee"
+        };
+
+        await persistReservationStatus({
+            stripe,
+            eventId: event.id,
+            sessionId: currentSession.id,
+            paymentIntentId: getPaymentIntentId(currentSession),
+            metadata
+        });
+
+        console.warn("stripe.reservation.payment_rejected", {
+            sessionId: currentSession.id,
+            paymentStatus: currentSession.payment_status,
+            reason: verification.reason
+        });
+
+        return { status: "payment_invalid" as const };
     }
 
-    const { totalPeople, expectedAmountCents } =
-        buildReservationAmounts(reservationItems);
-    const paidAmountCents = currentSession.amount_total ?? 0;
-    const amountStatus =
-        paidAmountCents === expectedAmountCents ? "ok" : "mismatch";
-    const { name, email, phone } = getSessionCustomerFields(currentSession);
+    if (verification.status === "pending") {
+        const metadata = {
+            ...currentMetadata,
+            reservation_status: "payment_pending",
+            reservation_event_id: event.id,
+            reservation_processed_at: processedAt,
+            reservation_payment_status: currentSession.payment_status,
+            reservation_total_people: String(verification.totalPeople),
+            reservation_amount_paid: String(currentSession.amount_total ?? 0),
+            reservation_amount_expected: String(
+                verification.expectedAmountCents
+            ),
+            reservation_summary: buildReservationSummary(verification.items)
+        };
+
+        await persistReservationStatus({
+            stripe,
+            eventId: event.id,
+            sessionId: currentSession.id,
+            paymentIntentId: getPaymentIntentId(currentSession),
+            metadata
+        });
+
+        console.info("stripe.reservation.payment_pending", {
+            sessionId: currentSession.id,
+            paymentStatus: currentSession.payment_status
+        });
+
+        return { status: "payment_pending" as const };
+    }
 
     const metadata = {
         ...currentMetadata,
-        reservation_status:
-            amountStatus === "ok"
-                ? "deposit_confirmed"
-                : "deposit_amount_mismatch",
+        reservation_status: "deposit_confirmed",
         reservation_event_id: event.id,
-        reservation_processed_at: new Date().toISOString(),
-        reservation_customer_name: name,
-        reservation_customer_email: email,
-        reservation_customer_phone: phone,
-        reservation_total_people: String(totalPeople),
-        reservation_amount_paid: String(paidAmountCents),
-        reservation_amount_expected: String(expectedAmountCents),
-        reservation_summary: buildReservationSummary(reservationItems)
+        reservation_processed_at: processedAt,
+        reservation_payment_status: currentSession.payment_status,
+        reservation_total_people: String(verification.totalPeople),
+        reservation_amount_paid: String(currentSession.amount_total ?? 0),
+        reservation_amount_expected: String(verification.expectedAmountCents),
+        reservation_summary: buildReservationSummary(verification.items)
     };
 
     await persistReservationStatus({
         stripe,
+        eventId: event.id,
         sessionId: currentSession.id,
-        paymentIntentId:
-            typeof currentSession.payment_intent === "string"
-                ? currentSession.payment_intent
-                : null,
+        paymentIntentId: getPaymentIntentId(currentSession),
         metadata
     });
 
@@ -143,18 +157,19 @@ async function handleConfirmedDeposit(params: {
         sessionId: currentSession.id,
         paymentStatus: currentSession.payment_status,
         reservationStatus: metadata.reservation_status,
-        customerEmail: email,
-        totalPeople,
-        paidAmountCents,
-        expectedAmountCents,
+        hasCustomerName: Boolean(
+            currentSession.customer_details?.individual_name ||
+                currentSession.customer_details?.name
+        ),
+        hasCustomerEmail: Boolean(currentSession.customer_details?.email),
+        hasCustomerPhone: Boolean(currentSession.customer_details?.phone),
+        totalPeople: verification.totalPeople,
+        paidAmountCents: currentSession.amount_total,
+        expectedAmountCents: verification.expectedAmountCents,
         reservationSummary: metadata.reservation_summary
     });
 
-    return {
-        status: metadata.reservation_status as
-            | "deposit_confirmed"
-            | "deposit_amount_mismatch"
-    };
+    return { status: "deposit_confirmed" as const };
 }
 
 async function handleAsyncPaymentFailed(params: {
@@ -165,21 +180,19 @@ async function handleAsyncPaymentFailed(params: {
     const { stripe, event, session } = params;
     const currentSession = await stripe.checkout.sessions.retrieve(session.id);
     const currentMetadata = currentSession.metadata ?? {};
-
     const metadata = {
         ...currentMetadata,
         reservation_status: "payment_failed",
         reservation_event_id: event.id,
-        reservation_processed_at: new Date().toISOString()
+        reservation_processed_at: new Date().toISOString(),
+        reservation_payment_status: currentSession.payment_status
     };
 
     await persistReservationStatus({
         stripe,
+        eventId: event.id,
         sessionId: currentSession.id,
-        paymentIntentId:
-            typeof currentSession.payment_intent === "string"
-                ? currentSession.payment_intent
-                : null,
+        paymentIntentId: getPaymentIntentId(currentSession),
         metadata
     });
 
@@ -189,22 +202,21 @@ async function handleAsyncPaymentFailed(params: {
     });
 }
 
-async function handlePaymentIntentFailed(paymentIntent: Stripe.PaymentIntent) {
+function handlePaymentIntentFailed(paymentIntent: Stripe.PaymentIntent) {
     console.warn("stripe.payment_intent.payment_failed", {
         paymentIntentId: paymentIntent.id,
-        reservationItems: paymentIntent.metadata?.reservation_items ?? null
+        hasReservationItems: Boolean(
+            paymentIntent.metadata?.reservation_items
+        )
     });
 }
 
 export async function POST(request: Request) {
-    const secretKey = process.env.STRIPE_SECRET_KEY;
     const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
 
-    if (!secretKey || !webhookSecret) {
+    if (!process.env.STRIPE_SECRET_KEY || !webhookSecret) {
         return NextResponse.json(
-            {
-                error: "Configuration Stripe webhook incomplete (STRIPE_SECRET_KEY / STRIPE_WEBHOOK_SECRET)."
-            },
+            { error: "Configuration Stripe webhook incomplete." },
             { status: 500 }
         );
     }
@@ -218,7 +230,7 @@ export async function POST(request: Request) {
     }
 
     const payload = await request.text();
-    const stripe = createStripeClient(secretKey);
+    const stripe = getStripeClient();
 
     let event: Stripe.Event;
     try {
@@ -227,12 +239,11 @@ export async function POST(request: Request) {
             signature,
             webhookSecret
         );
-    } catch (error) {
-        const message =
-            error instanceof Error
-                ? error.message
-                : "Signature Stripe invalide.";
-        return NextResponse.json({ error: message }, { status: 400 });
+    } catch {
+        return NextResponse.json(
+            { error: "Signature Stripe invalide." },
+            { status: 400 }
+        );
     }
 
     try {
@@ -240,7 +251,7 @@ export async function POST(request: Request) {
             case "checkout.session.completed":
             case "checkout.session.async_payment_succeeded": {
                 const session = event.data.object as Stripe.Checkout.Session;
-                await handleConfirmedDeposit({ stripe, event, session });
+                await handlePaymentEvent({ stripe, event, session });
                 break;
             }
             case "checkout.session.async_payment_failed": {
@@ -250,7 +261,7 @@ export async function POST(request: Request) {
             }
             case "payment_intent.payment_failed": {
                 const paymentIntent = event.data.object as Stripe.PaymentIntent;
-                await handlePaymentIntentFailed(paymentIntent);
+                handlePaymentIntentFailed(paymentIntent);
                 break;
             }
             default:
@@ -262,12 +273,13 @@ export async function POST(request: Request) {
 
         return NextResponse.json({ received: true });
     } catch (error) {
-        const message =
-            error instanceof Error ? error.message : "Erreur webhook Stripe.";
         console.error("stripe.webhook.handler_failed", {
             type: event.type,
-            message
+            errorName: error instanceof Error ? error.name : "UnknownError"
         });
-        return NextResponse.json({ error: message }, { status: 500 });
+        return NextResponse.json(
+            { error: "Traitement du webhook Stripe impossible." },
+            { status: 500 }
+        );
     }
 }

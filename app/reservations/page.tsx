@@ -13,6 +13,8 @@ import { ReservationCartPill } from "./_components/reservation-cart-pill"
 import { STRIPE_ACOMPTE_PER_PERSON_EUR } from "@/lib/reservation-pricing"
 import { generateStayEventsSchema, generateStayOffersSchema } from "@/lib/schema-generators"
 import { siteConfig } from "@/lib/seo-config"
+import { inspectReservationCheckoutSession } from "@/lib/stripe-reservation"
+import { getStripeClient } from "@/lib/stripe-server"
 
 const faqItems = [
     {
@@ -101,6 +103,72 @@ type ReservationsPageProps = {
     }>
 }
 
+type PaymentMessage = {
+    title: string
+    description: string
+    className: string
+}
+
+async function resolvePaymentMessage(
+    paymentState: string | undefined,
+    sessionId: string | undefined
+): Promise<PaymentMessage | null> {
+    if (paymentState === "cancelled") {
+        return {
+            title: "Paiement annulé",
+            description: "Le paiement des arrhes a été annulé. Vous pouvez reprendre votre réservation quand vous le souhaitez.",
+            className: "border-amber-200 bg-amber-50 text-amber-900",
+        }
+    }
+
+    if (paymentState !== "success") return null
+
+    if (!sessionId || !/^cs_(?:test|live)_[A-Za-z0-9]+$/.test(sessionId)) {
+        return {
+            title: "Paiement non confirmé",
+            description: "Cette référence de paiement ne peut pas être vérifiée. Aucun paiement n’est confirmé depuis cette page.",
+            className: "border-red-200 bg-red-50 text-red-900",
+        }
+    }
+
+    try {
+        const session = await getStripeClient().checkout.sessions.retrieve(sessionId)
+        const verification = inspectReservationCheckoutSession(
+            session,
+            reservationPackages,
+            STRIPE_ACOMPTE_PER_PERSON_EUR
+        )
+
+        if (verification.status === "paid") {
+            return {
+                title: "Arrhes reçues",
+                description: "Votre paiement a été vérifié auprès de Stripe. L’équipe AVA reprendra contact avec vous pour la suite.",
+                className: "border-green-200 bg-green-50 text-green-900",
+            }
+        }
+
+        if (verification.status === "pending") {
+            return {
+                title: "Paiement en cours de confirmation",
+                description: "Stripe traite encore votre paiement. La réservation ne sera confirmée qu’après validation définitive.",
+                className: "border-amber-200 bg-amber-50 text-amber-900",
+            }
+        }
+
+        return {
+            title: "Paiement non confirmé",
+            description: "Stripe n’a pas confirmé un paiement conforme pour cette réservation. Contactez l’équipe AVA si vous pensez avoir été débité.",
+            className: "border-red-200 bg-red-50 text-red-900",
+        }
+    } catch {
+        return {
+            title: "Vérification temporairement indisponible",
+            description: "Nous ne pouvons pas confirmer le paiement pour le moment. Ne relancez pas un paiement si vous pensez avoir été débité et contactez l’équipe AVA.",
+            className: "border-amber-200 bg-amber-50 text-amber-900",
+        }
+    }
+}
+
 export default async function ReservationsPage({ searchParams }: ReservationsPageProps) {
     const resolvedSearchParams = searchParams ? await searchParams : undefined
     const stayOffersSchema = generateStayOffersSchema()
@@ -120,23 +188,7 @@ export default async function ReservationsPage({ searchParams }: ReservationsPag
     }
     const paymentState = resolvedSearchParams?.payment
     const sessionId = resolvedSearchParams?.session_id
-
-    const paymentMessage =
-        paymentState === "success"
-            ? {
-                title: "Arrhes reçues",
-                description: sessionId
-                    ? `Vos arrhes ont bien été reçues. Référence de session : ${sessionId}. L'équipe AVA reprendra contact avec vous pour la suite.`
-                    : "Vos arrhes ont bien été reçues. L'équipe AVA reprendra contact avec vous pour la suite.",
-                className: "border-green-200 bg-green-50 text-green-900",
-            }
-            : paymentState === "cancelled"
-                ? {
-                    title: "Paiement annulé",
-                    description: "Le paiement des arrhes a été annulé. Vous pouvez reprendre votre réservation quand vous le souhaitez.",
-                    className: "border-amber-200 bg-amber-50 text-amber-900",
-                }
-                : null
+    const paymentMessage = await resolvePaymentMessage(paymentState, sessionId)
 
     return (
         <main className="py-16">

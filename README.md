@@ -14,16 +14,11 @@ Copy `.env.example` to `.env` and configure the required variables:
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies with the package manager pinned by this repository:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install --frozen-lockfile
 pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.

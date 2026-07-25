@@ -1,11 +1,10 @@
-import { headers } from "next/headers";
 import { NextResponse } from "next/server";
-import Stripe from "stripe";
 import {
     isReservationOpen,
     reservationPackages
 } from "@/app/reservations/_data/packages";
 import { STRIPE_ACOMPTE_PER_PERSON_EUR } from "@/lib/reservation-pricing";
+import { getStripeClient } from "@/lib/stripe-server";
 
 export const runtime = "nodejs";
 
@@ -138,12 +137,27 @@ export async function POST(request: Request) {
             );
         }
 
-        const stripe = new Stripe(secretKey);
-
         const packageMap = new Map(
             reservationPackages.map((pkg) => [pkg.id, pkg])
         );
-        const lineItems = items.map((item) => {
+        const seenPackageIds = new Set<string>();
+        const validatedItems = items.map((item) => {
+            if (
+                !item ||
+                typeof item.id !== "string" ||
+                item.id.length === 0 ||
+                item.id.length > 100
+            ) {
+                throw new Error("BAD_REQUEST: Formule invalide.");
+            }
+
+            if (seenPackageIds.has(item.id)) {
+                throw new Error(
+                    `BAD_REQUEST: Formule dupliquee: ${item.id}`
+                );
+            }
+            seenPackageIds.add(item.id);
+
             const pkg = packageMap.get(item.id);
             if (!pkg) {
                 throw new Error(`BAD_REQUEST: Formule invalide: ${item.id}`);
@@ -166,6 +180,10 @@ export async function POST(request: Request) {
                 );
             }
 
+            return { item, pkg };
+        });
+
+        const lineItems = validatedItems.map(({ item, pkg }) => {
             return {
                 quantity: item.peopleCount,
                 price_data: {
@@ -179,43 +197,45 @@ export async function POST(request: Request) {
             };
         });
 
-        const requestHeaders = await headers();
-        const host =
-            requestHeaders.get("x-forwarded-host") ??
-            requestHeaders.get("host");
-        const protocol = requestHeaders.get("x-forwarded-proto") ?? "http";
-        const origin = host
-            ? `${protocol}://${host}`
-            : process.env.NEXT_PUBLIC_APP_URL;
-
-        if (!origin) {
-            return NextResponse.json(
-                {
-                    error: "Origine introuvable. Configure NEXT_PUBLIC_APP_URL pour Stripe Checkout."
-                },
-                { status: 500 }
-            );
-        }
+        const totalPeople = validatedItems.reduce(
+            (sum, { item }) => sum + item.peopleCount,
+            0
+        );
+        const expectedAmountCents =
+            totalPeople * STRIPE_ACOMPTE_PER_PERSON_EUR * 100;
+        const reservationItemsMetadata =
+            buildReservationItemsMetadata(items);
+        const reservationMetadata = {
+            reservation_items: reservationItemsMetadata,
+            reservation_total_people: String(totalPeople),
+            reservation_amount_expected: String(expectedAmountCents),
+            reservation_currency: "eur"
+        };
+        const stripe = getStripeClient();
 
         const session = await stripe.checkout.sessions.create({
             mode: "payment",
+            payment_method_types: ["card"],
             line_items: lineItems,
             billing_address_collection: "auto",
             customer_creation: "always",
             locale: "fr",
-            metadata: {
-                reservation_items: buildReservationItemsMetadata(items)
-            },
-            payment_intent_data: {
-                metadata: {
-                    reservation_items: buildReservationItemsMetadata(items)
+            name_collection: {
+                individual: {
+                    enabled: true,
+                    optional: false
                 }
+            },
+            metadata: reservationMetadata,
+            payment_intent_data: {
+                description: `Arrhes AVA Bien-Etre - ${totalPeople} personne${totalPeople > 1 ? "s" : ""}`,
+                metadata: reservationMetadata
             },
             phone_number_collection: {
                 enabled: true
             },
-            success_url: `${origin}/reservations?payment=success&session_id={CHECKOUT_SESSION_ID}`,
-            cancel_url: `${origin}/reservations?payment=cancelled`
+            success_url: `${requestOrigin}/reservations?payment=success&session_id={CHECKOUT_SESSION_ID}`,
+            cancel_url: `${requestOrigin}/reservations?payment=cancelled`
         });
 
         if (!session.url) {
@@ -235,6 +255,13 @@ export async function POST(request: Request) {
                 { status: 400 }
             );
         }
-        return NextResponse.json({ error: message }, { status: 500 });
+
+        console.error("stripe.checkout.session_create_failed", {
+            errorName: error instanceof Error ? error.name : "UnknownError"
+        });
+        return NextResponse.json(
+            { error: "Impossible de créer la session de paiement." },
+            { status: 500 }
+        );
     }
 }
