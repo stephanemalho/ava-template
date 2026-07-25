@@ -10,10 +10,14 @@ import { LinkButton } from "@/components/link-button"
 import { isReservationOpen, reservationPackages } from "./_data/packages"
 import { ReservationPackageControls } from "./_components/reservation-package-controls"
 import { ReservationCartPill } from "./_components/reservation-cart-pill"
+import {
+    PaymentConfirmationDialog,
+    type PaymentConfirmationMessage,
+} from "./_components/payment-confirmation-dialog"
 import { STRIPE_ACOMPTE_PER_PERSON_EUR } from "@/lib/reservation-pricing"
-import { generateStayEventsSchema, generateStayOffersSchema } from "@/lib/schema-generators"
+import { generateStayOffersSchema } from "@/lib/schema-generators"
 import { siteConfig } from "@/lib/seo-config"
-import { inspectReservationCheckoutSession } from "@/lib/stripe-reservation"
+import { buildReservationSummary, inspectReservationCheckoutSession } from "@/lib/stripe-reservation"
 import { getStripeClient } from "@/lib/stripe-server"
 
 const faqItems = [
@@ -103,16 +107,17 @@ type ReservationsPageProps = {
     }>
 }
 
-type PaymentMessage = {
-    title: string
-    description: string
-    className: string
-}
+const euroFormatter = new Intl.NumberFormat("fr-FR", {
+    style: "currency",
+    currency: "EUR",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 2,
+})
 
 async function resolvePaymentMessage(
     paymentState: string | undefined,
     sessionId: string | undefined
-): Promise<PaymentMessage | null> {
+): Promise<PaymentConfirmationMessage | null> {
     if (paymentState === "cancelled") {
         return {
             title: "Paiement annulé",
@@ -142,8 +147,27 @@ async function resolvePaymentMessage(
         if (verification.status === "paid") {
             return {
                 title: "Arrhes reçues",
-                description: "Votre paiement a été vérifié auprès de Stripe. L’équipe AVA reprendra contact avec vous pour la suite.",
+                description: "Votre paiement a été vérifié auprès de Stripe. Le solde sera réglé ultérieurement selon les modalités convenues avec l’équipe AVA.",
                 className: "border-green-200 bg-green-50 text-green-900",
+                contactEmail: "avabienetre71@gmail.com",
+                details: [
+                    {
+                        label: "Séjour réservé",
+                        value: buildReservationSummary(verification.items),
+                    },
+                    {
+                        label: "Prix total du séjour",
+                        value: euroFormatter.format(verification.totalStayAmountCents / 100),
+                    },
+                    {
+                        label: "Arrhes payées",
+                        value: euroFormatter.format(verification.expectedAmountCents / 100),
+                    },
+                    {
+                        label: "Reste à régler",
+                        value: euroFormatter.format(verification.remainingBalanceCents / 100),
+                    },
+                ],
             }
         }
 
@@ -172,7 +196,6 @@ async function resolvePaymentMessage(
 export default async function ReservationsPage({ searchParams }: ReservationsPageProps) {
     const resolvedSearchParams = searchParams ? await searchParams : undefined
     const stayOffersSchema = generateStayOffersSchema()
-    const stayEventsSchema = generateStayEventsSchema()
     const faqSchema = {
         "@context": "https://schema.org",
         "@type": "FAQPage",
@@ -198,18 +221,11 @@ export default async function ReservationsPage({ searchParams }: ReservationsPag
             />
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(stayEventsSchema) }}
-            />
-            <script
-                type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
             />
             <div className="container mx-auto">
                 {paymentMessage ? (
-                    <section className={`mb-10 rounded-lg border p-4 text-sm ${paymentMessage.className}`}>
-                        <p className="font-semibold">{paymentMessage.title}</p>
-                        <p className="mt-1">{paymentMessage.description}</p>
-                    </section>
+                    <PaymentConfirmationDialog message={paymentMessage} />
                 ) : null}
                 <header className="mb-16 space-y-6 text-center">
                     <h1 className="text-base font-bold md:text-5xl">Réservez votre séjour à Trans-en-Provence</h1>
@@ -426,7 +442,7 @@ export default async function ReservationsPage({ searchParams }: ReservationsPag
                                         </p>
                                         <div className="flex flex-wrap justify-center gap-2 md:justify-start">
                                             <Button asChild size="lg">
-                                                <a href="https://forms.gle/gFuHdXa9z6anSEJR8" target="_blank" rel="noreferrer">
+                                                <a href="https://forms.gle/NeGMaieNjjgbXdRs5" target="_blank" rel="noreferrer">
                                                     Demander un devis
                                                 </a>
                                             </Button>

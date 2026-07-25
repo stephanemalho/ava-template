@@ -4,12 +4,14 @@ export type ReservationPackageReference = {
     id: string;
     title: string;
     totalPlaces: number;
+    price: number;
 };
 
 export type ReservationSelection = {
     id: string;
     peopleCount: number;
     title: string;
+    unitPriceEuros: number;
 };
 
 export type ReservationPaymentVerification =
@@ -18,12 +20,16 @@ export type ReservationPaymentVerification =
           items: ReservationSelection[];
           totalPeople: number;
           expectedAmountCents: number;
+          totalStayAmountCents: number;
+          remainingBalanceCents: number;
       }
     | {
           status: "pending";
           items: ReservationSelection[];
           totalPeople: number;
           expectedAmountCents: number;
+          totalStayAmountCents: number;
+          remainingBalanceCents: number;
       }
     | {
           status: "invalid";
@@ -33,7 +39,8 @@ export type ReservationPaymentVerification =
               | "invalid_reservation_items"
               | "unexpected_amount"
               | "unexpected_currency"
-              | "unexpected_payment_status";
+              | "unexpected_payment_status"
+              | "deposit_exceeds_stay_total";
       };
 
 export function parseReservationItems(
@@ -64,7 +71,9 @@ export function parseReservationItems(
             !pkg ||
             seenPackageIds.has(id) ||
             !Number.isSafeInteger(peopleCount) ||
-            peopleCount > pkg.totalPlaces
+            peopleCount > pkg.totalPlaces ||
+            !Number.isFinite(pkg.price) ||
+            pkg.price < 0
         ) {
             return null;
         }
@@ -73,7 +82,8 @@ export function parseReservationItems(
         selections.push({
             id,
             peopleCount,
-            title: pkg.title
+            title: pkg.title,
+            unitPriceEuros: pkg.price
         });
     }
 
@@ -113,6 +123,21 @@ export function inspectReservationCheckoutSession(
     );
     const expectedAmountCents =
         totalPeople * depositPerPersonEuros * 100;
+    const totalStayAmountCents = items.reduce(
+        (sum, item) =>
+            sum +
+            Math.round(item.unitPriceEuros * 100) * item.peopleCount,
+        0
+    );
+    const remainingBalanceCents =
+        totalStayAmountCents - expectedAmountCents;
+
+    if (remainingBalanceCents < 0) {
+        return {
+            status: "invalid",
+            reason: "deposit_exceeds_stay_total"
+        };
+    }
 
     if (session.currency?.toLowerCase() !== "eur") {
         return { status: "invalid", reason: "unexpected_currency" };
@@ -127,7 +152,9 @@ export function inspectReservationCheckoutSession(
             status: "pending",
             items,
             totalPeople,
-            expectedAmountCents
+            expectedAmountCents,
+            totalStayAmountCents,
+            remainingBalanceCents
         };
     }
 
@@ -139,6 +166,8 @@ export function inspectReservationCheckoutSession(
         status: "paid",
         items,
         totalPeople,
-        expectedAmountCents
+        expectedAmountCents,
+        totalStayAmountCents,
+        remainingBalanceCents
     };
 }

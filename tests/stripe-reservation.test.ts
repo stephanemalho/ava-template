@@ -8,9 +8,10 @@ import {
 
 const packages = [
     {
-        id: "shared-room",
-        title: "Séjour partagé",
-        totalPlaces: 6
+        id: "shared-room-2",
+        title: "Séjour bien-être d'octobre",
+        totalPlaces: 6,
+        price: 1800
     }
 ];
 
@@ -24,7 +25,7 @@ function buildSession(
         currency: "eur",
         amount_total: 100_000,
         metadata: {
-            reservation_items: "shared-room:2"
+            reservation_items: "shared-room-2:2"
         },
         ...overrides
     } as Stripe.Checkout.Session;
@@ -41,6 +42,8 @@ test("accepts a completed paid EUR reservation with the exact amount", () => {
     if (result.status === "paid") {
         assert.equal(result.totalPeople, 2);
         assert.equal(result.expectedAmountCents, 100_000);
+        assert.equal(result.totalStayAmountCents, 360_000);
+        assert.equal(result.remainingBalanceCents, 260_000);
     }
 });
 
@@ -83,11 +86,24 @@ test("rejects a session paid in another currency", () => {
 test("rejects duplicate or malformed reservation metadata", () => {
     assert.equal(
         parseReservationItems(
-            "shared-room:2,shared-room:1",
+            "shared-room-2:2,shared-room-2:1",
             packages
         ),
         null
     );
-    assert.equal(parseReservationItems("shared-room:0", packages), null);
+    assert.equal(parseReservationItems("shared-room-2:0", packages), null);
     assert.equal(parseReservationItems("unknown:1", packages), null);
+});
+
+test("rejects a deposit greater than the full stay price", () => {
+    const result = inspectReservationCheckoutSession(
+        buildSession({ amount_total: 400_000 }),
+        packages,
+        2000
+    );
+
+    assert.deepEqual(result, {
+        status: "invalid",
+        reason: "deposit_exceeds_stay_total"
+    });
 });

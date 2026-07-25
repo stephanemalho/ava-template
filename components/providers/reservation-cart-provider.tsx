@@ -20,6 +20,7 @@ type ReservationCartContextValue = {
     totalPeople: number
     totalPrice: number
     totalArrhes: number
+    remainingBalance: number
     isCartDialogOpen: boolean
     setCartDialogOpen: (isOpen: boolean) => void
 }
@@ -54,6 +55,7 @@ export function ReservationCartProvider({ children }: { children: React.ReactNod
     const totalPeople = Object.values(items).reduce((sum, item) => sum + item.peopleCount, 0)
     const totalPrice = Object.values(items).reduce((sum, item) => sum + item.unitPrice * item.peopleCount, 0)
     const totalArrhes = totalPeople * STRIPE_ACOMPTE_PER_PERSON_EUR
+    const remainingBalance = Math.max(totalPrice - totalArrhes, 0)
 
     const value = useMemo(
         () => ({
@@ -64,10 +66,11 @@ export function ReservationCartProvider({ children }: { children: React.ReactNod
             totalPeople,
             totalPrice,
             totalArrhes,
+            remainingBalance,
             isCartDialogOpen,
             setCartDialogOpen,
         }),
-        [getReservation, items, totalPeople, totalPrice, totalArrhes, isCartDialogOpen],
+        [getReservation, items, totalPeople, totalPrice, totalArrhes, remainingBalance, isCartDialogOpen],
     )
 
     return <ReservationCartContext.Provider value={value}>{children}</ReservationCartContext.Provider>

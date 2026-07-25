@@ -203,12 +203,30 @@ export async function POST(request: Request) {
         );
         const expectedAmountCents =
             totalPeople * STRIPE_ACOMPTE_PER_PERSON_EUR * 100;
+        const totalStayAmountCents = validatedItems.reduce(
+            (sum, { item, pkg }) =>
+                sum + Math.round(pkg.price * 100) * item.peopleCount,
+            0
+        );
+        const remainingBalanceCents =
+            totalStayAmountCents - expectedAmountCents;
+        if (remainingBalanceCents < 0) {
+            throw new Error(
+                "Le montant des arrhes dépasse le prix total du séjour."
+            );
+        }
         const reservationItemsMetadata =
             buildReservationItemsMetadata(items);
         const reservationMetadata = {
             reservation_items: reservationItemsMetadata,
             reservation_total_people: String(totalPeople),
             reservation_amount_expected: String(expectedAmountCents),
+            reservation_stay_amount_total_cents: String(
+                totalStayAmountCents
+            ),
+            reservation_balance_due_cents: String(
+                remainingBalanceCents
+            ),
             reservation_currency: "eur"
         };
         const stripe = getStripeClient();

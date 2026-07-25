@@ -20,7 +20,15 @@ import { STRIPE_ACOMPTE_PER_PERSON_EUR } from "@/lib/reservation-pricing"
 import { CalendarDays, CreditCard, ShieldCheck, ShoppingCart, Users } from "lucide-react"
 
 export function ReservationCartDialog() {
-  const { items, totalPeople, totalPrice, totalArrhes, isCartDialogOpen, setCartDialogOpen } = useReservationCart()
+  const {
+    items,
+    totalPeople,
+    totalPrice,
+    totalArrhes,
+    remainingBalance,
+    isCartDialogOpen,
+    setCartDialogOpen,
+  } = useReservationCart()
   const pathname = usePathname()
   const isReservationsPage = pathname === "/reservations"
   const selections = Object.values(items)
@@ -74,7 +82,7 @@ export function ReservationCartDialog() {
         <DialogHeader>
           <DialogTitle>Récapitulatif de votre séjour</DialogTitle>
           <DialogDescription>
-            Le paiement Stripe correspond à un Arrhes de {STRIPE_ACOMPTE_PER_PERSON_EUR}.00 € par personne.
+            Le paiement Stripe correspond à des arrhes de {STRIPE_ACOMPTE_PER_PERSON_EUR}.00 € par personne.
           </DialogDescription>
         </DialogHeader>
 
@@ -132,7 +140,7 @@ export function ReservationCartDialog() {
                   <span>Carte bancaire, Apple Pay / Google Pay (selon disponibilité)</span>
                 </div>
                 <p className="text-xs text-muted-foreground">
-                  Arrhes Stripe: {STRIPE_ACOMPTE_PER_PERSON_EUR}.00 € x {totalPeople} personne{totalPeople > 1 ? "s" : ""}
+                  Arrhes versées via Stripe : {STRIPE_ACOMPTE_PER_PERSON_EUR}.00 € x {totalPeople} personne{totalPeople > 1 ? "s" : ""}
                 </p>
               </div>
 
@@ -143,6 +151,8 @@ export function ReservationCartDialog() {
                 <p className="text-base font-bold">{totalPrice}.00 €</p>
                 <p className="mt-2 text-sm text-muted-foreground">Arrhes à payer maintenant (Stripe)</p>
                 <p className="text-base font-bold">{totalArrhes}.00 €</p>
+                <p className="mt-2 text-sm text-muted-foreground">Reste à régler après paiement des arrhes</p>
+                <p className="text-base font-bold">{remainingBalance}.00 €</p>
               </div>
             </div>
           </div>

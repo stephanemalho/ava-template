@@ -114,6 +114,12 @@ async function handlePaymentEvent(params: {
             reservation_amount_expected: String(
                 verification.expectedAmountCents
             ),
+            reservation_stay_amount_total_cents: String(
+                verification.totalStayAmountCents
+            ),
+            reservation_balance_due_cents: String(
+                verification.remainingBalanceCents
+            ),
             reservation_summary: buildReservationSummary(verification.items)
         };
 
@@ -142,6 +148,12 @@ async function handlePaymentEvent(params: {
         reservation_total_people: String(verification.totalPeople),
         reservation_amount_paid: String(currentSession.amount_total ?? 0),
         reservation_amount_expected: String(verification.expectedAmountCents),
+        reservation_stay_amount_total_cents: String(
+            verification.totalStayAmountCents
+        ),
+        reservation_balance_due_cents: String(
+            verification.remainingBalanceCents
+        ),
         reservation_summary: buildReservationSummary(verification.items)
     };
 

@@ -53,16 +53,7 @@ type CarouselSlide = {
 
 const staySessions: StaySession[] = [
   {
-    title: "Séjour d'été",
-    dateRange: "du 10 au 16 juillet 2026",
-    reservationPackageId: "shared-room",
-    image: "/sejour-10-16-Juillet.jpeg",
-    imageAlt: "Participants d'un séjour bien-être AVA en juillet 2026",
-    badge: "Juillet 2026",
-    description: "Retraite bien-être immersive avec ateliers, détente et accompagnement en petit groupe.",
-  },
-  {
-    title: "Séjour d'automne",
+    title: "Retraite bien-être d'automne",
     dateRange: "du 22 au 28 octobre 2026",
     reservationPackageId: "shared-room-2",
     image: "/sejours/espaces-exterieurs/evenement-ava-bien-etre-octobre-2026.jpg",
@@ -215,7 +206,7 @@ const faqItems = [
 ]
 
 export const metadata: Metadata = {
-  title: "Séjour à Trans-en-Provence | AVA Bien-Être",
+  title: "Séjour bien-être à Trans-en-Provence | AVA Bien-Être",
   description:
     "Découvrez le programme du séjour bien-être AVA à Trans-en-Provence : hébergement en mas provençal, espaces intérieurs et extérieurs, cuisine, chambres et activités.",
   keywords: [
@@ -266,14 +257,10 @@ export default function SejoursPage() {
             />
             <div className="absolute inset-0 flex items-center justify-center bg-foreground/40">
               <div className="space-y-4 text-center text-background">
-                <h1 className="text-base md:text-xl font-bold">Séjour à Trans-en-Provence</h1>
+                <h1 className="text-base md:text-xl font-bold">Séjour bien-être à Trans-en-Provence</h1>
                 <div className="flex items-center justify-center space-x-4">
                   <Calendar className="h-5 w-5" />
-                  <span className="text-lg">du 10 au 16 juillet 2026</span>
-                </div>
-                <div className="flex items-center justify-center space-x-4">
-                  <Calendar className="h-5 w-5" />
-                  <span className="text-lg">et du 22 au 28 octobre 2026</span>
+                  <span className="text-lg">du 22 au 28 octobre 2026</span>
                 </div>
               </div>
             </div>
@@ -691,7 +678,7 @@ export default function SejoursPage() {
             <h2 className="mb-4 text-base md:text-xl font-bold">Prochaines sessions</h2>
             <div className="mx-auto h-1 w-24 rounded-full bg-primary" />
           </div>
-          <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
+          <div className="mx-auto max-w-3xl">
             {staySessions.map((session, index) => (
               <Link
                 key={session.dateRange}

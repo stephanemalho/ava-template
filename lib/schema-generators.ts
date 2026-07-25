@@ -10,7 +10,7 @@ function buildRetreatOffer(pkg: ReservationPackage) {
     return {
         priceCurrency: "EUR",
         price: pkg.price.toString(),
-        url: `${siteConfig.siteUrl}${siteConfig.pages.reservations}`,
+        url: `${siteConfig.siteUrl}${siteConfig.pages.reservations}#sejour-${pkg.id}`,
         availability:
             pkg.availablePlaces > 0
                 ? "https://schema.org/InStock"
@@ -19,7 +19,6 @@ function buildRetreatOffer(pkg: ReservationPackage) {
             "@type": "QuantitativeValue",
             value: pkg.availablePlaces,
         },
-        validFrom: "2026-01-01",
         category: "Séjour bien-être",
     };
 }
@@ -139,9 +138,10 @@ export function generateStayEventsSchema() {
     return reservationPackages.map((pkg) => ({
         "@context": "https://schema.org",
         "@type": "Event",
-        "@id": `${siteConfig.siteUrl}${siteConfig.pages.reservations}#event-${pkg.id}`,
+        "@id": `${siteConfig.siteUrl}${siteConfig.pages.sejours}#event-${pkg.id}`,
         name: pkg.title,
         description: `Retraite bien-être AVA en pension complète à ${pkg.location} ${pkg.subtitle}.`,
+        url: `${siteConfig.siteUrl}${siteConfig.pages.sejours}`,
         image: [`${siteConfig.siteUrl}${pkg.image}`],
         startDate: `${pkg.startDate}T16:00:00+02:00`,
         endDate: `${pkg.endDate}T11:00:00+02:00`,
@@ -160,9 +160,14 @@ export function generateStayEventsSchema() {
         },
         organizer: {
             "@id": `${siteConfig.siteUrl}/#organization`,
+            "@type": "Organization",
+            name: siteConfig.name,
+            url: siteConfig.siteUrl,
         },
         offers: {
+            "@type": "Offer",
             "@id": `${siteConfig.siteUrl}${siteConfig.pages.reservations}#offer-${pkg.id}`,
+            ...buildRetreatOffer(pkg),
         },
     }));
 }
