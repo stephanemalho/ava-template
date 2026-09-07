@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge"
 import { YoutubeClickPlayer } from "@/components/youtube-click-player"
 import { clientInfoCards, founderPreviews } from "./home-content"
 import { toAnchorId } from "@/lib/anchor"
-import { Compass, HeartHandshake, MessageCircle, ShieldCheck, Sparkles, Target, Users } from "lucide-react"
+import { CalendarDays, Compass, HeartHandshake, MapPin, MessageCircle, ShieldCheck, Sparkles, Target, Users } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "Retraites et séjours bien-être tout inclus en Provence | AVA Bien-Être",
@@ -98,6 +98,30 @@ export default function HomePage() {
           <Button asChild size="lg" className="bg-primary hover:bg-primary/80">
             <Link href="/sejour-a-trans-en-provence">Découvre nos retraites</Link>
           </Button>
+        </div>
+      </section>
+      {/* Événement Mémoire d’Âmes */}
+      <section className="py-16 bg-primary/5">
+        <div className="container mx-auto">
+          <div className="grid items-center gap-8 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
+              <Image
+                src="/sejour-et-activite/mémoire-d-ames/pierre-yonas-et-la-decouverte-de-soi-1200.webp"
+                alt="Pierre Yonas — stage Mémoire d’Âmes à Saint-Usuge"
+                fill
+                sizes="(max-width: 768px) 100vw, 40vw"
+                className="object-cover"
+              />
+            </div>
+            <div className="space-y-5">
+              <Badge variant="outline" className="w-fit">Nouvel événement — Bourgogne</Badge>
+              <h2 className="text-3xl font-bold text-primary md:text-4xl">Mémoire d’Âmes</h2>
+              <p className="text-xl font-semibold">Stage de régression dans les vies antérieures</p>
+              <p className="text-muted-foreground">Du 17 au 21 décembre 2026, Pierre Yonas vous accompagne pendant trois jours d’enseignement autour de la découverte de soi, de la mémoire de l’âme et de l’exploration des vies antérieures.</p>
+              <div className="flex flex-wrap gap-4 text-sm text-muted-foreground"><span className="inline-flex items-center gap-2"><CalendarDays className="h-4 w-4 text-primary" />17–21 décembre 2026</span><span className="inline-flex items-center gap-2"><MapPin className="h-4 w-4 text-primary" />Saint-Usuge, Bourgogne</span></div>
+              <Button asChild size="lg"><Link href="/memoire-d-ames">Découvrir l’événement</Link></Button>
+            </div>
+          </div>
         </div>
       </section>
       {/* Ressourcement Section */}

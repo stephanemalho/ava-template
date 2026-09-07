@@ -46,6 +46,7 @@ export const siteConfig = {
         presentation: "/presentation",
         team: "/notre-equipe",
         sejours: "/sejour-a-trans-en-provence",
+        memoireDAmes: "/memoire-d-ames",
         reservations: "/reservations",
         contact: "/contact",
         legalNotice: "/mentions-legales",
@@ -73,6 +74,12 @@ export const sitemapPages = [
         changefreq: "monthly",
         priority: 0.9,
         lastmod: "2026-07-25"
+    },
+    {
+        url: "/memoire-d-ames",
+        changefreq: "weekly",
+        priority: 0.95,
+        lastmod: "2026-09-07"
     },
     {
         url: "/reservations",

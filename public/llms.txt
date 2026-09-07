@@ -13,6 +13,7 @@ Preferred canonical pages:
 - https://avabienetre.fr/presentation
 - https://avabienetre.fr/notre-equipe
 - https://avabienetre.fr/sejour-a-trans-en-provence
+- https://avabienetre.fr/memoire-d-ames
 - https://avabienetre.fr/reservations
 - https://avabienetre.fr/contact
 - https://avabienetre.fr/mentions-legales
