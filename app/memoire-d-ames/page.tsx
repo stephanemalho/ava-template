@@ -41,6 +41,8 @@ const eventSchema = {
   "@context": "https://schema.org",
   "@type": "Event",
   "@id": `${siteConfig.siteUrl}${pagePath}#event`,
+  url: `${siteConfig.siteUrl}${pagePath}`,
+  inLanguage: "fr-FR",
   name: "Mémoire d’Âmes — Stage de régression dans les vies antérieures",
   description:
     "Immersion de cinq jours autour de la conscience, des états modifiés de conscience et de la régression dans les vies antérieures, avec trois jours d’enseignement de Pierre Yonas.",
@@ -63,14 +65,6 @@ const eventSchema = {
   },
   organizer: { "@type": "Organization", name: siteConfig.name, url: siteConfig.siteUrl },
   performer: { "@type": "Person", name: "Pierre Yonas" },
-  offers: {
-    "@type": "Offer",
-    url: `${siteConfig.siteUrl}${pagePath}#waitlist`,
-    availability: "https://schema.org/PreOrder",
-    price: "0",
-    priceCurrency: "EUR",
-    description: "Inscription gratuite sur la liste d’attente.",
-  },
 }
 
 export default function MemoireDAmesPage() {
