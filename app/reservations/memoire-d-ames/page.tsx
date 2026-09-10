@@ -87,9 +87,12 @@ export default function MemoireDAmesReservationsPage() {
                         <Card key={pkg.id} id={`sejour-${pkg.id}`} className="scroll-mt-24 overflow-hidden border-primary/20">
                             <CardContent className="p-0">
                                 <div className="p-4 pb-0">
-                                    <div className="relative mx-auto aspect-square overflow-hidden rounded-md bg-muted/30">
-                                        <Image src={pkg.image} alt={pkg.title} fill className="object-contain" sizes="(max-width: 1024px) 100vw, 520px" />
-                                    </div>
+                                    <figure>
+                                        <div className="relative mx-auto aspect-square overflow-hidden rounded-md bg-muted/30">
+                                            <Image src={pkg.image} alt={pkg.title} fill className="object-contain" sizes="(max-width: 1024px) 100vw, 520px" />
+                                        </div>
+                                        <figcaption className="mt-2 text-xs text-muted-foreground">Crédit photo : Frank glenisson</figcaption>
+                                    </figure>
                                 </div>
                                 <div className="flex h-full flex-col p-6 md:p-8">
                                     <div className="space-y-6">

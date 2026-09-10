@@ -108,16 +108,19 @@ export default function MemoireDAmesPage() {
 
       <div className="container mx-auto max-w-6xl space-y-16">
         <section className="grid items-center gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
-          <div className="relative aspect-square overflow-hidden rounded-2xl bg-muted/30 shadow-lg">
-            <Image
-              src={eventImage}
-              alt="Pierre Yonas et la découverte de soi — stage Mémoire d’Âmes"
-              fill
-              priority
-              sizes="(max-width: 1024px) 100vw, 45vw"
-              className="object-contain"
-            />
-          </div>
+          <figure>
+            <div className="relative aspect-square overflow-hidden rounded-2xl bg-muted/30 shadow-lg">
+              <Image
+                src={eventImage}
+                alt="Pierre Yonas et la découverte de soi — stage Mémoire d’Âmes"
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 45vw"
+                className="object-contain"
+              />
+            </div>
+            <figcaption className="mt-2 text-xs text-muted-foreground">Crédit photo : Frank glenisson</figcaption>
+          </figure>
           <div className="space-y-6">
             <Badge className="w-fit">Événement exceptionnel AVA Bien-être</Badge>
             <div className="space-y-3">
@@ -141,13 +144,20 @@ export default function MemoireDAmesPage() {
             Un voyage intérieur pour aller à la rencontre de ce qui, parfois, semble nous précéder&nbsp;: des mémoires, des sensations, des liens, des peurs inexpliquées, des schémas récurrents ou simplement cette impression intime que notre histoire est peut-être plus vaste que ce que nous en connaissons.
           </p>
           <p>
-            Durant trois journées, du 18 au 20 décembre, <strong className="text-foreground">Pierre Yonas</strong> accompagnera les participants dans un enseignement consacré à la régression et à l’exploration de ces mémoires. L’approche se veut avant tout expérientielle et initiatique&nbsp;: il ne s’agit pas d’adhérer à une croyance, mais de vivre l’expérience, d’observer ce qui émerge et de laisser chacun donner son propre sens à ce qu’il traverse.
+            Durant trois journées, les 18, 19 et 20 décembre, <strong className="text-foreground">Pierre YONAS</strong> accompagnera les participants dans un enseignement consacré à la régression et à l’exploration de ces mémoires.
           </p>
           <p>
-            Le séjour débutera dès le jeudi 17 décembre à 18h, avec l’accueil du groupe, suivi du dîner puis d’une première soirée consacrée à la transe auto-induite et aux états modifiés de conscience, afin d’ouvrir progressivement cet espace d’exploration.
+            L’approche se veut avant tout expérientielle et initiatique&nbsp;: il ne s’agit pas d’adhérer à une croyance, mais de vivre l’expérience, d’observer ce qui émerge et de laisser chacun donner son propre sens à ce qu’il traverse.
           </p>
-          <p>Les journées suivantes alterneront enseignements, expériences de régression, temps d’introspection, échanges et moments de reconnexion à soi.</p>
-          <p>La journée du 21 décembre sera consacrée à l’intégration&nbsp;: un temps essentiel pour revenir sur les expériences vécues, mettre du sens sur ce qui aura émergé et permettre à chacun de repartir en ayant pleinement refermé le voyage. Fin du séjour à 18h.</p>
+          <p>
+            Le séjour débutera le jeudi 17 décembre à 18h, avec l’accueil du groupe et le dîner. Cette première soirée, accompagnée par Aurélie AVA Bien-Être et Cindy Marin, permettra d’entrer progressivement dans l’expérience à travers la transe auto-induite, les états modifiés de conscience, des ateliers de présence et de conscience, des temps d’introspection, de partage et des cercles de parole.
+          </p>
+          <p>Les trois journées suivantes seront consacrées aux enseignements de Pierre Yonas et aux expériences de régression, ponctuées de temps d’échange et d’intégration.</p>
+          <p>
+            Le 21 décembre, Aurélie AVA et Cindy MARIN accompagneront à nouveau le groupe pour une journée entièrement consacrée à l’intégration. Transe auto-induite, états modifiés de conscience, ateliers de présence et de conscience, introspection, partages et cercles de parole permettront de revenir sur les expériences vécues, d’accueillir ce qui aura émergé et de mettre du sens sur le chemin parcouru.
+          </p>
+          <p>Un dernier temps pour revenir pleinement à soi, intégrer l’expérience et refermer ensemble ce voyage intérieur.</p>
+          <p>Fin du séjour le 21 décembre à 18h.</p>
         </section>
 
         <section className="grid gap-6 md:grid-cols-3">
