@@ -10,6 +10,8 @@ Copy `.env.example` to `.env` and configure the required variables:
 - `STRIPE_WEBHOOK_SECRET`: signing secret for `POST /api/stripe/webhook`.
 - `STRIPE_ACOMPTE_PER_PERSON_EUR`: deposit amount charged now for each participant on the server.
 - `NEXT_PUBLIC_STRIPE_ACOMPTE_PER_PERSON_EUR`: same amount exposed to the client UI.
+- `STRIPE_MEMOIRE_D_AMES_ACOMPTE_PER_PERSON_EUR`: arrhes per person for Mémoire d’Âmes only.
+- `NEXT_PUBLIC_STRIPE_MEMOIRE_D_AMES_ACOMPTE_PER_PERSON_EUR`: same Mémoire d’Âmes amount exposed to the client UI.
 - `NEXT_PUBLIC_GA_ID`: Google Analytics measurement ID.
 
 ## Getting Started

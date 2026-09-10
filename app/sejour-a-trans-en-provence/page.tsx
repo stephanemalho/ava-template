@@ -58,8 +58,8 @@ const staySessions: StaySession[] = [
     reservationPackageId: "shared-room-2",
     image: "/sejours/espaces-exterieurs/evenement-ava-bien-etre-octobre-2026.jpg",
     imageAlt: "Participants d'un séjour bien-être AVA en octobre 2026",
-    badge: "Octobre 2026",
-    description: "Une session propice au recentrage, à la relaxation profonde et au ressourcement en Provence.",
+    badge: "Réservations terminées",
+    description: "Cette session est complète. Découvrez les autres séjours AVA Bien-être.",
   },
 ]
 

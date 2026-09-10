@@ -10,7 +10,7 @@ function buildRetreatOffer(pkg: ReservationPackage) {
     return {
         priceCurrency: "EUR",
         price: pkg.price.toString(),
-        url: `${siteConfig.siteUrl}${siteConfig.pages.reservations}#sejour-${pkg.id}`,
+        url: `${siteConfig.siteUrl}${pkg.reservationPath}#sejour-${pkg.id}`,
         availability:
             pkg.availablePlaces > 0
                 ? "https://schema.org/InStock"
@@ -111,7 +111,7 @@ export function generateWebsiteSchema() {
 export function generateStayOffersSchema() {
     const offers = reservationPackages.map((pkg) => ({
         "@type": "Offer",
-        "@id": `${siteConfig.siteUrl}${siteConfig.pages.reservations}#offer-${pkg.id}`,
+        "@id": `${siteConfig.siteUrl}${pkg.reservationPath}#offer-${pkg.id}`,
         name: pkg.title,
         description: `${pkg.subtitle} - ${pkg.location}`,
         itemOffered: {
@@ -135,7 +135,9 @@ export function generateStayOffersSchema() {
 }
 
 export function generateStayEventsSchema() {
-    return reservationPackages.map((pkg) => ({
+    return reservationPackages
+        .filter((pkg) => pkg.stayId === "trans-en-provence-octobre-2026")
+        .map((pkg) => ({
         "@context": "https://schema.org",
         "@type": "Event",
         "@id": `${siteConfig.siteUrl}${siteConfig.pages.sejours}#event-${pkg.id}`,
@@ -166,7 +168,7 @@ export function generateStayEventsSchema() {
         },
         offers: {
             "@type": "Offer",
-            "@id": `${siteConfig.siteUrl}${siteConfig.pages.reservations}#offer-${pkg.id}`,
+            "@id": `${siteConfig.siteUrl}${pkg.reservationPath}#offer-${pkg.id}`,
             ...buildRetreatOffer(pkg),
         },
     }));

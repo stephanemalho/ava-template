@@ -2,13 +2,13 @@
 
 import type React from "react"
 import { createContext, useCallback, useContext, useMemo, useState } from "react"
-import { STRIPE_ACOMPTE_PER_PERSON_EUR } from "@/lib/reservation-pricing"
 
 export type ReservationCartItem = {
     id: string
     title: string
     dateRange: string
     unitPrice: number
+    depositPerPerson: number
     peopleCount: number
 }
 
@@ -54,7 +54,7 @@ export function ReservationCartProvider({ children }: { children: React.ReactNod
 
     const totalPeople = Object.values(items).reduce((sum, item) => sum + item.peopleCount, 0)
     const totalPrice = Object.values(items).reduce((sum, item) => sum + item.unitPrice * item.peopleCount, 0)
-    const totalArrhes = totalPeople * STRIPE_ACOMPTE_PER_PERSON_EUR
+    const totalArrhes = Object.values(items).reduce((sum, item) => sum + item.depositPerPerson * item.peopleCount, 0)
     const remainingBalance = Math.max(totalPrice - totalArrhes, 0)
 
     const value = useMemo(

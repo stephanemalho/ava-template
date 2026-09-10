@@ -6,8 +6,22 @@ const navigation = [
     { name: "Accueil", href: "/" },
     { name: "Présentation", href: "/presentation" },
     { name: "Notre Équipe", href: "/notre-equipe" },
-    { name: "Séjours", href: "/sejour-a-trans-en-provence" },
-    { name: "Réservations", href: "/reservations" },
+    {
+        name: "Séjours",
+        href: "/sejour-a-trans-en-provence",
+        children: [
+            { name: "Trans-en-Provence", href: "/sejour-a-trans-en-provence" },
+            { name: "Mémoire d’Âmes · Saint-Usuge", href: "/memoire-d-ames" },
+        ],
+    },
+    {
+        name: "Réservations",
+        href: "/reservations",
+        children: [
+            { name: "Trans-en-Provence", href: "/reservations" },
+            { name: "Mémoire d’Âmes · Saint-Usuge", href: "/reservations/memoire-d-ames" },
+        ],
+    },
     { name: "Contact", href: "/contact" },
 ]
 

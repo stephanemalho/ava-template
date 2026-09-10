@@ -16,10 +16,9 @@ import {
 } from "@/components/ui/dialog"
 import { Separator } from "@/components/ui/separator"
 import { useReservationCart } from "@/components/providers/reservation-cart-provider"
-import { STRIPE_ACOMPTE_PER_PERSON_EUR } from "@/lib/reservation-pricing"
 import { CalendarDays, CreditCard, ShieldCheck, ShoppingCart, Users } from "lucide-react"
 
-export function ReservationCartDialog() {
+export function ReservationCartDialog({ disabled = false }: { disabled?: boolean }) {
   const {
     items,
     totalPeople,
@@ -30,10 +29,12 @@ export function ReservationCartDialog() {
     setCartDialogOpen,
   } = useReservationCart()
   const pathname = usePathname()
-  const isReservationsPage = pathname === "/reservations"
+  const isReservationsPage = pathname.startsWith("/reservations")
   const selections = Object.values(items)
   const [isRedirecting, setIsRedirecting] = useState(false)
   const [checkoutError, setCheckoutError] = useState<string | null>(null)
+
+  if (disabled) return null
 
   const handleCheckout = async () => {
     try {
@@ -82,7 +83,7 @@ export function ReservationCartDialog() {
         <DialogHeader>
           <DialogTitle>Récapitulatif de votre séjour</DialogTitle>
           <DialogDescription>
-            Le paiement Stripe correspond à des arrhes de {STRIPE_ACOMPTE_PER_PERSON_EUR}.00 € par personne.
+            Les arrhes à régler sont indiquées pour chaque formule sélectionnée.
           </DialogDescription>
         </DialogHeader>
 
@@ -95,6 +96,7 @@ export function ReservationCartDialog() {
             <div className="space-y-3">
               {selections.map((item) => {
                 const linePrice = item.unitPrice * item.peopleCount
+                const lineDeposit = item.depositPerPerson * item.peopleCount
 
                 return (
                   <div key={item.id} className="rounded-lg border p-4">
@@ -120,6 +122,9 @@ export function ReservationCartDialog() {
                           <span className="font-semibold text-foreground">{linePrice}.00 €</span>
                         </p>
                       )}
+                      <p className="text-sm text-muted-foreground">
+                        Arrhes à régler maintenant : {item.depositPerPerson}.00 € x {item.peopleCount} = <span className="font-semibold text-foreground">{lineDeposit}.00 €</span>
+                      </p>
                     </div>
                   </div>
                 )
@@ -140,7 +145,7 @@ export function ReservationCartDialog() {
                   <span>Carte bancaire, Apple Pay / Google Pay (selon disponibilité)</span>
                 </div>
                 <p className="text-xs text-muted-foreground">
-                  Arrhes versées via Stripe : {STRIPE_ACOMPTE_PER_PERSON_EUR}.00 € x {totalPeople} personne{totalPeople > 1 ? "s" : ""}
+                  Le montant des arrhes dépend de chaque formule sélectionnée.
                 </p>
               </div>
 

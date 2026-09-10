@@ -5,6 +5,7 @@ export type ReservationPackageReference = {
     title: string;
     totalPlaces: number;
     price: number;
+    depositPerPersonEuros: number;
 };
 
 export type ReservationSelection = {
@@ -12,6 +13,7 @@ export type ReservationSelection = {
     peopleCount: number;
     title: string;
     unitPriceEuros: number;
+    depositPerPersonEuros: number;
 };
 
 export type ReservationPaymentVerification =
@@ -73,7 +75,9 @@ export function parseReservationItems(
             !Number.isSafeInteger(peopleCount) ||
             peopleCount > pkg.totalPlaces ||
             !Number.isFinite(pkg.price) ||
-            pkg.price < 0
+            pkg.price < 0 ||
+            !Number.isFinite(pkg.depositPerPersonEuros) ||
+            pkg.depositPerPersonEuros <= 0
         ) {
             return null;
         }
@@ -83,7 +87,8 @@ export function parseReservationItems(
             id,
             peopleCount,
             title: pkg.title,
-            unitPriceEuros: pkg.price
+            unitPriceEuros: pkg.price,
+            depositPerPersonEuros: pkg.depositPerPersonEuros
         });
     }
 
@@ -98,8 +103,7 @@ export function buildReservationSummary(items: ReservationSelection[]) {
 
 export function inspectReservationCheckoutSession(
     session: Stripe.Checkout.Session,
-    packages: ReservationPackageReference[],
-    depositPerPersonEuros: number
+    packages: ReservationPackageReference[]
 ): ReservationPaymentVerification {
     if (session.mode !== "payment") {
         return { status: "invalid", reason: "invalid_session_mode" };
@@ -121,8 +125,11 @@ export function inspectReservationCheckoutSession(
         (sum, item) => sum + item.peopleCount,
         0
     );
-    const expectedAmountCents =
-        totalPeople * depositPerPersonEuros * 100;
+    const expectedAmountCents = items.reduce(
+        (sum, item) =>
+            sum + item.peopleCount * item.depositPerPersonEuros * 100,
+        0
+    );
     const totalStayAmountCents = items.reduce(
         (sum, item) =>
             sum +

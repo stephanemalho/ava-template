@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "test": "node --import tsx --test tests/*.test.ts"
+    "test": "NEXT_PUBLIC_STRIPE_ACOMPTE_PER_PERSON_EUR=500 STRIPE_ACOMPTE_PER_PERSON_EUR=500 node --import tsx --test tests/*.test.ts"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.14",

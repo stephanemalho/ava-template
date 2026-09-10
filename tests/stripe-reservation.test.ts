@@ -11,7 +11,19 @@ const packages = [
         id: "shared-room-2",
         title: "Séjour bien-être d'octobre",
         totalPlaces: 6,
-        price: 1800
+        price: 1800,
+        depositPerPersonEuros: 500
+    }
+];
+
+const packagesWithDifferentDeposits = [
+    ...packages,
+    {
+        id: "memoire-d-ames-duo",
+        title: "Mémoire d’Âmes — Chambre duo",
+        totalPlaces: 10,
+        price: 1820,
+        depositPerPersonEuros: 600
     }
 ];
 
@@ -34,8 +46,7 @@ function buildSession(
 test("accepts a completed paid EUR reservation with the exact amount", () => {
     const result = inspectReservationCheckoutSession(
         buildSession(),
-        packages,
-        500
+        packages
     );
 
     assert.equal(result.status, "paid");
@@ -50,18 +61,32 @@ test("accepts a completed paid EUR reservation with the exact amount", () => {
 test("keeps an unpaid completed session pending", () => {
     const result = inspectReservationCheckoutSession(
         buildSession({ payment_status: "unpaid" }),
-        packages,
-        500
+        packages
     );
 
     assert.equal(result.status, "pending");
 });
 
+test("calculates the deposit independently for each stay", () => {
+    const result = inspectReservationCheckoutSession(
+        buildSession({
+            amount_total: 110_000,
+            metadata: { reservation_items: "shared-room-2:1,memoire-d-ames-duo:1" }
+        }),
+        packagesWithDifferentDeposits
+    );
+
+    assert.equal(result.status, "paid");
+    if (result.status === "paid") {
+        assert.equal(result.expectedAmountCents, 110_000);
+        assert.equal(result.remainingBalanceCents, 252_000);
+    }
+});
+
 test("rejects a session whose amount does not match the reservation", () => {
     const result = inspectReservationCheckoutSession(
         buildSession({ amount_total: 99_900 }),
-        packages,
-        500
+        packages
     );
 
     assert.deepEqual(result, {
@@ -73,8 +98,7 @@ test("rejects a session whose amount does not match the reservation", () => {
 test("rejects a session paid in another currency", () => {
     const result = inspectReservationCheckoutSession(
         buildSession({ currency: "usd" }),
-        packages,
-        500
+        packages
     );
 
     assert.deepEqual(result, {
@@ -98,8 +122,7 @@ test("rejects duplicate or malformed reservation metadata", () => {
 test("rejects a deposit greater than the full stay price", () => {
     const result = inspectReservationCheckoutSession(
         buildSession({ amount_total: 400_000 }),
-        packages,
-        2000
+        [{ ...packages[0], depositPerPersonEuros: 2000 }]
     );
 
     assert.deepEqual(result, {

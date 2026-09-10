@@ -48,6 +48,7 @@ export const siteConfig = {
         sejours: "/sejour-a-trans-en-provence",
         memoireDAmes: "/memoire-d-ames",
         reservations: "/reservations",
+        memoireDAmesReservations: "/reservations/memoire-d-ames",
         contact: "/contact",
         legalNotice: "/mentions-legales",
         privacy: "/politique-de-confidentialite",
@@ -56,7 +57,7 @@ export const siteConfig = {
 } as const;
 
 export const sitemapPages = [
-    { url: "/", changefreq: "monthly", priority: 1.0, lastmod: "2026-04-03" },
+    { url: "/", changefreq: "monthly", priority: 1.0, lastmod: "2026-09-10" },
     {
         url: "/presentation",
         changefreq: "monthly",
@@ -79,13 +80,19 @@ export const sitemapPages = [
         url: "/memoire-d-ames",
         changefreq: "weekly",
         priority: 0.95,
-        lastmod: "2026-09-07"
+        lastmod: "2026-09-10"
     },
     {
         url: "/reservations",
         changefreq: "monthly",
         priority: 0.9,
-        lastmod: "2026-07-31"
+        lastmod: "2026-09-10"
+    },
+    {
+        url: "/reservations/memoire-d-ames",
+        changefreq: "monthly",
+        priority: 0.9,
+        lastmod: "2026-09-10"
     },
     {
         url: "/contact",

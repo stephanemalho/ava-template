@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
 import { reservationPackages } from "@/app/reservations/_data/packages";
-import { STRIPE_ACOMPTE_PER_PERSON_EUR } from "@/lib/reservation-pricing";
 import {
     buildReservationSummary,
     inspectReservationCheckoutSession
@@ -67,8 +66,7 @@ async function handlePaymentEvent(params: {
 
     const verification = inspectReservationCheckoutSession(
         currentSession,
-        reservationPackages,
-        STRIPE_ACOMPTE_PER_PERSON_EUR
+            reservationPackages
     );
     const processedAt = new Date().toISOString();
 

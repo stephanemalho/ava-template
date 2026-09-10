@@ -33,9 +33,10 @@ export function useReservationPackageControls(pkg: ReservationPackage) {
       title: pkg.title,
       dateRange: pkg.dateRange,
       unitPrice: pkg.price,
+      depositPerPerson: pkg.depositPerPersonEuros,
       peopleCount: selectedPeopleCount,
     })
-  }, [pkg.dateRange, pkg.id, pkg.price, pkg.title, selectedPeopleCount, setReservation])
+  }, [pkg.dateRange, pkg.depositPerPersonEuros, pkg.id, pkg.price, pkg.title, selectedPeopleCount, setReservation])
 
   const removeSelection = useCallback(() => {
     removeReservation(pkg.id)

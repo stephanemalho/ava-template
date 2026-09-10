@@ -9,7 +9,6 @@ import { Separator } from "@/components/ui/separator"
 import { LinkButton } from "@/components/link-button"
 import { isReservationOpen, reservationPackages } from "./_data/packages"
 import { ReservationPackageControls } from "./_components/reservation-package-controls"
-import { ReservationCartPill } from "./_components/reservation-cart-pill"
 import {
     PaymentConfirmationDialog,
     type PaymentConfirmationMessage,
@@ -19,6 +18,10 @@ import { generateStayOffersSchema } from "@/lib/schema-generators"
 import { siteConfig } from "@/lib/seo-config"
 import { buildReservationSummary, inspectReservationCheckoutSession } from "@/lib/stripe-reservation"
 import { getStripeClient } from "@/lib/stripe-server"
+
+const transEnProvencePackages = reservationPackages.filter(
+    (pkg) => pkg.stayId === "trans-en-provence-octobre-2026"
+)
 
 const faqItems = [
     {
@@ -140,8 +143,7 @@ async function resolvePaymentMessage(
         const session = await getStripeClient().checkout.sessions.retrieve(sessionId)
         const verification = inspectReservationCheckoutSession(
             session,
-            reservationPackages,
-            STRIPE_ACOMPTE_PER_PERSON_EUR
+            reservationPackages
         )
 
         if (verification.status === "paid") {
@@ -239,7 +241,7 @@ export default async function ReservationsPage({ searchParams }: ReservationsPag
                 </header>
 
                 <section className="grid grid-cols-1 gap-12 lg:grid-cols-2">
-                    {reservationPackages.map((pkg) => (
+                    {transEnProvencePackages.map((pkg) => (
                         <Card
                             key={pkg.id}
                             id={`sejour-${pkg.id}`}
@@ -277,9 +279,13 @@ export default async function ReservationsPage({ searchParams }: ReservationsPag
                                                     <span>{pkg.location}</span>
                                                 </div>
                                             </div>
-                                            <p className="text-sm text-primary font-medium">
-                                                Disponibilité : {pkg.availablePlaces} {pkg.availablePlaces > 1 ? "places" : "place"} disponible{pkg.availablePlaces > 1 ? "s" : ""} sur {pkg.totalPlaces}
-                                            </p>
+                                            {pkg.availablePlaces > 0 ? (
+                                                <p className="text-sm font-medium text-primary">
+                                                    Disponibilité : {pkg.availablePlaces} {pkg.availablePlaces > 1 ? "places" : "place"} disponible{pkg.availablePlaces > 1 ? "s" : ""} sur {pkg.totalPlaces}
+                                                </p>
+                                            ) : (
+                                                <p className="text-sm font-medium text-muted-foreground">Réservations clôturées pour ce séjour.</p>
+                                            )}
 
                                             <Separator />
 
@@ -293,7 +299,7 @@ export default async function ReservationsPage({ searchParams }: ReservationsPag
                                             </div>
                                         </div>
 
-                                        {isReservationOpen(pkg) ? (
+                                        {isReservationOpen(pkg) && pkg.availablePlaces > 0 ? (
                                             <ReservationPackageControls pkg={pkg} />
                                         ) : (
                                             <p className="mt-8 text-sm font-medium text-muted-foreground">
@@ -306,9 +312,6 @@ export default async function ReservationsPage({ searchParams }: ReservationsPag
                         </Card>
                     ))}
                 </section>
-                <div className="mt-12 flex justify-center">
-                    <ReservationCartPill />
-                </div>
                 <section className="mt-16 rounded-lg bg-muted/30 p-8">
                     <div className="space-y-4 text-center">
                         <h2 className="text-base md:text-xl font-bold">Informations importantes</h2>

@@ -5,12 +5,24 @@ import { CalendarDays, Car, Check, MapPin, TrainFront, Utensils } from "lucide-r
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { LinkButton } from "@/components/link-button"
+import { ImageCarousel } from "@/components/image-carousel"
 import { siteConfig } from "@/lib/seo-config"
+import { reservationPackages } from "@/app/reservations/_data/packages"
 
 const pagePath = "/memoire-d-ames"
 const eventImage = "/sejour-et-activite/mémoire-d-ames/pierre-yonas-et-la-decouverte-de-soi-1200.webp"
 const eventImageMeta = "/sejour-et-activite/mémoire-d-ames/pierre-yonas-et-la-decouverte-de-soi-og.jpg"
-const waitlistUrl = "https://forms.gle/66e1uT5Pp4n5FQYZ9"
+
+const ecolieuSlides = [
+  { src: "/sejour-et-activite/mémoire-d-ames/ecolieu-o-saveur-de-l-instant/entree-ecolieu.webp", alt: "Entrée végétalisée de l’Écolieu Ô Saveur de l’Instant", caption: "L’arrivée à l’Écolieu Ô Saveur de l’Instant" },
+  { src: "/sejour-et-activite/mémoire-d-ames/ecolieu-o-saveur-de-l-instant/facade-et-jardin.webp", alt: "Façade en briques et jardin de l’Écolieu Ô Saveur de l’Instant", caption: "La façade et le jardin du lieu de séjour" },
+  { src: "/sejour-et-activite/mémoire-d-ames/ecolieu-o-saveur-de-l-instant/bassin-naturel.webp", alt: "Bassin naturel et ponton au cœur de la végétation de l’écolieu", caption: "Un espace de nature au cœur de l’écolieu" },
+  { src: "/sejour-et-activite/mémoire-d-ames/ecolieu-o-saveur-de-l-instant/exterieur-01.webp", alt: "Vue extérieure de l’Écolieu Ô Saveur de l’Instant", caption: "Les extérieurs de l’écolieu" },
+  { src: "/sejour-et-activite/mémoire-d-ames/ecolieu-o-saveur-de-l-instant/exterieur-02.webp", alt: "Jardin et extérieur de l’Écolieu Ô Saveur de l’Instant", caption: "Le jardin de l’écolieu" },
+  { src: "/sejour-et-activite/mémoire-d-ames/ecolieu-o-saveur-de-l-instant/exterieur-03.webp", alt: "Espace extérieur de l’Écolieu Ô Saveur de l’Instant", caption: "Un aperçu des espaces extérieurs" },
+  { src: "/sejour-et-activite/mémoire-d-ames/ecolieu-o-saveur-de-l-instant/exterieur-04.webp", alt: "Nature autour de l’Écolieu Ô Saveur de l’Instant", caption: "La nature qui entoure le lieu" },
+  { src: "/sejour-et-activite/mémoire-d-ames/ecolieu-o-saveur-de-l-instant/exterieur-05.webp", alt: "Extérieurs de l’Écolieu Ô Saveur de l’Instant à Saint-Usuge", caption: "Le cadre extérieur du séjour" },
+]
 
 export const metadata: Metadata = {
   title: "Mémoire d’Âmes | Stage de régression dans les vies antérieures",
@@ -35,7 +47,17 @@ export const metadata: Metadata = {
     type: "article",
     images: [{ url: eventImageMeta, width: 1200, height: 1200, alt: "Pierre Yonas — Mémoire d’Âmes" }],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mémoire d’Âmes — Stage de régression dans les vies antérieures",
+    description: "Cinq jours d’exploration de la conscience à Saint-Usuge, avec Pierre Yonas.",
+    images: [eventImageMeta],
+  },
 }
+
+const memoireDAmesPackages = reservationPackages.filter(
+  (pkg) => pkg.stayId === "memoire-d-ames-decembre-2026"
+)
 
 const eventSchema = {
   "@context": "https://schema.org",
@@ -65,6 +87,18 @@ const eventSchema = {
   },
   organizer: { "@type": "Organization", name: siteConfig.name, url: siteConfig.siteUrl },
   performer: { "@type": "Person", name: "Pierre Yonas" },
+  offers: memoireDAmesPackages.map((pkg) => ({
+    "@type": "Offer",
+    "@id": `${siteConfig.siteUrl}${pkg.reservationPath}#offer-${pkg.id}`,
+    name: pkg.title,
+    url: `${siteConfig.siteUrl}${pkg.reservationPath}#sejour-${pkg.id}`,
+    price: pkg.price,
+    priceCurrency: "EUR",
+    availability: pkg.availablePlaces > 0 ? "https://schema.org/InStock" : "https://schema.org/SoldOut",
+    inventoryLevel: { "@type": "QuantitativeValue", value: pkg.availablePlaces },
+    validFrom: pkg.bookingOpensAt,
+    priceValidUntil: pkg.bookingDeadline,
+  })),
 }
 
 export default function MemoireDAmesPage() {
@@ -74,14 +108,14 @@ export default function MemoireDAmesPage() {
 
       <div className="container mx-auto max-w-6xl space-y-16">
         <section className="grid items-center gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-2xl shadow-lg">
+          <div className="relative aspect-square overflow-hidden rounded-2xl bg-muted/30 shadow-lg">
             <Image
               src={eventImage}
               alt="Pierre Yonas et la découverte de soi — stage Mémoire d’Âmes"
               fill
               priority
               sizes="(max-width: 1024px) 100vw, 45vw"
-              className="object-cover"
+              className="object-contain"
             />
           </div>
           <div className="space-y-6">
@@ -98,7 +132,7 @@ export default function MemoireDAmesPage() {
             <p className="leading-relaxed text-muted-foreground">
               Mémoire d’Âmes est une immersion de cinq jours imaginée par AVA Bien-être autour de l’exploration de la conscience, des états modifiés de conscience et de la régression dans les vies antérieures.
             </p>
-            <LinkButton href="#waitlist" size="lg">Rejoindre la liste d’attente</LinkButton>
+            <LinkButton href="/reservations/memoire-d-ames" size="lg">Réserver le séjour</LinkButton>
           </div>
         </section>
 
@@ -145,6 +179,15 @@ export default function MemoireDAmesPage() {
             <p>174 rue du Thiellet</p>
             <p>71500 Saint-Usuge</p>
           </div>
+          <div className="pt-2">
+            <ImageCarousel
+              slides={ecolieuSlides}
+              priorityFirstImage
+              className="w-full"
+              frameClassName="h-72 md:h-[32rem] lg:h-[38rem]"
+              imageClassName="bg-muted/30 object-contain"
+            />
+          </div>
         </section>
 
         <section className="grid gap-6 md:grid-cols-2">
@@ -152,12 +195,12 @@ export default function MemoireDAmesPage() {
           <Card><CardContent className="space-y-4 p-6"><Car className="h-6 w-6 text-primary" /><h2 className="text-2xl font-semibold">Venir en voiture</h2><p className="text-sm leading-relaxed text-muted-foreground">Depuis l’A6&nbsp;: sortie Chalon-sur-Saône. Depuis l’A39&nbsp;: sortie Beaurepaire-en-Bresse en venant du Nord, ou sortie Le Miroir en venant du Sud. Le domaine se situe à environ 40 minutes de Lons-le-Saunier et Chalon-sur-Saône, 1h de Mâcon et Dijon, et 1h30 de Lyon et Genève.</p></CardContent></Card>
         </section>
 
-        <section id="waitlist" className="scroll-mt-24 rounded-2xl border border-primary/30 bg-primary/5 p-6 text-center md:p-10">
+        <section id="reservation" className="scroll-mt-24 rounded-2xl border border-primary/30 bg-primary/5 p-6 text-center md:p-10">
           <Utensils className="mx-auto h-7 w-7 text-primary" aria-hidden="true" />
-          <h2 className="mt-3 text-3xl font-bold text-primary">Inscription à la liste d’attente</h2>
-          <p className="mx-auto mt-3 max-w-2xl text-muted-foreground mb-10">L’inscription à la liste d’attente est gratuite et sans engagement. L’équipe AVA Bien-être vous recontactera avec les informations pratiques et l’ouverture des réservations.</p>
-          <LinkButton href={waitlistUrl} size="lg">S’inscrire gratuitement à la liste d’attente</LinkButton>
-          <p className="mt-3 text-xs text-muted-foreground">Aucun paiement n’est demandé pour rejoindre la liste d’attente. L’inscription ne vaut pas réservation.</p>
+          <h2 className="mt-3 text-3xl font-bold text-primary">Réserver Mémoire d’Âmes</h2>
+          <p className="mx-auto mt-3 max-w-2xl text-muted-foreground mb-10">Choisissez votre chambre et réglez les arrhes sécurisées de 500 € par personne pour réserver votre place.</p>
+          <LinkButton href="/reservations/memoire-d-ames" size="lg">Voir les chambres et réserver</LinkButton>
+          <p className="mt-3 text-xs text-muted-foreground">Pour les couples souhaitant partager un lit double, merci de le préciser lors de votre réservation.</p>
         </section>
 
         <section className="space-y-4 text-center">

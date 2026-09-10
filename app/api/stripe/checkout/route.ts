@@ -3,7 +3,6 @@ import {
     isReservationOpen,
     reservationPackages
 } from "@/app/reservations/_data/packages";
-import { STRIPE_ACOMPTE_PER_PERSON_EUR } from "@/lib/reservation-pricing";
 import { getStripeClient } from "@/lib/stripe-server";
 
 export const runtime = "nodejs";
@@ -188,10 +187,10 @@ export async function POST(request: Request) {
                 quantity: item.peopleCount,
                 price_data: {
                     currency: "eur",
-                    unit_amount: STRIPE_ACOMPTE_PER_PERSON_EUR * 100,
+                    unit_amount: pkg.depositPerPersonEuros * 100,
                     product_data: {
                         name: `Arrhes - ${pkg.title}`,
-                        description: `${STRIPE_ACOMPTE_PER_PERSON_EUR}.00 € par personne`
+                        description: `${pkg.depositPerPersonEuros}.00 € d'arrhes par personne`
                     }
                 }
             };
@@ -201,8 +200,11 @@ export async function POST(request: Request) {
             (sum, { item }) => sum + item.peopleCount,
             0
         );
-        const expectedAmountCents =
-            totalPeople * STRIPE_ACOMPTE_PER_PERSON_EUR * 100;
+        const expectedAmountCents = validatedItems.reduce(
+            (sum, { item, pkg }) =>
+                sum + item.peopleCount * pkg.depositPerPersonEuros * 100,
+            0
+        );
         const totalStayAmountCents = validatedItems.reduce(
             (sum, { item, pkg }) =>
                 sum + Math.round(pkg.price * 100) * item.peopleCount,
@@ -217,6 +219,15 @@ export async function POST(request: Request) {
         }
         const reservationItemsMetadata =
             buildReservationItemsMetadata(items);
+        const reservationStay = Array.from(
+            new Set(validatedItems.map(({ pkg }) => pkg.stayId))
+        ).join(", ");
+        const reservationEvent = Array.from(
+            new Set(validatedItems.map(({ pkg }) => pkg.eventName))
+        ).join(", ");
+        const reservationPackagesSummary = validatedItems
+            .map(({ item, pkg }) => `${pkg.title} x${item.peopleCount}`)
+            .join(" | ");
         const reservationMetadata = {
             reservation_items: reservationItemsMetadata,
             reservation_total_people: String(totalPeople),
@@ -227,7 +238,10 @@ export async function POST(request: Request) {
             reservation_balance_due_cents: String(
                 remainingBalanceCents
             ),
-            reservation_currency: "eur"
+            reservation_currency: "eur",
+            reservation_stay: reservationStay,
+            reservation_event: reservationEvent,
+            reservation_packages: reservationPackagesSummary
         };
         const stripe = getStripeClient();
 
@@ -246,7 +260,7 @@ export async function POST(request: Request) {
             },
             metadata: reservationMetadata,
             payment_intent_data: {
-                description: `Arrhes AVA Bien-Etre - ${totalPeople} personne${totalPeople > 1 ? "s" : ""}`,
+                description: `Arrhes AVA Bien-Etre - ${reservationEvent} - ${reservationPackagesSummary}`,
                 metadata: reservationMetadata
             },
             phone_number_collection: {

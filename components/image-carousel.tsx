@@ -15,9 +15,11 @@ type ImageCarouselProps = {
   slides: CarouselSlide[]
   className?: string
   priorityFirstImage?: boolean
+  frameClassName?: string
+  imageClassName?: string
 }
 
-export function ImageCarousel({ slides, className, priorityFirstImage = false }: ImageCarouselProps) {
+export function ImageCarousel({ slides, className, priorityFirstImage = false, frameClassName = "h-64 md:h-96", imageClassName = "object-cover" }: ImageCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
 
   if (slides.length === 0) return null
@@ -33,7 +35,7 @@ export function ImageCarousel({ slides, className, priorityFirstImage = false }:
   return (
     <div className={cn("space-y-3", className)}>
       <div className="relative overflow-hidden rounded-lg" role="region" aria-label="Galerie d'images">
-        <div className="relative h-64 md:h-96">
+        <div className={cn("relative", frameClassName)}>
           {slides.map((slide, index) => (
             <figure key={`${slide.src}-${index}`} className={cn("absolute inset-0", index === currentIndex ? "block" : "hidden")}>
               <Image
@@ -42,7 +44,7 @@ export function ImageCarousel({ slides, className, priorityFirstImage = false }:
                 fill
                 priority={priorityFirstImage && index === 0}
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
+                className={imageClassName}
               />
               <figcaption className="sr-only">{slide.caption}</figcaption>
             </figure>

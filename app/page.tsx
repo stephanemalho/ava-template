@@ -104,13 +104,13 @@ export default function HomePage() {
       <section className="py-16 bg-primary/5">
         <div className="container mx-auto">
           <div className="grid items-center gap-8 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
+            <div className="relative aspect-square overflow-hidden rounded-2xl bg-muted/30">
               <Image
                 src="/sejour-et-activite/mémoire-d-ames/pierre-yonas-et-la-decouverte-de-soi-1200.webp"
                 alt="Pierre Yonas — stage Mémoire d’Âmes à Saint-Usuge"
                 fill
                 sizes="(max-width: 768px) 100vw, 40vw"
-                className="object-cover"
+                className="object-contain"
               />
             </div>
             <div className="space-y-5">
