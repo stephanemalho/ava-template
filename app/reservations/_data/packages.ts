@@ -6,6 +6,12 @@ import {
 // Valeurs à mettre à jour au fil des réservations Mémoire d’Âmes.
 export const MEMOIRE_D_AMES_DUO_AVAILABLE_PLACES = 15;
 export const MEMOIRE_D_AMES_INDIVIDUAL_AVAILABLE_PLACES = 15;
+// Tarif Early Bird partagé entre les deux formules : à mettre à 0 une fois les 8 premières réservations effectuées.
+export const MEMOIRE_D_AMES_EARLY_BIRD_AVAILABLE_PLACES = 8;
+export const MEMOIRE_D_AMES_DUO_STANDARD_PRICE = 1820;
+export const MEMOIRE_D_AMES_DUO_EARLY_BIRD_PRICE = 1720;
+export const MEMOIRE_D_AMES_INDIVIDUAL_STANDARD_PRICE = 1880;
+export const MEMOIRE_D_AMES_INDIVIDUAL_EARLY_BIRD_PRICE = 1780;
 export const MEMOIRE_D_AMES_BOOKING_OPENS_AT = "2026-09-10T00:00:00+02:00";
 
 export type ReservationPackage = {
@@ -21,6 +27,7 @@ export type ReservationPackage = {
     bookingOpensAt?: string;
     subtitle: string;
     price: number;
+    originalPrice?: number;
     depositPerPersonEuros: number;
     image: string;
     badge: string;
@@ -71,10 +78,11 @@ export const reservationPackages: ReservationPackage[] = [
         bookingDeadline: "2026-12-17T18:00:00+01:00",
         bookingOpensAt: MEMOIRE_D_AMES_BOOKING_OPENS_AT,
         subtitle: "Chambre partagée à deux",
-        price: 1820,
+        price: MEMOIRE_D_AMES_DUO_EARLY_BIRD_PRICE,
+        originalPrice: MEMOIRE_D_AMES_DUO_STANDARD_PRICE,
         depositPerPersonEuros: STRIPE_MEMOIRE_D_AMES_ACOMPTE_PER_PERSON_EUR,
         image: "/sejour-et-activite/mémoire-d-ames/pierre-yonas-et-la-decouverte-de-soi-1200.webp",
-        badge: "1 820 € / personne",
+        badge: "EARLY BIRD · 1 720 € / personne",
         badgeColor: "bg-primary",
         features: [
             "Séjour complet du 17 au 21 décembre 2026, pension complète incluse",
@@ -99,10 +107,11 @@ export const reservationPackages: ReservationPackage[] = [
         bookingDeadline: "2026-12-17T18:00:00+01:00",
         bookingOpensAt: MEMOIRE_D_AMES_BOOKING_OPENS_AT,
         subtitle: "Chambre privative",
-        price: 1880,
+        price: MEMOIRE_D_AMES_INDIVIDUAL_EARLY_BIRD_PRICE,
+        originalPrice: MEMOIRE_D_AMES_INDIVIDUAL_STANDARD_PRICE,
         depositPerPersonEuros: STRIPE_MEMOIRE_D_AMES_ACOMPTE_PER_PERSON_EUR,
         image: "/sejour-et-activite/mémoire-d-ames/pierre-yonas-et-la-decouverte-de-soi-1200.webp",
-        badge: "1 880 € / personne",
+        badge: "EARLY BIRD · 1 780 € / personne",
         badgeColor: "bg-primary",
         features: [
             "Séjour complet du 17 au 21 décembre 2026, pension complète incluse",

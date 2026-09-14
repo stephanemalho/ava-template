@@ -1,13 +1,13 @@
 import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
-import { CalendarDays, Car, Check, MapPin, MessageCircle, TrainFront, Utensils } from "lucide-react"
+import { Bath, BedDouble, CalendarDays, Car, Check, Droplets, Heart, MapPin, MessageCircle, Sparkles, TrainFront, Trees, Users, Utensils } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { LinkButton } from "@/components/link-button"
 import { ImageCarousel } from "@/components/image-carousel"
 import { siteConfig } from "@/lib/seo-config"
-import { reservationPackages } from "@/app/reservations/_data/packages"
+import { MEMOIRE_D_AMES_EARLY_BIRD_AVAILABLE_PLACES, reservationPackages } from "@/app/reservations/_data/packages"
 
 const pagePath = "/memoire-d-ames"
 const eventImage = "/sejour-et-activite/mémoire-d-ames/pierre-yonas-et-la-decouverte-de-soi-1200.webp"
@@ -125,16 +125,16 @@ export default function MemoireDAmesPage() {
           <div className="space-y-6">
             <Badge className="w-fit">Événement exceptionnel AVA Bien-être</Badge>
             <div className="space-y-3">
-              <h1 className="text-4xl font-bold tracking-tight text-primary md:text-6xl">MÉMOIRE D’ÂMES</h1>
-              <p className="text-xl font-semibold md:text-2xl">Stage de régression dans les vies antérieures</p>
+              <h1 className="text-4xl font-bold tracking-tight text-primary md:text-6xl">MÉMOIRES D’ÂMES</h1>
+              <p className="text-xl font-semibold md:text-2xl">Une immersion inédite avec Pierre Yonas</p>
             </div>
             <div className="flex flex-wrap gap-4 text-sm font-medium text-muted-foreground">
               <span className="inline-flex items-center gap-2"><CalendarDays className="h-4 w-4 text-primary" />17 au 21 décembre 2026</span>
               <span className="inline-flex items-center gap-2"><MapPin className="h-4 w-4 text-primary" />Saint-Usuge, Bourgogne</span>
             </div>
-            <p className="text-xl leading-relaxed text-primary">Et si certaines parts de notre histoire ne commençaient pas avec cette vie&nbsp;?</p>
+            <p className="text-xl leading-relaxed text-primary">Et si certaines choses que vous ressentez avaient une histoire plus ancienne&nbsp;?</p>
             <p className="leading-relaxed text-muted-foreground">
-              Mémoire d’Âmes est une immersion de cinq jours imaginée par AVA Bien-être autour de l’exploration de la conscience, des états modifiés de conscience et de la régression dans les vies antérieures.
+              Une immersion en petit groupe, au cœur de la nature, pour expérimenter, ressentir et accueillir ce qui peut émerger, sans croyance imposée, simplement avec l’envie d’explorer.
             </p>
             <LinkButton href="/reservations/memoire-d-ames" size="lg">Réserver le séjour</LinkButton>
           </div>
@@ -142,23 +142,30 @@ export default function MemoireDAmesPage() {
 
         <section className="mx-auto max-w-4xl space-y-6 text-lg leading-relaxed text-muted-foreground">
           <p>
-            Un voyage intérieur pour aller à la rencontre de ce qui, parfois, semble nous précéder&nbsp;: des mémoires, des sensations, des liens, des peurs inexpliquées, des schémas récurrents ou simplement cette impression intime que notre histoire est peut-être plus vaste que ce que nous en connaissons.
+            Avez-vous déjà ressenti une peur ou une phobie inexplicable, sans parvenir à en trouver l’origine&nbsp;? Vécu une peur viscérale de l’abandon ou du rejet, comme si cette blessure était là depuis toujours&nbsp;? Rencontré une personne et ressenti immédiatement cette sensation troublante&nbsp;: «&nbsp;Je te connais…&nbsp;», alors que vous ne l’aviez jamais vue auparavant&nbsp;?
           </p>
           <p>
-            Durant trois journées, les 18, 19 et 20 décembre, <strong className="text-foreground">Pierre YONAS</strong> accompagnera les participants dans un enseignement consacré à la régression et à l’exploration de ces mémoires.
+            Vécu une relation d’une intensité démesurée, parfois passionnelle, parfois toxique, dont vous n’arrivez pourtant pas à vous détacher… comme si quelque chose vous ramenait sans cesse l’un vers l’autre&nbsp;? Peut-être avez-vous aussi découvert un lieu pour la première fois avec l’étrange sensation d’y être déjà venu…
           </p>
           <p>
-            L’approche se veut avant tout expérientielle et initiatique&nbsp;: il ne s’agit pas d’adhérer à une croyance, mais de vivre l’expérience, d’observer ce qui émerge et de laisser chacun donner son propre sens à ce qu’il traverse.
+            Ressenti depuis toujours une fascination inexplicable pour une époque, un pays ou une culture… Fait les mêmes rêves, ressenti des déjà-vu troublants… Ou observé que les mêmes blessures, les mêmes rencontres et les mêmes schémas semblent revenir dans votre vie, malgré tout ce que vous avez déjà essayé de comprendre.
           </p>
           <p>
-            Le séjour débutera le jeudi 17 décembre à 18h, avec l’accueil du groupe et le dîner. Cette première soirée, accompagnée par Aurélie AVA Bien-Être et Cindy Marin, permettra d’entrer progressivement dans l’expérience à travers la transe auto-induite, les états modifiés de conscience, des ateliers de présence et de conscience, des temps d’introspection, de partage et des cercles de parole.
+            Et si, pour une fois, vous cessiez de vous demander seulement «&nbsp;Pourquoi suis-je comme ça&nbsp;?&nbsp;»… pour vous demander&nbsp;: «&nbsp;Et si cela venait de plus loin&nbsp;?&nbsp;»
           </p>
-          <p>Les trois journées suivantes seront consacrées aux enseignements de Pierre Yonas et aux expériences de régression, ponctuées de temps d’échange et d’intégration.</p>
           <p>
-            Le 21 décembre, Aurélie AVA et Cindy MARIN accompagneront à nouveau le groupe pour une journée entièrement consacrée à l’intégration. Transe auto-induite, états modifiés de conscience, ateliers de présence et de conscience, introspection, partages et cercles de parole permettront de revenir sur les expériences vécues, d’accueillir ce qui aura émergé et de mettre du sens sur le chemin parcouru.
+            Peut-être n’avez-vous aucune certitude sur les vies antérieures. Vous avez simplement cette sensation. Cette intuition. Cette question qui revient. Et si vous vous donniez enfin la possibilité de l’explorer&nbsp;?
           </p>
-          <p>Un dernier temps pour revenir pleinement à soi, intégrer l’expérience et refermer ensemble ce voyage intérieur.</p>
-          <p>Fin du séjour le 21 décembre à 18h.</p>
+          <div className="space-y-3 pt-6">
+            <h2 className="text-3xl font-bold text-primary">Pierre Yonas · vies antérieures</h2>
+            <p>Les 18, 19 et 20 décembre, Pierre Yonas vous accompagnera à travers son approche singulière de la régression dans les vies antérieures par médiumnité, afin d’explorer les mémoires susceptibles d’entrer en résonance avec votre vie actuelle.</p>
+            <p>Vous serez invités à vivre l’expérience, explorer certaines mémoires et observer les résonances qu’elles peuvent avoir avec vos peurs, vos émotions, vos liens et votre vie actuelle.</p>
+            <p>Trois journées pour comprendre, expérimenter et ressentir au-delà de la théorie.</p>
+          </div>
+          <div className="space-y-3 pt-6">
+            <h2 className="text-3xl font-bold text-primary">AVA Bien-être · états modifiés de conscience</h2>
+            <p>Aurélie &amp; Cindy Marin vous accompagneront les journées du 17 et 21 décembre pour des ateliers autour des états modifiés de conscience, de la transe auto-induite et de l’intégration des expériences vécues.</p>
+          </div>
         </section>
 
         <section className="grid gap-6 md:grid-cols-3">
@@ -177,6 +184,38 @@ export default function MemoireDAmesPage() {
           ))}
         </section>
 
+        <section className="space-y-6">
+          <div className="text-center">
+            <p className="text-sm font-semibold uppercase tracking-widest text-primary">Tarif Early Bird</p>
+            <h2 className="mt-2 text-3xl font-bold text-primary">Pour les {MEMOIRE_D_AMES_EARLY_BIRD_AVAILABLE_PLACES} premiers inscrits</h2>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2">
+            {memoireDAmesPackages
+              .slice()
+              .sort((a, b) => (a.type === "Chambre individuelle" ? -1 : b.type === "Chambre individuelle" ? 1 : 0))
+              .map((pkg) => (
+                <Link key={pkg.id} href={`${pkg.reservationPath}#sejour-${pkg.id}`} className="group block rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+                  <Card className="h-full border-primary/20 transition-transform duration-200 group-hover:-translate-y-1 group-hover:shadow-lg">
+                    <CardContent className="space-y-4 p-6">
+                      <BedDouble className="h-6 w-6 text-primary" aria-hidden="true" />
+                      <div>
+                        <h3 className="text-2xl font-bold text-primary">{pkg.type === "Chambre individuelle" ? "Chambre individuelle" : "Chambre duo ou couple"}</h3>
+                        <p className="mt-1 text-sm text-muted-foreground">{pkg.subtitle}</p>
+                      </div>
+                      <div className="flex items-end gap-3">
+                        <span className="text-lg text-muted-foreground line-through">{pkg.originalPrice} €</span>
+                        <span className="text-3xl font-bold text-primary">{pkg.price} €</span>
+                        <span className="pb-1 text-sm text-muted-foreground">/ personne</span>
+                      </div>
+                      <p className="inline-flex items-center gap-2 text-sm font-semibold text-primary"><Sparkles className="h-4 w-4" aria-hidden="true" />100 € de réduction</p>
+                      <p className="text-sm font-medium text-primary underline underline-offset-4">Voir les disponibilités et réserver</p>
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))}
+          </div>
+        </section>
+
         <section className="space-y-8 rounded-2xl bg-muted/30 p-6 md:p-10">
           <div className="space-y-3">
             <h2 className="text-3xl font-bold text-primary">Un lieu au cœur de la nature</h2>
@@ -185,11 +224,25 @@ export default function MemoireDAmesPage() {
             </p>
             <p className="leading-relaxed text-muted-foreground">Le séjour est proposé en pension complète, afin que chacun puisse véritablement déposer le quotidien pendant quelques jours et se consacrer pleinement à l’expérience.</p>
           </div>
-          <div className="rounded-xl border bg-background p-5 text-sm leading-relaxed">
-            <p className="font-semibold">Écolieu Ô Saveur de l’Instant</p>
-            <p>174 rue du Thiellet</p>
-            <p>71500 Saint-Usuge</p>
-          </div>
+          <Card className="border-primary/20 bg-background">
+            <CardContent className="space-y-5 p-6">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-widest text-primary">Lieu du séjour</p>
+                <h3 className="mt-1 text-2xl font-bold text-primary">Ô Saveurs de l’Instant</h3>
+                <p className="text-muted-foreground">Saint-Usuge, Bourgogne</p>
+              </div>
+              <div className="grid gap-4 text-sm text-muted-foreground sm:grid-cols-2">
+                <p className="flex gap-3"><CalendarDays className="h-5 w-5 shrink-0 text-primary" aria-hidden="true" /><span>17 au 21 décembre 2026</span></p>
+                <p className="flex gap-3"><Utensils className="h-5 w-5 shrink-0 text-primary" aria-hidden="true" /><span>Pension complète tout au long du séjour</span></p>
+                <p className="flex gap-3"><Droplets className="h-5 w-5 shrink-0 text-primary" aria-hidden="true" /><span>Piscine naturelle au cœur du domaine</span></p>
+                <p className="flex gap-3"><Bath className="h-5 w-5 shrink-0 text-primary" aria-hidden="true" /><span>Hammam, pour des temps de détente et de retour à soi</span></p>
+                <p className="flex gap-3"><Sparkles className="h-5 w-5 shrink-0 text-primary" aria-hidden="true" /><span>Hébergements de charme et insolites</span></p>
+                <p className="flex gap-3"><Trees className="h-5 w-5 shrink-0 text-primary" aria-hidden="true" /><span>Nature, calme et déconnexion pendant le séjour</span></p>
+                <p className="flex gap-3 sm:col-span-2"><Users className="h-5 w-5 shrink-0 text-primary" aria-hidden="true" /><span>Petit groupe, pour préserver l’intimité et la qualité de l’expérience</span></p>
+              </div>
+              <p className="flex gap-3 border-t pt-5 text-sm font-medium text-primary"><Heart className="h-5 w-5 shrink-0" aria-hidden="true" /><span>Bien plus qu’un stage&nbsp;: une véritable parenthèse hors du temps, où le lieu fait lui aussi partie du voyage.</span></p>
+            </CardContent>
+          </Card>
           <div className="pt-2">
             <ImageCarousel
               slides={ecolieuSlides}
