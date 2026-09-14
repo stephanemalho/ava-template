@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
-import { CalendarDays, Car, Check, MapPin, TrainFront, Utensils } from "lucide-react"
+import { CalendarDays, Car, Check, MapPin, MessageCircle, TrainFront, Utensils } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { LinkButton } from "@/components/link-button"
@@ -12,6 +12,7 @@ import { reservationPackages } from "@/app/reservations/_data/packages"
 const pagePath = "/memoire-d-ames"
 const eventImage = "/sejour-et-activite/mémoire-d-ames/pierre-yonas-et-la-decouverte-de-soi-1200.webp"
 const eventImageMeta = "/sejour-et-activite/mémoire-d-ames/pierre-yonas-et-la-decouverte-de-soi-og.jpg"
+const informationFormUrl = "https://forms.gle/66e1uT5Pp4n5FQYZ9"
 
 const ecolieuSlides = [
   { src: "/sejour-et-activite/mémoire-d-ames/ecolieu-o-saveur-de-l-instant/entree-ecolieu.webp", alt: "Entrée végétalisée de l’Écolieu Ô Saveur de l’Instant", caption: "L’arrivée à l’Écolieu Ô Saveur de l’Instant" },
@@ -211,6 +212,30 @@ export default function MemoireDAmesPage() {
           <p className="mx-auto mt-3 max-w-2xl text-muted-foreground mb-10">Choisissez votre chambre et réglez les arrhes sécurisées de 500 € par personne pour réserver votre place.</p>
           <LinkButton href="/reservations/memoire-d-ames" size="lg">Voir les chambres et réserver</LinkButton>
           <p className="mt-3 text-xs text-muted-foreground">Pour les couples souhaitant partager un lit double, merci de le préciser lors de votre réservation.</p>
+        </section>
+
+        <section id="informations" className="scroll-mt-24 rounded-2xl border border-primary/20 bg-muted/30 p-6 md:p-10">
+          <div className="grid items-center gap-8 md:grid-cols-[auto_1fr] md:gap-10">
+            <div className="mx-auto rounded-xl bg-background p-3 shadow-sm">
+              <Image
+                src="/sejour-et-activite/mémoire-d-ames/google-form-informations-qr.png"
+                alt="QR code vers le formulaire d’informations du séjour Mémoire d’Âmes"
+                width={500}
+                height={500}
+                sizes="(max-width: 768px) 176px, 200px"
+                className="h-44 w-44 md:h-52 md:w-52"
+              />
+            </div>
+            <div className="space-y-4 text-center md:text-left">
+              <MessageCircle className="mx-auto h-7 w-7 text-primary md:mx-0" aria-hidden="true" />
+              <div className="space-y-2">
+                <h2 className="text-3xl font-bold text-primary">Une question sur le séjour&nbsp;?</h2>
+                <p className="max-w-2xl text-muted-foreground">Scannez le QR code ou ouvrez le formulaire pour demander des informations pratiques. L’équipe AVA Bien-être vous répondra directement.</p>
+              </div>
+              <LinkButton href={informationFormUrl} size="lg">Demander des informations</LinkButton>
+              <p className="text-xs text-muted-foreground">Ce formulaire est destiné aux demandes d’informations. Pour réserver votre place, utilisez la page de réservation ci-dessus.</p>
+            </div>
+          </div>
         </section>
 
         <section className="space-y-4 text-center">
