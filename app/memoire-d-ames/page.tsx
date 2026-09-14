@@ -210,7 +210,7 @@ export default function MemoireDAmesPage() {
           <Utensils className="mx-auto h-7 w-7 text-primary" aria-hidden="true" />
           <h2 className="mt-3 text-3xl font-bold text-primary">Réserver Mémoire d’Âmes</h2>
           <p className="mx-auto mt-3 max-w-2xl text-muted-foreground mb-10">Choisissez votre chambre et réglez les arrhes sécurisées de 500 € par personne pour réserver votre place.</p>
-          <LinkButton href="/reservations/memoire-d-ames" size="lg">Voir les chambres et réserver</LinkButton>
+          <LinkButton href="/reservations/memoire-d-ames" size="lg">Voir les disponibilités et réserver</LinkButton>
           <p className="mt-3 text-xs text-muted-foreground">Pour les couples souhaitant partager un lit double, merci de le préciser lors de votre réservation.</p>
         </section>
 
