@@ -3,9 +3,9 @@ import { createLastmodGetter } from "./lastmod";
 export const siteConfig = {
     name: "Ava Bien-Être",
     siteUrl: "https://www.avabienetre.fr",
-    title: "Ava Bien-Être | Retraites bien-être en Provence",
+    title: "Ava Bien-Être | Retraites bien-être",
     description:
-        "Retraites bien-être tout inclus en Provence : séjours ressourçants, équipe pluridisciplinaire et accompagnement personnalisé.",
+        "Séjours immersifs autour de la connaissance de soi, de la conscience et du vivant, avec des intervenants aux approches complémentaires.",
     locale: "fr_FR",
     author: "Ava Bien-Être",
     contact: {
@@ -29,16 +29,17 @@ export const siteConfig = {
             addressCountry: "FR",
         },
     },
+    logo: "/logo-ava-bien-etre-nouveau.png",
     ogImage: "/sejours-ava.jpg",
-    ogImageAlt: "Retraite bien-être AVA en Provence",
+    ogImageAlt: "Retraite bien-être AVA",
     ogImageWidth: 2000,
     ogImageHeight: 1333,
     keywords: [
-        "retraite bien-être provence",
-        "séjour bien-être trans-en-provence",
+        "retraite bien-être",
+        "séjour bien-être en Saône-et-Loire",
         "stage ressourcement",
         "reconnexion à soi",
-        "séjour yoga méditation",
+        "hypnose magnétisme médiumnité",
         "réservation retraite bien-être"
     ],
     pages: {
@@ -57,48 +58,48 @@ export const siteConfig = {
 } as const;
 
 export const sitemapPages = [
-    { url: "/", changefreq: "monthly", priority: 1.0, lastmod: "2026-09-10" },
+    { url: "/", changefreq: "monthly", priority: 1.0, lastmod: "2026-10-05" },
     {
         url: "/presentation",
         changefreq: "monthly",
         priority: 0.8,
-        lastmod: "2026-04-03"
+        lastmod: "2026-10-05"
     },
     {
         url: "/notre-equipe",
         changefreq: "monthly",
         priority: 0.8,
-        lastmod: "2026-04-17"
+        lastmod: "2026-10-05"
     },
     {
         url: "/sejour-a-trans-en-provence",
         changefreq: "monthly",
         priority: 0.9,
-        lastmod: "2026-07-25"
+        lastmod: "2026-10-05"
     },
     {
         url: "/memoire-d-ames",
         changefreq: "weekly",
         priority: 0.95,
-        lastmod: "2026-09-10"
+        lastmod: "2026-10-05"
     },
     {
         url: "/reservations",
         changefreq: "monthly",
         priority: 0.9,
-        lastmod: "2026-09-10"
+        lastmod: "2026-10-05"
     },
     {
         url: "/reservations/memoire-d-ames",
         changefreq: "monthly",
         priority: 0.9,
-        lastmod: "2026-09-10"
+        lastmod: "2026-10-05"
     },
     {
         url: "/contact",
         changefreq: "monthly",
         priority: 0.8,
-        lastmod: "2026-05-23"
+        lastmod: "2026-10-05"
     },
     {
         url: "/mentions-legales",

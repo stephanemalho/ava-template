@@ -10,7 +10,7 @@ const navigation = [
         name: "Séjours",
         href: "/sejour-a-trans-en-provence",
         children: [
-            { name: "Trans-en-Provence", href: "/sejour-a-trans-en-provence" },
+            { name: "Trans-en-Provence (83)", href: "/sejour-a-trans-en-provence" },
             { name: "Mémoire d’Âmes · Saint-Usuge", href: "/memoire-d-ames" },
         ],
     },
@@ -18,7 +18,7 @@ const navigation = [
         name: "Réservations",
         href: "/reservations",
         children: [
-            { name: "Trans-en-Provence", href: "/reservations" },
+            { name: "Trans-en-Provence (83)", href: "/reservations" },
             { name: "Mémoire d’Âmes · Saint-Usuge", href: "/reservations/memoire-d-ames" },
         ],
     },
@@ -32,8 +32,8 @@ export function Navigation() {
                 <Link href="/" className="flex items-center space-x-2">
                     <div className="h-10 w-10 relative">
                         <Image
-                            src="/Logo-Ava_Bien_Etre-2-300x300.png"
-                            alt="Équipe Ava Bien-Être"
+                            src="/logo-ava-bien-etre-nouveau.png"
+                            alt="Logo AVA Bien-Être"
                             fill
                             className="object-contain"
                             priority

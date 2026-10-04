@@ -20,7 +20,7 @@ export function YoutubeClickPlayer({
   className,
 }: YoutubeClickPlayerProps) {
   const [isPlaying, setIsPlaying] = useState(false)
-  const embedUrl = `https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0`
+  const embedUrl = `https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&rel=0`
 
   return (
     <div className={className}>
@@ -42,6 +42,7 @@ export function YoutubeClickPlayer({
         >
           <Image
             src={thumbnailSrc}
+            unoptimized={thumbnailSrc.startsWith("https://")}
             alt={thumbnailAlt ?? title}
             fill
             className="object-cover"

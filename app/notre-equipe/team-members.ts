@@ -10,23 +10,19 @@ export type TeamMember = {
 export const teamMembers: TeamMember[] = [
     {
         name: "Pierre Yonas",
-        role: "Médium, guérisseur spirituel, magnétiseur et conférencier",
+        role: "Médium, magnétiseur, auteur, conférencier et formateur",
         image: "/Pierre_Yonas-profil.jpg",
         linkedinUrl: "https://www.instagram.com/pierre_yonas_/",
         description: `
-Sous sa peau est ancré le mot « honneur » en japonais. Son regard sincère, intense et profond semble aller au-delà des apparences : voici Pierre Yonas.
+Médium, magnétiseur, auteur, conférencier et formateur, Pierre Yonas partage depuis une quarantaine d’années son expérience de la médiumnité et du magnétisme. Sa démarche met l’accent sur la transmission, le discernement et la prévention des pratiques abusives.
 
-Médium, guérisseur spirituel et magnétiseur depuis plus de quarante ans, Pierre fait partie de l’équipe AVA Bien-Être. Auteur du livre *Le Défroisseur d’âmes*, conférencier et formateur, il exerce son métier avec passion, éthique et déontologie, dans un profond respect de l’humain et de la bienveillance.
+Auteur de plusieurs ouvrages, dont *Le Défroisseur d’âmes* et *De la Terre au Ciel*, paru en octobre 2025, il aborde dans ses écrits son parcours et les questions liées à la spiritualité et à la connaissance de soi.
 
-Il accompagne depuis de nombreuses années des consultants en magnétisme et en médiumnité, notamment à Paris et à Cannes. Ce qu’il souhaite avant tout transmettre, c’est son expérience, afin de sensibiliser celles et ceux qui s’intéressent à la spiritualité contemporaine, largement diffusée sur internet et les réseaux sociaux.
+Aux côtés d’Aurélie AVA, Pierre participe à l’aventure AVA Bien-Être et à la création de séjours immersifs. Leurs approches complémentaires ouvrent un espace d’échange et d’exploration, dans le respect du rythme et de la sensibilité de chacun.
 
-À travers ses interventions, Pierre apporte des repères clairs : distinguer les bonnes pratiques des pratiques dangereuses, comprendre vers quels thérapeutes se tourner, et développer un regard critique et éclairé sur ces disciplines.
+Au sein des séjours AVA Bien-Être, il partage son expérience à travers des échanges, des conférences et des ateliers consacrés à la connaissance de soi, à l’intuition et à la médiumnité.
 
-Lors des séjours AVA Bien-Être, il animera des conférences et des ateliers pratiques pour mettre ces enseignements en application. Il est convaincu que chacun possède des capacités intuitives et médiumniques, qu’il est possible d’explorer avec discernement et sérieux.
-
-Pierre aborde ces thématiques avec une approche rationnelle, factuelle et structurée. Sa devise : « ne pas se prendre au sérieux, mais faire les choses sérieusement ». Son humour, sa bonne humeur et son authenticité contribueront à faire de ces séjours une expérience marquante et profondément humaine.
-
-Il animera notamment des ateliers d’initiation au magnétisme, à la médiumnité, à la communication animale, des conférences, des séances de dédicaces, des séances de médiumnité collective, ainsi que des ateliers surprises à découvrir lors de nos séjours.
+À travers ses interventions, il invite les participants à explorer leurs ressentis et à développer leur discernement. Son humour et sa présence contribuent à la dimension humaine et conviviale des rencontres proposées par AVA.
   `,
         specialties: [
             "Médiumnité",
@@ -42,31 +38,21 @@ Il animera notamment des ateliers d’initiation au magnétisme, à la médiumni
         image: "/Aurelie.jpg",
         linkedinUrl: "https://www.instagram.com/ava.magnetisme/",
         description: `
-Bonjour à tous,
+Je suis Aurélie AVA, hypnothérapeute, magnétiseuse, guérisseuse et fondatrice d’AVA Bien-Être.
 
-Je m’appelle Aurélie AVA. Je suis hypnothérapeute, magnétiseuse et guérisseuse.
+Je vois la vie comme un parcours initiatique, fait de rencontres, d’apprentissages et de transformations. Prendre soin de soi, c’est s’accorder le temps d’écouter ce qui se vit en nous, de mieux comprendre notre histoire et de reconnaître nos besoins.
 
-Je considère que la vie est un parcours initiatique et qu’il est de notre responsabilité, tout au long de ce chemin, de prendre soin de nous-mêmes. Personne d’autre que nous ne saura le faire aussi bien.
+Au cœur de mon approche se trouve une conviction : la considération que nous nous portons nourrit notre relation à nous-mêmes et aux autres. J’accorde une place essentielle à l’écoute, à la bienveillance et au respect du chemin de chacun.
 
-S’aimer et s’accorder de la considération, c’est aussi vouloir comprendre, introspecter et se libérer peu à peu de la douleur psychologique et physique, ainsi que des blessures émotionnelles. Ce processus permet de mieux vivre et de guérir ce qui nous entrave, pour se réconcilier avec l’amour de soi.
+Certifiée en hypnose ericksonienne transpersonnelle, je vous accompagne dans l’exploration de votre monde intérieur à travers des pratiques en état modifié de conscience. Ces espaces d’introspection invitent à observer vos émotions, vos peurs et vos schémas répétitifs, mais aussi à découvrir vos ressources et à éclairer vos choix lors de périodes de transition personnelle ou professionnelle.
 
-À mesure que le processus de guérison avance, les rapports à la vie et à l’autre s’apaisent. L’harmonie au sein des cercles amicaux, familiaux et professionnels peut être retrouvée. De nombreuses situations se débloquent, et de meilleurs choix deviennent possibles. La vie peut alors être traversée d’une manière totalement différente.
+Lors des séjours AVA Bien-Être, je propose des ateliers d’hypnose, de méditation, de magnétisme et d’exploration de la conscience. J’anime également des cérémonies inspirées des traditions auxquelles j’ai été initiée, pour partager des moments de présence, de rencontre et de célébration.
 
-La puissance infinie qui circule à travers l’énergie d’amour - y compris celle que nous nous portons à nous-mêmes - est, selon moi, la médecine de toutes les médecines.
+Chaque atelier collectif tient compte du rythme et des limites des participants. Des temps d’échange avant et après les pratiques permettent de poser vos questions, de partager vos ressentis et de mettre des mots sur votre expérience.
 
-Je vous propose des ateliers variés ainsi que des cérémonies pour se retrouver en conscience et de manière festive, inspirées des traditions ancestrales des peuples premiers auxquelles j’ai été initiée. Je vous laisserai découvrir tout cela sur place.
+Je propose aussi des consultations de magnétisme, à distance ou en présentiel, et anime des ateliers aux côtés de Pierre Yonas, avec une attention particulière à l’éthique et au discernement.
 
-En tant qu’hypnothérapeute certifiée en hypnose ericksonienne transpersonnelle ©, je suis heureuse d’accompagner mes patients afin d’explorer ensemble les profondeurs de leur esprit inconscient à travers différentes pratiques réalisées en état modifié de conscience.
-
-Ces accompagnements permettent d’introspecter en vue d’une libération des traumatismes, peurs, addictions, schémas répétitifs, relations toxiques, blocages, troubles du comportement, ainsi que lors de réorientations personnelles et professionnelles.
-
-En séance collective, ma pratique est adaptée à l’ensemble du groupe. Chaque atelier inclut un temps d’échange avant et après, afin de pouvoir partager les ressentis et expériences de chacun.
-
-J’accompagne également les personnes en souffrance physique à travers le magnétisme, en consultation à distance ou en présentiel. J’anime aussi, lors des retraites, des ateliers de magnétisme avec éthique et déontologie aux côtés de Pierre Yonas.
-
-Notre objectif est de vous aider à prendre conscience de vos propres capacités, afin que vous puissiez, vous aussi, vivre ce déclic.
-
-J’ai déjà hâte de vous retrouver et je vous remercie pour ce merveilleux cadeau que vous vous offrez.
+Mon intention est de vous offrir un cadre attentif pour explorer vos capacités, renouer avec vos ressources et avancer vers une relation plus apaisée avec vous-même. Je serai heureuse de vous accueillir dans cette aventure humaine.
   `,
         specialties: [
             "Thérapie holistique",

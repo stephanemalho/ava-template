@@ -23,7 +23,7 @@ export const STRIPE_ACOMPTE_PER_PERSON_EUR = parseRequiredArrhesValue(
     "NEXT_PUBLIC_STRIPE_ACOMPTE_PER_PERSON_EUR / STRIPE_ACOMPTE_PER_PERSON_EUR"
 );
 
-// Arrhes propres à Mémoire d’Âmes. Sans cette variable, le montant de Trans-en-Provence
+// Arrhes propres à Mémoire d’Âmes. Sans cette variable, le montant de Saint-Usuge (71)
 // reste utilisé afin de préserver le fonctionnement actuel jusqu'à sa configuration.
 export const STRIPE_MEMOIRE_D_AMES_ACOMPTE_PER_PERSON_EUR = parseRequiredArrhesValue(
     process.env.NEXT_PUBLIC_STRIPE_MEMOIRE_D_AMES_ACOMPTE_PER_PERSON_EUR ??

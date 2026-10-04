@@ -7,11 +7,11 @@ import { Card, CardContent } from "@/components/ui/card"
 import { LinkButton } from "@/components/link-button"
 import { ImageCarousel } from "@/components/image-carousel"
 import { siteConfig } from "@/lib/seo-config"
-import { MEMOIRE_D_AMES_EARLY_BIRD_AVAILABLE_PLACES, reservationPackages } from "@/app/reservations/_data/packages"
+import { MEMOIRE_D_AMES_EARLY_BIRD_AVAILABLE_PLACES, MEMOIRE_D_AMES_STAY_EARLY_BIRD_PRICE, MEMOIRE_D_AMES_FULL_BOARD_PRICE, reservationPackages } from "@/app/reservations/_data/packages"
 
 const pagePath = "/memoire-d-ames"
-const eventImage = "/sejour-et-activite/mémoire-d-ames/pierre-yonas-et-la-decouverte-de-soi-1200.webp"
-const eventImageMeta = "/sejour-et-activite/mémoire-d-ames/pierre-yonas-et-la-decouverte-de-soi-og.jpg"
+const eventImage = "/sejour-et-activite/mémoire-d-ames/affiche-memoire-d-ames-decembre-2026.jpeg"
+const eventImageMeta = "/sejour-et-activite/mémoire-d-ames/affiche-memoire-d-ames-decembre-2026.jpeg"
 const informationFormUrl = "https://forms.gle/66e1uT5Pp4n5FQYZ9"
 
 const ecolieuSlides = [
@@ -28,7 +28,7 @@ const ecolieuSlides = [
 export const metadata: Metadata = {
   title: "Mémoire d’Âmes | Stage de régression dans les vies antérieures",
   description:
-    "Mémoire d’Âmes : immersion avec Pierre Yonas du 17 au 21 décembre 2026 à Saint-Usuge en Bourgogne, avec trois jours inclus d’enseignement autour de la découverte de soi, de la mémoire de l’âme et des vies antérieures.",
+    "Mémoire d’Âmes : immersion avec Pierre Yonas du 17 au 21 décembre 2026 à Saint-Usuge en Bourgogne, avec Aurélie AVA et Cindy MARIN. Early Bird : 1 390 €, hébergement et pension complète à partir de 290 €.",
   keywords: [
     "stage régression vies antérieures",
     "mémoire de l’âme",
@@ -43,15 +43,15 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Mémoire d’Âmes — Stage de régression dans les vies antérieures",
     description:
-      "Cinq jours d’exploration de la conscience et de découverte de soi à Saint-Usuge, en Bourgogne, avec Pierre Yonas.",
+      "Cinq jours d’exploration de la conscience et de découverte de soi à Saint-Usuge, en Bourgogne, avec Pierre Yonas, Aurélie AVA et Cindy MARIN.",
     url: pagePath,
     type: "article",
-    images: [{ url: eventImageMeta, width: 1200, height: 1200, alt: "Pierre Yonas — Mémoire d’Âmes" }],
+    images: [{ url: eventImageMeta, width: 1254, height: 1254, alt: "Pierre Yonas — Mémoire d’Âmes" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Mémoire d’Âmes — Stage de régression dans les vies antérieures",
-    description: "Cinq jours d’exploration de la conscience à Saint-Usuge, avec Pierre Yonas.",
+    description: "Cinq jours d’exploration de la conscience à Saint-Usuge, avec Pierre Yonas, Aurélie AVA et Cindy MARIN.",
     images: [eventImageMeta],
   },
 }
@@ -87,7 +87,7 @@ const eventSchema = {
     },
   },
   organizer: { "@type": "Organization", name: siteConfig.name, url: siteConfig.siteUrl },
-  performer: { "@type": "Person", name: "Pierre Yonas" },
+  performer: ["Pierre Yonas", "Aurélie AVA", "Cindy MARIN"].map((name) => ({ "@type": "Person", name })),
   offers: memoireDAmesPackages.map((pkg) => ({
     "@type": "Offer",
     "@id": `${siteConfig.siteUrl}${pkg.reservationPath}#offer-${pkg.id}`,
@@ -120,7 +120,7 @@ export default function MemoireDAmesPage() {
                 className="object-contain"
               />
             </div>
-            <figcaption className="mt-2 text-xs text-muted-foreground">Crédit photo : Frank glenisson</figcaption>
+            <figcaption className="mt-2 text-xs text-muted-foreground">Crédit photo : Franck glenisson — <a href="https://www.franck-glenisson.com" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-primary">www.franck-glenisson.com</a></figcaption>
           </figure>
           <div className="space-y-6">
             <Badge className="w-fit">Événement exceptionnel AVA Bien-être</Badge>
@@ -142,7 +142,7 @@ export default function MemoireDAmesPage() {
 
         <section className="mx-auto max-w-4xl space-y-6 text-lg leading-relaxed text-muted-foreground">
           <p>
-            Avez-vous déjà ressenti une peur ou une phobie inexplicable, sans parvenir à en trouver l’origine&nbsp;? Vécu une peur viscérale de l’abandon ou du rejet, comme si cette blessure était là depuis toujours&nbsp;? Rencontré une personne et ressenti immédiatement cette sensation troublante&nbsp;: «&nbsp;Je te connais…&nbsp;», alors que vous ne l’aviez jamais vue auparavant&nbsp;?
+            Avez-vous déjà ressenti une peur ou une phobie inexplicable, sans parvenir à en trouver l’origine&nbsp;? Vécu une peur viscérale de l’abandon ou du rejet, comme si cette blessure était là depuis toujours&nbsp;? Rencontré une personne et ressenti immédiatement cette sensation troublante&nbsp;: «&nbsp;Je vous connais…&nbsp;», alors que vous ne l’aviez jamais vue auparavant&nbsp;?
           </p>
           <p>
             Vécu une relation d’une intensité démesurée, parfois passionnelle, parfois toxique, dont vous n’arrivez pourtant pas à vous détacher… comme si quelque chose vous ramenait sans cesse l’un vers l’autre&nbsp;? Peut-être avez-vous aussi découvert un lieu pour la première fois avec l’étrange sensation d’y être déjà venu…
@@ -171,7 +171,7 @@ export default function MemoireDAmesPage() {
         <section className="grid gap-6 md:grid-cols-3">
           {[
             ["17 décembre", "Accueil à partir de 18h, dîner et première soirée autour de la transe auto-induite."],
-            ["18 au 20 décembre", "Trois journées d’enseignement et d’expériences de régression avec Pierre Yonas."],
+            ["18 au 20 décembre", "Trois journées d’enseignement et d’expériences de régression avec Pierre Yonas, Aurélie AVA et Cindy MARIN."],
             ["21 décembre", "Intégration, échanges et clôture du séjour à 18h."],
           ].map(([title, description]) => (
             <Card key={title} className="h-full border-primary/20">
@@ -188,24 +188,26 @@ export default function MemoireDAmesPage() {
           <div className="text-center">
             <p className="text-sm font-semibold uppercase tracking-widest text-primary">Tarif Early Bird</p>
             <h2 className="mt-2 text-3xl font-bold text-primary">Pour les {MEMOIRE_D_AMES_EARLY_BIRD_AVAILABLE_PLACES} premiers inscrits</h2>
+            <p className="mt-4 text-xl font-semibold text-primary">Stage : {MEMOIRE_D_AMES_STAY_EARLY_BIRD_PRICE.toLocaleString("fr-FR")} € par personne, hors hébergement et repas</p>
+            <p className="mt-2 text-muted-foreground">Tarifs hébergement et repas en pension complète : à partir de {MEMOIRE_D_AMES_FULL_BOARD_PRICE} € par personne, en supplément du stage (chambre individuelle ou partagée)</p>
+            <p className="mt-3 text-sm"><a href="https://ecolieu.osaveurdelinstant.fr/programme/stages/2612-memoire-d-ames" target="_blank" rel="noopener noreferrer" className="font-medium text-primary underline underline-offset-4">Réserver votre hébergement auprès de notre partenaire Ô Saveur de l’Instant</a></p>
           </div>
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="mx-auto grid max-w-2xl gap-6">
             {memoireDAmesPackages
-              .slice()
-              .sort((a, b) => (a.type === "Chambre individuelle" ? -1 : b.type === "Chambre individuelle" ? 1 : 0))
               .map((pkg) => (
                 <Link key={pkg.id} href={`${pkg.reservationPath}#sejour-${pkg.id}`} className="group block rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
                   <Card className="h-full border-primary/20 transition-transform duration-200 group-hover:-translate-y-1 group-hover:shadow-lg">
                     <CardContent className="space-y-4 p-6">
                       <BedDouble className="h-6 w-6 text-primary" aria-hidden="true" />
                       <div>
-                        <h3 className="text-2xl font-bold text-primary">{pkg.type === "Chambre individuelle" ? "Chambre individuelle" : "Chambre duo ou couple"}</h3>
+                        <h3 className="text-2xl font-bold text-primary">Tarif du stage</h3>
                         <p className="mt-1 text-sm text-muted-foreground">{pkg.subtitle}</p>
+                        <p className="mt-2 text-sm font-medium text-primary">{pkg.availablePlaces} places disponibles sur {pkg.totalPlaces}</p>
                       </div>
-                      <div className="flex items-end gap-3">
-                        <span className="text-lg text-muted-foreground line-through">{pkg.originalPrice} €</span>
-                        <span className="text-3xl font-bold text-primary">{pkg.price} €</span>
-                        <span className="pb-1 text-sm text-muted-foreground">/ personne</span>
+                      <div className="flex flex-wrap items-end gap-3">
+                        <span className="text-lg text-muted-foreground line-through">{(MEMOIRE_D_AMES_STAY_EARLY_BIRD_PRICE + 100).toLocaleString("fr-FR")} €</span>
+                        <span className="text-3xl font-bold text-primary">{MEMOIRE_D_AMES_STAY_EARLY_BIRD_PRICE.toLocaleString("fr-FR")} €</span>
+                        <span className="pb-1 text-sm text-muted-foreground">/ personne, hors hébergement et repas</span>
                       </div>
                       <p className="inline-flex items-center gap-2 text-sm font-semibold text-primary"><Sparkles className="h-4 w-4" aria-hidden="true" />100 € de réduction</p>
                       <p className="text-sm font-medium text-primary underline underline-offset-4">Voir les disponibilités et réserver</p>
@@ -254,7 +256,7 @@ export default function MemoireDAmesPage() {
           </div>
         </section>
 
-        <section className="grid gap-6 md:grid-cols-2">
+        <section className="mx-auto grid max-w-2xl gap-6">
           <Card><CardContent className="space-y-4 p-6"><TrainFront className="h-6 w-6 text-primary" /><h2 className="text-2xl font-semibold">Venir en train</h2><p className="text-sm leading-relaxed text-muted-foreground">La gare la plus proche est celle de Louhans, située à environ 10 minutes de l’Écolieu. Une navette pourra être organisée pour les participants&nbsp;: le trajet devra être réservé en amont auprès d’AVA Bien-être. Depuis Paris, Le Creusot TGV est également une alternative intéressante (environ 1h30 depuis Paris Gare de Lyon, puis transfert jusqu’au domaine).</p></CardContent></Card>
           <Card><CardContent className="space-y-4 p-6"><Car className="h-6 w-6 text-primary" /><h2 className="text-2xl font-semibold">Venir en voiture</h2><p className="text-sm leading-relaxed text-muted-foreground">Depuis l’A6&nbsp;: sortie Chalon-sur-Saône. Depuis l’A39&nbsp;: sortie Beaurepaire-en-Bresse en venant du Nord, ou sortie Le Miroir en venant du Sud. Le domaine se situe à environ 40 minutes de Lons-le-Saunier et Chalon-sur-Saône, 1h de Mâcon et Dijon, et 1h30 de Lyon et Genève.</p></CardContent></Card>
         </section>
@@ -262,9 +264,8 @@ export default function MemoireDAmesPage() {
         <section id="reservation" className="scroll-mt-24 rounded-2xl border border-primary/30 bg-primary/5 p-6 text-center md:p-10">
           <Utensils className="mx-auto h-7 w-7 text-primary" aria-hidden="true" />
           <h2 className="mt-3 text-3xl font-bold text-primary">Réserver Mémoire d’Âmes</h2>
-          <p className="mx-auto mt-3 max-w-2xl text-muted-foreground mb-10">Choisissez votre chambre et réglez les arrhes sécurisées de 500 € par personne pour réserver votre place.</p>
+          <p className="mx-auto mt-3 max-w-2xl text-muted-foreground mb-10">Réglez les arrhes sécurisées de 500 € par personne pour réserver votre place.</p>
           <LinkButton href="/reservations/memoire-d-ames" size="lg">Voir les disponibilités et réserver</LinkButton>
-          <p className="mt-3 text-xs text-muted-foreground">Pour les couples souhaitant partager un lit double, merci de le préciser lors de votre réservation.</p>
         </section>
 
         <section id="informations" className="scroll-mt-24 rounded-2xl border border-primary/20 bg-muted/30 p-6 md:p-10">

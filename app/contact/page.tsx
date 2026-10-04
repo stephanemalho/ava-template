@@ -11,8 +11,8 @@ const contactItems = [
         icon: MapPin,
         title: "Adresse",
         type: "address",
-        content: "Trans-en-Provence",
-        secondaryLine: "Var (83), France",
+        content: "Saint-Usuge (71)",
+        secondaryLine: "Saône-et-Loire (71), France",
     },
     {
         icon: Mail,
@@ -41,10 +41,10 @@ const contactItems = [
 export const metadata: Metadata = {
     title: "Contact | Ava Bien-Être",
     description:
-        "Contactez Ava Bien-Être pour préparer votre retraite bien-être en Provence, obtenir des informations pratiques ou demander un accompagnement avant réservation.",
+        "Contactez Ava Bien-Être pour préparer votre retraite bien-être, obtenir des informations pratiques ou demander un accompagnement avant réservation.",
     keywords: [
         "contact ava bien-être",
-        "contact retraite bien-être provence",
+        "contact retraite bien-être",
         "email ava bien-être",
         "informations réservation séjour bien-être",
     ],

@@ -9,12 +9,12 @@ import { siteConfig } from "@/lib/seo-config"
 export const metadata: Metadata = {
     title: "Présentation | Ava Bien-Être",
     description:
-        "Découvrez la mission, les valeurs et l'approche d'Ava Bien-Être pour ses retraites bien-être tout inclus en Provence.",
+        "Découvrez la mission, les valeurs et l'approche d'Ava Bien-Être pour ses retraites bien-être tout inclus.",
     keywords: [
         "présentation ava bien-être",
         "mission ava bien-être",
         "valeurs retraite bien-être",
-        "approche bien-être provence",
+        "approche bien-être",
     ],
     alternates: {
         canonical: siteConfig.pages.presentation,
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Présentation | Ava Bien-Être",
         description:
-            "Une présentation de l'univers Ava Bien-Être, de sa mission et de son accompagnement humain en Provence.",
+            "Une présentation de l'univers Ava Bien-Être, de sa mission et de son accompagnement humain.",
         url: siteConfig.pages.presentation,
         type: "website",
     },
@@ -38,7 +38,7 @@ export default function PresentationPage() {
                         Ava Bien-Être
                     </h1>
                     <p className="text-base text-muted-foreground max-w-3xl mx-auto [text-shadow:0_3px_10px_rgba(0,0,0,0.22)]">
-                        Une approche authentique du bien-être au cœur de la Provence
+                        Une approche authentique du bien-être
                     </p>
                     <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
                 </div>
@@ -49,22 +49,23 @@ export default function PresentationPage() {
                         <div className="space-y-6">
                             <Badge variant="secondary" className="w-fit">
                                 <Heart className="h-4 w-4 mr-2" />
-                                Notre Mission
+                                Notre mission
                             </Badge>
-                            <h2 className="text-base md:text-xl font-bold">Reconnecter avec l&lsquo;essentiel</h2>
+                            <h2 className="text-base md:text-xl font-bold">Créer des expériences qui transforment</h2>
                             <p className="text-muted-foreground leading-relaxed">
-                                Ava Bien-Être est né de la conviction que chacun mérite de prendre du temps pour soi, de se reconnecter
-                                à ses valeurs profondes et de retrouver un équilibre authentique entre corps et esprit.
+                                AVA Bien-Être est né d’une envie : créer des espaces hors du quotidien, où l’on peut ralentir, vivre, ressentir et explorer autrement.
                             </p>
                             <p className="text-muted-foreground leading-relaxed">
-                                Nous proposons des retraites bien-être qui allient tradition provençale et approches modernes du
-                                développement personnel, dans un cadre naturel préservé.
+                                Nous imaginons des séjours immersifs autour de la connaissance de soi, de la conscience et du vivant, en réunissant des intervenants aux parcours et aux approches singulières.
+                            </p>
+                            <p className="text-muted-foreground leading-relaxed">
+                                Chaque retraite possède son propre univers, mais toutes partagent la même intention : <strong>vous permettre de vivre une expérience profonde, dans un cadre privilégié, et d’en repartir avec quelque chose qui continue de résonner bien après le séjour.</strong>
                             </p>
                         </div>
-                        <div className="relative h-64 md:h-80 rounded-lg overflow-hidden">
+                        <div className="relative aspect-[3/2] rounded-lg overflow-hidden">
                             <Image
-                                src="/ava-seance-magnatisme-pierre-yonas.jpeg"
-                                alt="Mission Ava Bien-Être"
+                                src="/ava-notre-mission-groupe.jpeg"
+                                alt="Groupe réuni dans un jardin lors d’un séjour AVA Bien-Être"
                                 fill
                                 className="object-cover"
                                 sizes="(max-width: 949px) 100vw, 50vw"
@@ -128,10 +129,10 @@ export default function PresentationPage() {
                 {/* Approach Section */}
                 <section className="mb-16">
                     <div className="grid md:grid-cols-2 gap-12 items-center">
-                        <div className="relative h-64 md:h-80 rounded-lg overflow-hidden md:order-2">
+                        <div className="relative aspect-[3/2] rounded-lg overflow-hidden md:order-2">
                             <Image
-                                src="/hebergement-exterieur-3.png"
-                                alt="Notre approche"
+                                src="/ava-notre-approche-groupe.jpeg"
+                                alt="Groupe réuni au bord de la piscine lors d’un séjour AVA Bien-Être"
                                 fill
                                 className="object-cover"
                                 sizes="(max-width: 949px) 100vw, 50vw"
@@ -142,22 +143,22 @@ export default function PresentationPage() {
                                 <Star className="h-4 w-4 mr-2" />
                                 Notre Approche
                             </Badge>
-                            <h2 className="text-base md:text-xl font-bold">Des ateliers pour vous découvrir sous un jour nouveau : </h2>
+                            <h2 className="text-base md:text-xl font-bold">Explorer votre monde intérieur, à votre rythme</h2>
                             <p className="text-muted-foreground leading-relaxed">
-                                Notre approche holistique combine différentes pratiques complémentaires : yoga, méditation, développement personnel, art-thérapie et connexion à la nature.
+                                À travers l’hypnose, le magnétisme, la médiumnité et le développement personnel, nous vous invitons à faire une pause, à écouter vos ressentis et à explorer votre monde intérieur. Chaque atelier ouvre un espace pour mieux vous connaître, porter un regard nouveau sur votre expérience et découvrir ce qui fait sens pour vous.
                             </p>
                             <div className="space-y-3">
                                 <div className="flex items-start space-x-3">
                                     <div className="w-2 h-2 bg-primary rounded-full mt-2" />
-                                    <p className="text-sm">Programmes personnalisés selon vos besoins</p>
+                                    <p className="text-sm">Des expériences guidées pour explorer, ressentir et prendre du recul</p>
                                 </div>
                                 <div className="flex items-start space-x-3">
                                     <div className="w-2 h-2 bg-primary rounded-full mt-2" />
-                                    <p className="text-sm">Encadrement par des professionnels certifiés</p>
+                                    <p className="text-sm">Un accompagnement attentif, dans le respect de votre rythme et de vos limites</p>
                                 </div>
                                 <div className="flex items-start space-x-3">
                                     <div className="w-2 h-2 bg-primary rounded-full mt-2" />
-                                    <p className="text-sm">Groupes restreints pour une qualité d’écoute et de partage </p>
+                                    <p className="text-sm">Des groupes à taille humaine pour favoriser l’écoute, la confiance et le partage</p>
                                 </div>
                             </div>
                         </div>
@@ -166,18 +167,38 @@ export default function PresentationPage() {
 
                 {/* Story Section */}
                 <section className="mb-16 bg-muted/30 -mx-4 px-4 py-16 rounded-lg">
-                    <div className="max-w-4xl mx-auto text-center space-y-6">
-                        <h2 className="text-base md:text-xl font-bold">Notre Histoire</h2>
-                        <div className="w-24 h-1 bg-primary mx-auto rounded-full mb-8" />
-                        <p className="text-muted-foreground leading-relaxed">
-                            Ava Bien-Être est né de la rencontre de plusieurs thérapeutes, et passionnées unis par la même vision : offrir un espace de ressourcement authentique et unique en France.
-                        </p>
-                        <p className="text-muted-foreground leading-relaxed">
-                            Après des années d‘expérience dans l‘accompagnement individuel, nous avons souhaité créer un lieu unique où chacun peut prendre le temps de se trouver, ou se retrouver en conscience, découvrir et développer de nouvelles capacités, expérimenter et partager, entouré d‘une équipe bienveillante et dans un cadre naturel exceptionnel.
-                        </p>
-                        <p className="text-muted-foreground leading-relaxed">
-                            Depuis notre création, nous avons accompagné des dizaines de personnes dans leur quête de bien-être, créant une communauté unie par des valeurs de partage et d‘authenticité.
-                        </p>
+                    <div className="max-w-6xl mx-auto space-y-8">
+                        <div className="text-center">
+                            <h2 className="text-base md:text-xl font-bold">Notre histoire</h2>
+                            <div className="w-24 h-1 bg-primary mx-auto rounded-full mt-6" />
+                        </div>
+                        <div className="grid gap-10 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] items-center">
+                            <Image
+                                src="/ava-notre-histoire-echange.jpeg"
+                                alt="Deux personnes échangent dans un jardin, vêtues de t-shirts AVA Bien-Être"
+                                width={1320}
+                                height={2218}
+                                className="w-full h-auto rounded-lg"
+                                sizes="(max-width: 767px) 100vw, 40vw"
+                            />
+                            <div className="space-y-6">
+                                <p className="text-muted-foreground leading-relaxed">
+                                    AVA Bien-Être est né de l’élan d’Aurélie AVA, thérapeute et fondatrice du projet, avec l’envie de créer des séjours qui sortent des cadres habituels et laissent une vraie place à l’expérience, à l’humain et à l’ouverture de conscience.
+                                </p>
+                                <p className="text-muted-foreground leading-relaxed">
+                                    Pierre Yonas rejoint très rapidement le projet AVA aux côtés d’Aurélie. Au-delà de leurs approches thérapeutiques respectives, c’est une relation fondée sur des valeurs communes qui se construit : la loyauté, la confiance et une même exigence dans l’accompagnement.
+                                </p>
+                                <p className="text-muted-foreground leading-relaxed">
+                                    Très vite, quelque chose de particulier se crée lorsqu’ils accompagnent ensemble. Leurs personnalités et leurs approches complémentaires donnent naissance à une véritable alchimie qui se révèle pleinement au cours des séjours.
+                                </p>
+                                <p className="text-muted-foreground leading-relaxed">
+                                    AVA grandit alors autour de cette dynamique, en invitant également des intervenants choisis pour leur sensibilité, leur expérience et la singularité de ce qu’ils peuvent transmettre.
+                                </p>
+                                <p className="text-muted-foreground leading-relaxed">
+                                    Chaque séjour possède son propre univers, mais conserve cette même essence : créer les conditions d’une rencontre, d’une expérience et parfois d’un véritable tournant intérieur.
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </section>
 
@@ -243,7 +264,7 @@ export default function PresentationPage() {
 
                 {/* CTA Section */}
                 <div className="text-center space-y-6">
-                    <h2 className="text-base md:text-xl font-bold">Prêt à nous rejoindre ?</h2>
+                    <h2 className="text-base md:text-xl font-bold">Souhaitez-vous nous rejoindre ?</h2>
                     <p className="text-muted-foreground max-w-2xl mx-auto">
                         Découvrez nos prochaines retraites et commencez votre voyage vers un mieux-être authentique et durable.
                     </p>

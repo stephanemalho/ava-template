@@ -12,7 +12,7 @@ import { isReservationOpen, reservationPackages } from "../_data/packages";
 import { siteConfig } from "@/lib/seo-config";
 
 const pagePath = "/reservations/memoire-d-ames";
-const eventImageMeta = "/sejour-et-activite/mémoire-d-ames/pierre-yonas-et-la-decouverte-de-soi-og.jpg";
+const eventImageMeta = "/sejour-et-activite/mémoire-d-ames/affiche-memoire-d-ames-decembre-2026.jpeg";
 const packages = reservationPackages.filter(
     (pkg) => pkg.stayId === "memoire-d-ames-decembre-2026"
 );
@@ -29,7 +29,7 @@ const offerCatalogSchema = {
         position,
         "@id": `${siteConfig.siteUrl}${pagePath}#offer-${pkg.id}`,
         name: pkg.title,
-        description: `${pkg.subtitle}, pension complète et hébergement inclus à Saint-Usuge.`,
+        description: `${pkg.features[0]} — Saint-Usuge (71).`,
         url: `${siteConfig.siteUrl}${pagePath}#sejour-${pkg.id}`,
         price: pkg.price,
         priceCurrency: "EUR",
@@ -47,20 +47,20 @@ const offerCatalogSchema = {
 export const metadata: Metadata = {
     title: "Réserver Mémoire d’Âmes | AVA Bien-Être",
     description:
-        "Réservez le séjour Mémoire d’Âmes, du 17 au 21 décembre 2026 à Saint-Usuge : chambre duo ou chambre individuelle, pension complète incluse.",
+        "Réservez le séjour Mémoire d’Âmes, du 17 au 21 décembre 2026 à Saint-Usuge : stage à 1 390 €, hébergement et pension complète à partir de 290 €.",
     alternates: { canonical: pagePath },
     openGraph: {
         title: "Réserver Mémoire d’Âmes | AVA Bien-Être",
         description:
-            "Chambre duo ou individuelle pour le séjour Mémoire d’Âmes, du 17 au 21 décembre 2026 à Saint-Usuge.",
+            "Réservez Mémoire d’Âmes à Saint-Usuge : stage à 1 390 €, pension complète à partir de 290 €, 6 places disponibles sur 15.",
         url: pagePath,
         type: "website",
-        images: [{ url: eventImageMeta, width: 1200, height: 1200, alt: "Mémoire d’Âmes — Pierre Yonas" }],
+        images: [{ url: eventImageMeta, width: 1254, height: 1254, alt: "Mémoire d’Âmes — Pierre Yonas" }],
     },
     twitter: {
         card: "summary_large_image",
         title: "Réserver Mémoire d’Âmes | AVA Bien-Être",
-        description: "Réservez votre chambre pour Mémoire d’Âmes, à Saint-Usuge.",
+        description: "Mémoire d’Âmes à Saint-Usuge : stage à 1 390 €, hébergement et pension complète à partir de 290 €.",
         images: [eventImageMeta],
     },
 };
@@ -75,14 +75,14 @@ export default function MemoireDAmesReservationsPage() {
                     <h1 className="text-3xl font-bold md:text-5xl">Réserver Mémoire d’Âmes</h1>
                     <div className="mx-auto h-1 w-24 rounded-full bg-primary" />
                     <p className="mx-auto max-w-3xl text-base text-muted-foreground">
-                        À Saint-Usuge, en Bourgogne. Pension complète et hébergement inclus.
+                        À Saint-Usuge, en Bourgogne. Stage : 1 390 € par personne, hors hébergement et repas. Hébergement en pension complète à partir de 290 € supplémentaires par personne, en chambre individuelle ou partagée.
                     </p>
                     <p className="mx-auto w-fit rounded-xl border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-medium text-primary md:rounded-full">
                         Arrhes à la réservation : {depositPerPersonEuros} € par personne. Le solde est à régler ultérieurement.
                     </p>
                 </header>
 
-                <section className="grid gap-8 lg:grid-cols-2">
+                <section className="mx-auto grid max-w-2xl gap-8">
                     {packages.map((pkg) => (
                         <Card key={pkg.id} id={`sejour-${pkg.id}`} className="scroll-mt-24 overflow-hidden border-primary/20">
                             <CardContent className="p-0">
@@ -91,20 +91,20 @@ export default function MemoireDAmesReservationsPage() {
                                         <div className="relative mx-auto aspect-square overflow-hidden rounded-md bg-muted/30">
                                             <Image src={pkg.image} alt={pkg.title} fill className="object-contain" sizes="(max-width: 1024px) 100vw, 520px" />
                                         </div>
-                                        <figcaption className="mt-2 text-xs text-muted-foreground">Crédit photo : Frank glenisson</figcaption>
+                                        <figcaption className="mt-2 text-xs text-muted-foreground">Crédit photo : Franck glenisson — <a href="https://www.franck-glenisson.com" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-primary">www.franck-glenisson.com</a></figcaption>
                                     </figure>
                                 </div>
                                 <div className="flex h-full flex-col p-6 md:p-8">
                                     <div className="space-y-6">
-                                        <Badge className={`${pkg.badgeColor} w-fit px-3 py-1 font-bold text-white`}>{pkg.badge}</Badge>
+                                        <Badge className={`${pkg.badgeColor} w-fit flex-wrap gap-2 px-3 py-1 font-bold text-white`}><span className="line-through">1490 €</span>{pkg.badge}</Badge>
                                         <div>
-                                            <h2 className="mb-2 text-2xl font-bold text-primary">{pkg.type}</h2>
+                                            <h2 className="mb-2 text-2xl font-bold text-primary">MÉMOIRES D’ÂMES</h2>
                                             <p className="text-muted-foreground">{pkg.subtitle}</p>
                                         </div>
                                         <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
                                             <span className="inline-flex items-center gap-1"><CalendarDays className="h-4 w-4" />{pkg.dateRange}</span>
                                             <span className="inline-flex items-center gap-1"><MapPin className="h-4 w-4" />{pkg.location}</span>
-                                            <span className="inline-flex items-center gap-1"><Users className="h-4 w-4" />{pkg.availablePlaces} place{pkg.availablePlaces > 1 ? "s" : ""} disponible{pkg.availablePlaces > 1 ? "s" : ""}</span>
+                                            <span className="inline-flex items-center gap-1"><Users className="h-4 w-4" />{pkg.availablePlaces} place{pkg.availablePlaces > 1 ? "s" : ""} disponible{pkg.availablePlaces > 1 ? "s" : ""} sur {pkg.totalPlaces}</span>
                                         </div>
                                         <Separator />
                                         <div className="space-y-3">
@@ -119,9 +119,8 @@ export default function MemoireDAmesReservationsPage() {
                 </section>
 
                 <section className="mt-12 rounded-2xl bg-muted/30 p-6 text-center md:p-10">
-                    <h2 className="text-2xl font-bold">Inclus dans votre séjour</h2>
+                    <h2 className="text-2xl font-bold">Déroulé de votre séjour</h2>
                     <p className="mx-auto mt-4 max-w-3xl text-sm leading-relaxed text-muted-foreground">Hébergement du 17 au 21 décembre, pension complète, programme AVA Bien-être : ateliers de présence et de conscience, transe auto-induite avec Aurélie AVA et Cindy MARIN les 17 et 21 décembre, enseignements de Pierre Yonas les 18, 19 et 20 décembre.</p>
-                    <p className="mx-auto mt-4 max-w-3xl text-sm leading-relaxed text-muted-foreground">Pour les couples souhaitant partager un lit double, merci de le préciser lors de votre réservation. L’attribution des chambres et des couchages se fait selon les disponibilités du lieu.</p>
                 </section>
 
                 <div className="mt-10 flex justify-center"><ReservationCartPill /></div>

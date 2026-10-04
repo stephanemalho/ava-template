@@ -46,3 +46,9 @@ next-env.d.ts
 # local skills tooling artifacts
 .agents/
 skills-lock.json
+
+# Local video drafts; only the active video is published
+/public/videos/*
+!/public/videos/ava-captions-stream-v4.mp4
+/public/ava-notre-histoire.jpeg
+/public/ava-teaser-poster.jpg

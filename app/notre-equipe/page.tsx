@@ -12,11 +12,11 @@ import { teamMembers } from "./team-members"
 export const metadata: Metadata = {
     title: "Notre équipe | Ava Bien-Être",
     description:
-        "Rencontrez les praticiens et intervenants d'Ava Bien-Être qui accompagnent les retraites et séjours bien-être en Provence.",
+        "Rencontrez les praticiens et intervenants d'Ava Bien-Être qui accompagnent les retraites et séjours bien-être.",
     keywords: [
         "équipe ava bien-être",
         "intervenants retraite bien-être",
-        "praticiens bien-être provence",
+        "praticiens bien-être",
         "notre équipe ava",
     ],
     alternates: {
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Notre équipe | Ava Bien-Être",
         description:
-            "Découvrez l'équipe AVA Bien-Être et les expertises qui accompagnent chaque séjour en Provence.",
+            "Découvrez l'équipe AVA Bien-Être et les expertises qui accompagnent chaque séjour.",
         url: siteConfig.pages.team,
         type: "website",
     },
@@ -39,7 +39,7 @@ export default function EquipePage() {
                 <div className="absolute inset-0">
                     <Image
                         src="/groupe-ava.jpg"
-                        alt="Image de toute l'équipe d'AVA Bien-Être prête à vous accueillir pour vos retraites bien-être en Provence"
+                        alt="Image de toute l'équipe d'AVA Bien-Être prête à vous accueillir pour vos retraites bien-être"
                         fill
                         priority
                         aria-hidden="true"
@@ -135,7 +135,7 @@ export default function EquipePage() {
 
                     {/* CTA Section */}
                     <div className="text-center mt-16 space-y-6">
-                        <h2 className="text-base md:text-xl font-bold">Prêt à nous rencontrer ?</h2>
+                        <h2 className="text-base md:text-xl font-bold">Souhaitez-vous nous rencontrer ?</h2>
                         <p className="text-muted-foreground">
                             Rejoignez-nous pour une expérience transformatrice avec notre équipe bienveillante
                         </p>

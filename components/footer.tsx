@@ -14,7 +14,7 @@ export function Footer() {
                             <span className="text-lg font-bold text-primary">Ava Bien-Être</span>
                         </div>
                         <p className="text-sm text-muted-foreground">
-                            Retraites bien-être authentiques en Provence pour se reconnecter à soi-même.
+                            Retraites bien-être authentiques pour se reconnecter à soi-même.
                         </p>
                     </div>
 
@@ -62,8 +62,8 @@ export function Footer() {
                     <div>
                         <h3 className="text-base md:text-xl font-semibold mb-4">Contact</h3>
                         <ul className="space-y-2 text-sm text-muted-foreground">
-                            <li>Trans-en-Provence</li>
-                            <li>Var, France</li>
+                            <li>Saint-Usuge (71)</li>
+                            <li>Saône-et-Loire, France</li>
                             <li>
                                 <a href="mailto:avabienetre71@gmail.com" className="hover:text-primary">
                                     avabienetre71@gmail.com

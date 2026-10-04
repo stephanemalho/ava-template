@@ -78,7 +78,7 @@ const hebergementSlides = createSlides(
     "/sejours/hebergement/hebergement-exterieur-c.jpg",
   ],
   "Mas provençal AVA Bien-être avec extérieurs et piscine",
-  "Le domaine AVA Bien-être à Trans-en-Provence"
+  "Le domaine AVA Bien-être à Trans-en-Provence (83)"
 )
 
 const interieurSlides = createSlides(
@@ -196,7 +196,7 @@ const faqItems = [
       "Ava Bien-Être est une expérience à la fois structurée et vivante, ancrée et inspirée.",
     ],
     bullets: [
-      "cadre naturel exceptionnel en Provence",
+      "cadre naturel exceptionnel",
       "accompagnement professionnel",
       "liberté individuelle",
       "profondeur humaine",
@@ -206,13 +206,13 @@ const faqItems = [
 ]
 
 export const metadata: Metadata = {
-  title: "Séjour bien-être à Trans-en-Provence | AVA Bien-Être",
+  title: "Séjour bien-être à Trans-en-Provence (83) | AVA Bien-Être",
   description:
-    "Découvrez le programme du séjour bien-être AVA à Trans-en-Provence : hébergement en mas provençal, espaces intérieurs et extérieurs, cuisine, chambres et activités.",
+    "Découvrez le programme du séjour bien-être AVA à Trans-en-Provence (83) : hébergement en mas, espaces intérieurs et extérieurs, cuisine, chambres et activités.",
   keywords: [
-    "séjour bien-être trans-en-provence",
+    "séjour bien-être dans le Var",
     "programme retraite bien-être",
-    "hébergement retraite provence",
+    "hébergement retraite",
     "activités bien-être",
   ],
   alternates: {
@@ -249,7 +249,7 @@ export default function SejoursPage() {
           <div className="relative h-64 overflow-hidden rounded-lg md:h-96">
             <Image
               src="/sejours-ava.jpg"
-              alt="Séjour AVA Bien-être à Trans-en-Provence"
+              alt="Séjour AVA Bien-être à Trans-en-Provence (83)"
               fill
               priority
               sizes="100vw"
@@ -257,7 +257,7 @@ export default function SejoursPage() {
             />
             <div className="absolute inset-0 flex items-center justify-center bg-foreground/40">
               <div className="space-y-4 text-center text-background">
-                <h1 className="text-base md:text-xl font-bold">Séjour bien-être à Trans-en-Provence</h1>
+                <h1 className="text-base md:text-xl font-bold">Séjour bien-être à Trans-en-Provence (83)</h1>
                 <div className="flex items-center justify-center space-x-4">
                   <Calendar className="h-5 w-5" />
                   <span className="text-lg">du 22 au 28 octobre 2026</span>
@@ -359,7 +359,7 @@ export default function SejoursPage() {
                   Bienvenue dans un cadre idyllique où se rencontrent confort, calme et authenticité provençale.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  Notre mas provençal, niché au cœur de la nature à Trans-en-Provence et implanté au sein d&apos;un
+                  Notre mas, niché au cœur de la nature à Trans-en-Provence (83) et implanté au sein d&apos;un
                   domaine de 4 hectares, sera votre lieu de villégiature tout au long du séjour bien-être.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
@@ -389,7 +389,7 @@ export default function SejoursPage() {
               <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-muted-foreground">
                 <div className="flex items-center gap-2">
                   <MapPin className="h-4 w-4 text-primary" />
-                  <span>Trans-en-Provence, Var</span>
+                  <span>Trans-en-Provence (83)</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Users className="h-4 w-4 text-primary" />
@@ -712,7 +712,7 @@ export default function SejoursPage() {
                         <p className="text-sm leading-relaxed text-muted-foreground">{session.description}</p>
                         <div className="flex items-center gap-2 text-sm text-muted-foreground">
                           <MapPin className="h-4 w-4 shrink-0" aria-hidden="true" />
-                          <span>Trans-en-Provence, Var</span>
+                          <span>Trans-en-Provence (83)</span>
                         </div>
                       </div>
                     </CardContent>
@@ -763,8 +763,7 @@ export default function SejoursPage() {
           <h2 className="mb-4 text-base md:text-xl font-bold">Le mas en pratique</h2>
           <div className="mx-auto mb-8 h-1 w-24 rounded-full bg-primary" />
           <p className="mx-auto max-w-5xl text-muted-foreground">
-            Notre mas provençal, situé à 6 min du village de Trans-en-Provence et à 12 min de la gare TGV Les Arcs /
-            Draguignan, dispose de 7 chambres confortables, lumineuses, équipées de literie haut de gamme,
+            Notre lieu de séjour à Trans-en-Provence (83) dispose de 7 chambres confortables, lumineuses, équipées de literie haut de gamme,
             climatisation, et salles de bain partagées ou privatives selon votre réservation. Il dispose également
             d&apos;une piscine, avec transats dédiés à la détente, salon de jardin, cuisine extérieure pour des déjeuners,
             et dîners conviviaux. Sur place vous pourrez également retrouver un sauna de 4 places, un jacuzzi, et une

@@ -14,7 +14,7 @@ export default function ErrorPage({ reset }: { reset: () => void }) {
           </div>
           <h1 className="text-base font-bold md:text-2xl">Une erreur est survenue</h1>
           <p className="text-sm text-muted-foreground">
-            Un problème inattendu est apparu. Tu peux réessayer ou revenir à l&apos;accueil.
+            Un problème inattendu est apparu. Vous pouvez réessayer ou revenir à l&apos;accueil.
           </p>
           <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Button onClick={reset}>Réessayer</Button>

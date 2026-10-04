@@ -78,7 +78,7 @@ export function ReservationPackageControls({ pkg }: ReservationPackageControlsPr
           {pkg.badge === "COMPLET" || isSoldOut
             ? "Complet"
             : isInvalidSelection
-              ? "Sélectionne au moins 1 personne"
+              ? "Sélectionnez au moins 1 personne"
             : !isValidated
               ? "Valider la sélection"
               : hasPendingChanges

@@ -8,7 +8,7 @@ import {
 import { siteConfig } from "../lib/seo-config";
 
 test("keeps the October and Mémoire d’Âmes stays in active reservation data", () => {
-    assert.equal(reservationPackages.length, 3);
+    assert.equal(reservationPackages.length, 2);
     assert.equal(reservationPackages[0]?.id, "shared-room-2");
     assert.match(reservationPackages[0]?.title ?? "", /octobre 2026/i);
     assert.equal(reservationPackages[0]?.availablePlaces, 0);
@@ -37,7 +37,7 @@ test("publishes only the active stay offer on the reservations page", () => {
     const catalog = generateStayOffersSchema();
 
     assert.equal(catalog["@type"], "OfferCatalog");
-    assert.equal(catalog.itemListElement.length, 3);
+    assert.equal(catalog.itemListElement.length, 2);
     assert.equal(catalog.itemListElement[0]?.name, reservationPackages[0]?.title);
     assert.equal(
         catalog.itemListElement[0]?.url,
@@ -50,10 +50,10 @@ test("exposes Mémoire d’Âmes prices, stock and booking validity", () => {
         (pkg) => pkg.stayId === "memoire-d-ames-decembre-2026"
     );
 
-    assert.equal(memoirePackages.length, 2);
+    assert.equal(memoirePackages.length, 1);
     assert.deepEqual(
         memoirePackages.map((pkg) => ({ price: pkg.price, places: pkg.availablePlaces })),
-        [{ price: 1820, places: 15 }, { price: 1880, places: 15 }]
+        [{ price: 1680, places: 6 }]
     );
     assert.ok(memoirePackages.every((pkg) => pkg.bookingOpensAt && pkg.bookingDeadline));
 });

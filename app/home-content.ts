@@ -37,7 +37,7 @@ export const clientInfoCards: ClientInfoCard[] = [
     {
         title: "Programme complet sur place",
         description:
-            "Découvre un séjour structuré avec ateliers bien-être, temps de repos, activités collectives et accompagnement humain.",
+            "Découvrez un séjour structuré avec ateliers bien-être, temps de repos, activités collectives et accompagnement humain.",
         href: "/sejour-a-trans-en-provence",
         cta: "Voir le programme",
         icon: "program"
@@ -45,15 +45,15 @@ export const clientInfoCards: ClientInfoCard[] = [
     {
         title: "Approche et philosophie AVA",
         description:
-            "Découvre la vision d’Ava Bien-Être, les valeurs du collectif et notre méthode d’accompagnement globale.",
+            "Découvrez la vision d’Ava Bien-Être, les valeurs du collectif et notre méthode d’accompagnement globale.",
         href: "/presentation",
         cta: "Lire la présentation",
         icon: "philosophy"
     },
     {
-        title: "L’équipe qui t’accompagne",
+        title: "L’équipe qui vous accompagne",
         description:
-            "Consulte les profils des intervenants et des fondateurs qui encadrent les retraites et les ateliers.",
+            "Consultez les profils des intervenants et des fondateurs qui encadrent les retraites et les ateliers.",
         href: "/notre-equipe",
         cta: "Rencontrer l’équipe",
         icon: "team"
@@ -61,7 +61,7 @@ export const clientInfoCards: ClientInfoCard[] = [
     {
         title: "Réservation et contact",
         description:
-            "Besoin d’un échange avant de réserver ? Contacte-nous ou accède directement à la page réservations.",
+            "Besoin d’un échange avant de réserver ? Contactez-nous ou accédez directement à la page réservations.",
         href: "/contact",
         cta: "Nous écrire",
         icon: "contact"

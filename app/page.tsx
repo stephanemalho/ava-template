@@ -4,15 +4,28 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { YoutubeClickPlayer } from "@/components/youtube-click-player"
+import { LocalVideoPlayer } from "@/components/local-video-player"
 import { clientInfoCards, founderPreviews } from "./home-content"
 import { toAnchorId } from "@/lib/anchor"
 import { CalendarDays, Compass, HeartHandshake, MapPin, MessageCircle, ShieldCheck, Sparkles, Target, Users } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Retraites et séjours bien-être tout inclus en Provence | AVA Bien-Être",
+  title: "Séjours immersifs et connaissance de soi | AVA Bien-Être",
   description:
-    "Découvrez Ava Bien-Être à Trans-en-Provence : retraites tout inclus, équipe pluridisciplinaire, séjours ressourçants et accompagnement personnalisé. Avec Pierre Yonas et Aurélie Ava.",
+    "Découvrez les séjours immersifs AVA Bien-Être avec Aurélie AVA et Pierre Yonas : connaissance de soi, hypnose, magnétisme et médiumnité dans des lieux privilégiés.",
+  openGraph: {
+    title: "Séjours immersifs et connaissance de soi | AVA Bien-Être",
+    description: "Des séjours immersifs pour ralentir, explorer et se rencontrer, avec Aurélie AVA et Pierre Yonas.",
+    url: "/",
+    type: "website",
+    images: ["/sejours-ava.jpg"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Séjours immersifs et connaissance de soi | AVA Bien-Être",
+    description: "Des séjours immersifs pour ralentir, explorer et se rencontrer, avec Aurélie AVA et Pierre Yonas.",
+    images: ["/sejours-ava.jpg"],
+  },
   alternates: {
     canonical: "/",
   },
@@ -22,7 +35,7 @@ export default function HomePage() {
   const {
     props: { srcSet: mobileHeroSrcSet },
   } = getImageProps({
-    alt: "Les fondateurs d'Ava Bien-Être en Provence",
+    alt: "Les fondateurs d'Ava Bien-Être",
     src: "/Aurelie-Pierre-2026.jpeg",
     width: 960,
     height: 1440,
@@ -31,7 +44,7 @@ export default function HomePage() {
   })
 
   const { props: desktopHeroImageProps } = getImageProps({
-    alt: "Les fondateurs d'Ava Bien-Être en Provence",
+    alt: "Les fondateurs d'Ava Bien-Être",
     src: "/Aurelie-Pierre-2026.jpeg",
     width: 1800,
     height: 1200,
@@ -44,19 +57,19 @@ export default function HomePage() {
     {
       title: "Notre mission",
       description:
-        "T’aider à te reconnecter à l’essentiel, retrouver un équilibre durable et repartir avec des outils concrets pour ton bien-être quotidien.",
+        "Créer des expériences qui transforment : des séjours immersifs autour de la connaissance de soi, de la conscience et du vivant, dans un cadre privilégié.",
       icon: Target,
     },
     {
       title: "Nos valeurs",
       description:
-        "Bienveillance, authenticité et partage guident chaque atelier, chaque échange et chaque accompagnement pendant ton séjour.",
+        "Bienveillance, authenticité et partage guident chaque atelier, chaque échange et chaque accompagnement pendant votre séjour.",
       icon: HeartHandshake,
     },
     {
       title: "Notre engagement",
       description:
-        "Te proposer des retraites tout inclus avec un encadrement qualifié, des groupes à taille humaine et un cadre naturel propice au lâcher-prise.",
+        "Vous proposer des retraites tout inclus avec un encadrement qualifié, des groupes à taille humaine et un cadre naturel propice au lâcher-prise.",
       icon: ShieldCheck,
     },
   ] as const
@@ -78,7 +91,7 @@ export default function HomePage() {
             <source media="(max-width: 767px)" srcSet={mobileHeroSrcSet} />
             <img
               {...desktopHeroImageProps}
-              alt="Équipe Ava Bien-Être en Provence"
+              alt="Équipe Ava Bien-Être"
               className="h-full w-full object-cover object-center md:object-[center_32%]"
               fetchPriority="high"
             />
@@ -92,11 +105,11 @@ export default function HomePage() {
             Ava bien-être
           </h1>
           <p className="text-base md:mb-6  md:text-md opacity-90 drop-shadow-[0_2px_10px_rgba(0,0,0,0.3)]">
-            AVA Bien-Être organise des séjours tout inclus dans des cadres exceptionnels : hébergement, repas et activités réunis pour une expérience complète et immersive. Des ateliers puissants, une ambiance conviviale, des rencontres authentiques et une énergie collective forte t’attendent. Viens vivre un séjour extraordinaire, relaxant et profondément dépaysant.
-            L’aventure commence ici.
+            Des séjours immersifs dans des lieux privilégiés, pour ralentir, explorer et se rencontrer.
+            Une parenthèse hors du quotidien, une expérience à vivre pleinement.
           </p>
           <Button asChild size="lg" className="bg-primary hover:bg-primary/80">
-            <Link href="/sejour-a-trans-en-provence">Découvre nos retraites</Link>
+            <Link href="/sejour-a-trans-en-provence">Découvrez nos retraites</Link>
           </Button>
         </div>
       </section>
@@ -107,20 +120,20 @@ export default function HomePage() {
             <figure>
               <div className="relative aspect-square overflow-hidden rounded-2xl bg-muted/30">
                 <Image
-                  src="/sejour-et-activite/mémoire-d-ames/pierre-yonas-et-la-decouverte-de-soi-1200.webp"
+                  src="/sejour-et-activite/mémoire-d-ames/affiche-memoire-d-ames-decembre-2026.jpeg"
                   alt="Pierre Yonas — stage Mémoire d’Âmes à Saint-Usuge"
                   fill
                   sizes="(max-width: 768px) 100vw, 40vw"
                   className="object-contain"
                 />
               </div>
-              <figcaption className="mt-2 text-xs text-muted-foreground">Crédit photo : Frank glenisson</figcaption>
+              <figcaption className="mt-2 text-xs text-muted-foreground">Crédit photo : Franck glenisson — <a href="https://www.franck-glenisson.com" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-primary">www.franck-glenisson.com</a></figcaption>
             </figure>
             <div className="space-y-5">
               <Badge variant="outline" className="w-fit">Nouvel événement — Bourgogne</Badge>
               <h2 className="text-3xl font-bold text-primary md:text-4xl">Mémoire d’Âmes</h2>
               <p className="text-xl font-semibold">Stage de régression dans les vies antérieures</p>
-              <p className="text-muted-foreground">Du 17 au 21 décembre 2026, Pierre Yonas vous accompagne pendant trois jours d’enseignement autour de la découverte de soi, de la mémoire de l’âme et de l’exploration des vies antérieures.</p>
+              <p className="text-muted-foreground">Du 17 au 21 décembre 2026, Pierre YONAS, Aurélie AVA et Cindy MARIN vous accompagnent pendant trois jours d’enseignement autour de la découverte de soi, de la mémoire de l’âme et de l’exploration des vies antérieures.</p>
               <div className="flex flex-wrap gap-4 text-sm text-muted-foreground"><span className="inline-flex items-center gap-2"><CalendarDays className="h-4 w-4 text-primary" />17–21 décembre 2026</span><span className="inline-flex items-center gap-2"><MapPin className="h-4 w-4 text-primary" />Saint-Usuge, Bourgogne</span></div>
               <Button asChild size="lg"><Link href="/memoire-d-ames">Découvrir l’événement</Link></Button>
             </div>
@@ -131,27 +144,21 @@ export default function HomePage() {
       <section className="py-16 bg-muted/30 my-8">
         <div className="container mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <YoutubeClickPlayer
-              className="relative w-full aspect-video overflow-hidden"
-              title="Teaser officiel AVA BIEN-ÊTRE Pierre Yonas"
-              youtubeId="QnyHeO6l4F4"
-              thumbnailSrc="/minia-youtube.png"
-              thumbnailAlt="Lancer la vidéo teaser AVA Bien-Être"
-            />
+            <LocalVideoPlayer />
 
             <div className="space-y-6">
               <Badge variant="outline" className="w-fit">
                 Lâcher-prise - reconnexion à soi
               </Badge>
               <h2 className="text-base md:text-xl font-bold">
-                Besoin de te ressourcer ?
+                Une parenthèse pour revenir à l’essentiel
               </h2>
               <p className="text-muted-foreground">
-                Ici, tout est pensé pour t’aider à ralentir, te reconnecter à ton essentiel et vivre un séjour profondément apaisant et inspirant.
+                Dans des lieux choisis pour leur beauté et leur sérénité, nos séjours vous invitent à ralentir, à explorer votre monde intérieur et à vous ouvrir à de nouvelles perspectives.
               </p>
               <div className="space-y-2 mt-6">
                 <p className="text-muted-foreground">
-                  Plus qu’un simple séjour, c’est une expérience humaine qui peut transformer ton regard sur la vie.
+                  Des rencontres, des expériences et du temps pour soi : une invitation à repartir avec un regard renouvelé sur votre histoire et vos aspirations.
                 </p>
               </div>
               <div className="flex flex-wrap justify-center gap-3 md:justify-start">
@@ -174,10 +181,9 @@ export default function HomePage() {
             <Badge variant="outline" className="w-fit mx-auto">
               Qui sommes-nous ?
             </Badge>
-            <h2 className="text-base md:text-xl font-bold">Une présentation rapide d&apos;Ava Bien-Être</h2>
+            <h2 className="text-base md:text-xl font-bold">L’esprit AVA Bien-Être</h2>
             <p className="mx-auto max-w-3xl text-muted-foreground">
-              Ava Bien-Être t&apos;accompagne dans une parenthèse de ressourcement en Provence, avec une
-              approche humaine, professionnelle et authentique.
+              Des séjours imaginés avec attention, des rencontres choisies et une approche humaine pour explorer ce qui vous anime.
             </p>
           </div>
 
@@ -210,11 +216,11 @@ export default function HomePage() {
         <div className="container mx-auto space-y-10">
           <div className="text-center space-y-4">
             <h2 className="text-base md:text-xl font-bold">
-              Informations essentielles pour ton séjour
+              Informations essentielles pour votre séjour
             </h2>
             <p className="mx-auto max-w-3xl text-muted-foreground">
-              Avant de réserver, consulte les informations utiles sur le programme, les intervenants, le lieu à
-              Trans-en-Provence et les modalités de contact.
+              Avant de réserver, consultez les informations utiles sur le programme, les intervenants, le lieu à
+              Saint-Usuge (71) et les modalités de contact.
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-2">

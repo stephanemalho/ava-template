@@ -130,8 +130,8 @@ gtag('config', '${GA_ID}');`
               <div className="space-y-1">
                 <p className="text-sm font-semibold text-foreground md:text-base">Gestion des cookies</p>
                 <p className="text-sm text-muted-foreground">
-                  Nous utilisons uniquement des cookies analytiques, activés après ton consentement, pour mesurer l&apos;audience et améliorer ton expérience.
-                  Tu peux accepter ou refuser, puis modifier ce choix à tout moment.
+                  Nous utilisons uniquement des cookies analytiques, activés après votre consentement, pour mesurer l&apos;audience et améliorer votre expérience.
+                  Vous pouvez accepter ou refuser, puis modifier ce choix à tout moment.
                 </p>
                 <p className="text-xs text-muted-foreground">
                   <Link href="/politique-de-confidentialite" className="underline underline-offset-4 hover:text-primary">

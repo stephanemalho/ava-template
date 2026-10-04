@@ -78,7 +78,7 @@ const enterpriseOffer = {
     subtitle: "Cohésion d'équipe, QVCT et séminaire bien-être à la carte",
     image: "/sejours-ava.jpg",
     badge: "ENTREPRISES",
-    location: "Trans-en-Provence (ou lieu à définir)",
+    location: "Trans-en-Provence (83) (ou lieu à définir)",
     type: "Format B2B",
     features: [
         "Programme construit selon vos objectifs RH : cohésion, prévention du stress, reconnexion d'équipe",
@@ -91,10 +91,10 @@ const enterpriseOffer = {
 export const metadata: Metadata = {
     title: "Réservations | Ava Bien-Être",
     description:
-        "Réserve ton séjour bien-être AVA en Provence. Arrhes de 500 EUR, disponibilités en temps réel et offre entreprise sur devis.",
+        "Réservez votre séjour bien-être AVA. Arrhes de 500 EUR, disponibilités en temps réel et offre entreprise sur devis.",
     keywords: [
         "réservation retraite bien-être",
-        "prix séjour bien-être provence",
+        "prix séjour bien-être",
         "arrhes 500 euros retraite",
         "offre entreprise qvct",
     ],
@@ -197,7 +197,7 @@ async function resolvePaymentMessage(
 
 export default async function ReservationsPage({ searchParams }: ReservationsPageProps) {
     const resolvedSearchParams = searchParams ? await searchParams : undefined
-    const stayOffersSchema = generateStayOffersSchema()
+    const stayOffersSchema = generateStayOffersSchema(transEnProvencePackages)
     const faqSchema = {
         "@context": "https://schema.org",
         "@type": "FAQPage",
@@ -230,7 +230,7 @@ export default async function ReservationsPage({ searchParams }: ReservationsPag
                     <PaymentConfirmationDialog message={paymentMessage} />
                 ) : null}
                 <header className="mb-16 space-y-6 text-center">
-                    <h1 className="text-base font-bold md:text-5xl">Réservez votre séjour à Trans-en-Provence</h1>
+                    <h1 className="text-base font-bold md:text-5xl">Réservez votre séjour à Trans-en-Provence (83)</h1>
                     <div className="mx-auto h-1 w-24 rounded-full bg-primary" />
                     <p className="mx-auto max-w-3xl text-base text-muted-foreground">
                         Choisissez la formule qui vous correspond le mieux pour votre retraite bien-être

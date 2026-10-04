@@ -74,6 +74,7 @@ export function generateOrganizationSchema() {
         name: siteConfig.name,
         url: siteConfig.siteUrl,
         image: `${siteConfig.siteUrl}${siteConfig.ogImage}`,
+        logo: `${siteConfig.siteUrl}${siteConfig.logo}`,
         description: siteConfig.description,
         email: siteConfig.contact.email,
         telephone: siteConfig.contact.telephone,
@@ -108,8 +109,8 @@ export function generateWebsiteSchema() {
     };
 }
 
-export function generateStayOffersSchema() {
-    const offers = reservationPackages.map((pkg) => ({
+export function generateStayOffersSchema(packages: ReservationPackage[] = reservationPackages) {
+    const offers = packages.map((pkg) => ({
         "@type": "Offer",
         "@id": `${siteConfig.siteUrl}${pkg.reservationPath}#offer-${pkg.id}`,
         name: pkg.title,
@@ -146,7 +147,7 @@ export function generateStayEventsSchema() {
         url: `${siteConfig.siteUrl}${siteConfig.pages.sejours}`,
         image: [`${siteConfig.siteUrl}${pkg.image}`],
         startDate: `${pkg.startDate}T16:00:00+02:00`,
-        endDate: `${pkg.endDate}T11:00:00+02:00`,
+        endDate: `${pkg.endDate}T11:00:00+01:00`,
         eventStatus: "https://schema.org/EventScheduled",
         eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
         inLanguage: "fr-FR",
