@@ -272,6 +272,7 @@ export default function HomePage() {
                       />
                     </div>
                     <h3 className="text-base font-semibold">{founder.name === "Pierre Yonas" ? "Pierre" : founder.name}</h3>
+                    <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{founder.description}</p>
                   </CardContent>
                 </Card>
               </Link>
