@@ -1,11 +1,12 @@
 import Link from "next/link"
-import { Leaf, Instagram } from "lucide-react"
+import { Leaf } from "lucide-react"
+import { SocialLinks } from "@/components/social-links"
 
 export function Footer() {
     return (
         <footer className="bg-muted/50 border-t">
             <div className="container mx-auto px-4 py-12">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-x-32">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-x-32">
                     <div className="space-y-4">
                         <div className="flex items-center space-x-2">
                             <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary">
@@ -72,24 +73,13 @@ export function Footer() {
                         </ul>
                     </div>
 
-                    <div>
-                        <h3 className="text-base md:text-xl font-semibold mb-4">Suivez-nous</h3>
-                        <a
-                            href="https://www.instagram.com/ava.bienetre/"
-                            target="_blank"
-                            rel="noreferrer"
-                            aria-label="Instagram Ava Bien-Être"
-                            className="inline-flex"
-                        >
-                            <Instagram className="h-5 w-5 text-muted-foreground hover:text-primary cursor-pointer" />
-                        </a>
-                    </div>
                 </div>
 
                 <div className="border-t mt-8 pt-8 text-center text-sm text-muted-foreground">
                     <p>&copy; 2026 Ava Bien-Être. Tous droits réservés.</p>
                 </div>
             </div>
+            <SocialLinks />
         </footer>
     )
 }
