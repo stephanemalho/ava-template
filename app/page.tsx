@@ -276,7 +276,7 @@ export default function HomePage() {
                         : "Hypnose · Magnétisme · Voyages sonores"}
                     </p>
                     <div className="mt-auto pt-5">
-                      <Button asChild variant="outline" size="sm">
+                      <Button asChild size="sm" className="bg-[#4d6c4d] text-white hover:bg-[#3d573d]">
                         <Link href={`/notre-equipe#${toAnchorId(founder.name)}`} aria-label={`Découvrir la présentation de ${founder.name}`}>
                           {founder.name === "Pierre Yonas" ? "Découvrir Pierre" : "Découvrir Aurélie"}
                         </Link>
