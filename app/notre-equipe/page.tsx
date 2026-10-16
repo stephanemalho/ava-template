@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { LinkButton } from "@/components/link-button"
 import { toAnchorId } from "@/lib/anchor"
 import { siteConfig } from "@/lib/seo-config"
-import { teamMembers } from "./team-members"
+import { coreTeamMembers, guestSpeakers } from "./team-members"
 
 export const metadata: Metadata = {
     title: "Notre équipe | Ava Bien-Être",
@@ -72,16 +72,22 @@ export default function EquipePage() {
 
             <section className="py-16">
                 <div className="container mx-auto">
-                    <div className="text-center space-y-6 mb-16">
-                        <h2 className="text-base md:text-xl font-bold">Notre Équipe</h2>
+                    <div className="text-center space-y-4 mb-16">
+                        <h2 className="text-base md:text-xl font-bold">Les visages d’AVA Bien-Être</h2>
                         <p className="text-base text-muted-foreground max-w-3xl mx-auto">
-                            Aux côtés de personnalités inspirantes telles que Pierre Yonas et Laila Del Monte, notre équipe vous accompagne tout au long de votre séjour avec des approches complémentaires, au service de votre transformation intérieure.
+                            Des parcours singuliers et des approches complémentaires, réunis autour d’une même intention : vous accueillir avec attention et vous accompagner au fil de votre séjour.
                         </p>
                     </div>
-
-                    {/* Team Grid */}
-                    <div className="grid gap-8">
-                        {teamMembers.map((member, index) => (
+                    {[
+                        { title: null, members: coreTeamMembers },
+                        { title: "Nos intervenants", members: guestSpeakers },
+                    ].map((group) => (
+                    <div key={group.title ?? "equipe"} className="mb-16">
+                        {group.title && (
+                            <h2 className="text-center text-base md:text-xl font-bold mb-12">{group.title}</h2>
+                        )}
+                        <div className="grid gap-8">
+                        {group.members.map((member, index) => (
                             <Card key={member.name} id={toAnchorId(member.name)} className="overflow-hidden scroll-mt-24 max-w-5xl mx-auto">
                                 <CardContent className="p-0">
                                     <div className={`grid gap-0 md:grid-cols-2 ${index % 2 === 1 ? "md:grid-flow-col-dense" : ""}`}>
@@ -102,7 +108,7 @@ export default function EquipePage() {
                                                     <h3 className="text-base md:text-xl font-bold">{member.name}</h3>
                                                     <p className="text-primary font-medium">{member.role}</p>
                                                 </div>
-                                                <p className="text-muted-foreground leading-relaxed">{member.description}</p>
+                                                <p className="text-muted-foreground leading-relaxed whitespace-pre-line">{member.description.trim()}</p>
                                                 <div className="flex flex-wrap gap-2">
                                                     {member.specialties.map((specialty, idx) => (
                                                         <Badge key={`${member.name}-${idx}`} variant="secondary">
@@ -131,7 +137,9 @@ export default function EquipePage() {
                                 </CardContent>
                             </Card>
                         ))}
+                        </div>
                     </div>
+                    ))}
 
                     {/* CTA Section */}
                     <div className="text-center mt-16 space-y-6">

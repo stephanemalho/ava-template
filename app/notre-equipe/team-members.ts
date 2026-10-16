@@ -10,24 +10,31 @@ export type TeamMember = {
 export const teamMembers: TeamMember[] = [
     {
         name: "Pierre Yonas",
-        role: "Médium, magnétiseur, auteur, conférencier et formateur",
+        role: "Auteur, médium, magnétiseur, conférencier et formateur",
         image: "/Pierre_Yonas-profil.jpg",
-        linkedinUrl: "https://www.instagram.com/pierre_yonas_/",
+        linkedinUrl: "https://www.instagram.com/pierre_yonas",
         description: `
-Médium, magnétiseur, auteur, conférencier et formateur, Pierre Yonas partage depuis une quarantaine d’années son expérience de la médiumnité et du magnétisme. Sa démarche met l’accent sur la transmission, le discernement et la prévention des pratiques abusives.
+Sur sa peau est ancré le mot « honneur » en japonais. Une valeur qui résume la manière dont Pierre Yonas envisage son parcours, ses engagements et la transmission de son expérience.
 
-Auteur de plusieurs ouvrages, dont *Le Défroisseur d’âmes* et *De la Terre au Ciel*, paru en octobre 2025, il aborde dans ses écrits son parcours et les questions liées à la spiritualité et à la connaissance de soi.
+Médium depuis l’enfance et magnétiseur depuis près d’un demi-siècle, Pierre Yonas consacre sa vie à l’accompagnement, à la compréhension du monde invisible et à la transmission d’une pratique fondée sur l’éthique, le discernement et le respect de l’humain.
 
-Aux côtés d’Aurélie AVA, Pierre participe à l’aventure AVA Bien-Être et à la création de séjours immersifs. Leurs approches complémentaires ouvrent un espace d’échange et d’exploration, dans le respect du rythme et de la sensibilité de chacun.
+Auteur de plusieurs ouvrages, il a notamment publié Le Soigneur d’âmes aux éditions J’ai lu, ainsi que De la Terre au Ciel – Guérir du passé et révéler sa force pour atteindre la lumière, paru en octobre 2025 chez Mama Éditions. Dans ce récit autobiographique, qui rencontre un succès croissant auprès du public, Pierre revient sur un parcours de vie marqué par l’abandon, les épreuves, la résilience et la capacité à transformer ses blessures en force.
 
-Au sein des séjours AVA Bien-Être, il partage son expérience à travers des échanges, des conférences et des ateliers consacrés à la connaissance de soi, à l’intuition et à la médiumnité.
+À travers ses conférences, ses formations et ses interventions publiques, Pierre Yonas souhaite démystifier la médiumnité et le magnétisme, les rendre plus accessibles et transmettre des repères clairs face à la multiplication des discours et des pratiques diffusés sur internet et les réseaux sociaux.
 
-À travers ses interventions, il invite les participants à explorer leurs ressentis et à développer leur discernement. Son humour et sa présence contribuent à la dimension humaine et conviviale des rencontres proposées par AVA.
+Son approche, à la fois rationnelle, structurée et profondément humaine, invite chacun à développer son discernement : mieux comprendre ses ressentis, différencier une pratique sérieuse d’une pratique potentiellement dangereuse et ne jamais confondre accompagnement spirituel ou énergétique avec prise en charge médicale.
+
+Pierre est convaincu que chacun possède une forme de sensibilité et des capacités intuitives qui peuvent être explorées avec sérieux, prudence et responsabilité. Sa devise résume parfaitement son état d’esprit :
+
+« Ne pas se prendre au sérieux, mais faire les choses sérieusement. »
+
+Au sein des séjours AVA Bien-Être, Pierre Yonas anime des ateliers pratiques autour du magnétisme, de la médiumnité et sur la régression de vies antérieures.
+
+Son humour, sa générosité, sa franchise et son authenticité contribuent à faire de chacune de ses interventions une expérience forte, accessible et profondément humaine.
   `,
         specialties: [
             "Médiumnité",
             "Magnétisme",
-            "Guérison spirituelle",
             "Transmission et pédagogie",
             "Conférences et ateliers"
         ]
@@ -62,11 +69,11 @@ Mon intention est de vous offrir un cadre attentif pour explorer vos capacités,
     },
     {
         name: "Émilie",
-        role: "Healthy food, aromathérapie, ateliers de fabrication de produits naturels.",
+        role: "Ateliers de produits naturels, aromathérapie et cuisine bien-être",
         image: "/Emilie-presentation-2026.jpeg",
         linkedinUrl: "",
         description:
-            "Émilie est la cheffe cuisinière d’AVA Bien-Être. Après plus de vingt ans d’expérience dans le domaine de la restauration, elle a choisi de donner un nouveau sens à son parcours en se consacrant pleinement au bien-être. Lors des retraites, elle prépare avec passion des repas et collations healthy, pensés pour nourrir le corps tout en éveillant les sens, et vous faire découvrir le bien-être jusque dans l’assiette. En dehors de la cuisine, Émilie anime des ateliers d’aromathérapie et de fabrication de produits naturels à base d’huiles essentielles, afin de transmettre des pratiques simples, utiles et applicables au quotidien. Elle est heureuse de partager cette aventure humaine aux côtés d’Aurélie et de Pierre, et se réjouit de vous rencontrer lors de nos séjours.",
+            "Émilie vous invite à découvrir le plaisir de créer vos propres produits naturels à travers des ateliers pratiques et sensoriels. Autour de l’aromathérapie et des huiles essentielles, elle partage des savoir-faire et des gestes simples à intégrer dans votre quotidien. Forte de plus de vingt ans d’expérience dans la restauration, elle met également ses talents de cheffe au service de certaines retraites, en préparant des repas et des collations qui allient gourmandise et bien-être. Heureuse de prendre part à l’aventure AVA Bien-Être, elle se réjouit de vous retrouver pour des moments de création, de découverte et de partage.",
         specialties: [
             "Cuisine bien-être",
             "Nutrition saine",
@@ -144,7 +151,7 @@ Mon intention est de vous offrir un cadre attentif pour explorer vos capacités,
     },
     {
         name: "Laila Delmonte",
-        role: "Spécialiste de la communication animale",
+        role: "Intervenante exceptionnelle — Spécialiste de la communication animale",
         image: "/Laila-Delmonte.jpeg",
         linkedinUrl: "https://www.instagram.com/lailadelmonte/",
         description:
@@ -152,3 +159,8 @@ Mon intention est de vous offrir un cadre attentif pour explorer vos capacités,
         specialties: ["Coordination", "Accueil", "Suivi personnalisé"]
     }
 ];
+
+const guestNames = new Set(["Émilie", "Patricia", "Johan", "Laila Delmonte"]);
+
+export const coreTeamMembers = teamMembers.filter((member) => !guestNames.has(member.name));
+export const guestSpeakers = teamMembers.filter((member) => guestNames.has(member.name));
