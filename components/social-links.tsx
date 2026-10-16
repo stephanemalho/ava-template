@@ -3,12 +3,12 @@
 import { Instagram, Youtube } from "lucide-react"
 import { siteConfig } from "@/lib/seo-config"
 
-const iconClassName = "h-[18px] w-[18px]"
-const itemClassName = "inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-md text-foreground/65 transition-colors hover:bg-muted/70 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+const iconClassName = "h-4 w-4"
+const itemClassName = "inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-primary/10 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
 
 export function SocialLinks() {
     return (
-        <div className="fixed bottom-4 right-4 z-40 flex items-center gap-0.5 rounded-xl border border-border/60 bg-background/90 p-1 shadow-sm backdrop-blur-sm" aria-label="Réseaux sociaux">
+        <div className="fixed bottom-4 right-4 z-40 flex items-center gap-1 rounded-full border border-border bg-background/95 p-1.5 shadow-lg backdrop-blur-sm" aria-label="Réseaux sociaux">
             <a href="https://www.facebook.com/share/1JvHSZgg1k/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className={itemClassName} aria-label="Facebook Ava Bien-Être (nouvel onglet)" title="Facebook">
                 <svg viewBox="0 0 24 24" fill="currentColor" className={iconClassName} aria-hidden="true">
                     <path d="M13.5 22v-9h3l.5-3.5h-3.5V7.25c0-1 .3-1.75 1.75-1.75H17V2.35A23 23 0 0 0 14.45 2C11.9 2 10 3.55 10 6.4v3.1H7V13h3v9h3.5Z" />
