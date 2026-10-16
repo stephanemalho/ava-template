@@ -4,7 +4,7 @@ import {
 } from "@/lib/reservation-pricing";
 
 // Valeurs à mettre à jour au fil des réservations Mémoire d’Âmes.
-export const MEMOIRE_D_AMES_AVAILABLE_PLACES = 6;
+export const MEMOIRE_D_AMES_AVAILABLE_PLACES = 5;
 // Tarif Early Bird : à mettre à 0 une fois les 8 premières réservations effectuées.
 export const MEMOIRE_D_AMES_EARLY_BIRD_AVAILABLE_PLACES = 8;
 export const MEMOIRE_D_AMES_STAY_EARLY_BIRD_PRICE = 1390;

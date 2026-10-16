@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Réserver Mémoire d’Âmes | AVA Bien-Être",
         description:
-            "Réservez Mémoire d’Âmes à Saint-Usuge : stage à 1 390 €, pension complète à partir de 290 €, 6 places disponibles sur 15.",
+            "Réservez Mémoire d’Âmes à Saint-Usuge : stage à 1 390 €, pension complète à partir de 290 €, 5 places disponibles sur 15.",
         url: pagePath,
         type: "website",
         images: [{ url: eventImageMeta, width: 1254, height: 1254, alt: "Mémoire d’Âmes — Pierre Yonas" }],
