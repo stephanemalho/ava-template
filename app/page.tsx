@@ -253,15 +253,13 @@ export default function HomePage() {
             <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
           </div>
 
-          <div className="mx-auto grid max-w-lg grid-cols-2 gap-4 sm:gap-6">
+          <div className="mx-auto grid max-w-2xl grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6">
             {founderPreviews.map((founder) => (
-              <Link
+              <Card
                 key={founder.name}
-                href={`/notre-equipe#${toAnchorId(founder.name)}`}
-                className="group block h-full"
+                className="h-full text-center"
               >
-                <Card className="h-full text-center transition-colors group-hover:border-primary/50">
-                  <CardContent className="p-4 sm:p-6">
+                  <CardContent className="flex h-full flex-col items-center p-4 sm:p-6">
                     <div className="relative w-24 h-24 mx-auto mb-4 overflow-hidden rounded-full">
                       <Image
                         src={founder.image || "/placeholder.svg"}
@@ -273,9 +271,15 @@ export default function HomePage() {
                     </div>
                     <h3 className="text-base font-semibold">{founder.name === "Pierre Yonas" ? "Pierre" : founder.name}</h3>
                     <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{founder.description}</p>
+                    <div className="mt-auto pt-5">
+                      <Button asChild variant="outline" size="sm">
+                        <Link href={`/notre-equipe#${toAnchorId(founder.name)}`} aria-label={`Découvrir la présentation de ${founder.name}`}>
+                          Découvrir ma présentation
+                        </Link>
+                      </Button>
+                    </div>
                   </CardContent>
-                </Card>
-              </Link>
+              </Card>
             ))}
           </div>
         </div>

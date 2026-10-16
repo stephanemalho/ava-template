@@ -17,13 +17,13 @@ export const founderPreviews: FounderPreview[] = [
         name: "Aurélie",
         image: "/Aurelie-2.jpg",
         description:
-            "Aurélie accompagne les processus de transformation intérieure à travers l’hypnose, le magnétisme et une approche profondément holistique."
+            "Fondatrice d’AVA Bien-Être, hypnothérapeute et magnétiseuse, Aurélie anime des ateliers d’hypnose, de méditation et d’exploration de la conscience. Elle vous accompagne avec écoute et bienveillance pour renouer avec vos ressources, dans le respect de votre rythme."
     },
     {
         name: "Pierre Yonas",
         image: "/Pierre_Yonas-profil-2.jpg",
         description:
-            "Pierre Yonas anime des accompagnements autour du développement personnel, de la conscience de soi et de l’intuition."
+            "Médium depuis l’enfance et auteur de plusieurs ouvrages, Pierre pratique le magnétisme depuis près d’un demi-siècle et transmet son expérience à travers des conférences et des ateliers. Son approche allie éthique, discernement et humour pour explorer la médiumnité et le magnétisme avec sérieux et humanité."
     }
 ];
 
