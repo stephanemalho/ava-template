@@ -54,8 +54,8 @@ export const reservationPackages: ReservationPackage[] = [
         price: 1800,
         depositPerPersonEuros: STRIPE_ACOMPTE_PER_PERSON_EUR,
         image: "/sejours/espaces-exterieurs/evenement-ava-bien-etre-octobre-2026.jpg",
-        badge: "RÉSERVATIONS TERMINÉES",
-        badgeColor: "bg-muted-foreground",
+        badge: "1 PLACE DISPONIBLE",
+        badgeColor: "bg-primary",
         features: [
             "Séjour en pension complète du jeudi 22 au mercredi 28 octobre 2026",
             "Hébergement, repas, collations, intervenants, animations, ateliers inclus",
@@ -64,7 +64,7 @@ export const reservationPackages: ReservationPackage[] = [
         location: "Trans-en-Provence (83)",
         type: "Chambre Partagée",
         totalPlaces: 11,
-        availablePlaces: 0
+        availablePlaces: 1
     },
     {
         id: "memoire-d-ames-duo",
