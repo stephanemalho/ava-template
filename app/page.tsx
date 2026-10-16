@@ -272,7 +272,7 @@ export default function HomePage() {
                     <h3 className="text-base font-semibold">{founder.name === "Pierre Yonas" ? "Pierre YONAS" : "Aurélie AVA"}</h3>
                     <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
                       {founder.name === "Pierre Yonas"
-                        ? "Magnétisme · Médiumnité · Conférencier · Auteur"
+                        ? "Magnétisme · Médiumnité · Conférencier"
                         : "Hypnose · Magnétisme · Voyages sonores"}
                     </p>
                     <div className="mt-auto pt-5">
