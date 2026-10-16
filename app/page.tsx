@@ -269,12 +269,11 @@ export default function HomePage() {
                         sizes="96px"
                       />
                     </div>
-                    <h3 className="text-base font-semibold">{founder.name === "Pierre Yonas" ? "Pierre" : founder.name}</h3>
-                    <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{founder.description}</p>
+                    <h3 className="text-base font-semibold">{founder.name === "Pierre Yonas" ? "Pierre YONAS" : "Aurélie AVA"}</h3>
                     <div className="mt-auto pt-5">
                       <Button asChild variant="outline" size="sm">
                         <Link href={`/notre-equipe#${toAnchorId(founder.name)}`} aria-label={`Découvrir la présentation de ${founder.name}`}>
-                          Découvrir ma présentation
+                          {founder.name === "Pierre Yonas" ? "Découvrir Pierre" : "Découvrir Aurélie"}
                         </Link>
                       </Button>
                     </div>
