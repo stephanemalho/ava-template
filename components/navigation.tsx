@@ -35,7 +35,7 @@ export function Navigation() {
                             src="/logo-ava-bien-etre-nouveau.png"
                             alt="Logo AVA Bien-Être"
                             fill
-                            className="object-contain"
+                            className="object-contain invert"
                             priority
                             sizes="40px"
                         />
