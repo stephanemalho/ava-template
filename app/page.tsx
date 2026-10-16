@@ -253,7 +253,7 @@ export default function HomePage() {
             <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="mx-auto grid max-w-lg grid-cols-2 gap-4 sm:gap-6">
             {founderPreviews.map((founder) => (
               <Link
                 key={founder.name}
@@ -261,18 +261,17 @@ export default function HomePage() {
                 className="group block h-full"
               >
                 <Card className="h-full text-center transition-colors group-hover:border-primary/50">
-                  <CardContent className="p-6">
-                    <div className="relative w-32 h-32 mx-auto mb-4">
+                  <CardContent className="p-4 sm:p-6">
+                    <div className="relative w-24 h-24 mx-auto mb-4 overflow-hidden rounded-full">
                       <Image
                         src={founder.image || "/placeholder.svg"}
                         alt={founder.name}
                         fill
-                        className="rounded-full object-cover"
-                        sizes="128px"
+                        className="rounded-full object-cover object-top"
+                        sizes="96px"
                       />
                     </div>
-                    <h3 className="text-base md:text-xl font-semibold mb-2">{founder.name}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{founder.description}</p>
+                    <h3 className="text-base font-semibold">{founder.name === "Pierre Yonas" ? "Pierre" : founder.name}</h3>
                   </CardContent>
                 </Card>
               </Link>

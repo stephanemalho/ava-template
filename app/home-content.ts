@@ -20,12 +20,6 @@ export const founderPreviews: FounderPreview[] = [
             "Aurélie accompagne les processus de transformation intérieure à travers l’hypnose, le magnétisme et une approche profondément holistique."
     },
     {
-        name: "Émilie",
-        image: "/Emilie-2026.png",
-        description:
-            "Cheffe cuisinière d’AVA Bien-Être, Émilie propose une cuisine healthy et sensorielle, et anime des ateliers d’aromathérapie et de fabrication de produits naturels."
-    },
-    {
         name: "Pierre Yonas",
         image: "/Pierre_Yonas-profil-2.jpg",
         description:
