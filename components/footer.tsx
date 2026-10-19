@@ -34,7 +34,7 @@ export function Footer() {
                             </li>
                             <li>
                                 <Link href="/notre-equipe" className="text-muted-foreground hover:text-primary">
-                                    Notre Équipe
+                                    Notre équipe & intervenants
                                 </Link>
                             </li>
                             <li>
