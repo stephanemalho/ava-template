@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { LinkButton } from "@/components/link-button"
 import { toAnchorId } from "@/lib/anchor"
 import { siteConfig } from "@/lib/seo-config"
-import { coreTeamMembers, guestSpeakers } from "./team-members"
+import { coreTeamMembers, guestSpeakers, exceptionalSpeakers } from "./team-members"
 
 export const metadata: Metadata = {
     title: "Notre équipe | Ava Bien-Être",
@@ -49,6 +49,15 @@ const memberGroups = [
         members: guestSpeakers,
         accent: "border-l-primary",
         badge: "border-primary/30 bg-primary/10 text-foreground",
+    },
+    {
+        id: "invitations-exceptionnelles",
+        title: "Nos invitations exceptionnelles",
+        label: "Invitée exceptionnelle",
+        description: "Laïla Del Monte nous rejoint ponctuellement, lors de certaines retraites seulement. Sa présence et le contenu de ses interventions sont précisés dans les séjours concernés.",
+        members: exceptionalSpeakers,
+        accent: "border-l-[#927045]",
+        badge: "border-[#927045]/30 bg-[#927045]/10 text-[#765731] dark:text-[#e1c49f]",
     },
 ]
 
