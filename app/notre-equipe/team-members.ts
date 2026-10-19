@@ -132,7 +132,7 @@ Mon intention est de vous offrir un cadre attentif pour explorer vos capacités,
         linkedinUrl: "",
         description:
             "L'art thérapie, comme son nom l'indique est une démarche d'accompagnement thérapeutique par la création, ou l'expression artistique. Libérez les tensions, focalisez sur l'instant présent… laissez votre corps s'exprimer à travers votre propre rythme : des mouvements lents, ou rapides. Laissez-vous guider par la voix de patricia, par la musique… créez votre bulle de bien être ! ces ateliers sont une invitation au lâcher prise ! L'art thérapie s'adresse à tous sans distinction d'âge et sans prérequis.",
-        specialties: ["Massages", "Relaxation", "Énergétique"]
+        specialties: ["Art-thérapie", "Danse africaine", "Expression corporelle", "Lâcher-prise"]
     },
     {
         name: "Johan",
@@ -156,11 +156,15 @@ Mon intention est de vous offrir un cadre attentif pour explorer vos capacités,
         linkedinUrl: "https://www.instagram.com/lailadelmonte/",
         description:
             "Laïla Del Monte est une professionnelle et spécialiste de la communication animale : elle a suivi ses études secondaires et universitaires à Paris, jusqu'au niveau d'une Maîtrise en Religions comparées à la Sorbonne. Elle se consacre essentiellement à la communication animale, dont elle est l'une des pionnières en Europe. Elle enseigne son savoir dans plusieurs pays du monde. De nombreux vétérinaires font appel à Laïla Del Monte, mais aussi des éleveurs, des entraîneurs de chevaux, des cavaliers de haut niveau, des comportementalismes, des parcs animaliers, dentistes équins, dresseurs, ostéopathes, éducateurs canin, S.P.A, refuges etc. Laïla nous rejoint à titre exceptionnel, lors de certaines retraites seulement, pour animer des conférences, des discussions et des ateliers. Ces rendez-vous rares seront annoncés dans la présentation des séjours concernés, avec le détail des contenus et des thèmes abordés. L'authenticité de la démarche de Laïla Del Monte fait naître le désir d'entreprendre, à notre tour, ce chemin vers l'animal et, par ce biais, vers nous-même. Nous remercions Laïla pour son engagement et sa présence ponctuelle à nos côtés, qui font de ces rencontres des moments privilégiés.",
-        specialties: ["Coordination", "Accueil", "Suivi personnalisé"]
+        specialties: ["Communication animale", "Conférences", "Discussions et ateliers"]
     }
 ];
 
-const guestNames = new Set(["Émilie", "Patricia", "Johan", "Laila Delmonte"]);
+const guestNames = new Set(["Émilie", "Patricia", "Johan"]);
+const exceptionalNames = new Set(["Laila Delmonte"]);
 
-export const coreTeamMembers = teamMembers.filter((member) => !guestNames.has(member.name));
+export const coreTeamMembers = teamMembers.filter(
+    (member) => !guestNames.has(member.name) && !exceptionalNames.has(member.name)
+);
 export const guestSpeakers = teamMembers.filter((member) => guestNames.has(member.name));
+export const exceptionalSpeakers = teamMembers.filter((member) => exceptionalNames.has(member.name));

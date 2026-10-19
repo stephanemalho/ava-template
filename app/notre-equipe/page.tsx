@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { LinkButton } from "@/components/link-button"
 import { toAnchorId } from "@/lib/anchor"
 import { siteConfig } from "@/lib/seo-config"
-import { coreTeamMembers, guestSpeakers } from "./team-members"
+import { coreTeamMembers, guestSpeakers, exceptionalSpeakers } from "./team-members"
 
 export const metadata: Metadata = {
     title: "Notre équipe | Ava Bien-Être",
@@ -30,6 +30,36 @@ export const metadata: Metadata = {
         type: "website",
     },
 }
+
+const memberGroups = [
+    {
+        id: "equipe-ava",
+        title: "L’équipe AVA Bien-Être",
+        label: "Équipe AVA",
+        description: "Pierre Yonas, Aurélie et Bérengère : des approches complémentaires au cœur de l’aventure AVA Bien-Être.",
+        members: coreTeamMembers,
+        accent: "border-l-[#4d6c4d]",
+        badge: "border-[#4d6c4d]/30 bg-[#4d6c4d]/10 text-[#3b533b] dark:text-[#c4d6c4]",
+    },
+    {
+        id: "intervenants",
+        title: "Nos intervenants",
+        label: "Intervenant·e",
+        description: "Émilie, Patricia et Johan partagent leurs savoir-faire à travers des ateliers et des accompagnements spécifiques. Retrouvez les intervenants annoncés dans le programme de chaque séjour.",
+        members: guestSpeakers,
+        accent: "border-l-primary",
+        badge: "border-primary/30 bg-primary/10 text-foreground",
+    },
+    {
+        id: "invitations-exceptionnelles",
+        title: "Nos invitations exceptionnelles",
+        label: "Invitée exceptionnelle",
+        description: "Laïla Del Monte nous rejoint ponctuellement, lors de certaines retraites seulement. Sa présence et le contenu de ses interventions sont précisés dans les séjours concernés.",
+        members: exceptionalSpeakers,
+        accent: "border-l-[#927045]",
+        badge: "border-[#927045]/30 bg-[#927045]/10 text-[#765731] dark:text-[#e1c49f]",
+    },
+]
 
 export default function EquipePage() {
     return (
@@ -70,7 +100,7 @@ export default function EquipePage() {
                 </div>
             </section>
 
-            <section className="py-16">
+            <section className="py-16 px-4">
                 <div className="container mx-auto">
                     <div className="text-center space-y-4 mb-16">
                         <h2 className="text-base md:text-xl font-bold">Les visages d’AVA Bien-Être</h2>
@@ -78,17 +108,22 @@ export default function EquipePage() {
                             Des parcours singuliers et des approches complémentaires, réunis autour d’une même intention : vous accueillir avec attention et vous accompagner au fil de votre séjour.
                         </p>
                     </div>
-                    {[
-                        { title: null, members: coreTeamMembers },
-                        { title: "Nos intervenants", members: guestSpeakers },
-                    ].map((group) => (
-                    <div key={group.title ?? "equipe"} className="mb-16">
-                        {group.title && (
-                            <h2 className="text-center text-base md:text-xl font-bold mb-12">{group.title}</h2>
-                        )}
+                    <nav aria-label="Les groupes de notre équipe" className="mb-16 flex flex-wrap justify-center gap-3">
+                        {memberGroups.map((group) => (
+                            <a key={group.id} href={`#${group.id}`} className="rounded-full border border-border bg-card px-5 py-3 text-sm font-medium transition-colors hover:bg-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring">
+                                {group.title}
+                            </a>
+                        ))}
+                    </nav>
+                    {memberGroups.map((group) => (
+                    <section key={group.id} id={group.id} aria-labelledby={`${group.id}-title`} className="mb-20 scroll-mt-28">
+                        <div className="mx-auto mb-10 max-w-3xl space-y-4 text-center">
+                            <h2 id={`${group.id}-title`} className="text-2xl md:text-3xl font-bold">{group.title}</h2>
+                            <p className="text-muted-foreground leading-relaxed">{group.description}</p>
+                        </div>
                         <div className="grid gap-8">
                         {group.members.map((member, index) => (
-                            <Card key={member.name} id={toAnchorId(member.name)} className="overflow-hidden scroll-mt-24 max-w-5xl mx-auto">
+                            <Card key={member.name} id={toAnchorId(member.name)} className={`w-full overflow-hidden scroll-mt-24 max-w-5xl mx-auto border-l-4 ${group.accent}`}>
                                 <CardContent className="p-0">
                                     <div className={`grid gap-0 md:grid-cols-2 ${index % 2 === 1 ? "md:grid-flow-col-dense" : ""}`}>
                                         <div className={`p-4 ${index % 2 === 1 ? "md:order-2" : ""}`}>
@@ -105,13 +140,14 @@ export default function EquipePage() {
                                         <div className={`p-8 flex flex-col justify-center ${index % 2 === 1 ? "md:order-1" : ""}`}>
                                             <div className="space-y-4">
                                                 <div>
-                                                    <h3 className="text-base md:text-xl font-bold">{member.name}</h3>
+                                                    <Badge variant="outline" className={`mb-3 ${group.badge}`}>{group.label}</Badge>
+                                                    <h3 className="text-xl md:text-2xl font-bold">{member.name}</h3>
                                                     <p className="text-primary font-medium">{member.role}</p>
                                                 </div>
                                                 <p className="text-muted-foreground leading-relaxed whitespace-pre-line">{member.description.trim()}</p>
                                                 <div className="flex flex-wrap gap-2">
                                                     {member.specialties.map((specialty, idx) => (
-                                                        <Badge key={`${member.name}-${idx}`} variant="secondary">
+                                                        <Badge key={`${member.name}-${idx}`} variant="secondary" className="max-w-full whitespace-normal">
                                                             {specialty}
                                                         </Badge>
                                                     ))}
@@ -138,7 +174,7 @@ export default function EquipePage() {
                             </Card>
                         ))}
                         </div>
-                    </div>
+                    </section>
                     ))}
 
                     {/* CTA Section */}
