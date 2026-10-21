@@ -5,7 +5,7 @@ import { NavigationMenuClient } from "./navigation-menu-client"
 const navigation = [
     { name: "Accueil", href: "/" },
     { name: "Présentation", href: "/presentation" },
-    { name: "Notre équipe & intervenants", href: "/notre-equipe" },
+    { name: "Notre équipe", href: "/notre-equipe" },
     {
         name: "Séjours",
         href: "/sejour-a-trans-en-provence",

@@ -10,7 +10,7 @@ export type TeamMember = {
 export const teamMembers: TeamMember[] = [
     {
         name: "Pierre Yonas",
-        role: "Auteur, médium, magnétiseur, conférencier et formateur",
+        role: "Co-fondateur d’AVA Bien-Être · Auteur, médium, magnétiseur, conférencier et formateur",
         image: "/Pierre_Yonas-profil.jpg",
         linkedinUrl: "https://www.instagram.com/pierre_yonas",
         description: `
@@ -41,7 +41,7 @@ Son humour, sa générosité, sa franchise et son authenticité contribuent à f
     },
     {
         name: "Aurélie",
-        role: "Ateliers : méditation, hypnose, breathwork, cérémonies, ateliers créatifs, chant intuitif",
+        role: "Fondatrice d’AVA Bien-Être · Ateliers : méditation, hypnose ericksonienne et transpersonnelle ©, breathwork, cérémonies, ateliers créatifs, chant intuitif",
         image: "/Aurelie.jpg",
         linkedinUrl: "https://www.instagram.com/ava.magnetisme/",
         description: `
@@ -51,7 +51,7 @@ Je vois la vie comme un parcours initiatique, fait de rencontres, d’apprentiss
 
 Au cœur de mon approche se trouve une conviction : la considération que nous nous portons nourrit notre relation à nous-mêmes et aux autres. J’accorde une place essentielle à l’écoute, à la bienveillance et au respect du chemin de chacun.
 
-Certifiée en hypnose ericksonienne transpersonnelle, je vous accompagne dans l’exploration de votre monde intérieur à travers des pratiques en état modifié de conscience. Ces espaces d’introspection invitent à observer vos émotions, vos peurs et vos schémas répétitifs, mais aussi à découvrir vos ressources et à éclairer vos choix lors de périodes de transition personnelle ou professionnelle.
+Certifiée en hypnose ericksonienne et transpersonnelle ©, je vous accompagne dans l’exploration de votre monde intérieur à travers des pratiques en état modifié de conscience. Ces espaces d’introspection invitent à observer vos émotions, vos peurs et vos schémas répétitifs, mais aussi à découvrir vos ressources et à éclairer vos choix lors de périodes de transition personnelle ou professionnelle.
 
 Lors des séjours AVA Bien-Être, je propose des ateliers d’hypnose, de méditation, de magnétisme et d’exploration de la conscience. J’anime également des cérémonies inspirées des traditions auxquelles j’ai été initiée, pour partager des moments de présence, de rencontre et de célébration.
 
@@ -150,10 +150,3 @@ Mon intention est de vous offrir un cadre attentif pour explorer vos capacités,
         ]
     },
 ];
-
-const guestNames = new Set(["Émilie", "Patricia", "Johan"]);
-
-export const coreTeamMembers = teamMembers.filter(
-    (member) => !guestNames.has(member.name)
-);
-export const guestSpeakers = teamMembers.filter((member) => guestNames.has(member.name));
