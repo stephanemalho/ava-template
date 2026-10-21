@@ -42,6 +42,8 @@ Mon intention est de vous offrir un cadre attentif pour explorer vos capacités,
         image: "/Pierre_Yonas-profil.jpg",
         linkedinUrl: "https://www.instagram.com/pierre_yonas",
         description: `
+Présence sur les séminaires : 2 à 3 jours, selon le séjour.
+
 Sur sa peau est ancré le mot « honneur » en japonais. Une valeur qui résume la manière dont Pierre Yonas envisage son parcours, ses engagements et la transmission de son expérience.
 
 Médium depuis l’enfance et magnétiseur depuis près d’un demi-siècle, Pierre Yonas consacre sa vie à l’accompagnement, à la compréhension du monde invisible et à la transmission d’une pratique fondée sur l’éthique, le discernement et le respect de l’humain.
