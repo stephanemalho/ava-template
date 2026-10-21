@@ -9,6 +9,34 @@ export type TeamMember = {
 
 export const teamMembers: TeamMember[] = [
     {
+        name: "Aurélie",
+        role: "Fondatrice d’AVA Bien-Être · Ateliers : méditation, hypnose ericksonienne et transpersonnelle ©, breathwork, cérémonies, ateliers créatifs, chant intuitif",
+        image: "/Aurelie.jpg",
+        linkedinUrl: "https://www.instagram.com/ava.magnetisme/",
+        description: `
+Je suis Aurélie AVA, hypnothérapeute, magnétiseuse et fondatrice d’AVA Bien-Être.
+
+Je vois la vie comme un parcours initiatique, fait de rencontres, d’apprentissages et de transformations. Prendre soin de soi, c’est s’accorder le temps d’écouter ce qui se vit en nous, de mieux comprendre notre histoire et de reconnaître nos besoins.
+
+Au cœur de mon approche se trouve une conviction : la considération que nous nous portons nourrit notre relation à nous-mêmes et aux autres. J’accorde une place essentielle à l’écoute, à la bienveillance et au respect du chemin de chacun.
+
+Certifiée en hypnose ericksonienne et transpersonnelle ©, je vous accompagne dans l’exploration de votre monde intérieur à travers des pratiques en état modifié de conscience. Ces espaces d’introspection invitent à observer vos émotions, vos peurs et vos schémas répétitifs, mais aussi à découvrir vos ressources et à éclairer vos choix lors de périodes de transition personnelle ou professionnelle.
+
+Lors des séjours AVA Bien-Être, je propose des ateliers d’hypnose, de méditation, de magnétisme et d’exploration de la conscience. J’anime également des cérémonies inspirées des traditions auxquelles j’ai été initiée, pour partager des moments de présence, de rencontre et de célébration.
+
+Chaque atelier collectif tient compte du rythme et des limites des participants. Des temps d’échange avant et après les pratiques permettent de poser vos questions, de partager vos ressentis et de mettre des mots sur votre expérience.
+
+Je propose aussi des consultations de magnétisme, à distance ou en présentiel, et anime des ateliers aux côtés de Pierre Yonas, avec une attention particulière à l’éthique et au discernement.
+
+Mon intention est de vous offrir un cadre attentif pour explorer vos capacités, renouer avec vos ressources et avancer vers une relation plus apaisée avec vous-même. Je serai heureuse de vous accueillir dans cette aventure humaine.
+  `,
+        specialties: [
+            "Thérapie holistique",
+            "Développement personnel",
+            "Bien-être"
+        ]
+    },
+    {
         name: "Pierre Yonas",
         role: "Co-fondateur d’AVA Bien-Être · Auteur, médium, magnétiseur, conférencier et formateur",
         image: "/Pierre_Yonas-profil.jpg",
@@ -37,34 +65,6 @@ Son humour, sa générosité, sa franchise et son authenticité contribuent à f
             "Magnétisme",
             "Transmission et pédagogie",
             "Conférences et ateliers"
-        ]
-    },
-    {
-        name: "Aurélie",
-        role: "Fondatrice d’AVA Bien-Être · Ateliers : méditation, hypnose ericksonienne et transpersonnelle ©, breathwork, cérémonies, ateliers créatifs, chant intuitif",
-        image: "/Aurelie.jpg",
-        linkedinUrl: "https://www.instagram.com/ava.magnetisme/",
-        description: `
-Je suis Aurélie AVA, hypnothérapeute, magnétiseuse, guérisseuse et fondatrice d’AVA Bien-Être.
-
-Je vois la vie comme un parcours initiatique, fait de rencontres, d’apprentissages et de transformations. Prendre soin de soi, c’est s’accorder le temps d’écouter ce qui se vit en nous, de mieux comprendre notre histoire et de reconnaître nos besoins.
-
-Au cœur de mon approche se trouve une conviction : la considération que nous nous portons nourrit notre relation à nous-mêmes et aux autres. J’accorde une place essentielle à l’écoute, à la bienveillance et au respect du chemin de chacun.
-
-Certifiée en hypnose ericksonienne et transpersonnelle ©, je vous accompagne dans l’exploration de votre monde intérieur à travers des pratiques en état modifié de conscience. Ces espaces d’introspection invitent à observer vos émotions, vos peurs et vos schémas répétitifs, mais aussi à découvrir vos ressources et à éclairer vos choix lors de périodes de transition personnelle ou professionnelle.
-
-Lors des séjours AVA Bien-Être, je propose des ateliers d’hypnose, de méditation, de magnétisme et d’exploration de la conscience. J’anime également des cérémonies inspirées des traditions auxquelles j’ai été initiée, pour partager des moments de présence, de rencontre et de célébration.
-
-Chaque atelier collectif tient compte du rythme et des limites des participants. Des temps d’échange avant et après les pratiques permettent de poser vos questions, de partager vos ressentis et de mettre des mots sur votre expérience.
-
-Je propose aussi des consultations de magnétisme, à distance ou en présentiel, et anime des ateliers aux côtés de Pierre Yonas, avec une attention particulière à l’éthique et au discernement.
-
-Mon intention est de vous offrir un cadre attentif pour explorer vos capacités, renouer avec vos ressources et avancer vers une relation plus apaisée avec vous-même. Je serai heureuse de vous accueillir dans cette aventure humaine.
-  `,
-        specialties: [
-            "Thérapie holistique",
-            "Développement personnel",
-            "Bien-être"
         ]
     },
     {

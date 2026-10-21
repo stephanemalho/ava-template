@@ -79,7 +79,7 @@ export default function EquipePage() {
                             Chez AVA Bien-Être, nous considérons que chaque membre, même présent pour une seule journée, fait pleinement partie de l’équipe. La transformation se nourrit de la contribution de chacun : chaque personne apporte sa pierre à l’édifice.
                         </p>
                         <p className="text-base text-muted-foreground max-w-3xl mx-auto">
-                            Les visages que vous découvrez ici vous accompagneront le temps d’une journée ou tout au long de votre séjour. Par leur présence, leur sensibilité et leur savoir-faire, ils incarnent notre philosophie et contribuent à faire de chaque séjour une expérience humaine partagée.
+                            Les interventions et la durée de présence de chaque membre de l’équipe varient selon les séjours. Consultez le programme de chaque séjour pour connaître les intervenants présents et les ateliers proposés. Par leur présence, leur sensibilité et leur savoir-faire, ils incarnent notre philosophie et contribuent à faire de chaque séjour une expérience humaine partagée.
                         </p>
                     </div>
                     <div className="grid gap-8">

@@ -5,10 +5,10 @@ import { useReservationCart } from "@/components/providers/reservation-cart-prov
 import type { ReservationPackage } from "../_data/packages"
 
 export function useReservationPackageControls(pkg: ReservationPackage) {
-  const { setReservation, removeReservation, getReservation } = useReservationCart()
+  const { setReservation, removeReservation, getReservation, setCartDialogOpen } = useReservationCart()
   const cartItem = getReservation(pkg.id)
-  const maxSelectablePeople = pkg.availablePlaces
-  const minSelectablePeople = 0
+  const maxSelectablePeople = Math.min(4, pkg.availablePlaces)
+  const minSelectablePeople = pkg.availablePlaces > 0 ? 1 : 0
   const clampPeopleCount = useCallback(
     (value: number) => Math.min(Math.max(value, minSelectablePeople), maxSelectablePeople),
     [maxSelectablePeople, minSelectablePeople]
@@ -28,6 +28,7 @@ export function useReservationPackageControls(pkg: ReservationPackage) {
   }, [clampPeopleCount])
 
   const validateSelection = useCallback(() => {
+    if (selectedPeopleCount < 1 || selectedPeopleCount > maxSelectablePeople) return
     setReservation({
       id: pkg.id,
       title: pkg.title,
@@ -36,7 +37,8 @@ export function useReservationPackageControls(pkg: ReservationPackage) {
       depositPerPerson: pkg.depositPerPersonEuros,
       peopleCount: selectedPeopleCount,
     })
-  }, [pkg.dateRange, pkg.depositPerPersonEuros, pkg.id, pkg.price, pkg.title, selectedPeopleCount, setReservation])
+    setCartDialogOpen(true)
+  }, [pkg.dateRange, pkg.depositPerPersonEuros, pkg.id, pkg.price, pkg.title, selectedPeopleCount, setReservation, setCartDialogOpen, maxSelectablePeople])
 
   const removeSelection = useCallback(() => {
     removeReservation(pkg.id)

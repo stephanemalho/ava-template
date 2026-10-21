@@ -79,7 +79,7 @@ export function ReservationCartDialog({ disabled = false }: { disabled?: boolean
         </Button>
       </DialogTrigger>
 
-      <DialogContent className="max-w-2xl">
+      <DialogContent className="max-w-2xl max-h-[90dvh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle>Récapitulatif de votre séjour</DialogTitle>
           <DialogDescription>
@@ -102,6 +102,11 @@ export function ReservationCartDialog({ disabled = false }: { disabled?: boolean
                   <div key={item.id} className="rounded-lg border p-4">
                     <div className="space-y-2">
                       <p className="font-semibold">{item.title}</p>
+                      {item.id === "memoire-d-ames-duo" && (
+                        <p className="text-sm font-medium">
+                          Stage : {item.unitPrice.toLocaleString("fr-FR")} € par personne, hors hébergement et pension complète
+                        </p>
+                      )}
                       <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
                         <span className="inline-flex items-center gap-1.5">
                           <CalendarDays className="h-4 w-4" aria-hidden="true" />
@@ -138,7 +143,7 @@ export function ReservationCartDialog({ disabled = false }: { disabled?: boolean
                 <p className="font-medium">Moyen de paiement</p>
                 <div className="flex items-center gap-2 text-sm">
                   <CreditCard className="h-4 w-4 text-primary" aria-hidden="true" />
-                  <span>Paiement sécurisé par Stripe (Arrhes)</span>
+                  <span>Paiement sécurisé par CB</span>
                 </div>
                 <div className="flex items-center gap-2 text-xs text-muted-foreground">
                   <ShieldCheck className="h-4 w-4" aria-hidden="true" />
@@ -147,14 +152,21 @@ export function ReservationCartDialog({ disabled = false }: { disabled?: boolean
                 <p className="text-xs text-muted-foreground">
                   Le montant des arrhes dépend de chaque formule sélectionnée.
                 </p>
+                <p className="text-xs text-muted-foreground">
+                  Vous renseignerez vos coordonnées sur la page de paiement sécurisée Stripe.
+                </p>
               </div>
 
               <div className="rounded-lg border p-4 min-w-52">
                 <p className="text-sm text-muted-foreground">Total personnes</p>
                 <p className="text-base font-semibold">{totalPeople}</p>
-                <p className="mt-2 text-sm text-muted-foreground">Prix total du séjour</p>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  {selections.every((item) => item.id === "memoire-d-ames-duo")
+                    ? "Prix du stage hors hébergement et pension complète"
+                    : "Prix total des formules sélectionnées"}
+                </p>
                 <p className="text-base font-bold">{totalPrice}.00 €</p>
-                <p className="mt-2 text-sm text-muted-foreground">Arrhes à payer maintenant (Stripe)</p>
+                <p className="mt-2 text-sm text-muted-foreground">Arrhes à payer maintenant</p>
                 <p className="text-base font-bold">{totalArrhes}.00 €</p>
                 <p className="mt-2 text-sm text-muted-foreground">Reste à régler après paiement des arrhes</p>
                 <p className="text-base font-bold">{remainingBalance}.00 €</p>

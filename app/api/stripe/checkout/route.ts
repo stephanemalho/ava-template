@@ -249,7 +249,7 @@ export async function POST(request: Request) {
             mode: "payment",
             payment_method_types: ["card"],
             line_items: lineItems,
-            billing_address_collection: "auto",
+            billing_address_collection: "required",
             customer_creation: "always",
             locale: "fr",
             name_collection: {

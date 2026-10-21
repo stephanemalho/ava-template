@@ -58,8 +58,8 @@ const staySessions: StaySession[] = [
     reservationPackageId: "shared-room-2",
     image: "/sejours/espaces-exterieurs/evenement-ava-bien-etre-octobre-2026.jpg",
     imageAlt: "Participants d'un séjour bien-être AVA en octobre 2026",
-    badge: "1 place disponible",
-    description: "Une place est disponible pour cette retraite du 22 au 28 octobre 2026. Réservez votre séjour pour nous rejoindre.",
+    badge: "Complet",
+    description: "La retraite du 22 au 28 octobre 2026 est complète.",
   },
 ]
 

@@ -53,7 +53,7 @@ test("exposes Mémoire d’Âmes prices, stock and booking validity", () => {
     assert.equal(memoirePackages.length, 1);
     assert.deepEqual(
         memoirePackages.map((pkg) => ({ price: pkg.price, places: pkg.availablePlaces })),
-        [{ price: 1680, places: 6 }]
+        [{ price: 1390, places: 5 }]
     );
     assert.ok(memoirePackages.every((pkg) => pkg.bookingOpensAt && pkg.bookingDeadline));
 });

@@ -1,6 +1,6 @@
 "use client"
 
-import { Minus, Plus, ShoppingCart } from "lucide-react"
+import { ShoppingCart } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import type { ReservationPackage } from "../_data/packages"
 import { useReservationPackageControls } from "../_hooks/use-reservation-package-controls"
@@ -15,9 +15,7 @@ export function ReservationPackageControls({ pkg }: ReservationPackageControlsPr
     computedPrice,
     isValidated,
     isSoldOut,
-    minSelectablePeople,
     maxSelectablePeople,
-    hasPendingChanges,
     updatePeopleCount,
     validateSelection,
     removeSelection,
@@ -35,28 +33,23 @@ export function ReservationPackageControls({ pkg }: ReservationPackageControlsPr
             </p>
           )}
         </div>
-        <div className="flex items-center gap-2 rounded-lg border p-1">
-          <Button
-            variant="ghost"
-            size="icon"
-            type="button"
-            onClick={() => updatePeopleCount(-1)}
-            aria-label={`Retirer une personne pour ${pkg.title}`}
-            disabled={selectedPeopleCount <= minSelectablePeople}
+        <div className="w-full space-y-2 md:w-auto">
+          <label htmlFor={`people-${pkg.id}`} className="block text-sm font-medium">
+            1. Sélectionnez le nombre de personnes
+          </label>
+          <select
+            id={`people-${pkg.id}`}
+            value={selectedPeopleCount}
+            onChange={(event) => updatePeopleCount(Number(event.target.value) - selectedPeopleCount)}
+            disabled={isSoldOut}
+            className="w-full rounded-lg border bg-background px-4 py-3 text-base md:min-w-56"
           >
-            <Minus className="h-4 w-4" />
-          </Button>
-          <span className="min-w-20 text-center text-sm font-medium">{selectedPeopleCount} pers.</span>
-          <Button
-            variant="ghost"
-            size="icon"
-            type="button"
-            onClick={() => updatePeopleCount(1)}
-            aria-label={`Ajouter une personne pour ${pkg.title}`}
-            disabled={selectedPeopleCount >= maxSelectablePeople}
-          >
-            <Plus className="h-4 w-4" />
-          </Button>
+            {isSoldOut ? <option value={0}>Complet</option> : Array.from({ length: maxSelectablePeople }, (_, index) => (
+              <option key={index + 1} value={index + 1}>
+                {index + 1} personne{index > 0 ? "s" : ""}
+              </option>
+            ))}
+          </select>
         </div>
       </div>
       {(isSoldOut || selectedPeopleCount >= maxSelectablePeople) && (
@@ -79,11 +72,7 @@ export function ReservationPackageControls({ pkg }: ReservationPackageControlsPr
             ? "Complet"
             : isInvalidSelection
               ? "Sélectionnez au moins 1 personne"
-            : !isValidated
-              ? "Valider la sélection"
-              : hasPendingChanges
-                ? "Mettre à jour le panier"
-                : "Sélection validée"}
+            : "Valider mon panier"}
         </Button>
 
         {isValidated && (

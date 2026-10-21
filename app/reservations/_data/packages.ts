@@ -10,8 +10,8 @@ export const MEMOIRE_D_AMES_EARLY_BIRD_AVAILABLE_PLACES = 8;
 export const MEMOIRE_D_AMES_STAY_EARLY_BIRD_PRICE = 1390;
 export const MEMOIRE_D_AMES_FULL_BOARD_PRICE = 290;
 export const MEMOIRE_D_AMES_TOTAL_PLACES = 15;
-export const MEMOIRE_D_AMES_STANDARD_PRICE = MEMOIRE_D_AMES_STAY_EARLY_BIRD_PRICE + MEMOIRE_D_AMES_FULL_BOARD_PRICE + 100;
-export const MEMOIRE_D_AMES_EARLY_BIRD_PRICE = MEMOIRE_D_AMES_STAY_EARLY_BIRD_PRICE + MEMOIRE_D_AMES_FULL_BOARD_PRICE;
+export const MEMOIRE_D_AMES_STANDARD_PRICE = MEMOIRE_D_AMES_STAY_EARLY_BIRD_PRICE + 100;
+export const MEMOIRE_D_AMES_EARLY_BIRD_PRICE = MEMOIRE_D_AMES_STAY_EARLY_BIRD_PRICE;
 export const MEMOIRE_D_AMES_BOOKING_OPENS_AT = "2026-09-10T00:00:00+02:00";
 
 export type ReservationPackage = {
@@ -54,7 +54,7 @@ export const reservationPackages: ReservationPackage[] = [
         price: 1800,
         depositPerPersonEuros: STRIPE_ACOMPTE_PER_PERSON_EUR,
         image: "/sejours/espaces-exterieurs/evenement-ava-bien-etre-octobre-2026.jpg",
-        badge: "1 PLACE DISPONIBLE",
+        badge: "COMPLET",
         badgeColor: "bg-primary",
         features: [
             "Séjour en pension complète du jeudi 22 au mercredi 28 octobre 2026",
@@ -64,7 +64,7 @@ export const reservationPackages: ReservationPackage[] = [
         location: "Trans-en-Provence (83)",
         type: "Chambre Partagée",
         totalPlaces: 11,
-        availablePlaces: 1
+        availablePlaces: 0
     },
     {
         id: "memoire-d-ames-duo",

@@ -186,7 +186,7 @@ export default function PresentationPage() {
                                     AVA Bien-Être est né de l’élan d’Aurélie AVA, thérapeute et fondatrice du projet, avec l’envie de créer des séjours qui sortent des cadres habituels et laissent une vraie place à l’expérience, à l’humain et à l’ouverture de conscience.
                                 </p>
                                 <p className="text-muted-foreground leading-relaxed">
-                                    Pierre Yonas rejoint très rapidement le projet AVA aux côtés d’Aurélie. Au-delà de leurs approches thérapeutiques respectives, c’est une relation fondée sur des valeurs communes qui se construit : la loyauté, la confiance et une même exigence dans l’accompagnement.
+                                    Pierre Yonas rejoint très rapidement le projet AVA aux côtés d’Aurélie. Ensemble, ils choisissent de construire une histoire commune, portée par la loyauté, la confiance et une même exigence dans l’accompagnement. Ces valeurs partagées les réunissent autour d’une intention : accompagner l’autre avec écoute, respect et humanité.
                                 </p>
                                 <p className="text-muted-foreground leading-relaxed">
                                     Très vite, quelque chose de particulier se crée lorsqu’ils accompagnent ensemble. Leurs personnalités et leurs approches complémentaires donnent naissance à une véritable alchimie qui se révèle pleinement au cours des séjours.
