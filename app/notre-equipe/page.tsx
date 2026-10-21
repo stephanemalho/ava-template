@@ -66,7 +66,6 @@ export default function EquipePage() {
                         </p>
                         <p className="text-base leading-relaxed text-white/90">Une équipe réunie non pas pour enseigner… mais pour ouvrir des espaces où quelque chose en vous peut enfin se révéler.</p>
                         <p className="text-base leading-relaxed text-white/90">Notre rôle est de vous accompagner sur ce chemin</p>
-                        <LinkButton href="#notre-equipe" size="lg">Nos invités</LinkButton>
                     </div>
                 </div>
             </section>
