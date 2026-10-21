@@ -1,6 +1,7 @@
 export type TeamMember = {
     name: string;
     role: string;
+    presenceDays: number;
     image: string;
     description: string;
     specialties: string[];
@@ -10,6 +11,7 @@ export type TeamMember = {
 export const teamMembers: TeamMember[] = [
     {
         name: "Aurélie",
+        presenceDays: 5,
         role: "Fondatrice d’AVA Bien-Être · Ateliers : méditation, hypnose ericksonienne et transpersonnelle ©, breathwork, cérémonies, ateliers créatifs, chant intuitif",
         image: "/Aurelie.jpg",
         linkedinUrl: "https://www.instagram.com/ava.magnetisme/",
@@ -38,12 +40,11 @@ Mon intention est de vous offrir un cadre attentif pour explorer vos capacités,
     },
     {
         name: "Pierre Yonas",
+        presenceDays: 3,
         role: "Co-fondateur d’AVA Bien-Être · Auteur, médium, magnétiseur, conférencier et formateur",
         image: "/Pierre_Yonas-profil.jpg",
         linkedinUrl: "https://www.instagram.com/pierre_yonas",
         description: `
-Présence sur les séminaires : 2 à 3 jours, selon le séjour.
-
 Sur sa peau est ancré le mot « honneur » en japonais. Une valeur qui résume la manière dont Pierre Yonas envisage son parcours, ses engagements et la transmission de son expérience.
 
 Médium depuis l’enfance et magnétiseur depuis près d’un demi-siècle, Pierre Yonas consacre sa vie à l’accompagnement, à la compréhension du monde invisible et à la transmission d’une pratique fondée sur l’éthique, le discernement et le respect de l’humain.
@@ -71,6 +72,7 @@ Son humour, sa générosité, sa franchise et son authenticité contribuent à f
     },
     {
         name: "Émilie",
+        presenceDays: 5,
         role: "Ateliers de produits naturels, aromathérapie et cuisine bien-être",
         image: "/Emilie-presentation-2026.jpeg",
         linkedinUrl: "",
@@ -114,6 +116,7 @@ Son humour, sa générosité, sa franchise et son authenticité contribuent à f
     // },
     {
         name: "Bérengère",
+        presenceDays: 5,
         role: "Accompagnement bien-être et coaching de vie",
         image: "/staff/Berengere-Ava.jpg",
         linkedinUrl: "https://www.instagram.com/innerharmonie_/",
@@ -129,6 +132,7 @@ Son humour, sa générosité, sa franchise et son authenticité contribuent à f
     },
     {
         name: "Patricia",
+        presenceDays: 1,
         role: "Art thérapeute, professeur de danse Africaine",
         image: "/Patricia.jpg",
         linkedinUrl: "",
@@ -138,6 +142,7 @@ Son humour, sa générosité, sa franchise et son authenticité contribuent à f
     },
     {
         name: "Johan",
+        presenceDays: 1,
         role: "Praticien en massages bien-être et musculaires",
         image: "/staff/JOHAN-Massage-Ava.jpg",
         linkedinUrl: "https://www.instagram.com/lesmassagesdejohan/",

@@ -102,6 +102,7 @@ export default function EquipePage() {
                                                 <div>
                                                     <h3 className="text-xl md:text-2xl font-bold">{member.name}</h3>
                                                     <p className="text-primary font-medium">{member.role}</p>
+                                                    <p className="mt-2 text-sm font-medium">Présence sur les séminaires : {member.presenceDays} jour{member.presenceDays > 1 ? "s" : ""}.</p>
                                                 </div>
                                                 <p className="text-muted-foreground leading-relaxed whitespace-pre-line">{member.description.trim()}</p>
                                                 <div className="flex flex-wrap gap-2">
