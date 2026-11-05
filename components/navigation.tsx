@@ -8,17 +8,15 @@ const navigation = [
     { name: "Notre équipe", href: "/notre-equipe" },
     {
         name: "Séjours",
-        href: "/sejour-a-trans-en-provence",
+        href: "/memoire-d-ames",
         children: [
-            { name: "Trans-en-Provence (83)", href: "/sejour-a-trans-en-provence" },
             { name: "Mémoire d’Âmes · Saint-Usuge", href: "/memoire-d-ames" },
         ],
     },
     {
         name: "Réservations",
-        href: "/reservations",
+        href: "/reservations/memoire-d-ames",
         children: [
-            { name: "Trans-en-Provence (83)", href: "/reservations" },
             { name: "Mémoire d’Âmes · Saint-Usuge", href: "/reservations/memoire-d-ames" },
         ],
     },

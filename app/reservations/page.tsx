@@ -13,15 +13,10 @@ import {
     PaymentConfirmationDialog,
     type PaymentConfirmationMessage,
 } from "./_components/payment-confirmation-dialog"
-import { STRIPE_ACOMPTE_PER_PERSON_EUR } from "@/lib/reservation-pricing"
 import { generateStayOffersSchema } from "@/lib/schema-generators"
 import { siteConfig } from "@/lib/seo-config"
 import { buildReservationSummary, inspectReservationCheckoutSession } from "@/lib/stripe-reservation"
 import { getStripeClient } from "@/lib/stripe-server"
-
-const transEnProvencePackages = reservationPackages.filter(
-    (pkg) => pkg.stayId === "trans-en-provence-octobre-2026"
-)
 
 const faqItems = [
     {
@@ -78,7 +73,7 @@ const enterpriseOffer = {
     subtitle: "Cohésion d'équipe, QVCT et séminaire bien-être à la carte",
     image: "/sejours-ava.jpg",
     badge: "ENTREPRISES",
-    location: "Trans-en-Provence (83) (ou lieu à définir)",
+    location: "Lieu à définir",
     type: "Format B2B",
     features: [
         "Programme construit selon vos objectifs RH : cohésion, prévention du stress, reconnexion d'équipe",
@@ -91,11 +86,10 @@ const enterpriseOffer = {
 export const metadata: Metadata = {
     title: "Réservations | Ava Bien-Être",
     description:
-        "Réservez votre séjour bien-être AVA. Arrhes de 500 EUR, disponibilités en temps réel et offre entreprise sur devis.",
+        "Réservez votre séjour bien-être AVA. Modalités de réservation, disponibilités en temps réel et offre entreprise sur devis.",
     keywords: [
         "réservation retraite bien-être",
         "prix séjour bien-être",
-        "arrhes 500 euros retraite",
         "offre entreprise qvct",
     ],
     alternates: {
@@ -197,7 +191,7 @@ async function resolvePaymentMessage(
 
 export default async function ReservationsPage({ searchParams }: ReservationsPageProps) {
     const resolvedSearchParams = searchParams ? await searchParams : undefined
-    const stayOffersSchema = generateStayOffersSchema(transEnProvencePackages)
+    const stayOffersSchema = generateStayOffersSchema(reservationPackages)
     const faqSchema = {
         "@context": "https://schema.org",
         "@type": "FAQPage",
@@ -230,18 +224,18 @@ export default async function ReservationsPage({ searchParams }: ReservationsPag
                     <PaymentConfirmationDialog message={paymentMessage} />
                 ) : null}
                 <header className="mb-16 space-y-6 text-center">
-                    <h1 className="text-base font-bold md:text-5xl">Réservez votre séjour à Trans-en-Provence (83)</h1>
+                    <h1 className="text-base font-bold md:text-5xl">Réservez votre séjour AVA Bien-Être</h1>
                     <div className="mx-auto h-1 w-24 rounded-full bg-primary" />
                     <p className="mx-auto max-w-3xl text-base text-muted-foreground">
                         Choisissez la formule qui vous correspond le mieux pour votre retraite bien-être
                     </p>
                     <p className="mx-auto w-fit md:rounded-full rounded-xl border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
-                        Arrhes à la réservation : 500€ par personne. Le solde est à régler plus tard.
+                        Consultez les modalités de réservation de chaque séjour. Le solde est à régler plus tard.
                     </p>
                 </header>
 
                 <section className="grid grid-cols-1 gap-12 lg:grid-cols-2">
-                    {transEnProvencePackages.map((pkg) => (
+                    {reservationPackages.map((pkg) => (
                         <Card
                             key={pkg.id}
                             id={`sejour-${pkg.id}`}
@@ -324,7 +318,7 @@ export default async function ReservationsPage({ searchParams }: ReservationsPag
                             <article className="space-y-2">
                                 <h3 className="text-base md:text-xl font-semibold text-foreground">Paiement</h3>
                                 <p>
-                                    Le paiement Stripe correspond uniquement à des arrhes de {STRIPE_ACOMPTE_PER_PERSON_EUR}.00 € par personne.
+                                    Le paiement Stripe correspond uniquement aux arrhes indiquées pour le séjour choisi.
                                     Le solde du séjour sera réglé selon les modalités convenues.
                                 </p>
                             </article>

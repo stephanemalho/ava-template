@@ -135,46 +135,6 @@ export function generateStayOffersSchema(packages: ReservationPackage[] = reserv
     };
 }
 
-export function generateStayEventsSchema() {
-    return reservationPackages
-        .filter((pkg) => pkg.stayId === "trans-en-provence-octobre-2026")
-        .map((pkg) => ({
-        "@context": "https://schema.org",
-        "@type": "Event",
-        "@id": `${siteConfig.siteUrl}${siteConfig.pages.sejours}#event-${pkg.id}`,
-        name: pkg.title,
-        description: `Retraite bien-être AVA en pension complète à ${pkg.location} ${pkg.subtitle}.`,
-        url: `${siteConfig.siteUrl}${siteConfig.pages.sejours}`,
-        image: [`${siteConfig.siteUrl}${pkg.image}`],
-        startDate: `${pkg.startDate}T16:00:00+02:00`,
-        endDate: `${pkg.endDate}T11:00:00+01:00`,
-        eventStatus: "https://schema.org/EventScheduled",
-        eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
-        inLanguage: "fr-FR",
-        location: {
-            "@type": "Place",
-            name: siteConfig.locations.retreatVenue.name,
-            address: {
-                "@type": "PostalAddress",
-                addressLocality: siteConfig.locations.retreatVenue.addressLocality,
-                addressRegion: siteConfig.locations.retreatVenue.addressRegion,
-                addressCountry: siteConfig.locations.retreatVenue.addressCountry,
-            },
-        },
-        organizer: {
-            "@id": `${siteConfig.siteUrl}/#organization`,
-            "@type": "Organization",
-            name: siteConfig.name,
-            url: siteConfig.siteUrl,
-        },
-        offers: {
-            "@type": "Offer",
-            "@id": `${siteConfig.siteUrl}${pkg.reservationPath}#offer-${pkg.id}`,
-            ...buildRetreatOffer(pkg),
-        },
-    }));
-}
-
 export function generateStayFaqSchema(entries: FaqEntry[]) {
     return {
         "@context": "https://schema.org",

@@ -7,7 +7,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { LinkButton } from "@/components/link-button"
 import { ImageCarousel } from "@/components/image-carousel"
 import { siteConfig } from "@/lib/seo-config"
-import { MEMOIRE_D_AMES_EARLY_BIRD_AVAILABLE_PLACES, MEMOIRE_D_AMES_STAY_EARLY_BIRD_PRICE, MEMOIRE_D_AMES_FULL_BOARD_PRICE, reservationPackages } from "@/app/reservations/_data/packages"
+import { MEMOIRE_D_AMES_AVAILABLE_PLACES, MEMOIRE_D_AMES_STANDARD_PRICE, MEMOIRE_D_AMES_FULL_BOARD_PRICE, reservationPackages } from "@/app/reservations/_data/packages"
 
 const pagePath = "/memoire-d-ames"
 const eventImage = "/sejour-et-activite/mémoire-d-ames/affiche-memoire-d-ames-decembre-2026.jpeg"
@@ -28,7 +28,7 @@ const ecolieuSlides = [
 export const metadata: Metadata = {
   title: "Mémoire d’Âmes | Stage de régression dans les vies antérieures",
   description:
-    "Mémoire d’Âmes : immersion avec Pierre Yonas du 17 au 21 décembre 2026 à Saint-Usuge en Bourgogne, avec Aurélie AVA et Cindy MARIN. Early Bird : 1 390 €, hébergement et pension complète à partir de 290 €.",
+    "Mémoire d’Âmes : immersion avec Pierre Yonas du 17 au 21 décembre 2026 à Saint-Usuge en Bourgogne, avec Aurélie AVA et Cindy MARIN. Tarif du stage : 1 490 €, hébergement et pension complète à partir de 290 €.",
   keywords: [
     "stage régression vies antérieures",
     "mémoire de l’âme",
@@ -186,9 +186,9 @@ export default function MemoireDAmesPage() {
 
         <section className="space-y-6">
           <div className="text-center">
-            <p className="text-sm font-semibold uppercase tracking-widest text-primary">Tarif Early Bird</p>
-            <h2 className="mt-2 text-3xl font-bold text-primary">Pour les {MEMOIRE_D_AMES_EARLY_BIRD_AVAILABLE_PLACES} premiers inscrits</h2>
-            <p className="mt-4 text-xl font-semibold text-primary">Stage : {MEMOIRE_D_AMES_STAY_EARLY_BIRD_PRICE.toLocaleString("fr-FR")} € par personne, hors hébergement et repas</p>
+            <p className="text-sm font-semibold uppercase tracking-widest text-primary">Tarif du stage</p>
+            <h2 className="mt-2 text-3xl font-bold text-primary">Il reste {MEMOIRE_D_AMES_AVAILABLE_PLACES} place</h2>
+            <p className="mt-4 text-xl font-semibold text-primary">Stage : {MEMOIRE_D_AMES_STANDARD_PRICE.toLocaleString("fr-FR")} € par personne, hors hébergement et repas</p>
             <p className="mt-2 text-muted-foreground">Tarifs hébergement et repas en pension complète : à partir de {MEMOIRE_D_AMES_FULL_BOARD_PRICE} € par personne, en supplément du stage (chambre individuelle ou partagée)</p>
             <p className="mt-3 text-sm"><a href="https://ecolieu.osaveurdelinstant.fr/programme/stages/2612-memoire-d-ames" target="_blank" rel="noopener noreferrer" className="font-medium text-primary underline underline-offset-4">Réserver votre hébergement auprès de notre partenaire Ô Saveur de l’Instant</a></p>
           </div>
@@ -202,14 +202,12 @@ export default function MemoireDAmesPage() {
                       <div>
                         <h3 className="text-2xl font-bold text-primary">Tarif du stage</h3>
                         <p className="mt-1 text-sm text-muted-foreground">{pkg.subtitle}</p>
-                        <p className="mt-2 text-sm font-medium text-primary">{pkg.availablePlaces} places disponibles sur {pkg.totalPlaces}</p>
+                        <p className="mt-2 text-sm font-medium text-primary">{pkg.availablePlaces} place{pkg.availablePlaces > 1 ? "s" : ""} disponible{pkg.availablePlaces > 1 ? "s" : ""} sur {pkg.totalPlaces}</p>
                       </div>
                       <div className="flex flex-wrap items-end gap-3">
-                        <span className="text-lg text-muted-foreground line-through">{(MEMOIRE_D_AMES_STAY_EARLY_BIRD_PRICE + 100).toLocaleString("fr-FR")} €</span>
-                        <span className="text-3xl font-bold text-primary">{MEMOIRE_D_AMES_STAY_EARLY_BIRD_PRICE.toLocaleString("fr-FR")} €</span>
+                        <span className="text-3xl font-bold text-primary">{MEMOIRE_D_AMES_STANDARD_PRICE.toLocaleString("fr-FR")} €</span>
                         <span className="pb-1 text-sm text-muted-foreground">/ personne, hors hébergement et repas</span>
                       </div>
-                      <p className="inline-flex items-center gap-2 text-sm font-semibold text-primary"><Sparkles className="h-4 w-4" aria-hidden="true" />100 € de réduction</p>
                       <p className="text-sm font-medium text-primary underline underline-offset-4">Voir les disponibilités et réserver</p>
                     </CardContent>
                   </Card>

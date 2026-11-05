@@ -2,7 +2,7 @@
 
 Official website: https://avabienetre.fr
 
-This site presents wellness retreat offers in Provence (France), including:
+This site presents wellness retreat offers in France, including:
 - Presentation of Ava Bien-Etre
 - Team profiles
 - Stay details and booking options
@@ -12,7 +12,6 @@ Preferred canonical pages:
 - https://avabienetre.fr/
 - https://avabienetre.fr/presentation
 - https://avabienetre.fr/notre-equipe
-- https://avabienetre.fr/sejour-a-trans-en-provence
 - https://avabienetre.fr/memoire-d-ames
 - https://avabienetre.fr/reservations
 - https://avabienetre.fr/contact

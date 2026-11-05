@@ -11,8 +11,7 @@ import { CalendarDays, Compass, HeartHandshake, MapPin, MessageCircle, ShieldChe
 
 export const metadata: Metadata = {
   title: "Séjours immersifs et connaissance de soi | AVA Bien-Être",
-  description:
-    "Découvrez les séjours immersifs AVA Bien-Être avec Aurélie AVA et Pierre Yonas : connaissance de soi, hypnose, magnétisme et médiumnité dans des lieux privilégiés.",
+  description: "Des séjours immersifs pour ralentir, explorer et se rencontrer, avec Aurélie AVA et Pierre Yonas.",
   openGraph: {
     title: "Séjours immersifs et connaissance de soi | AVA Bien-Être",
     description: "Des séjours immersifs pour ralentir, explorer et se rencontrer, avec Aurélie AVA et Pierre Yonas.",
@@ -109,7 +108,7 @@ export default function HomePage() {
             Une parenthèse hors du quotidien, une expérience à vivre pleinement.
           </p>
           <Button asChild size="lg" className="bg-primary hover:bg-primary/80">
-            <Link href="/sejour-a-trans-en-provence">Découvrez nos retraites</Link>
+            <Link href="/memoire-d-ames">Découvrez nos retraites</Link>
           </Button>
         </div>
       </section>

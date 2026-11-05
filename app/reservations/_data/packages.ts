@@ -1,17 +1,12 @@
 import {
-    STRIPE_ACOMPTE_PER_PERSON_EUR,
     STRIPE_MEMOIRE_D_AMES_ACOMPTE_PER_PERSON_EUR
 } from "@/lib/reservation-pricing";
 
 // Valeurs à mettre à jour au fil des réservations Mémoire d’Âmes.
-export const MEMOIRE_D_AMES_AVAILABLE_PLACES = 5;
-// Tarif Early Bird : à mettre à 0 une fois les 8 premières réservations effectuées.
-export const MEMOIRE_D_AMES_EARLY_BIRD_AVAILABLE_PLACES = 8;
-export const MEMOIRE_D_AMES_STAY_EARLY_BIRD_PRICE = 1390;
+export const MEMOIRE_D_AMES_AVAILABLE_PLACES = 1;
 export const MEMOIRE_D_AMES_FULL_BOARD_PRICE = 290;
 export const MEMOIRE_D_AMES_TOTAL_PLACES = 15;
-export const MEMOIRE_D_AMES_STANDARD_PRICE = MEMOIRE_D_AMES_STAY_EARLY_BIRD_PRICE + 100;
-export const MEMOIRE_D_AMES_EARLY_BIRD_PRICE = MEMOIRE_D_AMES_STAY_EARLY_BIRD_PRICE;
+export const MEMOIRE_D_AMES_STANDARD_PRICE = 1490;
 export const MEMOIRE_D_AMES_BOOKING_OPENS_AT = "2026-09-10T00:00:00+02:00";
 
 export type ReservationPackage = {
@@ -41,58 +36,31 @@ export type ReservationPackage = {
 
 export const reservationPackages: ReservationPackage[] = [
     {
-        id: "shared-room-2",
-        stayId: "trans-en-provence-octobre-2026",
-        eventName: "Séjour bien-être — Trans-en-Provence (83) (22–28 octobre 2026)",
-        reservationPath: "/reservations",
-        title: "Séjour bien-être du 22 au 28 octobre 2026",
-        dateRange: "22 au 28 octobre 2026",
-        startDate: "2026-10-22",
-        endDate: "2026-10-28",
-        bookingDeadline: "2026-10-22T00:00:00+02:00",
-        subtitle: "(chambre partagée)",
-        price: 1800,
-        depositPerPersonEuros: STRIPE_ACOMPTE_PER_PERSON_EUR,
-        image: "/sejours/espaces-exterieurs/evenement-ava-bien-etre-octobre-2026.jpg",
-        badge: "COMPLET",
-        badgeColor: "bg-primary",
-        features: [
-            "Séjour en pension complète du jeudi 22 au mercredi 28 octobre 2026",
-            "Hébergement, repas, collations, intervenants, animations, ateliers inclus",
-            "Option de règlement de votre séjour en plusieurs fois disponible sur demande (Paypal / Virement bancaire)"
-        ],
-        location: "Trans-en-Provence (83)",
-        type: "Chambre Partagée",
-        totalPlaces: 11,
-        availablePlaces: 0
-    },
-    {
         id: "memoire-d-ames-duo",
         stayId: "memoire-d-ames-decembre-2026",
         eventName: "Mémoire d’Âmes — Saint-Usuge (17–21 décembre 2026)",
         reservationPath: "/reservations/memoire-d-ames",
-        title: "Mémoire d’Âmes — Séjour Early Bird",
+        title: "Mémoire d’Âmes — Séjour",
         dateRange: "17 au 21 décembre 2026",
         startDate: "2026-12-17",
         endDate: "2026-12-21",
         bookingDeadline: "2026-12-17T18:00:00+01:00",
         bookingOpensAt: MEMOIRE_D_AMES_BOOKING_OPENS_AT,
         subtitle: `Tarifs hébergement et repas en pension complète : à partir de ${MEMOIRE_D_AMES_FULL_BOARD_PRICE} € par personne, en supplément du stage (chambre individuelle ou partagée)`,
-        price: MEMOIRE_D_AMES_EARLY_BIRD_PRICE,
-        originalPrice: MEMOIRE_D_AMES_STANDARD_PRICE,
+        price: MEMOIRE_D_AMES_STANDARD_PRICE,
         depositPerPersonEuros: STRIPE_MEMOIRE_D_AMES_ACOMPTE_PER_PERSON_EUR,
         image: "/sejour-et-activite/mémoire-d-ames/affiche-memoire-d-ames-decembre-2026.jpeg",
-        badge: `TARIF EARLY BIRD / ${MEMOIRE_D_AMES_STAY_EARLY_BIRD_PRICE} €`,
+        badge: `TARIF STANDARD / ${MEMOIRE_D_AMES_STANDARD_PRICE} €`,
         badgeColor: "bg-primary",
         features: [
-            `Stage : ${MEMOIRE_D_AMES_STAY_EARLY_BIRD_PRICE.toLocaleString("fr-FR")} € par personne, hors hébergement et repas`,
+            `Stage : ${MEMOIRE_D_AMES_STANDARD_PRICE.toLocaleString("fr-FR")} € par personne, hors hébergement et repas`,
             `Tarifs hébergement et repas en pension complète : à partir de ${MEMOIRE_D_AMES_FULL_BOARD_PRICE} € par personne, en supplément du stage (chambre individuelle ou partagée)`,
             "Sur place : espaces de détente, hammam, piscine naturelle et parc de 7 hectares, le tout dans un écrin de nature préservé.",
             "Ateliers de présence et de conscience, transe auto-induite avec Aurélie AVA et Cindy MARIN les 17 et 21 décembre",
             "Enseignements de Pierre Yonas les 18, 19 et 20 décembre"
         ],
         location: "Saint-Usuge, Bourgogne",
-        type: "Séjour Early Bird",
+        type: "Séjour",
         totalPlaces: MEMOIRE_D_AMES_TOTAL_PLACES,
         availablePlaces: MEMOIRE_D_AMES_AVAILABLE_PLACES
     }

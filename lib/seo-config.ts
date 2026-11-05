@@ -3,9 +3,9 @@ import { createLastmodGetter } from "./lastmod";
 export const siteConfig = {
     name: "Ava Bien-Être",
     siteUrl: "https://www.avabienetre.fr",
-    title: "Ava Bien-Être | Retraites bien-être",
+    title: "Séjours immersifs et connaissance de soi | AVA Bien-Être",
     description:
-        "Séjours immersifs autour de la connaissance de soi, de la conscience et du vivant, avec des intervenants aux approches complémentaires.",
+        "Des séjours immersifs pour ralentir, explorer et se rencontrer, avec Aurélie AVA et Pierre Yonas.",
     locale: "fr_FR",
     author: "Ava Bien-Être",
     contact: {
@@ -20,12 +20,6 @@ export const siteConfig = {
             streetAddress: "800 chemin de la liambe",
             postalCode: "71480",
             addressLocality: "Dommartin-les-Cuiseaux",
-            addressCountry: "FR",
-        },
-        retreatVenue: {
-            name: "Séjour AVA Bien-Être à Trans-en-Provence",
-            addressLocality: "Trans-en-Provence",
-            addressRegion: "Provence-Alpes-Côte d'Azur",
             addressCountry: "FR",
         },
     },
@@ -46,7 +40,7 @@ export const siteConfig = {
         home: "/",
         presentation: "/presentation",
         team: "/notre-equipe",
-        sejours: "/sejour-a-trans-en-provence",
+        sejours: "/memoire-d-ames",
         memoireDAmes: "/memoire-d-ames",
         reservations: "/reservations",
         memoireDAmesReservations: "/reservations/memoire-d-ames",
@@ -69,12 +63,6 @@ export const sitemapPages = [
         url: "/notre-equipe",
         changefreq: "monthly",
         priority: 0.8,
-        lastmod: "2026-10-05"
-    },
-    {
-        url: "/sejour-a-trans-en-provence",
-        changefreq: "monthly",
-        priority: 0.9,
         lastmod: "2026-10-05"
     },
     {

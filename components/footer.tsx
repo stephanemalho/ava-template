@@ -38,7 +38,7 @@ export function Footer() {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/sejour-a-trans-en-provence" className="text-muted-foreground hover:text-primary">
+                                <Link href="/memoire-d-ames" className="text-muted-foreground hover:text-primary">
                                     Séjours
                                 </Link>
                             </li>

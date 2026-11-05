@@ -269,7 +269,7 @@ export default function PresentationPage() {
                         Découvrez nos prochaines retraites et commencez votre voyage vers un mieux-être authentique et durable.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <LinkButton href="/sejour-a-trans-en-provence" size="lg">Voir nos séjours</LinkButton>
+                        <LinkButton href="/memoire-d-ames" size="lg">Voir nos séjours</LinkButton>
                         <LinkButton href="/contact#contact-direct" variant="outline" size="lg">
                             Nous contacter
                         </LinkButton>

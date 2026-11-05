@@ -25,7 +25,7 @@ export function NavigationMenuClient({ items }: NavigationMenuClientProps) {
   const [isOpen, setIsOpen] = useState(false)
   const pathname = usePathname()
   const { totalPeople } = useReservationCart()
-  const isTransEnProvenceReservationsPage = pathname === "/reservations"
+  const isReservationsPage = pathname === "/reservations"
 
   return (
     <>
@@ -46,8 +46,8 @@ export function NavigationMenuClient({ items }: NavigationMenuClientProps) {
 
       <div className="flex items-center space-x-2">
         <div className="relative">
-          <ReservationCartDialog disabled={isTransEnProvenceReservationsPage} />
-          {!isTransEnProvenceReservationsPage && totalPeople > 0 && (
+          <ReservationCartDialog disabled={isReservationsPage} />
+          {!isReservationsPage && totalPeople > 0 && (
             <span className="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-primary px-1 text-[10px] font-bold text-primary-foreground">
               {totalPeople}
             </span>

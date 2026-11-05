@@ -32,7 +32,7 @@ export const clientInfoCards: ClientInfoCard[] = [
         title: "Programme complet sur place",
         description:
             "Découvrez un séjour structuré avec ateliers bien-être, temps de repos, activités collectives et accompagnement humain.",
-        href: "/sejour-a-trans-en-provence",
+        href: "/memoire-d-ames",
         cta: "Voir le programme",
         icon: "program"
     },

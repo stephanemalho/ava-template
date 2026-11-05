@@ -47,12 +47,12 @@ const offerCatalogSchema = {
 export const metadata: Metadata = {
     title: "Réserver Mémoire d’Âmes | AVA Bien-Être",
     description:
-        "Réservez le séjour Mémoire d’Âmes, du 17 au 21 décembre 2026 à Saint-Usuge : stage à 1 390 €, hébergement et pension complète à partir de 290 €.",
+        "Réservez le séjour Mémoire d’Âmes, du 17 au 21 décembre 2026 à Saint-Usuge : stage à 1 490 €, hébergement et pension complète à partir de 290 €.",
     alternates: { canonical: pagePath },
     openGraph: {
         title: "Réserver Mémoire d’Âmes | AVA Bien-Être",
         description:
-            "Réservez Mémoire d’Âmes à Saint-Usuge : stage à 1 390 €, pension complète à partir de 290 €, 5 places disponibles sur 15.",
+            "Réservez Mémoire d’Âmes à Saint-Usuge : stage à 1 490 €, pension complète à partir de 290 €, 1 place disponible sur 15.",
         url: pagePath,
         type: "website",
         images: [{ url: eventImageMeta, width: 1254, height: 1254, alt: "Mémoire d’Âmes — Pierre Yonas" }],
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     twitter: {
         card: "summary_large_image",
         title: "Réserver Mémoire d’Âmes | AVA Bien-Être",
-        description: "Mémoire d’Âmes à Saint-Usuge : stage à 1 390 €, hébergement et pension complète à partir de 290 €.",
+        description: "Mémoire d’Âmes à Saint-Usuge : stage à 1 490 €, hébergement et pension complète à partir de 290 €.",
         images: [eventImageMeta],
     },
 };
@@ -75,7 +75,7 @@ export default function MemoireDAmesReservationsPage() {
                     <h1 className="text-3xl font-bold md:text-5xl">Réserver Mémoire d’Âmes</h1>
                     <div className="mx-auto h-1 w-24 rounded-full bg-primary" />
                     <p className="mx-auto max-w-3xl text-base text-muted-foreground">
-                        À Saint-Usuge, en Bourgogne. Stage : 1 390 € par personne, hors hébergement et repas. Hébergement en pension complète à partir de 290 € supplémentaires par personne, en chambre individuelle ou partagée.
+                        À Saint-Usuge, en Bourgogne. Stage : 1 490 € par personne, hors hébergement et repas. Hébergement en pension complète à partir de 290 € supplémentaires par personne, en chambre individuelle ou partagée.
                     </p>
                     <p className="mx-auto w-fit rounded-xl border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-medium text-primary md:rounded-full">
                         Arrhes à la réservation : {depositPerPersonEuros} € par personne. Le solde est à régler ultérieurement.
@@ -96,7 +96,7 @@ export default function MemoireDAmesReservationsPage() {
                                 </div>
                                 <div className="flex h-full flex-col p-6 md:p-8">
                                     <div className="space-y-6">
-                                        <Badge className={`${pkg.badgeColor} w-fit flex-wrap gap-2 px-3 py-1 font-bold text-white`}><span className="line-through">1490 €</span>{pkg.badge}</Badge>
+                                        <Badge className={`${pkg.badgeColor} w-fit flex-wrap gap-2 px-3 py-1 font-bold text-white`}>{pkg.badge}</Badge>
                                         <div>
                                             <h2 className="mb-2 text-2xl font-bold text-primary">MÉMOIRES D’ÂMES</h2>
                                             <p className="text-muted-foreground">{pkg.subtitle}</p>
