@@ -42,7 +42,9 @@ export const siteConfig = {
         team: "/notre-equipe",
         sejours: "/memoire-d-ames",
         memoireDAmes: "/memoire-d-ames",
+        lesLignesDuDestin: "/les-lignes-du-destin",
         reservations: "/reservations",
+        lesLignesDuDestinReservations: "/reservations/les-lignes-du-destin",
         memoireDAmesReservations: "/reservations/memoire-d-ames",
         contact: "/contact",
         legalNotice: "/mentions-legales",
@@ -52,6 +54,8 @@ export const siteConfig = {
 } as const;
 
 export const sitemapPages = [
+    { url: "/reservations/les-lignes-du-destin", changefreq: "weekly", priority: 0.9, lastmod: "2026-11-10" },
+    { url: "/les-lignes-du-destin", changefreq: "monthly", priority: 0.8, lastmod: "2026-11-10" },
     { url: "/", changefreq: "monthly", priority: 1.0, lastmod: "2026-10-05" },
     {
         url: "/presentation",

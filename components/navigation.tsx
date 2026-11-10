@@ -11,6 +11,7 @@ const navigation = [
         href: "/memoire-d-ames",
         children: [
             { name: "Mémoire d’Âmes · Saint-Usuge", href: "/memoire-d-ames" },
+            { name: "Les lignes du destin · Saint-Usuge", href: "/les-lignes-du-destin" },
         ],
     },
     {
@@ -18,6 +19,7 @@ const navigation = [
         href: "/reservations/memoire-d-ames",
         children: [
             { name: "Mémoire d’Âmes · Saint-Usuge", href: "/reservations/memoire-d-ames" },
+            { name: "Les lignes du destin · Saint-Usuge", href: "/reservations/les-lignes-du-destin" },
         ],
     },
     { name: "Contact", href: "/contact" },

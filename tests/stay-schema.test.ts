@@ -6,21 +6,21 @@ import {
 } from "../lib/schema-generators";
 import { siteConfig } from "../lib/seo-config";
 
-test("only keeps Mémoire d’Âmes in active reservation data", () => {
-    assert.equal(reservationPackages.length, 1);
-    assert.equal(reservationPackages[0]?.id, "memoire-d-ames-duo");
+test("includes both active stays in reservation data", () => {
+    assert.equal(reservationPackages.length, 2);
+    assert.deepEqual(reservationPackages.map((pkg) => pkg.id).sort(), ["les-lignes-du-destin", "memoire-d-ames-duo"]);
     assert.ok(reservationPackages.every((pkg) => !/trans-en-provence/i.test(JSON.stringify(pkg))));
 });
 
-test("publishes only the active stay offer on the reservations page", () => {
+test("publishes both active stay offers on the reservations page", () => {
     const catalog = generateStayOffersSchema();
 
     assert.equal(catalog["@type"], "OfferCatalog");
-    assert.equal(catalog.itemListElement.length, 1);
+    assert.equal(catalog.itemListElement.length, 2);
     assert.equal(catalog.itemListElement[0]?.name, reservationPackages[0]?.title);
     assert.equal(
         catalog.itemListElement[0]?.url,
-        `${siteConfig.siteUrl}${siteConfig.pages.memoireDAmesReservations}#sejour-memoire-d-ames-duo`
+        `${siteConfig.siteUrl}${siteConfig.pages.lesLignesDuDestinReservations}#sejour-les-lignes-du-destin`
     );
 });
 

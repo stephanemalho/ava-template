@@ -1,4 +1,5 @@
 import {
+    STRIPE_ACOMPTE_PER_PERSON_EUR,
     STRIPE_MEMOIRE_D_AMES_ACOMPTE_PER_PERSON_EUR
 } from "@/lib/reservation-pricing";
 
@@ -35,6 +36,39 @@ export type ReservationPackage = {
 };
 
 export const reservationPackages: ReservationPackage[] = [
+    {
+        id: "les-lignes-du-destin",
+        stayId: "les-lignes-du-destin-juin-2027",
+        eventName: "Les lignes du destin — Saint-Usuge (24–28 juin 2027)",
+        reservationPath: "/reservations/les-lignes-du-destin",
+        title: "Les lignes du destin — Saint-Usuge",
+        dateRange: "24 au 28 juin 2027",
+        startDate: "2027-06-24",
+        endDate: "2027-06-28",
+        bookingDeadline: "2027-06-24T18:00:00+02:00",
+        subtitle: "Tarifs hébergement et repas en pension complète : à partir de 290 € par personne, en supplément du stage (chambre individuelle ou partagée)",
+        price: 1390,
+        originalPrice: 1490,
+        depositPerPersonEuros: STRIPE_ACOMPTE_PER_PERSON_EUR,
+        image: "/sejour-et-activite/les-lignes-du-destin/affiche-les-lignes-du-destin.jpeg",
+        badge: "EARLY BIRD / 1 390 €",
+        badgeColor: "bg-primary",
+        features: [
+            "Stage Early Bird : 1 390 € par personne, hors hébergement et repas (tarif standard : 1 490 €)",
+            "Tarifs hébergement et repas en pension complète : à partir de 290 € par personne, en supplément du stage (chambre individuelle ou partagée)",
+            "Sur place : espaces de détente, hammam, piscine naturelle et parc de 7 hectares, le tout dans un écrin de nature préservé.",
+            "Ateliers de présence et de conscience, transe auto-induite avec Aurélie AVA et Cindy MARIN",
+            "Du 24 juin à partir de 18h au 28 juin 2027 à 12h",
+            "16 participants répartis en deux groupes de huit",
+            "Conférence de Christian Vidal et ouverture du stage",
+            "Initiations au magnétisme et à la médiumnité avec Pierre Yonas",
+            "Initiations au tarot et à la chiromancie avec Christian Vidal"
+        ],
+        location: "Écolieu Ô Saveur de l’Instant, Saint-Usuge, Bourgogne",
+        type: "Séjour",
+        totalPlaces: 16,
+        availablePlaces: 16
+    },
     {
         id: "memoire-d-ames-duo",
         stayId: "memoire-d-ames-decembre-2026",
