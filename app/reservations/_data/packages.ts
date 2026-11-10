@@ -4,7 +4,7 @@ import {
 } from "@/lib/reservation-pricing";
 
 // Valeurs à mettre à jour au fil des réservations Mémoire d’Âmes.
-export const MEMOIRE_D_AMES_AVAILABLE_PLACES = 1;
+export const MEMOIRE_D_AMES_AVAILABLE_PLACES = 0;
 export const MEMOIRE_D_AMES_FULL_BOARD_PRICE = 290;
 export const MEMOIRE_D_AMES_TOTAL_PLACES = 15;
 export const MEMOIRE_D_AMES_STANDARD_PRICE = 1490;
@@ -84,7 +84,7 @@ export const reservationPackages: ReservationPackage[] = [
         price: MEMOIRE_D_AMES_STANDARD_PRICE,
         depositPerPersonEuros: STRIPE_MEMOIRE_D_AMES_ACOMPTE_PER_PERSON_EUR,
         image: "/sejour-et-activite/mémoire-d-ames/affiche-memoire-d-ames-decembre-2026.jpeg",
-        badge: `TARIF STANDARD / ${MEMOIRE_D_AMES_STANDARD_PRICE} €`,
+        badge: "COMPLET",
         badgeColor: "bg-primary",
         features: [
             `Stage : ${MEMOIRE_D_AMES_STANDARD_PRICE.toLocaleString("fr-FR")} € par personne, hors hébergement et repas`,

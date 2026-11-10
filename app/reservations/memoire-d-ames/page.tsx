@@ -16,7 +16,6 @@ const eventImageMeta = "/sejour-et-activite/mémoire-d-ames/affiche-memoire-d-am
 const packages = reservationPackages.filter(
     (pkg) => pkg.stayId === "memoire-d-ames-decembre-2026"
 );
-const depositPerPersonEuros = packages[0]?.depositPerPersonEuros;
 
 const offerCatalogSchema = {
     "@context": "https://schema.org",
@@ -52,7 +51,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Réserver Mémoire d’Âmes | AVA Bien-Être",
         description:
-            "Réservez Mémoire d’Âmes à Saint-Usuge : stage à 1 490 €, pension complète à partir de 290 €, 1 place disponible sur 15.",
+            "Réservez Mémoire d’Âmes à Saint-Usuge : stage à 1 490 €, pension complète à partir de 290 €, séjour complet, réservations closes.",
         url: pagePath,
         type: "website",
         images: [{ url: eventImageMeta, width: 1254, height: 1254, alt: "Mémoire d’Âmes — Pierre Yonas" }],
@@ -72,13 +71,13 @@ export default function MemoireDAmesReservationsPage() {
             <div className="container mx-auto max-w-6xl">
                 <header className="mb-16 space-y-6 text-center">
                     <p className="text-sm font-semibold uppercase tracking-widest text-primary">AVA Bien-être · 17 — 21 décembre 2026</p>
-                    <h1 className="text-3xl font-bold md:text-5xl">Réserver Mémoire d’Âmes</h1>
+                    <h1 className="text-3xl font-bold md:text-5xl">Mémoire d’Âmes · Complet</h1>
                     <div className="mx-auto h-1 w-24 rounded-full bg-primary" />
                     <p className="mx-auto max-w-3xl text-base text-muted-foreground">
                         À Saint-Usuge, en Bourgogne. Stage : 1 490 € par personne, hors hébergement et repas. Hébergement en pension complète à partir de 290 € supplémentaires par personne, en chambre individuelle ou partagée.
                     </p>
                     <p className="mx-auto w-fit rounded-xl border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-medium text-primary md:rounded-full">
-                        Arrhes à la réservation : {depositPerPersonEuros} € par personne. Le solde est à régler ultérieurement.
+                        Ce séjour est complet. Les réservations sont closes.
                     </p>
                 </header>
 
@@ -111,7 +110,7 @@ export default function MemoireDAmesReservationsPage() {
                                             {pkg.features.map((feature) => <p key={feature} className="flex gap-2 text-sm text-muted-foreground"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />{feature}</p>)}
                                         </div>
                                     </div>
-                                    {isReservationOpen(pkg) ? <ReservationPackageControls pkg={pkg} /> : <p className="mt-8 text-sm font-medium text-muted-foreground">Les réservations pour cette formule sont closes.</p>}
+                                    {isReservationOpen(pkg) && pkg.availablePlaces > 0 ? <ReservationPackageControls pkg={pkg} /> : <p className="mt-8 text-sm font-medium text-muted-foreground">Les réservations pour cette formule sont closes.</p>}
                                 </div>
                             </CardContent>
                         </Card>
