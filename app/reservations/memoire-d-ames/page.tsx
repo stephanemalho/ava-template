@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Réserver Mémoire d’Âmes | AVA Bien-Être",
         description:
-            "Réservez Mémoire d’Âmes à Saint-Usuge : stage à 1 490 €, pension complète à partir de 290 €, séjour complet, réservations closes.",
+            "Réservez Mémoire d’Âmes à Saint-Usuge : stage à 1 490 €, pension complète à partir de 290 €, une dernière place disponible.",
         url: pagePath,
         type: "website",
         images: [{ url: eventImageMeta, width: 1254, height: 1254, alt: "Mémoire d’Âmes — Pierre Yonas" }],
@@ -71,13 +71,13 @@ export default function MemoireDAmesReservationsPage() {
             <div className="container mx-auto max-w-6xl">
                 <header className="mb-16 space-y-6 text-center">
                     <p className="text-sm font-semibold uppercase tracking-widest text-primary">AVA Bien-être · 17 — 21 décembre 2026</p>
-                    <h1 className="text-3xl font-bold md:text-5xl">Mémoire d’Âmes · Complet</h1>
+                    <h1 className="text-3xl font-bold md:text-5xl">Mémoire d’Âmes · Dernière place</h1>
                     <div className="mx-auto h-1 w-24 rounded-full bg-primary" />
                     <p className="mx-auto max-w-3xl text-base text-muted-foreground">
                         À Saint-Usuge, en Bourgogne. Stage : 1 490 € par personne, hors hébergement et repas. Hébergement en pension complète à partir de 290 € supplémentaires par personne, en chambre individuelle ou partagée.
                     </p>
                     <p className="mx-auto w-fit rounded-xl border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-medium text-primary md:rounded-full">
-                        Ce séjour est complet. Les réservations sont closes.
+                        Une dernière place est disponible. Les réservations sont ouvertes.
                     </p>
                 </header>
 

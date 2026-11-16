@@ -136,7 +136,7 @@ export default function MemoireDAmesPage() {
             <p className="leading-relaxed text-muted-foreground">
               Une immersion en petit groupe, au cœur de la nature, pour expérimenter, ressentir et accueillir ce qui peut émerger, sans croyance imposée, simplement avec l’envie d’explorer.
             </p>
-            <LinkButton href="/reservations/memoire-d-ames" size="lg">Séjour complet</LinkButton>
+            <LinkButton href="/reservations/memoire-d-ames" size="lg">Réserver la dernière place</LinkButton>
           </div>
         </section>
 
@@ -187,7 +187,7 @@ export default function MemoireDAmesPage() {
         <section className="space-y-6">
           <div className="text-center">
             <p className="text-sm font-semibold uppercase tracking-widest text-primary">Tarif du stage</p>
-            <h2 className="mt-2 text-3xl font-bold text-primary">Séjour complet</h2>
+            <h2 className="mt-2 text-3xl font-bold text-primary">Une dernière place disponible</h2>
             <p className="mt-4 text-xl font-semibold text-primary">Stage : {MEMOIRE_D_AMES_STANDARD_PRICE.toLocaleString("fr-FR")} € par personne, hors hébergement et repas</p>
             <p className="mt-2 text-muted-foreground">Tarifs hébergement et repas en pension complète : à partir de {MEMOIRE_D_AMES_FULL_BOARD_PRICE} € par personne, en supplément du stage (chambre individuelle ou partagée)</p>
             <p className="mt-3 text-sm"><a href="https://ecolieu.osaveurdelinstant.fr/programme/stages/2612-memoire-d-ames" target="_blank" rel="noopener noreferrer" className="font-medium text-primary underline underline-offset-4">Réserver votre hébergement auprès de notre partenaire Ô Saveur de l’Instant</a></p>
@@ -208,7 +208,7 @@ export default function MemoireDAmesPage() {
                         <span className="text-3xl font-bold text-primary">{MEMOIRE_D_AMES_STANDARD_PRICE.toLocaleString("fr-FR")} €</span>
                         <span className="pb-1 text-sm text-muted-foreground">/ personne, hors hébergement et repas</span>
                       </div>
-                      <p className="text-sm font-medium text-primary underline underline-offset-4">Séjour complet · Réservations closes</p>
+                      <p className="text-sm font-medium text-primary underline underline-offset-4">Réserver la dernière place</p>
                     </CardContent>
                   </Card>
                 </Link>
@@ -261,9 +261,9 @@ export default function MemoireDAmesPage() {
 
         <section id="reservation" className="scroll-mt-24 rounded-2xl border border-primary/30 bg-primary/5 p-6 text-center md:p-10">
           <Utensils className="mx-auto h-7 w-7 text-primary" aria-hidden="true" />
-          <h2 className="mt-3 text-3xl font-bold text-primary">Mémoire d’Âmes · Complet</h2>
-          <p className="mx-auto mt-3 max-w-2xl text-muted-foreground mb-10">Toutes les places sont réservées. Les réservations pour ce séjour sont closes.</p>
-          <LinkButton href="/reservations/memoire-d-ames" size="lg">Séjour complet</LinkButton>
+          <h2 className="mt-3 text-3xl font-bold text-primary">Mémoire d’Âmes · Dernière place</h2>
+          <p className="mx-auto mt-3 max-w-2xl text-muted-foreground mb-10">Une dernière place est disponible pour ce séjour. Réservez dès maintenant.</p>
+          <LinkButton href="/reservations/memoire-d-ames" size="lg">Réserver la dernière place</LinkButton>
         </section>
 
         <section id="informations" className="scroll-mt-24 rounded-2xl border border-primary/20 bg-muted/30 p-6 md:p-10">
