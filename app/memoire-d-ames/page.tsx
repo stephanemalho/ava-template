@@ -136,7 +136,7 @@ export default function MemoireDAmesPage() {
             <p className="leading-relaxed text-muted-foreground">
               Une immersion en petit groupe, au cœur de la nature, pour expérimenter, ressentir et accueillir ce qui peut émerger, sans croyance imposée, simplement avec l’envie d’explorer.
             </p>
-            <LinkButton href="/reservations/memoire-d-ames" size="lg">Séjour complet</LinkButton>
+            <LinkButton href="https://forms.gle/NeGMaieNjjgbXdRs5" size="lg">Rejoindre la liste d’attente</LinkButton>
           </div>
         </section>
 
@@ -195,7 +195,7 @@ export default function MemoireDAmesPage() {
           <div className="mx-auto grid max-w-2xl gap-6">
             {memoireDAmesPackages
               .map((pkg) => (
-                <Link key={pkg.id} href={`${pkg.reservationPath}#sejour-${pkg.id}`} className="group block rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+                <Link key={pkg.id} href="https://forms.gle/NeGMaieNjjgbXdRs5" className="group block rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
                   <Card className="h-full border-primary/20 transition-transform duration-200 group-hover:-translate-y-1 group-hover:shadow-lg">
                     <CardContent className="space-y-4 p-6">
                       <BedDouble className="h-6 w-6 text-primary" aria-hidden="true" />
@@ -208,7 +208,7 @@ export default function MemoireDAmesPage() {
                         <span className="text-3xl font-bold text-primary">{MEMOIRE_D_AMES_STANDARD_PRICE.toLocaleString("fr-FR")} €</span>
                         <span className="pb-1 text-sm text-muted-foreground">/ personne, hors hébergement et repas</span>
                       </div>
-                      <p className="text-sm font-medium text-primary underline underline-offset-4">Séjour complet · Réservations closes</p>
+                      <p className="text-sm font-medium text-primary underline underline-offset-4">Séjour complet · Rejoindre la liste d’attente</p>
                     </CardContent>
                   </Card>
                 </Link>
@@ -262,8 +262,8 @@ export default function MemoireDAmesPage() {
         <section id="reservation" className="scroll-mt-24 rounded-2xl border border-primary/30 bg-primary/5 p-6 text-center md:p-10">
           <Utensils className="mx-auto h-7 w-7 text-primary" aria-hidden="true" />
           <h2 className="mt-3 text-3xl font-bold text-primary">Mémoire d’Âmes · Complet</h2>
-          <p className="mx-auto mt-3 max-w-2xl text-muted-foreground mb-10">Toutes les places sont réservées. Les réservations pour ce séjour sont closes.</p>
-          <LinkButton href="/reservations/memoire-d-ames" size="lg">Séjour complet</LinkButton>
+          <p className="mx-auto mt-3 max-w-2xl text-muted-foreground mb-10">Le séjour est complet. Pour rejoindre la liste d’attente, remplissez le formulaire de contact en précisant « Liste d’attente Mémoire d’Âmes » dans votre message. Nous vous recontacterons si une place se libère.</p>
+          <LinkButton href="https://forms.gle/NeGMaieNjjgbXdRs5" size="lg">Rejoindre la liste d’attente</LinkButton>
         </section>
 
         <section id="informations" className="scroll-mt-24 rounded-2xl border border-primary/20 bg-muted/30 p-6 md:p-10">
